@@ -1,0 +1,32 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.8.5.854" xml:lang="en-US" customizes="/oracle/apps/per/selfservice/deployperson/webui/AssignmentPG" file-version="$Header: AssignmentPG.xml 115.3 2004/04/23 03:04:11 jheer noship $" package="/oracle/apps/per/selfservice/deployperson/webui/customizations/localization/DE">
+   <modifications>
+      <modify element="HrGreRegion" rendered="false"/>
+      <modify element="HrOrganizationRegion" text="Organization"/>
+      <move element="HrOrganizationRegion" after="HrInstruction"/>
+      <move element="HrJobRegion" after="HrOrganizationRegion"/>
+      <move element="HrPositionRegion" after="HrJobRegion"/>
+      <move element="HrGradeRegion" after="HrPositionRegion"/>
+      <move element="HrPayrollRegion" after="HrGradeRegion"/>
+      <move element="HrPeopleGroupRegion" after="HrPayrollRegion"/>
+      <move element="HrAssignmentStatusRegion" after="HrPeopleGroupRegion"/>
+      <move element="HrBusinessGroupId" after="HrAssignmentStatusRegion"/>
+      <move element="HrOrganizationId" after="HrBusinessGroupId"/>
+      <move element="HrJobId" after="HrOrganizationId"/>
+      <move element="HrPositionId" after="HrJobId"/>
+      <move element="_SSHRFORMEVENT" after="HrPositionId"/>
+      <move element="HrGreRegion" after="_SSHRFORMEVENT"/>
+      <move element="HrNestedRegion11" after="HrGreRegion"/>
+      <move element="HrOtherAssRegion" after="HrNestedRegion11"/>
+      <modify element="HrOrgMoreInfoButton" messageName=""/>
+      <modify element="HrDepartment" tipMessageName="" prompt="Organization"/>
+      <move element="HrAddressLocationDescFlex" after="HrDepartment"/>
+      <move element="HrOrgMoreInfoButton" after="HrAddressLocationDescFlex"/>
+      <move element="HrBusinessGroupId____2" after="HrOrgMoreInfoButton"/>
+      <move element="HrOrganizationId____2" after="HrBusinessGroupId____2"/>
+      <modify element="HrWorkSchedKeyFlex" rendered="false"/>
+      <move element="HrEstablishmentName" after="HrAssignmentFlex"/>
+      <move element="HrWorkSchedKeyFlex" after="HrEstablishmentName"/>
+      <move element="HrEstablishmentId" after="HrWorkSchedKeyFlex"/>
+   </modifications>
+</customization>

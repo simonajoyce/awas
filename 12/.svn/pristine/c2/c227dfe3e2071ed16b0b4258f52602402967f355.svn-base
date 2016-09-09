@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_22" xml:lang="en-US" customizes="/oracle/apps/pos/orders/webui/PosAgreementsPG" file-version="$Header: PosAgreementsPG.xml 120.2 2008/01/29 05:12:31 jianliu noship $" package="/oracle/apps/pos/orders/webui/customizations/function/ILS_ISUPP_PERZ" xmlns:oa="http://xmlns.oracle.com/oa">
+   <modifications>
+      <modify element="PageLayout" controllerClass="oracle.apps.ja.isp.orders.webui.ILPosAgreementsCO"/>
+      <move element="PosRevision" after="PosNumber"/>
+      <move element="PosGlobal" after="PosRevision"/>
+      <move element="PosGlobalDisplay" after="PosGlobal"/>
+      <move element="PosDescription" after="PosGlobalDisplay"/>
+      <move element="PosBuyer" after="PosDescription"/>
+      <move element="PosOrderDate" after="PosBuyer"/>
+      <move element="PosOrderDateTime" after="PosOrderDate"/>
+      <move element="PosCurrency" after="PosOrderDateTime"/>
+      <move element="PosAmountAgreed" after="PosCurrency"/>
+      <move element="PosAmountOrdToDate" after="PosAmountAgreed"/>
+      <move element="PosEffectiveDate" after="PosAmountOrdToDate"/>
+      <insert before="PosEffectiveDate">
+         <oa:messageStyledText id="InclusiveTaxAmount" adminCustomizable="true" cellNoWrapFormat="false" dataType="NUMBER" initSortSeq="none" prompt="Inclusive Tax" queryable="false" rendered="true" required="no" scope="." selectiveSearchCriteria="false" serverUnvalidated="false" shortDesc="Inclusive Tax" sortState="no" tipType="none" totalValue="false" userCustomizable="false" vAlign="middle" viewAttr="InclusiveTaxAmount" viewName="PosAgreementsVO" warnAboutChanges="true" xmlns:oa="http://xmlns.oracle.com/oa"/>
+      </insert>
+      <insert before="PosEffectiveDate">
+         <oa:messageStyledText id="ExclusiveTaxAmount" adminCustomizable="true" cellNoWrapFormat="false" dataType="NUMBER" initSortSeq="none" prompt="Exclusive Tax" queryable="false" rendered="true" required="no" scope="." selectiveSearchCriteria="false" serverUnvalidated="false" shortDesc="Exclusive Tax" sortState="no" tipType="none" totalValue="false" userCustomizable="false" vAlign="middle" viewAttr="ExclusiveTaxAmount" viewName="PosAgreementsVO" warnAboutChanges="true" xmlns:oa="http://xmlns.oracle.com/oa"/>
+      </insert>
+      <insert before="PosEffectiveDate">
+         <oa:messageStyledText id="TaxTotal" adminCustomizable="true" cellNoWrapFormat="false" dataType="VARCHAR2" initSortSeq="none" prompt="Tax Amount Released" queryable="false" rendered="true" required="no" scope="." selectiveSearchCriteria="false" serverUnvalidated="false" sortState="no" tipType="none" totalValue="false" userCustomizable="false" vAlign="middle" viewAttr="TaxTotal" viewName="PosAgreementsVO" warnAboutChanges="true" xmlns:oa="http://xmlns.oracle.com/oa"/>
+      </insert>
+      <move element="PosExpirationDate" after="PosEffectiveDate"/>
+      <move element="PosStatus" after="PosExpirationDate"/>
+      <move element="PosStatusDisp" after="PosStatus"/>
+      <move element="PosSupplierSite" after="PosStatusDisp"/>
+      <move element="PosVendorName" after="PosSupplierSite"/>
+      <move element="PosVendorNumber" after="PosVendorName"/>
+      <move element="PosVendorSiteId" after="PosVendorNumber"/>
+      <move element="PosVendorId" after="PosVendorSiteId"/>
+      <move element="PosAgentId" after="PosVendorId"/>
+      <move element="PosAgreeHdrAttach" after="PosAgentId"/>
+      <move element="PosPoHeaderId" after="PosAgreeHdrAttach"/>
+      <move element="UploadStatus" after="PosPoHeaderId"/>
+      <move element="PosInternalPONum" after="PosNewOrg"/>
+      <move element="PosInternalPONumDsp" after="PosInternalPONum"/>
+      <move element="PosRevisionInternal" after="PosInternalPONumDsp"/>
+      <move element="PosNewOrgDsp" after="PosRevisionInternal"/>
+      <move element="PosVendorInternal" after="PosNewOrgDsp"/>
+      <move element="PosVendorInternalDsp" after="PosVendorInternal"/>
+      <move element="PosVendorNumberInternal" after="PosVendorInternalDsp"/>
+      <move element="PosVendorSiteInternal" after="PosVendorNumberInternal"/>
+      <move element="PosSupplierSiteInternalDsp" after="PosVendorSiteInternal"/>
+      <move element="PosGlobalInternal" after="PosSupplierSiteInternalDsp"/>
+      <move element="PosGlobalDisplayInternal" after="PosGlobalInternal"/>
+      <move element="PosDescriptionInternal" after="PosGlobalDisplayInternal"/>
+      <move element="PosBuyerInternal" after="PosDescriptionInternal"/>
+      <move element="PosOrderDateInternal" after="PosBuyerInternal"/>
+      <move element="PosOrderDateTimeInternal" after="PosOrderDateInternal"/>
+      <move element="PosCurrencyInternal" after="PosOrderDateTimeInternal"/>
+      <move element="PosAmountAgreedInternal" after="PosCurrencyInternal"/>
+      <move element="PosAmountOrdToDateInternal" after="PosAmountAgreedInternal"/>
+      <move element="PosEffectiveDateInternal" after="PosAmountOrdToDateInternal"/>
+      <insert before="PosEffectiveDateInternal">
+         <oa:messageStyledText id="TaxTotal2" adminCustomizable="true" cellNoWrapFormat="false" dataType="VARCHAR2" initSortSeq="none" prompt="Tax Amount Released" queryable="false" rendered="true" required="no" scope="." selectiveSearchCriteria="false" serverUnvalidated="false" sortState="no" tipType="none" totalValue="false" userCustomizable="false" vAlign="middle" viewAttr="TaxTotal" viewName="PosAgreementsVO" warnAboutChanges="true" xmlns:oa="http://xmlns.oracle.com/oa"/>
+      </insert>
+      <move element="PosExpirationDateInternal" after="PosEffectiveDateInternal"/>
+      <move element="PosStatusInternal" after="PosExpirationDateInternal"/>
+      <move element="PosStatusDispInternal" after="PosStatusInternal"/>
+      <move element="PosVendorSiteIdInternal" after="PosStatusDispInternal"/>
+      <move element="PosVendorIdInternal" after="PosVendorSiteIdInternal"/>
+      <move element="PosAgentIdInternal" after="PosVendorIdInternal"/>
+      <move element="PosAgreeHdrAttachInternal" after="PosAgentIdInternal"/>
+      <move element="PosPoHeaderIdInternal" after="PosAgreeHdrAttachInternal"/>
+      <move element="UploadStatusInternal" after="PosPoHeaderIdInternal"/>
+      <modify element="PosNumber" destination="OA.jsp?page=/oracle/apps/pos/orders/webui/PosOrderSummPG&amp;OAFunc=ILS_ISUPP_PERZ&amp;retainAM=Y&amp;po_header_id={@PO_HEADER_ID}&amp;ga_flag={@GLOBAL_AGREEMENT_FLAG}&amp;addBreadCrumb=Y"/>
+      <modify element="PosRevision" destination="OA.jsp?OAFunc=ILS_POS_COMPARE_PO&amp;PoHeaderId={!PO_HEADER_ID}&amp;PoNum={@po_num}&amp;RevisionNum={@PosRevision}&amp;CompareTo=ORIGINAL&amp;SrcApp=POS&amp;SrcPg=AgrPg&amp;addBreadCrumb=Y&amp;retainAM=Y"/>
+      <modify element="PosBuyer" destination="OA.jsp?akRegionCode=POS_LOCATIONS_PAGE&amp;OAFunc=ILS_ISUPP_PERZ&amp;akRegionApplicationId=177&amp;LPARAMSEMPLOYEE_ID={@PosAgentId}&amp;PoHeaderId={@PO_HEADER_ID}&amp;retainAM=Y"/>
+      <modify element="PosInternalPONumDsp" destination="OA.jsp?page=/oracle/apps/pos/orders/webui/PosOrderSummPG&amp;OAFunc=ILS_ISUPP_PERZ&amp;retainAM=Y&amp;po_header_id={@PO_HEADER_ID}&amp;ga_flag={@GLOBAL_AGREEMENT_FLAG}&amp;BuyerView=Y&amp;addBreadCrumb=Y"/>
+      <modify element="PosRevisionInternal" destination="OA.jsp?akRegionCode=POSVIEWCOMPAREMAINPAGE&amp;OAFunc=ILS_ISUPP_PERZ&amp;akRegionApplicationId=177&amp;LPARAMSHEADER_ID={@PO_HEADER_ID}&amp;LPARAMSPO_NUM={@po_num}&amp;LPARAMSRRVISION_NUM={@PosRevision}&amp;CompareTo=ORIGINAL&amp;retainAM=Y"/>
+      <modify element="PosBuyerInternal" destination="OA.jsp?akRegionCode=POS_LOCATIONS_PAGE&amp;OAFunc=ILS_ISUPP_PERZ&amp;akRegionApplicationId=177&amp;LPARAMSEMPLOYEE_ID={@PosAgentId}&amp;retainAM=Y"/>
+   </modifications>
+</customization>

@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/irc/candidateSelfService/webui/AplPersAccDetsPG" developerMode="true" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: AplPersAccDetsPG.xml 120.4 2005/11/10 08:50:37 mmillmor noship $" version="9.0.3.6.2_398" xml:lang="en-US" package="/oracle/apps/irc/customizations/function/IRC_APL_PERSONAL_ACC_DETS_PAGE/candidateSelfService/webui">
+   <modifications>
+      <modify element="NavigationBar" rendered="true"/>
+      <modify element="PersonalAccountDetails" rendered="true"/>
+      <modify element="PersonalDetails" rendered="true"/>
+      <move element="RequiredFieldRegion" after="FndNestedRegion1"/>
+      <move element="PersonalAccountDetails" after="RequiredFieldRegion"/>
+      <move element="NavigationBar" after="PersonalAccountDetails"/>
+      <move element="FndNestedRegion5" after="NavigationBar"/>
+      <move element="Obsolete" after="FndNestedRegion5"/>
+   </modifications>
+</customization>

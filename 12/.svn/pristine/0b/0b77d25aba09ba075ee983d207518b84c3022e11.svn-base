@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/per/selfservice/deployperson/webui/AssignmentPG" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: AssignmentPG.xml 115.2 2003/02/13 12:17:37 jcolman noship $" version="9.0.3.6.2_398" xml:lang="en-US" package="/oracle/apps/per/customizations/localization/US/selfservice/deployperson/webui">
+   <modifications>
+      <modify element="HrWorkSchedKeyFlex____1" segmentList="GRES_AND_OTHER_DATA|Tax Unit|Timecard Approver|Timecard Required|Work Schedule|Shift"/>
+      <move element="HrWorkSchedKeyFlex____1" after="HrInstruction____4"/>
+      <move element="HrWorkHours" after="HrWorkSchedKeyFlex____1"/>
+      <move element="HrFrequency" after="HrWorkHours"/>
+      <move element="HrNormalStartTime" after="HrFrequency"/>
+      <move element="HrNormalEndTime" after="HrNormalStartTime"/>
+   </modifications>
+</customization>

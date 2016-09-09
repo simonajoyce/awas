@@ -1,0 +1,44 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/per/selfservice/deployperson/webui/AssignmentPG" developerMode="true" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: AssignmentPG.xml 115.3 2003/08/21 20:54:31 sgudiwad noship $" version="9.0.3.6.2_398" xml:lang="en-US" package="/oracle/apps/per/customizations/function/HR_CHANGE_JOB_SS/selfservice/deployperson/webui">
+   <modifications>
+      <modify element="HrGreRegion" rendered="false"/>
+      <modify element="HrOtherAssRegion" rendered="false"/>
+      <modify element="HrAssignmentStatusRegion" rendered="false"/>
+      <modify element="HrPeopleGroupRegion" rendered="false"/>
+      <modify element="HrGradeRegion" rendered="false"/>
+      <modify element="HrPositionRegion" rendered="false"/>
+      <modify element="HrLocationRegion" rendered="false"/>
+      <modify element="HrPayrollRegion" rendered="false"/>
+      <modify element="HrOrganizationRegion" rendered="false"/>
+      <modify element="HrInstruction" rendered="false"/>
+      <move element="HrJobRegion" after="REQUIREDREGION"/>
+      <move element="HrBusinessGroupId" after="HrJobRegion"/>
+      <move element="HrOrganizationId" after="HrBusinessGroupId"/>
+      <move element="HrJobId" after="HrOrganizationId"/>
+      <move element="HrPositionId" after="HrJobId"/>
+      <move element="_SSHRFORMEVENT" after="HrPositionId"/>
+      <move element="HrInstruction" after="_SSHRFORMEVENT"/>
+      <move element="HrOrganizationRegion" after="HrInstruction"/>
+      <move element="HrPositionRegion" after="HrOrganizationRegion"/>
+      <move element="HrGradeRegion" after="HrPositionRegion"/>
+      <move element="HrPayrollRegion" after="HrGradeRegion"/>
+      <move element="HrGreRegion" after="HrPayrollRegion"/>
+      <move element="HrPeopleGroupRegion" after="HrGreRegion"/>
+      <move element="HrAssignmentStatusRegion" after="HrPeopleGroupRegion"/>
+      <move element="HrOtherAssRegion" after="HrAssignmentStatusRegion"/>
+      <move element="HrLocationRegion" after="HrOtherAssRegion"/>
+      <move element="HrSalaryRegion" after="HrLocationRegion"/>
+      <move element="HrVendorRegion" after="HrSalaryRegion"/>
+      <move element="HrProjectRegion" after="HrVendorRegion"/>
+      <modify element="HrManagerFlag" rendered="true"/>
+      <move element="HrUsJobTitle" after="HrInstruction____1"/>
+      <move element="HrJobTitle" after="HrUsJobTitle"/>
+      <move element="HrJobMoreInfoButton" after="HrJobTitle"/>
+      <move element="HrManagerFlag" after="HrJobMoreInfoButton"/>
+      <move element="HrJobId____3" after="HrManagerFlag"/>
+      <move element="HrBusinessGroupId____5" after="HrJobId____3"/>
+      <modify element="HrSalaryRegion" rendered="false"/>
+      <modify element="HrVendorRegion" rendered="false"/>
+      <modify element="HrProjectRegion" rendered="false"/>
+   </modifications>
+</customization>

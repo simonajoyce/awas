@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xapi:requestset xmlns:xapi="http://xmlns.oracle.com/oxp/xapi">
+    <xapi:globalData location="stream"/>
+<!-- AWASARINVOICES Bursting File -->
+<!-- Initial Delivery saves Invoice to file System for use in xRM-->
+    <xapi:request select="/NEWRAXINVPDF/LIST_G_ORDER_BY/G_ORDER_BY/LIST_G_INVOICE/G_INVOICE">
+        <xapi:delivery>
+            <xapi:filesystem id="file1" output="/invoices/${HASH_ID}.pdf"/>
+        </xapi:delivery>
+        <xapi:document key="" output-type="pdf" delivery="123">
+            <xapi:template type="rtf" location="xdo://AWCUST.XXAXINVPDF.en.00/?getSource=true" filter=""/>
+        </xapi:document>
+	</xapi:request>
+</xapi:requestset>

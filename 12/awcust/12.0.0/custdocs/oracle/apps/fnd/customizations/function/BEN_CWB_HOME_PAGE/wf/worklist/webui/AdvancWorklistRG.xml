@@ -1,0 +1,24 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization package="/oracle/apps/fnd/customizations/function/BEN_CWB_HOME_PAGE/wf/worklist/webui" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.6.4_447" xml:lang="en-US" customizes="/oracle/apps/fnd/wf/worklist/webui/AdvancWorklistRG" developerMode="true" file-version="$Header: AdvancWorklistRG.xml 115.4 2003/04/03 21:33:36 mmorishi noship $">
+   <modifications>
+      <move element="NtfSubject" after="NtfFromUser"/>
+      <move element="NtfSent" after="NtfSubject"/>
+      <move element="NtfToUser" after="NtfSent"/>
+      <move element="NtfType" after="NtfToUser"/>
+      <move element="NtfDue" after="NtfType"/>
+      <move element="NtfPriority" after="NtfDue"/>
+      <move element="NtfStatus" after="NtfPriority"/>
+      <move element="Ntfid" after="NtfStatus"/>
+      <move element="NtfStatus____1" after="Ntfid"/>
+      <modify element="NtfFromUser" sortState="no"/>
+      <modify element="NtfToUser" sortState="no"/>
+      <modify element="NtfType" rendered="false" initSortSeq="first"/>
+      <modify element="NtfSubject" initSortSeq="third"/>
+      <modify element="NtfSent" initSortSeq="second"/>
+      <modify element="NtfDue" rendered="false" sortState="no"/>
+      <modify element="NtfPriority" sortState="no"/>
+      <modify element="NtfStatus" sortState="no"/>
+      <modify element="NtfOpen" rendered="false"/>
+      <modify element="NtfReassign" rendered="false"/>
+   </modifications>
+</customization>

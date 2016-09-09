@@ -1,0 +1,42 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.89_562" xml:lang="en-US" customizes="/oracle/apps/icx/por/rcv/webui/IcxPorRcvRvwPG" xmlns:oa="http://xmlns.oracle.com/oa">
+   <modifications>
+      <move element="ItemDescription" after="Requisition"/>
+      <move element="ReceiptQuantity" after="ItemDescription"/>
+      <move element="Unit" after="ReceiptQuantity"/>
+      <move element="Waybill" after="Unit"/>
+      <move element="PackingSlip" after="Waybill"/>
+      <move element="TransactionCode" after="PackingSlip"/>
+      <move element="ItemComments" after="TransactionCode"/>
+      <move element="Supplier" after="ItemComments"/>
+      <insert after="Supplier">
+         <oa:attachmentImage id="AWAS_ATTACHMENT" adminCustomizable="true" autoCommitEnabled="true" cellNoWrapFormat="false" enableDocumentCatalog="false" prompt="Receipt Line Attachments" rendered="true" scope="." searchRegionRendered="true" serverUnvalidated="true" unvalidated="true" userCustomizable="false" viewName="ReceiveItemsTxnVO" xmlns:oa="http://xmlns.oracle.com/oa">
+            <oa:entityMappings>
+               <oa:entityMap id="XX_ATTACH" deleteAllowed="true" entityId="AWAS_RECEIPTS" insertAllowed="true" scope="." showAll="false" updateAllowed="true">
+                  <oa:categoryMappings>
+                     <oa:categoryMap id="XX_CAT" categoryName="MISC" scope="." secured="false"/>
+                  </oa:categoryMappings>
+                  <oa:primaryKeys>
+                     <oa:primaryKey id="xx_key" scope="." viewAttr="ReqLineId"/>
+                  </oa:primaryKeys>
+               </oa:entityMap>
+            </oa:entityMappings>
+         </oa:attachmentImage>
+      </insert>
+      <move element="ReceiptComments" after="ReceiptDate"/>
+      <insert after="ReceiptComments">
+         <oa:attachmentTable id="xxRcptHdrAttchTbl" adminCustomizable="true" autoCommitEnabled="true" enableDocumentCatalog="true" oracleFilesEnabled="true" postDefault="false" rendered="true" scope="." searchRegionRendered="false" serverUnvalidated="true" text="Receipt Header Attachments" unvalidated="true" viewName="ReceiveItemsTxnVO" xmlns:oa="http://xmlns.oracle.com/oa">
+            <oa:entityMappings>
+               <oa:entityMap id="xxEntMap1" deleteAllowed="true" entityId="AWAS_RECEIPTS" insertAllowed="true" scope="." showAll="false" updateAllowed="true">
+                  <oa:categoryMappings>
+                     <oa:categoryMap id="xxCatMap5" categoryName="MISC" scope="." secured="false"/>
+                  </oa:categoryMappings>
+                  <oa:primaryKeys>
+                     <oa:primaryKey id="xxPK1" scope="." viewAttr="ReceiptDate"/>
+                  </oa:primaryKeys>
+               </oa:entityMap>
+            </oa:entityMappings>
+         </oa:attachmentTable>
+      </insert>
+   </modifications>
+</customization>

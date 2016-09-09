@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_21" xml:lang="en-US" customizes="/oracle/apps/ar/hz/components/contact/webui/HzPuiContactRelTableComponent" developerMode="false" file-version="$Header: HzPuiContactRelTableComponent.xml 120.3 2006/09/22 02:29:49 rramacha noship $" package="/oracle/apps/ar/hz/components/contact/webui/customizations/function/ASN_ORGUPDATEPG" text="">
+   <modifications>
+      <modify element="HzPuiContactRelTable" blockSize="10"/>
+      <modify element="party_name" prompt="Contact"/>
+      <modify element="relationship_role" rendered="false"/>
+      <modify element="job_title" rendered="true"/>
+      <modify element="email" prompt="E-mail"/>
+      <modify element="HzPuiContRelTableCreateEvent" prompt="Create Contact"/>
+      <modify element="item2" rendered="false"/>
+      <modify element="item1" rendered="false"/>
+      <modify element="ContactNumber" rendered="false"/>
+   </modifications>
+</customization>

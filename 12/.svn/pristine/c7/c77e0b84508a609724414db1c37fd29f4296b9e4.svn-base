@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/fun/comcomp/contactUs/webui/FormattedPageCreatePG" developerMode="true" package="/oracle/apps/fun/comcomp/contactUs/webui/customizations/function/OIE_CONTACTUS_ENTRY" file-version="$Header: FormattedPageCreatePG.xml 120.1 2005/10/30 23:36:28 skaneshi noship $">
+   <modifications>
+      <modify element="MainRN" title="Contact the Expense Reporting Helpdesk" windowTitle="Contact the Expense Reporting Helpdesk"/>
+      <modify element="PageInstruction" prompt="Describe the problem that you are encountering. If you are having an issue with a specific expense report, include the expense report number."/>
+   </modifications>
+</customization>

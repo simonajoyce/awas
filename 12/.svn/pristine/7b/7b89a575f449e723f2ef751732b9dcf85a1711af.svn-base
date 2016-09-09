@@ -1,0 +1,131 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_50" xml:lang="en-US" customizes="/oracle/apps/po/document/order/webui/OrderPG" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui">
+   <modifications>
+      <modify element="HeaderRN.DetailsRN" rendered="true"/>
+      <move element="LinesRN.LineTypeColumn" after="LinesRN.LineNumColumn"/>
+      <move element="LinesRN.ItemJobColumn" after="LinesRN.LineTypeColumn"/>
+      <move element="LinesRN.ItemColumn" after="LinesRN.ItemJobColumn"/>
+      <move element="LinesRN.JobColumn" after="LinesRN.ItemColumn"/>
+      <move element="LinesRN.DescriptionColumn" after="LinesRN.JobColumn"/>
+      <move element="LinesRN.CategoryColumn" after="LinesRN.DescriptionColumn"/>
+      <move element="LinesRN.QuantityColumn" after="LinesRN.CategoryColumn"/>
+      <move element="LinesRN.UomColumn" after="LinesRN.QuantityColumn"/>
+      <move element="LinesRN.PriceColumn" after="LinesRN.UomColumn"/>
+      <move element="LinesRN.AmountColumn" after="LinesRN.PriceColumn"/>
+      <move element="LinesRN.NeedByStartDateColumn" after="LinesRN.AmountColumn"/>
+      <move element="LinesRN.NeedByDateColumn" after="LinesRN.NeedByStartDateColumn"/>
+      <move element="LinesRN.StartDateColumn" after="LinesRN.NeedByDateColumn"/>
+      <insert before="LinesRN.StartDateColumn">
+         <oa:column id="AWAS_PO_LINE_FLEX_COL" adminCustomizable="true" bandingShade="none" cellNoWrapFormat="true" columnDataFormat="textFormat" displayGrid="true" rendered="true" scope="." totalValue="false" userCustomizable="false" xmlns:oa="http://xmlns.oracle.com/oa">
+            <ui:columnHeader xmlns:ui="http://xmlns.oracle.com/uix/ui">
+               <oa:sortableHeader id="AWAS_PO_HEADER_FLEX_COL" adminCustomizable="true" cellNoWrapFormat="false" initSortSeq="none" prompt="Test" rendered="true" required="no" scope="." sortState="no" userCustomizable="false"/>
+            </ui:columnHeader>
+            <ui:contents xmlns:ui="http://xmlns.oracle.com/uix/ui">
+               <oa:flex id="AWAS_PO_HEADER_FLEX" adminCustomizable="true" displayContextField="true" flexFieldAppShortName="PO" flexName="PO_LINES" flexStyle="descriptive" readOnly="false" rendered="true" scope="." segmentList="Global Data Elements|PC" userCustomizable="false" viewName="PoLinesMergeVO"/>
+            </ui:contents>
+         </oa:column>
+      </insert>
+      <move element="LinesRN.ItemRevColumn" after="LinesRN.StartDateColumn"/>
+      <move element="LinesRN.SupplierItemColumn" after="LinesRN.ItemRevColumn"/>
+      <move element="LinesRN.PromisedDateColumn" after="LinesRN.SupplierItemColumn"/>
+      <move element="LinesRN.SupplierConfigColumn" after="LinesRN.PromisedDateColumn"/>
+      <move element="LinesRN.TxnNatureColumn" after="LinesRN.SupplierConfigColumn"/>
+      <move element="LinesRN.CapitalExpenseColumn" after="LinesRN.TxnNatureColumn"/>
+      <move element="LinesRN.ListPriceColumn" after="LinesRN.CapitalExpenseColumn"/>
+      <move element="LinesRN.MarketPriceColumn" after="LinesRN.ListPriceColumn"/>
+      <move element="LinesRN.PriceTypeColumn" after="LinesRN.MarketPriceColumn"/>
+      <move element="LinesRN.NegotiatedByPreparerColumn" after="LinesRN.PriceTypeColumn"/>
+      <move element="LinesRN.UnNumberColumn" after="LinesRN.NegotiatedByPreparerColumn"/>
+      <move element="LinesRN.UnNumberDescColumn" after="LinesRN.UnNumberColumn"/>
+      <move element="LinesRN.HazardClassColumn" after="LinesRN.UnNumberDescColumn"/>
+      <move element="LinesRN.SecondaryQtyColumn" after="LinesRN.HazardClassColumn"/>
+      <move element="LinesRN.SecondaryUomColumn" after="LinesRN.SecondaryQtyColumn"/>
+      <move element="LinesRN.PreferredGradeColumn" after="LinesRN.SecondaryUomColumn"/>
+      <move element="LinesRN.SrcDocColumn" after="LinesRN.PreferredGradeColumn"/>
+      <move element="LinesRN.SrcDocLineColumn" after="LinesRN.SrcDocColumn"/>
+      <move element="LinesRN.DocumentStyleColumn" after="LinesRN.SrcDocLineColumn"/>
+      <move element="LinesRN.DocumentTypeColumn" after="LinesRN.DocumentStyleColumn"/>
+      <move element="LinesRN.OwningOUColumn" after="LinesRN.DocumentTypeColumn"/>
+      <move element="LinesRN.SupplierQuoteColumn" after="LinesRN.OwningOUColumn"/>
+      <move element="LinesRN.AdvanceAmountColumn" after="LinesRN.SupplierQuoteColumn"/>
+      <move element="LinesRN.RecoupmentRateColumn" after="LinesRN.AdvanceAmountColumn"/>
+      <move element="LinesRN.ProgressPaymentRateColumn" after="LinesRN.RecoupmentRateColumn"/>
+      <move element="LinesRN.MaxRetainageAmountColumn" after="LinesRN.ProgressPaymentRateColumn"/>
+      <move element="LinesRN.RetainageRateColumn" after="LinesRN.MaxRetainageAmountColumn"/>
+      <move element="LinesRN.ShipToLocationColumn" after="LinesRN.RetainageRateColumn"/>
+      <move element="LinesRN.ShipToOrgColumn" after="LinesRN.ShipToLocationColumn"/>
+      <move element="LinesRN.DestinationTypeColumn" after="LinesRN.ShipToOrgColumn"/>
+      <move element="LinesRN.DeliverToPersonColumn" after="LinesRN.DestinationTypeColumn"/>
+      <move element="LinesRN.DeliverToLocColumn" after="LinesRN.DeliverToPersonColumn"/>
+      <move element="LinesRN.ChargeAccountColumn" after="LinesRN.DeliverToLocColumn"/>
+      <move element="LinesRN.ReservedColumn" after="LinesRN.ChargeAccountColumn"/>
+      <move element="LinesRN.ProjectColumn" after="LinesRN.ReservedColumn"/>
+      <move element="LinesRN.TaskColumn" after="LinesRN.ProjectColumn"/>
+      <move element="LinesRN.AwardColumn" after="LinesRN.TaskColumn"/>
+      <move element="LinesRN.ExpenditureTypeColumn" after="LinesRN.AwardColumn"/>
+      <move element="LinesRN.ExpenditureOrgColumn" after="LinesRN.ExpenditureTypeColumn"/>
+      <move element="LinesRN.ExpenditureItemDateColumn" after="LinesRN.ExpenditureOrgColumn"/>
+      <move element="LinesRN.UnitNumberCol" after="LinesRN.ExpenditureItemDateColumn"/>
+      <move element="LinesRN.ActionsColumn" after="LinesRN.UnitNumberCol"/>
+      <move element="LinesRN.UpdateColumn" after="LinesRN.ActionsColumn"/>
+      <move element="LinesRN.DeleteColumn" after="LinesRN.UpdateColumn"/>
+      <move element="LinesRN.DuplicateColumn" after="LinesRN.DeleteColumn"/>
+      <move element="LinesRN.DetailsColumn" after="LinesRN.DuplicateColumn"/>
+      <move element="LinesRN.AttachmentColumn" after="LinesRN.DetailsColumn"/>
+      <move element="LinesRN.LineTypeIdFV_LR" after="LinesRN.AttachmentColumn"/>
+      <move element="LinesRN.OrderTypeLookupCodeFV_LR" after="LinesRN.LineTypeIdFV_LR"/>
+      <move element="LinesRN.PurchaseBasisFV_LR" after="LinesRN.OrderTypeLookupCodeFV_LR"/>
+      <move element="LinesRN.MatchingBasisFV_LR" after="LinesRN.PurchaseBasisFV_LR"/>
+      <move element="LinesRN.UomFV_LR" after="LinesRN.MatchingBasisFV_LR"/>
+      <move element="LinesRN.CategoryIdFV_LR" after="LinesRN.UomFV_LR"/>
+      <move element="LinesRN.JobIdFV_LR" after="LinesRN.CategoryIdFV_LR"/>
+      <move element="LinesRN.ReceiptRequiredFlagFV_LR" after="LinesRN.JobIdFV_LR"/>
+      <move element="LinesRN.BusinessGroupIdFV_LR" after="LinesRN.ReceiptRequiredFlagFV_LR"/>
+      <move element="LinesRN.BusinessGroupFV_LR" after="LinesRN.BusinessGroupIdFV_LR"/>
+      <move element="LinesRN.SecUomFV_LR" after="LinesRN.BusinessGroupFV_LR"/>
+      <move element="LinesRN.HasBeenSavedFV_LR" after="LinesRN.SecUomFV_LR"/>
+      <move element="LinesRN.OutsideOperationFlagFV_LR" after="LinesRN.HasBeenSavedFV_LR"/>
+      <move element="LinesRN.ItemIdFV_LR" after="LinesRN.OutsideOperationFlagFV_LR"/>
+      <move element="LinesRN.OnlineReqFlagFV_LR" after="LinesRN.ItemIdFV_LR"/>
+      <move element="LinesRN.OriginalUnitClassFV_LR" after="LinesRN.OnlineReqFlagFV_LR"/>
+      <move element="LinesRN.PrimaryUnitClassFV_LR" after="LinesRN.OriginalUnitClassFV_LR"/>
+      <move element="LinesRN.OrgIdFV_LR" after="LinesRN.PrimaryUnitClassFV_LR"/>
+      <move element="LinesRN.DocTypeLookupCodeFV_LR" after="LinesRN.OrgIdFV_LR"/>
+      <move element="LinesRN.AllowedUnitsLookupCodeFV_LR" after="LinesRN.DocTypeLookupCodeFV_LR"/>
+      <move element="LinesRN.TransactionReasonCodeFV_LR" after="LinesRN.AllowedUnitsLookupCodeFV_LR"/>
+      <move element="LinesRN.ShipToOrgIdFV_LR" after="LinesRN.TransactionReasonCodeFV_LR"/>
+      <move element="LinesRN.DeliverToLocationIdFV_LR" after="LinesRN.ShipToOrgIdFV_LR"/>
+      <move element="LinesRN.DeliverToPersonIdFV_LR" after="LinesRN.DeliverToLocationIdFV_LR"/>
+      <move element="LinesRN.PoLineLocationIdFV_LR" after="LinesRN.DeliverToPersonIdFV_LR"/>
+      <move element="LinesRN.ShipToLocationIdFV_LR" after="LinesRN.PoLineLocationIdFV_LR"/>
+      <move element="LinesRN.PoLineIdFV_LR" after="LinesRN.ShipToLocationIdFV_LR"/>
+      <move element="LinesRN.IsShopFloorAllowedFlag" after="LinesRN.PoLineIdFV_LR"/>
+      <move element="LinesRN.IsInventoryAllowedFlag" after="LinesRN.IsShopFloorAllowedFlag"/>
+      <move element="LinesRN.IsExpenseAllowedFlag" after="LinesRN.IsInventoryAllowedFlag"/>
+      <move element="LinesRN.HazardClassIdFV_LR" after="LinesRN.IsExpenseAllowedFlag"/>
+      <move element="LinesRN.UnNumberIdFV_LR" after="LinesRN.HazardClassIdFV_LR"/>
+      <move element="LinesRN.HasConsignedShipmentsFV_LR" after="LinesRN.UnNumberIdFV_LR"/>
+      <move element="LinesRN.SrcDocHeaderIdFV_LR" after="LinesRN.HasConsignedShipmentsFV_LR"/>
+      <move element="LinesRN.FromLineIdFV_LR" after="LinesRN.SrcDocHeaderIdFV_LR"/>
+      <move element="LinesRN.PoHeaderIdFV_LR" after="LinesRN.FromLineIdFV_LR"/>
+      <move element="LinesRN.HasMultipleUIDistsFV_LR" after="LinesRN.PoHeaderIdFV_LR"/>
+      <move element="LinesRN.HasMultipleUILineLocsFV_LR" after="LinesRN.HasMultipleUIDistsFV_LR"/>
+      <move element="LinesRN.DestinationTypeCodeFV_LR" after="LinesRN.HasMultipleUILineLocsFV_LR"/>
+      <move element="LinesRN.ProjectIdFV_LR" after="LinesRN.DestinationTypeCodeFV_LR"/>
+      <move element="LinesRN.TaskIdFV_LR" after="LinesRN.ProjectIdFV_LR"/>
+      <move element="LinesRN.AwardNumberFV_LR" after="LinesRN.TaskIdFV_LR"/>
+      <move element="LinesRN.ExpenditureOrganizationIdFV_LR" after="LinesRN.AwardNumberFV_LR"/>
+      <move element="LinesRN.ShipToOperatingUnitIdFV_LR" after="LinesRN.ExpenditureOrganizationIdFV_LR"/>
+      <move element="LinesRN.PrevLineTypeIdFV_LR" after="LinesRN.ShipToOperatingUnitIdFV_LR"/>
+      <modify element="LinesRN.ProjectColumn" rendered="true"/>
+      <move element="LinesRN.ProjectMultiple" after="LinesRN.Project_LR"/>
+      <insert after="LinesRN.ProjectMultiple">
+         <oa:messageStyledText id="AWAS_PROJECT_NAME" adminCustomizable="true" cellNoWrapFormat="false" columns="10" dataType="VARCHAR2" initSortSeq="none" popupEnabled="false" popupRenderEvent="onClick" queryable="false" rendered="true" required="no" scope="." selectiveSearchCriteria="false" serverUnvalidated="false" sortState="no" tipType="none" totalValue="false" userCustomizable="false" vAlign="middle" viewAttr="ProjectName" warnAboutChanges="true" xmlns:oa="http://xmlns.oracle.com/oa"/>
+      </insert>
+      <modify element="LinesRN.ExpenditureTypeColumn" rendered="true"/>
+      <modify element="LinesRN.TaskColumn" rendered="true" width="2"/>
+      <modify element="LinesRN.ExpenditureItemDateColumn" rendered="true"/>
+      <modify element="LinesRN.ExpenditureOrgColumn" rendered="true"/>
+      <modify element="LinesRN.ExpenditureOrg_LR" translatableDefaultValue="AWAS"/>
+   </modifications>
+</customization>

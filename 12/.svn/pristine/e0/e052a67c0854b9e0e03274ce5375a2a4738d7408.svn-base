@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_32" xml:lang="en-US" customizes="/oracle/apps/cs/csz/incident/webui/SRCreationPG" package="/oracle/apps/cs/csz/incident/webui/customizations/responsibility/27198" xmlns:user="http://xmlns.oracle.com/jrad/user" user:responsibilityKey="csz_cs_specialist" user:responsibilityAppId="170" file-version="$Header: SRCreationPG.xml 120.1.12010000.1 2009/05/05 04:56:15 sanjrao noship $" user:responsibilityAppShortName="CS">
+   <modifications>
+      <modify element="xIncidentAddressRN.IncSiteName" rendered="false"/>
+      <modify element="xIncidentAddressRN.IncSiteNumber" rendered="false"/>
+      <modify element="xIncidentAddressRN.IncAddressee" rendered="false"/>
+      <modify element="xIncidentAddressRN.IncSitePhone" rendered="false"/>
+      <modify element="xIncidentAddressRN.EASiteName" rendered="false"/>
+      <modify element="xIncidentAddressRN.EASiteNumber" rendered="false"/>
+      <modify element="xIncidentAddressRN.EAAddressee" rendered="false"/>
+      <modify element="xIncidentAddressRN.EASitePhone" rendered="false"/>
+   </modifications>
+</customization>

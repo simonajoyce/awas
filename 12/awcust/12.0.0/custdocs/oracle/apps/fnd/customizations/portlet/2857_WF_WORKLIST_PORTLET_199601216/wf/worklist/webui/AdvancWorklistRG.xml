@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/fnd/wf/worklist/webui/AdvancWorklistRG" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header$" version="9.0.3.8.9_1050" xml:lang="en-US">
+   <modifications>
+      <modify element="NtfWorklist" blockSize="5"/>
+      <modify element="NtfFromUser" rendered="false"/>
+      <modify element="NtfSent" rendered="false"/>
+      <modify element="NtfDue" rendered="false"/>
+      <move element="NtfReassign" after="NtfOpen"/>
+      <move element="NtfClose" after="NtfReassign"/>
+      <move element="NtfPriority" after="NtfSubject"/>
+      <move element="NtfDue" after="NtfPriority"/>
+      <move element="NtfType" after="NtfDue"/>
+      <move element="NtfStatus" after="NtfType"/>
+      <move element="NtfFromUser" after="NtfStatus"/>
+      <move element="NtfSent" after="NtfFromUser"/>
+   </modifications>
+</customization>

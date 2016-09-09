@@ -1,0 +1,15 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.89_562" xml:lang="en-US" customizes="/oracle/apps/ap/oie/webui/OIEMAINPAGE" file-version="$Header: OIEMAINPAGE.xml 115.0 2006/01/21 02:42:43 skoukunt noship $" package="/oracle/apps/ap/oie/webui/customizations/function/OIEMAINPAGE">
+   <modifications>
+      <modify element="OIEConfirmPage.ConfirmSubTabsRN.ApproversRN.AdhocApproversShowHideRN" rendered="false"/>
+      <move element="OIEConfirmPage.ConfirmSubTabsRN.ApproversRN.AMEOrderNumCol" after="OIEConfirmPage.ConfirmSubTabsRN.ApproversRN.AMELineNoCol"/>
+      <move element="OIEConfirmPage.ConfirmSubTabsRN.ApproversRN.AMEApproverCol" after="OIEConfirmPage.ConfirmSubTabsRN.ApproversRN.AMEOrderNumCol"/>
+      <move element="OIEConfirmPage.ConfirmSubTabsRN.ApproversRN.AMEApproverTypeCol" after="OIEConfirmPage.ConfirmSubTabsRN.ApproversRN.AMEApproverCol"/>
+      <move element="OIEConfirmPage.ConfirmSubTabsRN.ApproversRN.AMECategoryCol" after="OIEConfirmPage.ConfirmSubTabsRN.ApproversRN.AMEApproverTypeCol"/>
+      <move element="OIEConfirmPage.ConfirmSubTabsRN.ApproversRN.AMEStatusCol" after="OIEConfirmPage.ConfirmSubTabsRN.ApproversRN.AMECategoryCol"/>
+      <move element="OIEConfirmPage.ConfirmSubTabsRN.ApproversRN.AMEDeleteCol" after="OIEConfirmPage.ConfirmSubTabsRN.ApproversRN.AMEStatusCol"/>
+      <modify element="OIEConfirmPage.ConfirmSubTabsRN.ApproversRN.AMELineNoCol" rendered="false"/>
+      <modify element="OIEConfirmPage.ConfirmSubTabsRN.ApproversRN.AMEDeleteCol" rendered="false"/>
+      <modify element="OIEConfirmPage.ConfirmSubTabsRN.ApproversRN.AMEApproversViewRN" rendered="false"/>
+   </modifications>
+</customization>

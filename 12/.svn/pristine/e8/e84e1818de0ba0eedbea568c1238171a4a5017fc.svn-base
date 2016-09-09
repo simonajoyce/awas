@@ -1,0 +1,23 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.6.6_606" xml:lang="en-US" customizes="/oracle/apps/per/selfservice/hrviews/webui/ViewEpiPG" developerMode="false" file-version="$Header: ViewEpiPG.xml 115.2 2003/09/04 05:44:20 sshankar noship $" package="/oracle/apps/per/customizations/localization/CN/selfservice/hrviews/webui">
+   <modifications>
+      <move element="LastName" after="FirstName"/>
+      <move element="FullName" after="LastName"/>
+      <move element="Gender" after="FullName"/>
+      <move element="MaritalStatus" after="Gender"/>
+      <move element="DateOfBirth" after="MaritalStatus"/>
+      <move element="PerPersonType" after="DateOfBirth"/>
+      <move element="NationalIdentifier" after="PerPersonType"/>
+      <move element="PerEmploymentCategory" after="NationalIdentifier"/>
+      <move element="EmployeeNumber" after="PerEmploymentCategory"/>
+      <move element="Disability" after="EmployeeNumber"/>
+      <move element="HrPreferredName" after="Disability"/>
+      <move element="PrevLastName" after="HrPreferredName"/>
+      <modify element="HrPreferredName" rendered="false"/>
+      <modify element="PrevLastName" rendered="false"/>
+      <modify element="DateOfBirth" tipType="dateFormat"/>
+      <modify element="NationalIdentifier" prompt="Citizen Identification Number"/>
+      <modify element="FirstName" prompt="Given/First Name"/>
+      <modify element="LastName" prompt="Family/Last Name"/>
+   </modifications>
+</customization>

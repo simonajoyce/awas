@@ -1,0 +1,6 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.89_562" xml:lang="en-US" customizes="/oracle/apps/pa/project/webui/MyProjectsPG" xmlns:user="http://xmlns.oracle.com/jrad/user" user:responsibilityKey="pa_prm_proj_su" user:responsibilityAppShortName="PA">
+   <modifications>
+      <modify element="ACCESS_LEVEL" defaultValue="STARTS_WITH"/>
+   </modifications>
+</customization>

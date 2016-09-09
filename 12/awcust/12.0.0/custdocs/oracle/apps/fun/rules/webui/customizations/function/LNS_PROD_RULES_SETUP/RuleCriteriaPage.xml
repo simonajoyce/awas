@@ -1,0 +1,9 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.89_502" xml:lang="en-US" customizes="/oracle/apps/fun/rules/webui/RuleCriteriaPage" developerMode="true" package="/oracle/apps/fun/rules/webui/customizations/function/LNS_PROD_RULES_SETUP" file-version="$Header: RuleCriteriaPage.xml 120.0 2006/01/12 23:29:23 hikumar noship $">
+   <modifications>
+      <modify element="ResultHDR" rendered="false"/>
+      <modify element="RuleCriteriaPG" helpTarget="lnscurule" helpTargetAppShortName="LNS"/>
+      <modify element="RuleObjectNameVal" rendered="false"/>
+      <modify element="RuleObjectTypeVal" rendered="false"/>
+   </modifications>
+</customization>

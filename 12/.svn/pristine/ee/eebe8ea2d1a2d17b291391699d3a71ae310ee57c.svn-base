@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- $Header: XX_AR_TRX_BY_PERIOD_DD.xml 2014/05/26 12:56:20 sjoyce noship $-->
+<dataTemplate name="XX_AR_TRX_BY_PERIOD_DD" defaultPackage="XX_AR_TRX_BY_PERIOD_PKG" version="1.0">
+<properties>
+<property name="debug_mode" value="on" />
+<property name="xml_tag_case" value="upper" />
+<property name="include_parameters" value="true" />
+</properties>
+<parameters>
+<parameter name="P_START_DATE" dataType = "DATE"></parameter>
+<parameter name="P_END_DATE" dataType = "DATE"></parameter>
+</parameters>
+<dataQuery>
+<sqlStatement name="Q_MAIN">
+<![CDATA[SELECT gp.period_name Creation_Period,
+  fu.description Created_by,
+  ct.CREATION_DATE,
+  HP.PARTY_NAME,
+  ct.interface_header_attribute1 MSN,
+  ct.trx_number,
+  ct.trx_date,
+  ct.term_due_date,
+  tt.name trx_type,
+  DECODE(ct.created_from,'RAXTRX','PORTFOLIO','AR_INVOICE_API','INTEREST PROGRAM','MANUAL') trx_Source,
+  (select sum(extended_amount) from ra_customer_Trx_lines_all where customer_trx_id = ct.customer_trx_id) Amount
+FROM RA_CUSTOMER_TRX_ALL ct,
+  gl_periods gp,
+  fnd_user fu,
+  RA_CUST_TRX_TYPES_ALL tt,
+  HZ_CUST_ACCOUNTS_ALL ca,
+  HZ_parties HP
+WHERE ct.creation_date BETWEEN gp.START_DATE AND gp.end_date
+and ct.creation_date between :P_START_DATE and :P_END_DATE+1
+AND gp.period_set_name  = 'AWAS'
+AND ct.created_by       = fu.user_id
+AND ca.CUST_account_ID  = ct.bill_to_customer_id
+AND tt.cust_trx_type_id = ct.cust_trx_type_id
+AND HP.PARTY_ID         = ca.party_id
+order by 2, 9
+]]>
+</sqlStatement>
+</dataQuery>
+<!--<dataTrigger name="beforeReportTrigger" source="XX_AR_TRX_BY_PERIOD_PKG.before_report"/>-->
+<dataStructure>
+<group name="G_MAIN" source="Q_MAIN">
+<element name="CREATION_PERIOD"                     value="CREATION_PERIOD"/>
+<element name="CREATED_BY"            				value="CREATED_BY"/>
+<element name="CREATION_DATE"            			value="CREATION_DATE"/>
+<element name="PARTY_NAME"         			     	value="PARTY_NAME"/>
+<element name="MSN"          						value="MSN"/>
+<element name="TRX_NUMBER"          				value="TRX_NUMBER"/>
+<element name="TRX_DATE"                  			value="TRX_DATE"/>
+<element name="TERM_DUE_DATE"                  			value="TERM_DUE_DATE"/>
+<element name="TRX_TYPE"           					value="TRX_TYPE"/>
+<element name="TRX_SOURCE"            				value="TRX_SOURCE"/>
+<element name="TRX_AMOUNT"            				value="AMOUNT"/>
+</group>
+</dataStructure>
+<!--<dataTrigger name="afterReportTrigger" source="XXSAMPLE_REP_PKG.email_report"/>-->
+</dataTemplate>

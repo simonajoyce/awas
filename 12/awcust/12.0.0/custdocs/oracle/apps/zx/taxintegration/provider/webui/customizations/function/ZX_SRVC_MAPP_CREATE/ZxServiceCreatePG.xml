@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.40_440" xml:lang="en-US" customizes="/oracle/apps/zx/taxintegration/provider/webui/ZxServiceCreatePG" package="/oracle/apps/zx/taxintegration/provider/webui/customizations/function/ZX_SRVC_MAPP_CREATE" file-version="$Header: ZxServiceCreatePG.xml 120.1 2006/09/20 15:21:55 shmangal noship $">
+   <modifications>
+      <modify element="ZxPageLayoutRN" title="Create Service Mappings" windowTitle="Create Service Mappings"/>
+      <modify element="Compile" rendered="false"/>
+   </modifications>
+</customization>

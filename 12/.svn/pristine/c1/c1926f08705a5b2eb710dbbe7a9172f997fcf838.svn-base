@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/per/irc/vacancy/webui/VacVwStkRN" developerMode="true" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: VacVwStkRN.xml 115.3 2003/04/10 09:17:14 mmillmor noship $" version="9.0.3.6.2_398" xml:lang="en-US" package="/oracle/apps/per/customizations/function/IRC_VACANCY_APPROVE/irc/vacancy/webui">
+   <modifications>
+      <modify element="ButtonBar" rendered="false"/>
+      <modify element="TravelInformation" rendered="true"/>
+      <modify element="JobPosting" rendered="true"/>
+      <modify element="SkillsQualifications" rendered="true"/>
+      <modify element="CompensationInformation" rendered="true"/>
+      <modify element="RecruitingTeam" rendered="true"/>
+      <modify element="PrimaryDetails" rendered="true"/>
+      <move element="CompensationInformation" after="FndNestedRegion1"/>
+      <move element="TravelInformation" after="FndNestedRegion3"/>
+      <move element="SkillsQualifications" after="FndNestedRegion6"/>
+      <move element="JobPosting" after="FndNestedRegion4"/>
+      <move element="RecruitingTeam" after="FndNestedRegion5"/>
+      <move element="ButtonBar" after="FndNestedRegion2"/>
+   </modifications>
+</customization>

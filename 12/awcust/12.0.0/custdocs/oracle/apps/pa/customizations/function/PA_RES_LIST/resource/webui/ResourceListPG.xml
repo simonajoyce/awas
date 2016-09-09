@@ -1,0 +1,41 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/pa/resource/webui/ResourceListPG" developerMode="true" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: ResourceListPG.xml 115.3.90.2 2004/05/07 19:19:32 bkonda noship $" version="9.0.3.6.2_398" xml:lang="en-US" package="/oracle/apps/pa/customizations/function/PA_RES_LIST/resource/webui">
+   <modifications>
+      <modify element="Organization1" rendered="true"/>
+      <modify element="AvailableFrom1" rendered="true"/>
+      <modify element="AvailableTo1" rendered="true"/>
+      <modify element="Manager1" rendered="true"/>
+      <modify element="ViewResources" rendered="false"/>
+      <modify element="Person1" rendered="true"/>
+      <move element="Organization1" after="Person1"/>
+      <move element="AvailableFrom1" after="Organization1"/>
+      <move element="AvailableTo1" after="AvailableFrom1"/>
+      <move element="Manager1" after="AvailableTo1"/>
+      <move element="ViewResources" after="Manager1"/>
+      <modify element="CandidateQualifieds" rendered="true"/>
+      <modify element="Person" rendered="true"/>
+      <modify element="Organization" rendered="true"/>
+      <modify element="AvailableFrom" rendered="true"/>
+      <modify element="AvailableTo" rendered="true"/>
+      <modify element="Manager" rendered="true"/>
+      <modify element="ViewResources2" rendered="false"/>
+      <modify element="CurrentProject" rendered="true"/>
+      <modify element="JobLevel" rendered="true"/>
+      <modify element="HomeLocation" rendered="true"/>
+      <modify element="EffStartDate" rendered="true"/>
+      <modify element="EffEndDate" rendered="true"/>
+      <modify element="CandidateNominations" rendered="true"/>
+      <move element="Organization_row" after="Person_row"/>
+      <move element="AvailableFrom_row" after="Organization_row"/>
+      <move element="AvailableTo_row" after="AvailableFrom_row"/>
+      <move element="Manager_row" after="AvailableTo_row"/>
+      <move element="CurrentProject_row" after="Manager_row"/>
+      <move element="JobLevel_row" after="CurrentProject_row"/>
+      <move element="HomeLocation_row" after="JobLevel_row"/>
+      <move element="EffStartDate_row" after="HomeLocation_row"/>
+      <move element="EffEndDate_row" after="EffStartDate_row"/>
+      <move element="CandidateNominations_row" after="EffEndDate_row"/>
+      <move element="CandidateQualifieds_row" after="CandidateNominations_row"/>
+      <move element="ViewResources_row" after="CandidateQualifieds_row"/>
+   </modifications>
+</customization>

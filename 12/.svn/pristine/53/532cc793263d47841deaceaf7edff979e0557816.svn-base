@@ -1,0 +1,10 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/fnd/wf/worklist/webui/AdvancWorklistRG" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header$" version="9.0.3.8.9_1050" xml:lang="en-US">
+   <modifications>
+      <move element="NtfFullList" after="NtfHomePageHelp"/>
+      <move element="NtfViewControls" after="NtfFullList"/>
+      <move element="NtfWorklist" after="NtfViewControls"/>
+      <move element="NtfSortControls" after="NtfWorklist"/>
+      <move element="NtfSearch" after="NtfSortControls"/>
+   </modifications>
+</customization>

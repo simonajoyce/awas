@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_35" xml:lang="en-US" customizes="/oracle/apps/cs/csz/search/webui/SRMassUpdateSavedSrchResultsPG" xmlns:user="http://xmlns.oracle.com/jrad/user" user:responsibilityKey="csz_cs_specialist" user:responsibilityAppId="170" file-version="$Header: SRMassUpdateSavedSrchResultsPG.xml 120.0.12010000.5 2009/10/07 06:10:51 mkundali noship $" user:responsibilityAppShortName="CS">
+   <modifications>
+      <modify element="ColumnPerzRN.CreateDateStart" prompt="Incident Date"/>
+      <modify element="ColumnPerzRN.RequestType" prompt="Type"/>
+   </modifications>
+</customization>

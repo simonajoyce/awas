@@ -1,0 +1,34 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.89_489" xml:lang="en-US" customizes="/oracle/apps/ar/hz/components/search/webui/HzPuiDQMSearchResults" file-version="$Header: HzPuiDQMSearchResults.xml 120.2 2005/12/25 23:08 rramacha noship $" package="/oracle/apps/ar/hz/components/search/webui/customizations/function/ASN_PERSONSEARCHPG">
+   <modifications>
+      <modify element="HzPuiCreate" prompt="Create Customer"/>
+      <modify element="HzPuiDQMSearchExport" rendered="true"/>
+      <modify element="HzPuiPartyName1" prompt="Customer"/>
+      <modify element="DunsNumber" rendered="false"/>
+      <modify element="PrimaryPhone" rendered="true"/>
+      <modify element="PrimaryURL" rendered="false"/>
+      <modify element="Email" rendered="true"/>
+      <move element="RegistryID" after="HzPuiPartyName1_link"/>
+      <move element="PartyType" after="RegistryID"/>
+      <move element="DunsNumber" after="PartyType"/>
+      <move element="KnownAs" after="DunsNumber"/>
+      <move element="KnownAs2" after="KnownAs"/>
+      <move element="KnownAs3" after="KnownAs2"/>
+      <move element="KnownAs4" after="KnownAs3"/>
+      <move element="KnownAs5" after="KnownAs4"/>
+      <move element="Address" after="KnownAs5"/>
+      <move element="Country" after="Address"/>
+      <move element="PrimaryPhone" after="Country"/>
+      <move element="RestrictionSwitcher" after="PrimaryPhone"/>
+      <move element="PrimaryURL" after="RestrictionSwitcher"/>
+      <move element="CertificationLevel" after="PrimaryURL"/>
+      <move element="Update" after="CertificationLevel"/>
+      <move element="Email" after="Update"/>
+      <move element="TaxPayerId" after="Email"/>
+      <move element="TaxRegistration" after="TaxPayerId"/>
+      <move element="OrganizationNamePhonetic" after="TaxRegistration"/>
+      <move element="PersonFirstNamePhonetic" after="OrganizationNamePhonetic"/>
+      <move element="PersonLastNamePhonetic" after="PersonFirstNamePhonetic"/>
+      <move element="MatchPercentage" after="PersonLastNamePhonetic"/>
+   </modifications>
+</customization>

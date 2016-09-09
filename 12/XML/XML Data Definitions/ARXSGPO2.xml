@@ -1,0 +1,266 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+
+<!--  $Header: ARXSGPO.xml 120.0.12010000.9 2011/08/24 03:18:53 jiachi ship $ -->
+<!-- dbdrv: exec java oracle/apps/xdo/oa/util XDOLoader.class java &phase=dat checkfile:~PROD:patch/115/publisher/defs:ARXSGPO.xml UPLOAD -DB_USERNAME &un_apps -DB_PASSWORD &pw_apps -JDBC_CONNECTION &jdbc_db_addr -LOB_TYPE DATA_TEMPLATE -APPS_SHORT_NAME ~PROD -LOB_CODE ARCUSBALSL -LANGUAGE 00 -XDO_FILE_TYPE XML-DATA-TEMPLATE -FILE_NAME &fullpath:~PROD:patch/115/publisher/defs:ARXSGPO.xml -->
+<!--  GSCC_Category="Xdo Data Definition"   --> 
+
+<dataTemplate name="ARXSGPO" defaultPackage="AR_CUST_BAL_RPT_PKG" version="1.0">
+<properties>
+<property name="debug_mode" value="on" />
+</properties>
+		<dataQuery>
+		<sqlStatement name="Q_SETUP">
+			<![CDATA[
+               SELECT GLL.name                   COMPANY_NAME
+                     ,GLL.chart_of_accounts_id   COA_ID
+                     ,GLL.currency_code          FUNCTIONAL_CURRENCY
+                     ,FC.precision               FUNCTIONAL_CURRENCY_PRECISION
+					 ,GLL.ledger_id              LEDGER_ID
+                     ,(SELECT SUBSTR(FCPV.user_concurrent_program_name,1,80)
+                       FROM   fnd_concurrent_programs_vl FCPV
+                             ,fnd_concurrent_requests FCR
+                       WHERE  FCR.request_id             = :P_CONC_REQUEST_ID
+                       AND    FCPV.application_id        = FCR.program_application_id
+                       AND    FCPV.concurrent_program_id = FCR.concurrent_program_id) REPORT_NAME
+					 ,(SELECT FCR.parent_request_id PARENT_REQUEST_ID
+                       FROM   fnd_concurrent_requests FCR
+                       WHERE  FCR.request_id              = :P_CONC_REQUEST_ID
+                       ) PARENT_REQUEST_ID  
+               FROM   gl_ledgers                 GLL
+                     ,ar_system_parameters       ASP
+                     ,fnd_currencies             FC
+               WHERE  GLL.ledger_id           =  ASP.set_of_books_id
+               AND    GLL.currency_code       =  FC.currency_code
+			   AND    NVL(ASP.org_id,NVL(TO_NUMBER(DECODE(
+			              SUBSTRB(USERENV('CLIENT_INFO'),1,1),' ', NULL
+						 ,SUBSTRB(USERENV('CLIENT_INFO'),1,10))),-99)) =
+                          NVL(TO_NUMBER(DECODE(
+						  SUBSTRB(USERENV('CLIENT_INFO'),1,1),' ', NULL
+						 ,SUBSTRB(USERENV('CLIENT_INFO'),1,10))),-99)]]>
+		</sqlStatement>
+		<sqlStatement name="Q_STATEMENT">
+			<![CDATA[
+              SELECT MIN(ASH.line_cluster_id)    LINE_CLUSTER_ID
+                     ,MAX(ASH.line_cluster_id)    MAX_LINE_CLUSTER_ID
+                     ,ASH.send_to_address_id      SEND_TO_ADDRESS_ID
+                     ,ASH.customer_id             CUSTOMER_ID
+                     ,ASH.statement_type          STATEMENT_TYPE
+                     ,ASH.remit_to_address_id     REMIT_TO_ADDRESS_ID
+                     ,ASH.statement_date          STATEMENT_DATE
+                     ,HCA.ACCOUNT_NUMBER          CUST_NUM
+                     ,HZP.party_name              SEND_TO_CUSTOMER_NAME
+					 ,HZP.ORGANIZATION_NAME_PHONETIC ORGANIZATION_NAME_PHONETIC
+			,HZP.party_id                CUST_ID
+                     ,ASH.currency_code           CURRENCY_CODE
+               FROM   ar_statement_headers        ASH
+                     ,hz_cust_accounts            HCA
+                     ,hz_parties                  HZP
+                     ,fnd_territories_vl          FTV1
+                     ,fnd_territories_vl          FTV2
+                     ,hz_locations                HZL1
+		       ,hz_cust_acct_sites          HCAS1
+		       ,hz_party_sites              HPS1
+                     ,hz_locations                HZL2
+		       ,hz_cust_acct_sites          HCAS2
+                     ,hz_party_sites              HPS2
+                     ,ar_standard_text            MSG
+               WHERE  ASH.error_no_lines        = 'N'
+               AND    ASH.customer_id           = HCA.cust_account_id
+               AND    HCA.party_id              = HZP.party_id
+               AND    ASH.send_to_address_id    = HCAS1.cust_acct_site_id (+)
+               AND    HCAS1.party_site_id       = HPS1.party_site_id(+)
+               AND    HPS1.location_id          = HZL1.location_id (+)
+               AND    HZL1.country              = FTV1.territory_code (+)
+               AND    ASH.remit_to_address_id   = HCAS2.cust_acct_site_id (+)
+               AND    HCAS2.party_site_id       = HPS2.party_site_id(+)
+               AND    HPS2.location_id          = HZL2.location_id (+)
+               AND    HZL2.country              = FTV2.territory_code (+)
+               AND    ASH.request_id            = :PARENT_REQUEST_ID
+               AND    :REPORT_NAME IS NOT NULL
+               AND    NVL(bucket1,0)+ NVL(buckeT2,0)+ NVL(bucket3,0)+ 
+                      NVL(bucket5,0)+ NVL(bucket4,0) <> 0
+               AND    ash.message1                = msg.standard_text_id (+)       
+               GROUP BY	              	 
+                     ASH.send_to_address_id 
+                     ,ASH.customer_id       
+                     ,ASH.statement_type    
+                     ,ASH.remit_to_address_id
+                     ,ASH.statement_date     
+                     ,HCA.ACCOUNT_NUMBER     
+                     ,HZP.party_name   
+					 ,HZP.ORGANIZATION_NAME_PHONETIC
+                     ,HZP.party_id             
+                     , ASH.currency_code
+               ORDER BY
+	              &P_SORT
+                     ,ASH.currency_code
+                     ,DECODE(ASH.statement_type
+                     ,'STMTS'       ,1
+                     ,'ONACC_UNAPP' ,2
+                     ,'SUMMARY'     ,3
+                     ,'BILL_TO'     ,4)]]>
+		</sqlStatement>	
+		<sqlStatement name="Q_ORG">
+			<![CDATA[
+               SELECT org_id ORG_ID
+               FROM   ra_remit_tos_all
+               WHERE  address_id = :REMIT_TO_ADDRESS_ID
+               AND    rownum = 1]]>
+		</sqlStatement>	
+		<sqlStatement name="Q_REG_NUM">
+			<![CDATA[
+               SELECT ZR.registration_number REGISTRATION_NUMBER
+               FROM   zx_registrations               ZR
+                     ,zx_party_tax_profile           ZPTP
+                     ,xle_fp_establishment_v         XFEV
+                     ,hr_operating_units             HOU
+               WHERE  ZR.default_registration_flag = 'Y' 
+               AND    ZR.party_tax_profile_id      = ZPTP.party_tax_profile_id
+               AND    ZPTP.party_id                = XFEV.party_id
+               AND    XFEV.legal_entity_id         = HOU.default_legal_context_id
+			   and    XFEV.main_establishment_flag ='Y'
+               AND    HOU.organization_id = :ORG_ID]]>
+		</sqlStatement>	
+		<sqlStatement name="Q_CONTACT">
+			<![CDATA[
+               SELECT xlcv.contact_name CONTACT_NAME
+		       FROM   xle_legal_contacts_v   XLCV
+			         ,hr_operating_units     HOU
+		       WHERE  XLCV.entity_id = HOU.default_legal_context_id 
+               AND    HOU.ORGANIZATION_ID = :ORG_ID]]>
+		</sqlStatement>	
+		<sqlStatement name="Q_PAYMENTS">
+			<![CDATA[
+               SELECT ASLC.invoice_number         PMT_INVOICE_NUMBER
+                     ,FND_DATE.DATE_TO_CHARDATE(ASLC.trx_date)               PMT_TRX_DATE
+                     ,ASLC.transaction            PMT_TRANSACTION
+                     ,FND_DATE.DATE_TO_CHARDATE(ASLC.due_date)               PMT_DUE_DATE
+                     ,ASLC.trx_amount             PMT_TRX_AMOUNT
+                     ,ASLC.amount_due             PMT_AMOUNT_DUE 
+	           FROM	  ar_statement_line_clusters ASLC
+               WHERE  ASLC.line_cluster_id  BETWEEN :LINE_CLUSTER_ID AND :MAX_LINE_CLUSTER_ID
+               AND    ASLC.customer_trx_sequence   <  0
+               AND    ASLC.amount_due              <> 0]]>
+		</sqlStatement>
+		<sqlStatement name="Q_LINE_CLUSTER">
+			<![CDATA[
+               SELECT MAX(ASLC.invoice_number)               INVOICE_NUMBER
+                     ,MIN(NVL(ASLC.trx_date, sysdate-10000)) TRX_DATE
+                    ,decode(
+                      MAX(decode(ASLC.transaction,'Payment','APayment',ASLC.transaction)),
+                      'APayment','Payment',MAX(decode(ASLC.transaction,'Payment','APayment',ASLC.transaction))
+                      ) TRANSACTION
+					 , max(NVL(ASLC.due_date,sysdate-1000)) DUE_DATE
+                     ,SUM(DECODE(ASLC.due_date, NULL, 0, ASLC.trx_amount)) 
+                                                             TRX_AMOUNT
+                     ,SUM(NVL(ASLC.amount_due,0))            AMOUNT_DUE 
+					 , ltrim(translate(replace(ASLC.bill_to_location,'M',''),'_Xx','0000'),'0') INV_MSN
+					 , tt.description INV_TRX_TYPE
+	 	       FROM   ar_statement_line_clusters             ASLC,
+					  ra_customer_trx_all trx,
+					  ra_cust_trx_types_all tt
+               WHERE  ASLC.line_cluster_id BETWEEN :P_LINE_CLUSTER_ID and :P_MAX_LINE_CLUSTER_ID 
+                 AND  customer_trx_sequence>0
+				 and  aslc.customer_trx_sequence = trx.customer_trx_id (+)
+				 and  trx.cust_trx_type_id = tt.cust_trx_type_id (+)
+				 and  NVL(ASLC.due_date,sysdate-1000) < :STATEMENT_DATE
+               GROUP BY 
+                      ASLC.customer_trx_sequence, ltrim(translate(replace(ASLC.bill_to_location,'M',''),'_Xx','0000'),'0'), tt.description 
+               HAVING SUM(NVL(ASLC.amount_due,0)) <>0
+			   order by INV_MSN, DUE_DATE,INVOICE_NUMBER ]]>
+		</sqlStatement>	
+		<sqlStatement name="Q_FUTURE">
+			<![CDATA[
+               SELECT payment_schedule_id FUT_PS_ID
+     , Ps.Invoice_Currency_Code FUT_CURRENCY
+     , due_date FUT_DUE_DATE
+     , amount_due_original FUT_AMT_DUE_ORIG
+     , amount_due_remaining FUT_AMT_DUE_REMAIN
+     , trx_date FUT_TRX_DATE
+     , trx_number FUT_TRX_NUM
+     , tt.description FUT_TRX_TYPE
+	 , ltrim(translate(replace(su.location,'M',''),'_Xx','00000'),'0')  FUT_MSN
+     , ps.class   FUT_TRANSACTION_CODE
+   FROM ar_payment_schedules_all ps,
+   ra_cust_trx_types_all tt,
+   hz_cust_site_uses_all su
+  WHERE 1 = 1
+   AND amount_due_remaining <> 0
+   and Ps.Cust_Trx_Type_Id = tt.cust_trx_type_id (+)
+   and ps.customer_site_use_id = Su.Site_Use_Id
+   and ps.customer_id = :CUSTOMER_ID
+   and Ps.Invoice_Currency_Code = :CURRENCY_CODE
+   and ps.due_date >= :STATEMENT_DATE
+   and ps.due_date <= :STATEMENT_DATE + 60
+	order by ps.due_date, FUT_TRX_NUM]]>
+		</sqlStatement>
+	</dataQuery>
+	<dataTrigger name="beforeReport" source="AR_CUST_BAL_RPT_PKG.BeforeReport"/>
+	<dataStructure>
+		<group name="G_SETUP" source="Q_SETUP">
+			<element name="COMPANY_NAME" value="COMPANY_NAME"/>		
+			<element name="COA_ID" value="COA_ID"/>
+			<element name="FUNCTIONAL_CURRENCY" value="FUNCTIONAL_CURRENCY"/>
+			<element name="FUNCTIONAL_CURRENCY_PRECISION" value="FUNCTIONAL_CURRENCY_PRECISION"/>
+			<element name="REPORT_NAME" value="REPORT_NAME"/>
+			<element name="PARENT_REQUEST_ID" value="PARENT_REQUEST_ID"/>
+		    <group name="G_STATEMENT" source="Q_STATEMENT">
+			  <element name="MESSAGE_TEXT" value="MESSAGE_TEXT"/>
+			  <element name="P_LINE_CLUSTER_ID" value="LINE_CLUSTER_ID"/>
+			  <element name="P_MAX_LINE_CLUSTER_ID" value="MAX_LINE_CLUSTER_ID"/>
+			  <element name="SEND_TO_ADDRESS_ID" value="SEND_TO_ADDRESS_ID"/>
+			  <element name="CUSTOMER_ID" value="CUSTOMER_ID"/>
+			  <element name="STATEMENT_TYPE" value="STATEMENT_TYPE"/>
+			  <element name="REMIT_TO_ADDRESS_ID" value="REMIT_TO_ADDRESS_ID"/>
+			  <element name="STATEMENT_DATE" value="STATEMENT_DATE"/>
+			  <element name="CUST_NUM" value="CUST_NUM"/>
+			  <element name="SEND_TO_CUSTOMER_NAME" value="SEND_TO_CUSTOMER_NAME"/>
+			  <element name="CUST_ID" value="CUST_ID"/>
+			  <element name="CURRENCY_CODE" value="CURRENCY_CODE"/>
+			  <group name="G_ORG" source="Q_ORG">
+				<element name="ORG_ID" value="ORG_ID"/>				
+              </group>	
+			  <group name="G_REG_NUM" source="Q_REG_NUM">
+				<element name="REGISTRATION_NUMBER" value="REGISTRATION_NUMBER"/>				
+              </group>								  
+			  <group name="G_CONTACT" source="Q_CONTACT">
+				<element name="CONTACT_NAME" value="CONTACT_NAME"/>
+              </group>								  
+			  <group name="G_PAYMENTS" source="Q_PAYMENTS">
+				<element name="PMT_INVOICE_NUMBER" value="PMT_INVOICE_NUMBER"/>
+				<element name="PMT_TRX_DATE" value="PMT_TRX_DATE"/>
+				<element name="PMT_TRANSACTION" value="PMT_TRANSACTION"/>
+				<element name="PMT_DUE_DATE" value="PMT_DUE_DATE"/>
+				<element name="PMT_TRX_AMOUNT" value="PMT_TRX_AMOUNT"/>
+			    <element name="PMT_AMOUNT_DUE" value="PMT_AMOUNT_DUE"/>
+              </group>				
+              <group name="G_LINE_CLUSTER" source="Q_LINE_CLUSTER">
+			    <element name="SITE_USE_ID" value="SITE_USE_ID"/>
+				<element name="INVOICE_NUMBER" value="INVOICE_NUMBER"/>
+				<element name="TRX_DATE" value="TRX_DATE"/>
+				<element name="TRANSACTION" value="TRANSACTION"/>
+				<element name="DUE_DATE" value="DUE_DATE"/>
+				<element name="TRX_AMOUNT" value="TRX_AMOUNT"/>
+			    <element name="AMOUNT_DUE" value="AMOUNT_DUE"/>
+				<element name="INV_MSN" value="INV_MSN"/>
+				<element name='INV_TRX_TYPE' value="INV_TRX_TYPE"/>
+              </group>
+			  <group name="G_FUTURE" source="Q_FUTURE">
+			    <element name="FUT_CURRENCY" value="FUT_CURRENCY"/>
+				<group name="G_FUTURE_LINE" source="Q_FUTURE">
+					<element name="FUT_PS_ID" value="FUT_PS_ID"/>
+					<element name="FUT_TRX_DATE" value="FUT_TRX_DATE"/>
+					<element name="FUT_TRX_NUM" value="FUT_TRX_NUM"/>
+					<element name="FUT_DUE_DATE" value="FUT_DUE_DATE"/>
+					<element name="FUT_AMT_DUE_ORIG" value="FUT_AMT_DUE_ORIG"/>
+					<element name="FUT_AMT_DUE_REMAIN" value="FUT_AMT_DUE_REMAIN"/>
+					<element name="FUT_TRX_TYPE" value="FUT_TRX_TYPE"/>
+					<element name="FUT_MSN" value="FUT_MSN"/>
+					<element name="FUT_TRANSACTION_CODE" value="FUT_TRANSACTION_CODE"/>
+				</group>
+              </group>
+			</group>
+		</group>
+	</dataStructure>
+	<dataTrigger name="AfterReport" source="AR_CUST_BAL_RPT_PKG.AfterReport"/>
+</dataTemplate>

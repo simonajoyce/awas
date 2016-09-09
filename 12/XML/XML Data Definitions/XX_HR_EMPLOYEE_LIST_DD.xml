@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- $Header: XX_HR_EMPLOYEE_LIST_DD.xml 2014/08/13 12:56:20 sjoyce noship $-->
+<dataTemplate name="XX_HR_EMPLOYEE_LIST_DD" defaultPackage="XX_HR_EMPLOYEE_LIST_PKG" version="1.0">
+<properties>
+<property name="debug_mode" value="on" />
+<property name="xml_tag_case" value="upper" />
+<property name="include_parameters" value="true" />
+</properties>
+<dataQuery>
+<sqlStatement name="Q_MAIN">
+<![CDATA[select d.person_id, 
+				first_name, 
+				last_name, 
+				d.status employee_status,
+				a.assignment_id,  
+				A.STATUS assignment_Status,
+            a.start_Date, 
+			a.end_Date,
+            a.office,
+            a.department,
+            a.job_title,
+            a.employee_type,
+             A.LINE_MANAGER,
+             u.description entered_by
+      from XX_EMPLOYEE_DETAILS d,
+      XX_EMPLOYEE_ASSIGNMENTS a,
+      fnd_user u
+      where A.PERSON_ID = D.PERSON_ID
+      and A.ASSIGNMENT_ID = (select max(assignment_id) from XX_EMPLOYEE_ASSIGNMENTS where person_id = d.person_id)
+      and a.created_by = u.user_id
+      order by d.status,d.last_name
+]]>
+</sqlStatement>
+</dataQuery>
+<dataStructure>
+<group name="G_MAIN" source="Q_MAIN">
+<element name="PERSON_ID"                     value="PERSON_ID"/>
+<element name="FIRST_NAME"            				value="FIRST_NAME"/>
+<element name="LAST_NAME"            			value="LAST_NAME"/>
+<element name="EMPLOYEE_STATUS"         			     	value="EMPLOYEE_STATUS"/>
+<element name="ASSIGNMENT_ID"          						value="ASSIGNMENT_ID"/>
+<element name="ASSIGNMENT_STATUS"          				value="ASSIGNMENT_STATUS"/>
+<element name="START_DATE"                  			value="START_DATE"/>
+<element name="END_DATE"           					value="END_DATE"/>
+<element name="OFFICE"            				value="OFFICE"/>
+<element name="DEPARTMENT"            				value="DEPARTMENT"/>
+<element name="JOB_TITLE"            				value="JOB_TITLE"/>
+<element name="EMPLOYEE_TYPE"            				value="EMPLOYEE_TYPE"/>
+<element name="LINE_MANAGER"            				value="LINE_MANAGER"/>
+<element name="ENTERED_BY"            				value="ENTERED_BY"/>
+</group>
+</dataStructure>
+</dataTemplate>

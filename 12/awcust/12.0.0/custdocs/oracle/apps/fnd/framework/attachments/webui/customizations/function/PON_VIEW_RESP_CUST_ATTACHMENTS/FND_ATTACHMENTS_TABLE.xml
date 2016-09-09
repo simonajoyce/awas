@@ -1,0 +1,6 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="" xml:lang="en-US" customizes="/oracle/apps/fnd/framework/attachments/webui/FND_ATTACHMENTS_TABLE" blockSize="10" package="/oracle/apps/fnd/framework/attachments/webui/customizations/function/PON_VIEW_RESP_CUST_ATTACHMENTS" file-version="$Header: FND_ATTACHMENTS_TABLE.xml 120.0 2006/03/19 22:04:32 ppaulsam noship $">
+   <modifications>
+      <modify element="LastUpdatedBy" rendered="false"/>
+   </modifications>
+</customization>

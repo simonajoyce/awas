@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/ar/hz/components/contact/webui/HzPuiContactDetails" file-version="$Header: HzPuiContactDetails.xml 120.3 2005/10/06 19:39 smundhra noship $" package="/oracle/apps/ar/hz/components/contact/webui/customizations/function/ASN_CTCTUPDATEPG">
+   <modifications xmlns="http://xmlns.oracle.com/jrad">
+      <modify element="PersonPartyName" rendered="false"/>
+      <modify element="KnownAs" rendered="false"/>
+      <modify element="RelatedOrganization" prompt="Customer"/>
+      <modify element="Department" rendered="false"/>
+      <modify element="JobTitle" rendered="false"/>
+      <modify element="RelationshipRole" rendered="false"/>
+   </modifications>
+</customization>

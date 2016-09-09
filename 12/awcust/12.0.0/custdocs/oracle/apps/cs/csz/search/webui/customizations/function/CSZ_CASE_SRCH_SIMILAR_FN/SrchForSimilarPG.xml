@@ -1,0 +1,9 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/cs/csz/search/webui/SrchForSimilarPG" package="/oracle/apps/cs/csz/search/webui/customizations/function/CSZ_CASE_SRCH_SIMILAR_FN" file-version="$Header: SrchForSimilarPG.xml 120.2 2005/10/05 18:53 ujagarla noship $">
+   <modifications>
+      <modify element="LeftSingleColumnRN" text="Case Criteria"/>
+      <modify element="LinkedSwitcher" prompt="Linked to Case"/>
+      <modify element="productRadioGroup" rendered="false"/>
+      <modify element="customerCheckBox" rendered="false"/>
+   </modifications>
+</customization>

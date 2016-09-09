@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xapi:requestset xmlns:xapi="http://xmlns.oracle.com/oxp/xapi">
+    <xapi:globalData location="stream"/>
+	<xapi:request select="/XX_AR_CUST_STMTS_DD/LIST_G_RISK_COUNTERPARTY/G_RISK_COUNTERPARTY">
+        <xapi:delivery>
+            <xapi:filesystem id="file1" output="/arstatements/${RCP_ID}.pdf"/>
+        </xapi:delivery>
+		<xapi:document key="${RISK_COUNTERPARTY}-${FILE_DATE}"
+            output-type="pdf" delivery="456">
+			<xapi:template type="rtf"
+                location="xdo://AWCUST.XX_AR_CUST_STMTS.en.00/?getSource=true" filter=""/>
+        </xapi:document>
+	</xapi:request>
+</xapi:requestset>

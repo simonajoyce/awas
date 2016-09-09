@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/per/selfservice/newhire/webui/CreatSrchNewHrPG" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: CreatSrchNewHrPG.xml 115.1 2003/02/13 12:19:01 jcolman noship $" version="9.0.3.6.2_398" xml:lang="en-US" package="/oracle/apps/per/customizations/localization/CA/selfservice/newhire/webui">
+   <modifications>
+      <modify element="HireNationalIdentifier" tipMessageName="" prompt="Social Insurance Number"/>
+      <modify element="HireLastName" required="no" tipMessageName=""/>
+      <modify element="HireHireDate" required="no" tipMessageName=""/>
+      <modify element="HireFirstName" tipMessageName=""/>
+      <modify element="HireDateOfBirth" tipMessageName=""/>
+      <modify element="HireBusinessGroup" required="no" tipMessageName=""/>
+      <move element="HireLegislationCode" after="HireBusinessGroupId"/>
+      <move element="HireBusinessGroup" after="HireLegislationCode"/>
+      <move element="HireLastName" after="HireBusinessGroup"/>
+      <move element="HireFirstName" after="HireLastName"/>
+      <move element="HireDateOfBirth" after="HireFirstName"/>
+      <move element="HireNationalIdentifier" after="HireDateOfBirth"/>
+      <move element="HireHireDate" after="HireNationalIdentifier"/>
+   </modifications>
+</customization>

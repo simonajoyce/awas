@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- $Header: XX_SALMON_STATIC_DATA_DD.xml 2014/07/18 12:56:20 sjoyce noship $-->
+<dataTemplate name="XX_SALMON_STATIC_DATA" defaultPackage="XX_SALMON_STATIC_DATA_REP_PKG" version="1.0">
+<properties>
+<property name="debug_mode" value="on" />
+<property name="xml_tag_case" value="upper" />
+</properties>
+<dataQuery>
+<sqlStatement name="Q_COST_CENTRES">
+<![CDATA[select f.flex_value, substr(t.description,1,59) description
+from fnd_flex_values f,
+fnd_flex_values_tl t
+where f.flex_value_id = t.FLEX_VALUE_ID
+and f.flex_value_set_id = 1009475 
+and summary_flag = 'N'
+and f.flex_value <> '0000'
+]]>
+</sqlStatement>
+<sqlStatement name="Q_COUNTERPARTIES">
+<![CDATA[select substr(nvl(EFT_SWIFT_CODE,nvl(BRANCH_NUMBER,bank_branch_name)),1,23) shortname,
+substr(bank_name,1,59) longname,
+null DealingPlatformName,
+substr(BRANCH_NUMBER,1,12) SortCode,
+EFT_SWIFT_CODE SwiftCode,
+address_line1 addressline1,
+address_line2 addressline2,
+address_line3 addressline3,
+address_line4 addressline4,
+city addressline5,
+state addressline6,
+province addressline7,
+zip addressline8,
+null telephone,
+null fax,
+null email,
+country
+from CE_BANK_BRANCHES_V x
+where bank_branch_name not in ('PAYABLES USE ONLY','CITIBANK-PREFORMATS','PAYABLES USER ONLY','PAYALBES USE ONLY')
+and bank_name not like 'XXX%'
+and bank_name not in ('PAYABLES USE ONLY','CITIBANK-PREFORMATS')
+and sysdate between start_date and nvl(end_date,sysdate)
+]]>
+</sqlStatement>
+<sqlStatement name="Q_BANK_ACCOUNTS">
+<![CDATA[select g.segment3 ShortName,
+fft.description LongName,
+a.currency_code Currency,
+a.bank_account_num AccountNumber,
+a.IBAN_NUMBER IBAN,
+fft1.description BANK_ACCOUNT_NAME,
+'Internal' InternalExternal,
+g.segment1 PrimaryDivision,
+nvl(bb.EFT_SWIFT_CODE,nvl(bb.BRANCH_NUMBER,bb.bank_branch_name)) Counterparty,
+null SecondaryDivision,
+g.segment2 GLCode,
+null Contact,
+g.segment4 MSN,
+g.segment3 COST_CENTRE,
+a.END_DATE
+from CE_BANK_ACCOUNTS a, 
+ce_banks_v b,
+gl_code_combinations g,
+   fnd_flex_values ffv,
+     fnd_flex_values_tl fft,
+     fnd_flex_values ffv1,
+     fnd_flex_values_tl fft1,
+     CE_BANK_BRANCHES_V  bb
+where b.bank_party_id = a.BANK_ID
+and a.BANK_BRANCH_ID = bb.BRANCH_PARTY_ID
+and a.ASSET_CODE_COMBINATION_ID = g.CODE_COMBINATION_ID
+and ffv.flex_value_set_id = 1009475
+and ffv.flex_value_id = fft.flex_value_id
+AND FFV.FLEX_VALUE = g.SEGMENT3
+and ffv1.flex_value_set_id = 1009472
+and ffv1.flex_value_id = fft1.flex_value_id
+AND FFV1.FLEX_VALUE = g.SEGMENT1
+and b.end_date is null
+and a.BANK_ACCOUNT_NUM not like 'OLD%'
+and a.BANK_ACCOUNT_NUM not like 'X%'
+and a.BANK_ACCOUNT_NUM not like '%.'
+and g.segment3 <> '0000'
+order by 1
+]]>
+</sqlStatement>
+</dataQuery>
+<dataStructure>
+<group name="CostCentres" source="Q_COST_CENTRES">
+<element name="CC_FLEX_VALUE"                     value="FLEX_VALUE"/>
+<element name="CC_DESCRIPTION"                    value="DESCRIPTION"/>
+</group>
+<group name="Counterparties" source="Q_COUNTERPARTIES">
+<element name="CP_SHORTNAME"              value="SHORTNAME"/>
+<element name="CP_LONGNAME"          		value="LONGNAME"/>
+<element name="CP_DealingPlatformName"          value="DealingPlatformName"/>
+<element name="CP_SortCode"                  value="SORTCODE"/>
+<element name="CP_SWIFTCODE"           value="SWIFTCODE"/>
+<element name="CP_addressline1"            value="addressline1"/>
+<element name="CP_addressline2"            value="addressline2"/>
+<element name="CP_addressline3"            value="addressline3"/>
+<element name="CP_addressline4"            value="addressline4"/>
+<element name="CP_addressline5"            value="addressline5"/>
+<element name="CP_addressline6"            value="addressline6"/>
+<element name="CP_addressline7"            value="addressline7"/>
+<element name="CP_addressline8"            value="addressline8"/>
+<element name="CP_telephone"            value="telephone"/>
+<element name="CP_fax"            value="fax"/>
+<element name="CP_email"            value="email"/>
+<element name="CP_country"            value="country"/>
+</group>
+<group name="BankAccounts" source="Q_BANK_ACCOUNTS">
+<element name="BA_SHORTNAME"              	value="SHORTNAME"/>
+<element name="BA_LONGNAME"          	 	value="LONGNAME"/>
+<element name="BA_CURRENCY"              	value="CURRENCY"/>
+<element name="BA_ACCOUNTNUMBER"          	value="ACCOUNTNUMBER"/>
+<element name="BA_IBAN"          			value="IBAN"/>
+<element name="BA_INTERNALEXTERNAL"         value="INTERNALEXTERNAL"/>
+<element name="BA_PRIMARYDIVISION"          value="PRIMARYDIVISION"/>
+<element name="BA_COUNTERPARTY"          	value="COUNTERPARTY"/>
+<element name="BA_SECONDARYDIVISION"        value="SECONDARYDIVISION"/>
+<element name="BA_BANK_ACCOUNT_NAME"         value="BANK_ACCOUNT_NAME"/>
+<element name="BA_GLCODE"          			value="GLCODE"/>
+<element name="BA_CONTACT"          		value="CONTACT"/>
+<element name="BA_MSN"          			value="MSN"/>
+<element name="BA_COST_CENTRE"          	value="COST_CENTRE"/>
+<element name="BA_END_DATE"          		value="END_DATE"/>
+</group>
+</dataStructure>
+<!--<dataTrigger name="afterReportTrigger" source="XXSAMPLE_REP_PKG.email_report"/>-->
+</dataTemplate>

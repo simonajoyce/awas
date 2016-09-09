@@ -1,0 +1,32 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/irc/candidateSearch/webui/CmPersonSrchQueryRN" developerMode="true" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header$" version="9.0.3.8.12_1271" xml:lang="en-US">
+   <modifications>
+      <modify element="PersonResultsTable" blockSize="25"/>
+      <modify element="FndPostalCode____1" sortState="no" rendered="false"/>
+      <modify element="FndLogin____1" rendered="false" sortState="no"/>
+      <modify element="FndSelectCheckbox" sortState="no"/>
+      <modify element="FndCandidateName____1" sortState="no"/>
+      <modify element="FndFirstName____1" rendered="false" sortState="no"/>
+      <modify element="FndLastName____1" rendered="false" sortState="no"/>
+      <modify element="FndEmail____1" sortState="no"/>
+      <modify element="FndLocation____1" sortState="no"/>
+      <modify element="FndHomePhone____1" sortState="no"/>
+      <modify element="FndLastApplication" sortState="no"/>
+      <modify element="FndJobsAppliedFor" sortState="no"/>
+      <modify element="FndBirthDate" rendered="false" sortState="no"/>
+      <modify element="FndAddressLine1" rendered="false" sortState="no"/>
+      <modify element="FndCurrentEmployer" rendered="false" sortState="no"/>
+      <modify element="FndEmployeeType" rendered="false" sortState="no"/>
+      <modify element="FndApplicantType" rendered="false" sortState="no"/>
+      <modify element="FndQualificationType" rendered="false" sortState="no"/>
+      <modify element="FndExApplications" rendered="false" sortState="no"/>
+      <modify element="FndCandidateName" rendered="false"/>
+      <move element="FndEmail" after="FndLastName"/>
+      <move element="FndFirstName" after="FndEmail"/>
+      <move element="FndLocation" after="FndFirstName"/>
+      <move element="FndLogin" after="FndLocation"/>
+      <move element="FndHomePhone" after="FndLogin"/>
+      <move element="FndPostalCode" after="FndHomePhone"/>
+      <move element="FndCandidateName" after="FndPostalCode"/>
+   </modifications>
+</customization>

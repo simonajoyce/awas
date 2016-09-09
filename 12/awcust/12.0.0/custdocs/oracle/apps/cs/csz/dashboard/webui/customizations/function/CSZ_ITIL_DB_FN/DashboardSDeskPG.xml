@@ -1,0 +1,125 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_27" xml:lang="en-US" customizes="/oracle/apps/cs/csz/dashboard/webui/DashboardSDeskPG" package="/oracle/apps/cs/csz/dashboard/webui/customizations/function/CSZ_ITIL_DB_FN" file-version="$Header: DashboardSDeskPG.xml 120.0.12010000.2 2009/09/10 09:30:10 sanjrao noship $">
+   <modifications>
+      <modify element="xSISearchBinRN.region4" text="Create Ticket"/>
+      <modify element="xAgentQueueRN" text="My Tickets"/>
+      <modify element="xSearchBin1.SrchBinHdrRN" text="Search Ticket"/>
+      <modify element="xGroupQueueRN.GroupTip" tipMessageAppShortName="CS" tipMessageName="CSZ_SR_ASSIGN_TIP_ITIL"/>
+      <modify element="xGroupQueueRN" text="Tickets Assigned To My Groups"/>
+      <modify element="xAgentTaskQueue.CszSumTaskCaseNumber" prompt="Ticket"/>
+      <modify element="xAgentTaskQueue.CszSumTaskCaseSum" prompt="Ticket Summary"/>
+      <modify element="xGroupTaskQueue.CszUnSumTaskCaseNumber" prompt="Ticket"/>
+      <modify element="xGroupTaskQueue.CszUnSumTaskCaseSum" prompt="Ticket Summary"/>
+      <modify element="ServiceRequestsTabLink" text="Tickets"/>
+      <modify element="xAgentQueueRN.DueAction" rendered="false"/>
+      <modify element="xAgentQueueRN.DueDateStr" rendered="false"/>
+      <modify element="xAgentQueueRN.Waitingon" rendered="false"/>
+      <modify element="xAgentQueueRN.Incidenttype" rendered="true"/>
+      <modify element="xAgentQueueRN.Productdescription" rendered="true"/>
+      <modify element="xAgentQueueRN.Contactname" rendered="true"/>
+      <modify element="xGroupQueueRN.DueDateStr" rendered="false"/>
+      <modify element="xGroupQueueRN.Customername" rendered="false"/>
+      <modify element="xGroupQueueRN.Srgroup" rendered="false"/>
+      <modify element="xGroupQueueRN.Incidentstatus" rendered="true"/>
+      <modify element="xGroupQueueRN.Incidenttype" rendered="true"/>
+      <modify element="xGroupQueueRN.Productdescription" rendered="true"/>
+      <modify element="xGroupQueueRN.Contactname" rendered="true"/>
+      <move element="xGroupQueueRN.Summary" after="xGroupQueueRN.Incidentnumber"/>
+      <move element="xGroupQueueRN.Incidentdate" after="xGroupQueueRN.Summary"/>
+      <move element="xGroupQueueRN.Escalated" after="xGroupQueueRN.Incidentdate"/>
+      <move element="xGroupQueueRN.Incidentseverity" after="xGroupQueueRN.Escalated"/>
+      <move element="xGroupQueueRN.DueDateStr" after="xGroupQueueRN.Incidentseverity"/>
+      <move element="xGroupQueueRN.Customername" after="xGroupQueueRN.DueDateStr"/>
+      <move element="xGroupQueueRN.Srgroup" after="xGroupQueueRN.Customername"/>
+      <move element="xGroupQueueRN.DueAction" after="xGroupQueueRN.Srgroup"/>
+      <move element="xGroupQueueRN.Waitingon" after="xGroupQueueRN.DueAction"/>
+      <move element="xGroupQueueRN.Incidentstatus" after="xGroupQueueRN.Waitingon"/>
+      <move element="xGroupQueueRN.Incidenttype" after="xGroupQueueRN.Incidentstatus"/>
+      <move element="xGroupQueueRN.Incidenturgency" after="xGroupQueueRN.Incidenttype"/>
+      <move element="xGroupQueueRN.Problemcode" after="xGroupQueueRN.Incidenturgency"/>
+      <move element="xGroupQueueRN.Resolutioncode" after="xGroupQueueRN.Problemcode"/>
+      <move element="xGroupQueueRN.Timezonename" after="xGroupQueueRN.Resolutioncode"/>
+      <move element="xGroupQueueRN.Accountnumber" after="xGroupQueueRN.Timezonename"/>
+      <move element="xGroupQueueRN.Product" after="xGroupQueueRN.Accountnumber"/>
+      <move element="xGroupQueueRN.Productdescription" after="xGroupQueueRN.Product"/>
+      <move element="xGroupQueueRN.Creationdate" after="xGroupQueueRN.Productdescription"/>
+      <move element="xGroupQueueRN.Expectedreactiondate" after="xGroupQueueRN.Creationdate"/>
+      <move element="xGroupQueueRN.Expectedresolutiondate" after="xGroupQueueRN.Expectedreactiondate"/>
+      <move element="xGroupQueueRN.Datefirstreacted" after="xGroupQueueRN.Expectedresolutiondate"/>
+      <move element="xGroupQueueRN.DueDate" after="xGroupQueueRN.Datefirstreacted"/>
+      <move element="xGroupQueueRN.Customerphone" after="xGroupQueueRN.DueDate"/>
+      <move element="xGroupQueueRN.Customeremail" after="xGroupQueueRN.Customerphone"/>
+      <move element="xGroupQueueRN.ContractName" after="xGroupQueueRN.Customeremail"/>
+      <move element="xGroupQueueRN.CoverageName" after="xGroupQueueRN.ContractName"/>
+      <move element="xGroupQueueRN.CoverageDescription" after="xGroupQueueRN.CoverageName"/>
+      <move element="xGroupQueueRN.Contactname" after="xGroupQueueRN.CoverageDescription"/>
+      <move element="xGroupQueueRN.SrJeopardy" after="xGroupQueueRN.Contactname"/>
+      <move element="xGroupQueueRN.LateSr" after="xGroupQueueRN.SrJeopardy"/>
+      <move element="xGroupQueueRN.Resolutionsummary" after="xGroupQueueRN.LateSr"/>
+      <move element="xGroupQueueRN.Contacttype" after="xGroupQueueRN.Resolutionsummary"/>
+      <move element="xGroupQueueRN.Srcreationchannel" after="xGroupQueueRN.Contacttype"/>
+      <move element="xGroupQueueRN.Createdby" after="xGroupQueueRN.Srcreationchannel"/>
+      <move element="xGroupQueueRN.Lastupdatedate" after="xGroupQueueRN.Createdby"/>
+      <move element="xGroupQueueRN.Publishflag" after="xGroupQueueRN.Lastupdatedate"/>
+      <move element="xGroupQueueRN.Customernumber" after="xGroupQueueRN.Publishflag"/>
+      <move element="xGroupQueueRN.Srownerid" after="xGroupQueueRN.Customernumber"/>
+      <move element="xGroupQueueRN.Srgroupid" after="xGroupQueueRN.Srownerid"/>
+      <move element="xGroupQueueRN.Incidentid" after="xGroupQueueRN.Srgroupid"/>
+      <move element="xGroupQueueRN.Resolutioncodedesc" after="xGroupQueueRN.Incidentid"/>
+      <move element="xGroupQueueRN.Problemcodedesc" after="xGroupQueueRN.Resolutioncodedesc"/>
+      <move element="xGroupQueueRN.Dateresolved" after="xGroupQueueRN.Problemcodedesc"/>
+      <move element="xGroupQueueRN.MaintOrg" after="xGroupQueueRN.Dateresolved"/>
+      <move element="xGroupQueueRN.AssignIcon" after="xGroupQueueRN.MaintOrg"/>
+      <modify element="QuickLinksStackIRN.QuickLinkxTLRN.NotificationLinkRL" rendered="false"/>
+      <modify element="xAgentQueueRN.Incidentseverity" prompt="Priority"/>
+      <modify element="xGroupQueueRN.Incidentseverity" prompt="Priority"/>
+      <modify element="xAgentQueueRN.Incidentdate" prompt="Ticket Date" rendered="true"/>
+      <modify element="xGroupQueueRN.Incidentdate" prompt="Ticket Date" rendered="true"/>
+      <move element="xAgentQueueRN.Summary" after="xAgentQueueRN.Incidentnumber"/>
+      <move element="xAgentQueueRN.Incidentdate" after="xAgentQueueRN.Summary"/>
+      <move element="xAgentQueueRN.Escalated" after="xAgentQueueRN.Incidentdate"/>
+      <move element="xAgentQueueRN.Incidentseverity" after="xAgentQueueRN.Escalated"/>
+      <move element="xAgentQueueRN.DueAction" after="xAgentQueueRN.Incidentseverity"/>
+      <move element="xAgentQueueRN.DueDateStr" after="xAgentQueueRN.DueAction"/>
+      <move element="xAgentQueueRN.Incidentstatus" after="xAgentQueueRN.DueDateStr"/>
+      <move element="xAgentQueueRN.Waitingon" after="xAgentQueueRN.Incidentstatus"/>
+      <move element="xAgentQueueRN.Incidenttype" after="xAgentQueueRN.Waitingon"/>
+      <move element="xAgentQueueRN.Incidenturgency" after="xAgentQueueRN.Incidenttype"/>
+      <move element="xAgentQueueRN.Srgroup" after="xAgentQueueRN.Incidenturgency"/>
+      <move element="xAgentQueueRN.Problemcode" after="xAgentQueueRN.Srgroup"/>
+      <move element="xAgentQueueRN.Resolutioncode" after="xAgentQueueRN.Problemcode"/>
+      <move element="xAgentQueueRN.Timezonename" after="xAgentQueueRN.Resolutioncode"/>
+      <move element="xAgentQueueRN.Customername" after="xAgentQueueRN.Timezonename"/>
+      <move element="xAgentQueueRN.Accountnumber" after="xAgentQueueRN.Customername"/>
+      <move element="xAgentQueueRN.Product" after="xAgentQueueRN.Accountnumber"/>
+      <move element="xAgentQueueRN.Productdescription" after="xAgentQueueRN.Product"/>
+      <move element="xAgentQueueRN.Creationdate" after="xAgentQueueRN.Productdescription"/>
+      <move element="xAgentQueueRN.Expectedreactiondate" after="xAgentQueueRN.Creationdate"/>
+      <move element="xAgentQueueRN.Expectedresolutiondate" after="xAgentQueueRN.Expectedreactiondate"/>
+      <move element="xAgentQueueRN.Datefirstreacted" after="xAgentQueueRN.Expectedresolutiondate"/>
+      <move element="xAgentQueueRN.DueDate" after="xAgentQueueRN.Datefirstreacted"/>
+      <move element="xAgentQueueRN.Customerphone" after="xAgentQueueRN.DueDate"/>
+      <move element="xAgentQueueRN.Customeremail" after="xAgentQueueRN.Customerphone"/>
+      <move element="xAgentQueueRN.ContractName" after="xAgentQueueRN.Customeremail"/>
+      <move element="xAgentQueueRN.CoverageName" after="xAgentQueueRN.ContractName"/>
+      <move element="xAgentQueueRN.CoverageDescription" after="xAgentQueueRN.CoverageName"/>
+      <move element="xAgentQueueRN.Contactname" after="xAgentQueueRN.CoverageDescription"/>
+      <move element="xAgentQueueRN.SrJeopardy" after="xAgentQueueRN.Contactname"/>
+      <move element="xAgentQueueRN.LateSr" after="xAgentQueueRN.SrJeopardy"/>
+      <move element="xAgentQueueRN.Resolutionsummary" after="xAgentQueueRN.LateSr"/>
+      <move element="xAgentQueueRN.Contacttype" after="xAgentQueueRN.Resolutionsummary"/>
+      <move element="xAgentQueueRN.Srcreationchannel" after="xAgentQueueRN.Contacttype"/>
+      <move element="xAgentQueueRN.Createdby" after="xAgentQueueRN.Srcreationchannel"/>
+      <move element="xAgentQueueRN.Lastupdatedate" after="xAgentQueueRN.Createdby"/>
+      <move element="xAgentQueueRN.Publishflag" after="xAgentQueueRN.Lastupdatedate"/>
+      <move element="xAgentQueueRN.Customernumber" after="xAgentQueueRN.Publishflag"/>
+      <move element="xAgentQueueRN.UpdateIcon" after="xAgentQueueRN.Customernumber"/>
+      <move element="xAgentQueueRN.Srowner" after="xAgentQueueRN.UpdateIcon"/>
+      <move element="xAgentQueueRN.Incidentid" after="xAgentQueueRN.Srowner"/>
+      <move element="xAgentQueueRN.Dateresolved" after="xAgentQueueRN.Incidentid"/>
+      <move element="xAgentQueueRN.Resolutioncodedesc" after="xAgentQueueRN.Dateresolved"/>
+      <move element="xAgentQueueRN.Problemcodedesc" after="xAgentQueueRN.Resolutioncodedesc"/>
+      <move element="xAgentQueueRN.MaintOrg" after="xAgentQueueRN.Problemcodedesc"/>
+      <modify element="xGroupTaskQueue" text="Tasks Assigned to My Groups"/>
+   </modifications>
+</customization>

@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/per/selfservice/personalinformation/webui/ContactsMainPG" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: ContactsMainPG.xml 115.1 2003/02/13 12:31:58 jcolman noship $" version="9.0.3.6.2_398" xml:lang="en-US" package="/oracle/apps/per/customizations/localization/FR/selfservice/personalinformation/webui">
+   <modifications>
+      <modify element="HrSocialSecurity" prompt="National Identifier"/>
+      <modify element="HrRegisteredDisabled" rendered="true" prompt="Disability Status"/>
+      <modify element="HrMaritalStatus" rendered="true"/>
+      <move element="HrDateOfBirth" after="HrGender"/>
+      <move element="HrStartRelationReason" after="HrDateOfBirth"/>
+      <move element="HrMaritalStatus" after="HrStartRelationReason"/>
+      <move element="HrStudentStatus" after="HrMaritalStatus"/>
+      <move element="HrRegisteredDisabled" after="HrStudentStatus"/>
+      <move element="HrDependentAdoptionDate" after="HrRegisteredDisabled"/>
+      <move element="HrSocialSecurity" after="HrDependentAdoptionDate"/>
+      <move element="HrUsesTobacco" after="HrSocialSecurity"/>
+      <move element="HrDeathDate" after="HrUsesTobacco"/>
+      <move element="HrMilitaryService" after="HrDeathDate"/>
+      <move element="HrVoluntaryService" after="HrMilitaryService"/>
+      <move element="HrContactRelationStartDate" after="HrVoluntaryService"/>
+   </modifications>
+</customization>

@@ -1,0 +1,30 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.6.6_557" xml:lang="en-US" customizes="/oracle/apps/per/irc/candidateSelfService/webui/AplEducationTblRN" developerMode="true" blockSize="5" package="/oracle/apps/per/customizations/function/IRC_APL_RESUME_REVIEW_PAGE/irc/candidateSelfService/webui" file-version="$Header: AplEducationTblRN.xml 115.1 2003/08/20 07:13:02 pzwalker noship $" controllerClass="oracle.apps.per.irc.common.webui.InsertableTableCO">
+   <modifications>
+      <move element="ShowLocation" after="ShowEstablishment"/>
+      <move element="StartDate" after="ShowLocation"/>
+      <move element="EndDate" after="StartDate"/>
+      <move element="IrcFlexField3" after="EndDate"/>
+      <move element="ShowQualification" after="IrcFlexField3"/>
+      <move element="Delete" after="ShowQualification"/>
+      <move element="FndAdditionalDetails" after="Delete"/>
+      <move element="AddAnotherRow" after="FndAdditionalDetails"/>
+      <move element="FullTime" after="AddAnotherRow"/>
+      <move element="AttendanceLastUpdateDate" after="FullTime"/>
+      <move element="Establishment" after="AttendanceLastUpdateDate"/>
+      <move element="Location" after="Establishment"/>
+      <modify element="StartDate" rendered="true" sortState="no"/>
+      <modify element="ShowQualification" rendered="true" sortState="no"/>
+      <modify element="ShowLocation" rendered="true" sortState="no"/>
+      <modify element="ShowEstablishment" rendered="true" sortState="no"/>
+      <modify element="Location" rendered="false" sortState="no"/>
+      <modify element="FullTime" rendered="false" sortState="no"/>
+      <modify element="Establishment" rendered="false" sortState="no"/>
+      <modify element="Delete" rendered="true" sortState="no"/>
+      <modify element="AttendanceLastUpdateDate" rendered="false" sortState="no"/>
+      <modify element="EndDate" rendered="true" sortState="no"/>
+      <modify element="AddAnotherRow" rendered="true"/>
+      <modify element="FndAdditionalDetails" rendered="true" sortState="no"/>
+      <modify element="IrcFlexField3" segmentList=""/>
+   </modifications>
+</customization>

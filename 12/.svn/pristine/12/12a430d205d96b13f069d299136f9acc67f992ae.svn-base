@@ -1,0 +1,10 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.89_562" xml:lang="en-US" customizes="/oracle/apps/icx/por/req/webui/CheckoutSummaryPG" xmlns:user="http://xmlns.oracle.com/jrad/user" user:responsibilityKey="is_self_service_purchasing_5" user:responsibilityAppId="20003" user:responsibilityAppShortName="AWCUST">
+   <modifications>
+      <modify element="ProjectOnSummary" rendered="true"/>
+      <modify element="ProjectMultiple" rendered="true"/>
+      <modify element="Task" rendered="true"/>
+      <modify element="ExpenditureType" rendered="true"/>
+      <modify element="ReqHeaderDFF" rendered="false"/>
+   </modifications>
+</customization>

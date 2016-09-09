@@ -1,0 +1,49 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/ar/cusstd/createcus/webui/ArCreCusPG" developerMode="true" file-version="$Header: ArCreCusPG.xml 120.0 2005/10/14 16:47:31 arnkumar noship $" package="/oracle/apps/ar/cusstd/createcus/webui/customizations/function/AR_CRE_CUS">
+   <modifications xmlns="http://xmlns.oracle.com/jrad">
+      <modify element="person.LastNameTip" rendered="false"/>
+      <modify element="person.EmailAddress" rendered="false"/>
+      <modify element="person.PerPhoneCountryCode" rendered="false"/>
+      <modify element="person.PhoneAreaCode" rendered="false"/>
+      <modify element="person.PhoneNumber" rendered="false"/>
+      <modify element="person.PhoneExtension" rendered="false"/>
+      <modify element="person.MobilePhoneCountryCode" rendered="false"/>
+      <modify element="person.MobileAreaCode" rendered="false"/>
+      <modify element="person.MobileNumber" rendered="false"/>
+      <modify element="person.FaxPhoneCountryCode" rendered="false"/>
+      <modify element="person.FaxAreaCode" rendered="false"/>
+      <modify element="person.FaxNumber" rendered="false"/>
+      <modify element="person.Organization" rendered="false"/>
+      <modify element="person.JobTitle" rendered="false"/>
+      <modify element="person.OrgPartyNumber" rendered="false"/>
+      <modify element="organization.alias" prompt="Alternate Name"/>
+      <modify element="organization.org_name_pronunciation" rendered="false"/>
+      <modify element="organization.duns_number" rendered="false"/>
+      <modify element="organization.OrgPhoneCountryCode" rendered="false"/>
+      <modify element="organization.PhoneAreaCode" rendered="false"/>
+      <modify element="organization.PhoneNumber" rendered="false"/>
+      <modify element="organization.OrgPhoneExtension" rendered="false"/>
+      <modify element="organization.OrgFaxCountryCode" rendered="false"/>
+      <modify element="organization.FaxAreaCode" rendered="false"/>
+      <modify element="organization.FaxNumber" rendered="false"/>
+      <modify element="organization.url" rendered="false"/>
+      <modify element="AccountInfo.ProfClass" rendered="true"/>
+      <modify element="AccountInfo.Classification" rendered="false"/>
+      <modify element="AccountInfo.SalesChan" rendered="false"/>
+      <modify element="AccountInfo.ActStatus" rendered="false"/>
+      <modify element="addressRN.AcctSItePurposes.SiteUseDeleteCol" rendered="false"/>
+      <modify element="addressRN.AcctSItePurposes.SiteUseRestoreCol" rendered="false"/>
+      <modify element="addressRN.AddressLocationSite.hzPartySiteNumber" rendered="false"/>
+      <modify element="addressRN.AddressLocationSite.hzAddressee" rendered="false"/>
+      <modify element="addressRN.AcctSiteDtail.AcctSiteTerr" rendered="false"/>
+      <modify element="addressRN.AcctSiteDtail.AcctSiteCC" rendered="false"/>
+      <modify element="addressRN.AcctSiteDtail.AcctSiteTranslation" rendered="false"/>
+      <modify element="addressRN.AcctSiteDtail.AcctSiteEdiLocation" rendered="false"/>
+      <modify element="addressRN.AcctSiteDtail.AcctSiteReference" rendered="false"/>
+      <modify element="addressRN.AcctSiteDtail.AcctSiteStatus" rendered="false"/>
+      <modify element="addressRN.AcctSItePurposes.BizPurposeHeader" rendered="false"/>
+      <modify element="addressRN.AcctSItePurposes.AcctSiteUseStatus" rendered="false"/>
+      <modify element="addressRN.AddressLocationSite.hzPurposeHeader" rendered="false"/>
+      <modify element="dummyRN" rendered="false"/>
+   </modifications>
+</customization>

@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_50" xml:lang="en-US" customizes="/oracle/apps/ar/hz/components/account/site/webui/HzPuiAcctSitesView" xmlns:user="http://xmlns.oracle.com/jrad/user" user:responsibilityKey="receivables_su_awas" user:responsibilityAppShortName="AR">
+   <modifications>
+      <move element="SiteAddressCol" after="SitePartySiteNumCol"/>
+      <move element="SiteSourceCol" after="SiteAddressCol"/>
+      <move element="SiteMialStopCol" after="SiteSourceCol"/>
+      <move element="SiteCountryCol" after="SiteMialStopCol"/>
+      <move element="SitePurposesCol" after="SiteCountryCol"/>
+      <move element="SiteOUCol" after="SitePurposesCol"/>
+      <move element="SitePartySiteNameCol" after="SiteOUCol"/>
+      <move element="SiteAddressLinePhoneticCol" after="SitePartySiteNameCol"/>
+      <move element="SiteIdentifyingCol" after="SiteAddressLinePhoneticCol"/>
+      <move element="SiteMapCol" after="SiteIdentifyingCol"/>
+      <move element="SiteContactsCol" after="SiteMapCol"/>
+      <move element="SiteStatusMeaningCol" after="SiteContactsCol"/>
+      <move element="SiteViewCol" after="SiteStatusMeaningCol"/>
+      <move element="SiteUpdateCol" after="SiteViewCol"/>
+      <move element="SiteDeleteCol" after="SiteUpdateCol"/>
+      <move element="SiteRestoreCol" after="SiteDeleteCol"/>
+      <modify element="SitePartySiteNameCol" rendered="true"/>
+   </modifications>
+</customization>

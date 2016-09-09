@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/per/irc/candidateSearch/webui/CmReferSCRN" developerMode="true" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: CmReferSCRN.xml 115.3 2003/04/10 08:24:32 mmillmor noship $" version="9.0.3.6.2_398" xml:lang="en-US" package="/oracle/apps/per/customizations/function/IRC_CM_REFER/irc/candidateSearch/webui">
+   <modifications>
+      <modify element="FndRecipientName" rendered="true"/>
+      <modify element="FndMessageText" rendered="true"/>
+      <modify element="FndMessageSubject" rendered="true"/>
+      <modify element="FndMessageName" rendered="true"/>
+      <modify element="FndContinue" rendered="true"/>
+      <modify element="FndCancel" rendered="true"/>
+      <modify element="ExternalRecipientEmail" rendered="false"/>
+      <move element="FndMessageName" after="FndNestedRegion1"/>
+      <move element="FndRecipientName" after="FndMessageName"/>
+      <move element="FndMessageSubject" after="FndRecipientName"/>
+      <move element="FndMessageText" after="FndMessageSubject"/>
+      <move element="FndCancel" after="FndMessageText"/>
+      <move element="FndContinue" after="FndCancel"/>
+      <move element="ExternalRecipientEmail" after="FndContinue"/>
+      <move element="FndEmailAddress" after="ExternalRecipientEmail"/>
+      <move element="FndManagerId" after="FndEmailAddress"/>
+      <move element="FndUserName" after="FndManagerId"/>
+   </modifications>
+</customization>

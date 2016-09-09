@@ -1,0 +1,6 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.8.5_854" xml:lang="en-US" customizes="/oracle/apps/per/selfservice/payments/webui/PaymentsPG" developerMode="false" file-version="$Header: PaymentsPG.xml 115.0 2004/06/04 05:15:52 arashid noship $" package="/oracle/apps/per/customizations/localization/GB/selfservice/payments/webui">
+   <modifications>
+      <modify element="AddDeposit" prompt="Add Bank Payment" text="Add Bank Payment"/>
+   </modifications>
+</customization>

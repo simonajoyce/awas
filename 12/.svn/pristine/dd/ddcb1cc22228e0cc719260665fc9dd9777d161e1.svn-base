@@ -1,0 +1,15 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.61_461" xml:lang="en-US" customizes="/oracle/apps/irc/candidateSelfService/webui/EmpJobSearchPG" file-version="$Header: EmpJobSearchPG.xml 120.5 2005/11/10 08:59 mmillmor noship $" developerMode="true" package="/oracle/apps/irc/candidateSelfService/webui/customizations/function/HR_APPLY_FOR_JOB_SS">
+   <modifications>
+      <modify element="FndSavedSearch" rendered="false"/>
+      <modify element="NestedRegion1.JobSeachButtonBar.jobSearchButtonCell2" rendered="false"/>
+      <modify element="NestedRegion1.Keywords" rendered="false"/>
+      <modify element="NestedRegion1.JobSearchTable.SelectRadioButton" rendered="false"/>
+      <modify element="NestedRegion1.JobSearchTable.JobSrchcolumn5" rendered="false"/>
+      <modify element="NestedRegion1.JobSearchTable.JobSrchcolumn6" rendered="false"/>
+      <modify element="NestedRegion1.JobSearchTable.JobSrchcolumn8" rendered="false"/>
+      <modify element="NestedRegion1.JobSearchTable.JobSrchcolumn12" rendered="false"/>
+      <modify element="NestedRegion1.JobSearchTable.ApplyNow" invokeFunc="HR_APPLY_REVIEW_SS"/>
+      <modify element="NestedRegion1.JobSearchTable.JobName" invokeFunc="HR_APPLY_JOB_DETAILS_SS"/>
+   </modifications>
+</customization>

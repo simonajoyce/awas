@@ -1,0 +1,70 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_21" xml:lang="en-US" customizes="/oracle/apps/ar/hz/components/contact/webui/HzPuiContactComponent" file-version="$Header: HzPuiContactComponent.xml 120.2 2006/09/22 02:25:16 rramacha noship $" package="/oracle/apps/ar/hz/components/contact/webui/customizations/function/ASN_CTCTROPG">
+   <modifications>
+      <modify element="HzPuiShowContactPerson" headerDisabled="true"/>
+      <move element="FullNamePronunciation" after="tip"/>
+      <move element="prefix" after="FullNamePronunciation"/>
+      <move element="Alias" after="prefix"/>
+      <move element="FirstName" after="Alias"/>
+      <move element="JobTitle" after="FirstName"/>
+      <move element="MiddleName" after="JobTitle"/>
+      <move element="Department" after="MiddleName"/>
+      <move element="LastName" after="Department"/>
+      <move element="spacer5" after="LastName"/>
+      <move element="EndDate" after="spacer5"/>
+      <move element="spacer0" after="EndDate"/>
+      <move element="RelationshipRole" after="spacer0"/>
+      <move element="spacer1" after="RelationshipRole"/>
+      <move element="NameInitials" after="spacer1"/>
+      <move element="PreviousLastName" after="NameInitials"/>
+      <move element="Suffix" after="PreviousLastName"/>
+      <move element="spacer3" after="Suffix"/>
+      <move element="JobTitleCode" after="spacer3"/>
+      <move element="DepartmentCode" after="JobTitleCode"/>
+      <move element="StartDate" after="DepartmentCode"/>
+      <move element="spacer4" after="StartDate"/>
+      <move element="Comments" after="spacer4"/>
+      <move element="PreferredContactMethod" after="Comments"/>
+      <move element="spacer6" after="PreferredContactMethod"/>
+      <move element="PartyNumber" after="spacer6"/>
+      <move element="ContactNumber" after="PartyNumber"/>
+      <modify element="tip" rendered="true"/>
+      <modify element="spacer0" rendered="false"/>
+      <modify element="RelationshipRole" rendered="false"/>
+      <modify element="spacer3" rendered="false"/>
+      <modify element="spacer4" rendered="false"/>
+      <modify element="spacer5" rendered="true"/>
+      <modify element="HzPuiHideShowContact" rendered="false"/>
+      <modify element="HzPuiShowContact" rendered="false"/>
+      <modify element="prefix" readOnly="true" styleClass="OraDataText"/>
+      <modify element="FirstName" readOnly="true" styleClass="OraDataText"/>
+      <modify element="NameInitials" readOnly="true" styleClass="OraDataText"/>
+      <modify element="PreviousLastName" readOnly="true" rendered="false" styleClass="OraDataText"/>
+      <modify element="MiddleName" readOnly="true" styleClass="OraDataText"/>
+      <modify element="Alias" prompt="Preferred Name" readOnly="true" styleClass="OraDataText"/>
+      <modify element="LastName" readOnly="true" styleClass="OraDataText"/>
+      <modify element="FullNamePronunciation" readOnly="true" styleClass="OraDataText"/>
+      <modify element="Suffix" readOnly="true" rendered="false" styleClass="OraDataText"/>
+      <modify element="JobTitle" readOnly="true" styleClass="OraDataText"/>
+      <modify element="Department" readOnly="true" styleClass="OraDataText"/>
+      <modify element="JobTitleCode" readOnly="true" rendered="false" styleClass="OraDataText"/>
+      <modify element="DepartmentCode" readOnly="true" rendered="false" styleClass="OraDataText"/>
+      <modify element="PreferredContactMethod" readOnly="true" styleClass="OraDataText"/>
+      <modify element="StartDate" readOnly="true" rendered="false" styleClass="OraDataText"/>
+      <modify element="EndDate" readOnly="true" rendered="false" styleClass="OraDataText"/>
+      <modify element="Comments" readOnly="true" rendered="false" styleClass="OraDataText"/>
+      <modify element="flex" readOnly="true" styleClass="OraDataText"/>
+      <modify element="Title" readOnly="true" styleClass="OraDataText"/>
+      <modify element="AcademicTitle" readOnly="true" styleClass="OraDataText"/>
+      <modify element="Salutation" readOnly="true" styleClass="OraDataText"/>
+      <modify element="Alias2" readOnly="true" styleClass="OraDataText"/>
+      <modify element="Alias3" readOnly="true" styleClass="OraDataText"/>
+      <modify element="FirstNamePronunciation" readOnly="true" styleClass="OraDataText"/>
+      <modify element="Alias4" readOnly="true" styleClass="OraDataText"/>
+      <modify element="MiddleNamePronunciation" readOnly="true" styleClass="OraDataText"/>
+      <modify element="Alias5" readOnly="true" styleClass="OraDataText"/>
+      <modify element="LastNamePronunciation" readOnly="true" styleClass="OraDataText"/>
+      <modify element="Updatable" readOnly="true"/>
+      <modify element="ContactNumber" readOnly="true" rendered="false" styleClass="OraDataText"/>
+   </modifications>
+</customization>

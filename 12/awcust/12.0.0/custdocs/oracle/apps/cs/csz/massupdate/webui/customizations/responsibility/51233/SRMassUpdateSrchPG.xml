@@ -1,0 +1,35 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_35" xml:lang="en-US" customizes="/oracle/apps/cs/csz/massupdate/webui/SRMassUpdateSrchPG" xmlns:user="http://xmlns.oracle.com/jrad/user" user:responsibilityKey="csz_cs_specialist" user:responsibilityAppId="170" file-version="$Header: SRMassUpdateSrchPG.xml 120.0.12010000.5 2009/09/09 12:50:20 mkundali noship $" user:responsibilityAppShortName="CS">
+   <modifications>
+      <modify element="ColumnPropxRN.ColumnPerzRN.Status" rendered="true"/>
+      <modify element="ColumnPropxRN.ColumnPerzRN.OwnerName" rendered="true"/>
+      <modify element="ColumnPropxRN.ColumnPerzRN.GroupName" rendered="true"/>
+      <modify element="ColumnPropxRN.ColumnPerzRN.ProductName" rendered="true"/>
+      <move element="ColumnPropxRN.ColumnPerzRN.RequestType" after="ColumnPropxRN.ColumnPerzRN.SRNumber"/>
+      <move element="ColumnPropxRN.ColumnPerzRN.CustName" after="ColumnPropxRN.ColumnPerzRN.RequestType"/>
+      <move element="ColumnPropxRN.ColumnPerzRN.SumNotesKywd" after="ColumnPropxRN.ColumnPerzRN.CustName"/>
+      <move element="ColumnPropxRN.ColumnPerzRN.Status" after="ColumnPropxRN.ColumnPerzRN.SumNotesKywd"/>
+      <move element="ColumnPropxRN.ColumnPerzRN.CreateDateStart" after="ColumnPropxRN.ColumnPerzRN.Status"/>
+      <move element="ColumnPropxRN.ColumnPerzRN.GroupName" after="ColumnPropxRN.ColumnPerzRN.CreateDateStart"/>
+      <move element="ColumnPropxRN.ColumnPerzRN.OwnerName" after="ColumnPropxRN.ColumnPerzRN.GroupName"/>
+      <move element="ColumnPropxRN.ColumnPerzRN.ProductName" after="ColumnPropxRN.ColumnPerzRN.OwnerName"/>
+      <move element="ColumnPropxRN.ColumnPerzRN.CustContName" after="ColumnPropxRN.ColumnPerzRN.ProductName"/>
+      <move element="ColumnPropxRN.ColumnPerzRN.CustNum" after="ColumnPropxRN.ColumnPerzRN.CustContName"/>
+      <move element="ColumnPropxRN.ColumnPerzRN.Urgency" after="ColumnPropxRN.ColumnPerzRN.CustNum"/>
+      <move element="ColumnPropxRN.ColumnPerzRN.Severity" after="ColumnPropxRN.ColumnPerzRN.Urgency"/>
+      <move element="ColumnPropxRN.ColumnPerzRN.Channel" after="ColumnPropxRN.ColumnPerzRN.Severity"/>
+      <move element="ColumnPropxRN.ColumnPerzRN.InstSerialNum" after="ColumnPropxRN.ColumnPerzRN.Channel"/>
+      <move element="ColumnPropxRN.ColumnPerzRN.InstSysName" after="ColumnPropxRN.ColumnPerzRN.InstSerialNum"/>
+      <move element="ColumnPropxRN.ColumnPerzRN.InstTag" after="ColumnPropxRN.ColumnPerzRN.InstSysName"/>
+      <move element="ColumnPropxRN.ColumnPerzRN.PlatformName" after="ColumnPropxRN.ColumnPerzRN.InstTag"/>
+      <move element="ColumnPropxRN.ColumnPerzRN.ContractNum" after="ColumnPropxRN.ColumnPerzRN.PlatformName"/>
+      <move element="ColumnPropxRN.ColumnPerzRN.CustAcct" after="ColumnPropxRN.ColumnPerzRN.ContractNum"/>
+      <move element="ColumnPropxRN.ColumnPerzRN.ProblemCode" after="ColumnPropxRN.ColumnPerzRN.CustAcct"/>
+      <move element="ColumnPropxRN.ColumnPerzRN.ResolCode" after="ColumnPropxRN.ColumnPerzRN.ProblemCode"/>
+      <move element="ColumnPropxRN.ColumnPerzRN.MaintenanceOrg" after="ColumnPropxRN.ColumnPerzRN.ResolCode"/>
+      <move element="ColumnPropxRN.ColumnPerzRN.PublishFlag" after="ColumnPropxRN.ColumnPerzRN.MaintenanceOrg"/>
+      <move element="ColumnPropxRN.ColumnPerzRN.ResolSummary" after="ColumnPropxRN.ColumnPerzRN.PublishFlag"/>
+      <modify element="ColumnPropxRN.ColumnPerzRN.CreateDateStart" prompt="Incident Date"/>
+      <modify element="ColumnPropxRN.ColumnPerzRN.RequestType" prompt="Type"/>
+   </modifications>
+</customization>

@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_45" xml:lang="en-US" customizes="/oracle/apps/cs/charges/webui/CsChargesSharedRN" developerMode="true" file-version="$Header: CsChargesSharedRN.xml 120.0.12010000.2 2013/01/22 08:59:44 isugavan noship $">
+   <modifications>
+      <modify element="ActualChargesRN.ActualChargeDetailRN.ActLineNumber1" readOnly="true"/>
+      <modify element="ActualChargesRN.ActualChargeDetailRN.viewInstanceBtn" rendered="false"/>
+      <modify element="ActualChargesRN.ActualChargeDetailRN.graphicalViewBtn" rendered="false"/>
+      <modify element="ActualChargesRN.ActualChargeDetailRN.viewInstanceBtn1" rendered="false"/>
+      <modify element="ActualChargesRN.ActualChargeDetailRN.graphicalViewBtn1" rendered="false"/>
+      <modify element="EstimateChargesRN.EstimateChargeDetailRN.viewInstanceBtn" rendered="false"/>
+      <modify element="EstimateChargesRN.EstimateChargeDetailRN.graphicalViewBtn" rendered="false"/>
+      <modify element="EstimateChargesRN.EstimateChargeDetailRN.viewInstanceBtn1" rendered="false"/>
+      <modify element="EstimateChargesRN.EstimateChargeDetailRN.graphicalViewBtn1" rendered="false"/>
+      <modify element="ActualChargesRN.ActualChargeDetailRN.viewContractBtn" rendered="false"/>
+      <modify element="EstimateChargesRN.EstimateChargeDetailRN.viewContractBtn" rendered="false"/>
+   </modifications>
+</customization>

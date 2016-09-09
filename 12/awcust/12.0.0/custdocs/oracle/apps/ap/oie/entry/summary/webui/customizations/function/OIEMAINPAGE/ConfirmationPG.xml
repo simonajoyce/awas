@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: ConfirmationPG.xml 120.0 2006/09/21 22:05:37 skoukunt noship $" version="9.0.6.0.0_21" xml:lang="en-US" customizes="/oracle/apps/ap/oie/entry/summary/webui/ConfirmationPG" package="/oracle/apps/ap/oie/entry/summary/webui/customizations/function/OIEMAINPAGE">
+   <modifications>
+      <move element="ConfirmSubTabsRN.ApproversRN.AMEOrderNumCol" after="ConfirmSubTabsRN.ApproversRN.AMELineNoCol"/>
+      <move element="ConfirmSubTabsRN.ApproversRN.AMEApproverCol" after="ConfirmSubTabsRN.ApproversRN.AMEOrderNumCol"/>
+      <move element="ConfirmSubTabsRN.ApproversRN.AMEApproverTypeCol" after="ConfirmSubTabsRN.ApproversRN.AMEApproverCol"/>
+      <move element="ConfirmSubTabsRN.ApproversRN.AMECategoryCol" after="ConfirmSubTabsRN.ApproversRN.AMEApproverTypeCol"/>
+      <move element="ConfirmSubTabsRN.ApproversRN.AMEStatusCol" after="ConfirmSubTabsRN.ApproversRN.AMECategoryCol"/>
+      <move element="ConfirmSubTabsRN.ApproversRN.AMEDeleteCol" after="ConfirmSubTabsRN.ApproversRN.AMEStatusCol"/>
+      <modify element="ConfirmSubTabsRN.ApproversRN.AdhocApproversShowHideRN" rendered="false"/>
+      <modify element="ConfirmSubTabsRN.ApproversRN.AMELineNoCol" rendered="false"/>
+      <modify element="ConfirmSubTabsRN.ApproversRN.AMEApproverTypeCol" rendered="false"/>
+      <modify element="ConfirmSubTabsRN.ApproversRN.AMEDeleteCol" rendered="false"/>
+      <modify element="ConfirmSubTabsRN.ApproversRN.AMEApproversViewRN" rendered="false"/>
+      <modify element="ConfirmSubTabsRN.ApproversRN.ExtraDetails" rendered="false"/>
+   </modifications>
+</customization>

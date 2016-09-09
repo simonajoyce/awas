@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xapi:requestset xmlns:xapi="http://xmlns.oracle.com/oxp/xapi">
+    <xapi:globalData location="stream"/>
+<!-- This delivery emails stmt to Customer and copies AWAS staff if the Send Emails parameter is set to Yes -->
+    <xapi:request select="/XX_AR_CUST_STMTS_DD/LIST_G_RISK_COUNTERPARTY/G_RISK_COUNTERPARTY/LIST_G_CUSTOMER/G_CUSTOMER">
+        <xapi:delivery>
+            <xapi:email server="DUBMMA01" server-alias="" proxy="" port="25" from="CreditControl@awas.com" reply-to="CreditControl@awas.com">
+                 <xapi:message id="555" to="${PRIMARY_EMAIL}" cc="" bcc="CreditControl@awas.com, Natalia.Kenny@awas.com, Simon.Joyce@awas.com"
+                    attachment="true" subject="Statement from AWAS">Dear Sir/Madam, 
+
+Please find attached your current statement of account.
+
+Please email CreditControl@awas.com if you have any questions or queries related to this statement.
+
+
+Regards,
+
+    Credit Control
+
+AWAS | Block B Riverside IV Sir John Rogerson's Quay Dublin 2 Ireland
+Direct: +353 1 635 5000 
+ 
+ "${PRIMARY_EMAIL}" cc="" bcc="CreditControl@awas.com, Natalia.Kenny@awas.com, Simon.Joyce@awas.com"
+
+ Copies To: ${PRIMARY_EMAIL}
+                </xapi:message>
+                <xapi:authentication username="awas" password="awas_175"/>
+            </xapi:email>
+        </xapi:delivery>
+        <xapi:document output-type="html" delivery="555" output="Statement">
+            <xapi:template type="rtf" location="xdo://AWCUST.XX_AR_CUST_STMTS_EMAIL.en.00/?getSource=true" filter=".//XX_AR_CUST_STMTS_DD/LIST_G_RISK_COUNTERPARTY/G_RISK_COUNTERPARTY[SEND_EMAIL='Y']"/>
+        </xapi:document>
+         <xapi:document output-type="html" delivery="555" output="Statement">
+            <!-- for predelinquents kicked off by workflow -->
+            <xapi:template type="rtf" location="xdo://AWCUST.XX_AR_CUST_STMTS_EMAIL_PD.en.00/?getSource=true" filter=".//XX_AR_CUST_STMTS_DD/LIST_G_RISK_COUNTERPARTY/G_RISK_COUNTERPARTY[SEND_EMAIL='P']"/>
+        </xapi:document>
+    </xapi:request>
+    <!-- This second delivery request stores the Statement to the file server in all cases -->
+    <xapi:request select="/XX_AR_CUST_STMTS_DD/LIST_G_RISK_COUNTERPARTY/G_RISK_COUNTERPARTY">
+        <xapi:delivery>
+            <xapi:filesystem id="file1" output="/arstatements/${RCP_ID}.pdf"/>
+        </xapi:delivery>
+        <xapi:document key="${RISK_COUNTERPARTY}-${FILE_DATE}" output-type="pdf" delivery="456">
+            <xapi:template type="rtf"
+                location="xdo://AWCUST.XX_AR_CUST_STMTS.en.00/?getSource=true" filter=""/>
+        </xapi:document>
+    </xapi:request>
+</xapi:requestset>

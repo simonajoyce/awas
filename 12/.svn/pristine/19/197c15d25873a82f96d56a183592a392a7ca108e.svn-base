@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.89_562" xml:lang="en-US" customizes="/oracle/apps/icx/por/req/webui/ShoppingCartPG" xmlns:user="http://xmlns.oracle.com/jrad/user" user:responsibilityKey="tam_self_service_purchasing_5" user:responsibilityAppId="178" user:responsibilityAppShortName="ICX">
+   <modifications>
+      <modify element="AWAS_REQ_HEADER_LAYOUT" rendered="true"/>
+      <modify element="ItemNum" prompt="Part Number" rendered="true"/>
+      <modify element="ItemDescFlow" prompt="Part Description"/>
+      <modify element="AWAS_SUPPLIER_EMAIL" rendered="false"/>
+      <modify element="AWAS_NEED_BY" rendered="true"/>
+      <modify element="PoRequisitionLinesDFF" rendered="true"/>
+      <modify element="SupplierEmail" rendered="false"/>
+      <modify element="TxnPrice" readOnly="false"/>
+      <modify element="EmergencyReqRN" rendered="false"/>
+   </modifications>
+</customization>

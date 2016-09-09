@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- $Header: XX_AP_TAX_INVOICES_BY_REGION_DD.xml 2015/05/26 12:56:20 sjoyce noship $-->
+<dataTemplate name="XX_AP_TAX_INVOICES_BY_REGION_DD" defaultPackage="XX_AP_TAX_INV_BY_REG_REP_PKG" version="1.0">
+<properties>
+<property name="debug_mode" value="on" />
+<property name="xml_tag_case" value="upper" />
+<property name="include_parameters" value="true" />
+</properties>
+<parameters>
+<parameter name="P_START_DATE" dataType = "DATE"></parameter>
+<parameter name="P_END_DATE" dataType = "DATE"></parameter>
+</parameters>
+<dataQuery>
+<sqlStatement name="Q_MAIN">
+<![CDATA[select decode(t.alternate_territory_code,'IE','IE',null,'Non-EU','EU Not IE') VAT_Territory, 
+s.vendor_name VENDOR_NAME, 
+ss.country VENDOR_COUNTRY, 
+i.invoice_num INVOICE_NUM, 
+i.invoice_date INVOICE_DATE, 
+i.invoice_currency_code INVOICE_CURRENCY_CODE, 
+i.invoice_amount INVOICE_AMOUNT,  
+nvl(i.base_amount,i.invoice_amount) INVOICE_AMOUNT_USD, 
+sum(decode(d.line_type_lookup_code,'NONREC_TAX',0,'REC_TAX',0,nvl(d.base_amount,d.amount))) ITEM_USD, 
+sum(decode(d.line_type_lookup_code,'NONREC_TAX',nvl(d.base_amount,d.amount),'REC_TAX',nvl(d.base_amount,d.amount),0)) TAX_USD, 
+sum(nvl(d.base_amount,d.amount)) TOTAL_ACCT_USD, 
+nvl(i.base_amount,i.invoice_amount)-sum(nvl(d.base_amount,d.amount)) ACCT_IN_OTHER_USD, 
+imscan_doc 
+from ap_invoices_all i, 
+ap_suppliers s, 
+ap_supplier_sites_all ss, 
+fnd_territories t, 
+ap_invoice_lines_all l, 
+ap_invoice_distributions_all d, 
+XX_AP_INVOICE_EXTRAS_MV x 
+where ss.vendor_site_id = i.vendor_site_id 
+and ss.COUNTRY = t.TERRITORY_CODE 
+and s.vendor_id = i.vendor_id 
+and l.invoice_id = i.invoice_id 
+and x.invoice_id (+) = i.invoice_id 
+and d.invoice_id = i.invoice_id  
+and d.invoice_line_number = l.line_number 
+and d.accounting_date between :P_START_DATE and :P_END_DATE
+and s.vendor_type_lookup_code <> 'EMPLOYEE' 
+group by  
+decode(t.alternate_territory_code,'IE','IE',null,'Non-EU','EU Not IE'), 
+s.vendor_name, 
+ss.country, 
+i.invoice_num, 
+i.invoice_date, 
+i.invoice_currency_code, 
+i.invoice_amount, 
+nvl(i.base_amount,i.invoice_amount), 
+imscan_doc 
+having sum(nvl(d.base_amount,d.amount)) <> 0 
+order by 1, 2,3,4
+]]>
+</sqlStatement>
+</dataQuery>
+<!--<dataTrigger name="beforeReportTrigger" source="XX_AP_TAX_INV_BY_REG_REP_PKG.before_report"/>-->
+<dataStructure>
+<group 	 name="G_MAIN" 							source="Q_MAIN">
+<element name="VAT_TERRITORY"                   value="VAT_TERRITORY"/>
+<element name="VENDOR_NAME"            			value="VENDOR_NAME"/>
+<element name="VENDOR_COUNTRY"         			value="VENDOR_COUNTRY"/>
+<element name="INVOICE_NUM"          			value="INVOICE_NUM"/>
+<element name="INVOICE_DATE"       				value="INVOICE_DATE"/>
+<element name="INVOICE_CURRENCY_CODE"      		value="INVOICE_CURRENCY_CODE"/>
+<element name="INVOICE_AMOUNT"            		value="INVOICE_AMOUNT"/>
+<element name="INVOICE_AMOUNT_USD"            	value="INVOICE_AMOUNT_USD"/>
+<element name="ITEM_USD"            			value="ITEM_USD"/>
+<element name="TAX_USD"				            value="TAX_USD"/>
+<element name="TOTAL_ACCT_USD"            		value="TOTAL_ACCT_USD"/>
+<element name="ACCT_IN_OTHER_USD"            	value="ACCT_IN_OTHER_USD"/>
+<element name="IMSCAN_DOC"            			value="IMSCAN_DOC"/>
+</group>
+</dataStructure>
+<!--<dataTrigger name="afterReportTrigger" source="XX_AP_TAX_INV_BY_REG_REP_PKG.email_report"/>-->
+</dataTemplate>

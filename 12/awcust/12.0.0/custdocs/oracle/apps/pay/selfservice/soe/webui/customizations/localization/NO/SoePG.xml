@@ -1,0 +1,90 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.5.4.89_554" xml:lang="en-US" customizes="/oracle/apps/pay/selfservice/soe/webui/SoePG" developerMode="false" file-version="$Header: SoePG.xml 120.1 2007/04/09 06:36:07 sugarg noship $" package="/oracle/apps/pay/selfservice/soe/webui/customizations/localization/NO">
+   <modifications>
+      <modify element="SoeSumPayCol3" rendered="false"/>
+      <modify element="SoeSumPayCol4" rendered="false"/>
+      <modify element="SoeSumPayCol5" rendered="false"/>
+      <modify element="SoeSumPayCol6" rendered="false"/>
+      <modify element="SoeSumPayFCol2" rendered="false"/>
+      <modify element="SoeSumPayFCol3" rendered="false"/>
+      <modify element="SoeSumPayFCol4" rendered="false"/>
+      <modify element="SoeSumPayCol2" prompt="Total Deductions"/>
+      <move element="Soe2Layout" after="Soe1RNHeader"/>
+      <move element="Soe3Layout" after="Soe2Layout"/>
+      <move element="Soe4RNHeader" after="Soe3Layout"/>
+      <move element="SoeSumPayLayout" after="Soe4RNHeader"/>
+      <move element="SoeSumPayCols" after="SoeSumPayLayout"/>
+      <move element="Soe5Layout" after="SoeSumPayCols"/>
+      <move element="Soe6Layout" after="Soe5Layout"/>
+      <move element="Soe11Layout" after="Soe6Layout"/>
+      <move element="Soe12Layout" after="Soe11Layout"/>
+      <move element="Soe7Layout" after="Soe12Layout"/>
+      <move element="Soe8Layout" after="Soe7Layout"/>
+      <move element="Soe9Layout" after="Soe8Layout"/>
+      <move element="Soe10Layout" after="Soe9Layout"/>
+      <move element="Soe13Layout" after="Soe10Layout"/>
+      <move element="Soe14Layout" after="Soe13Layout"/>
+      <move element="Soe15Layout" after="Soe14Layout"/>
+      <move element="Soe16Header" after="Soe15Layout"/>
+      <move element="Soe17Header" after="Soe16Header"/>
+      <move element="Soe18Header" after="Soe17Header"/>
+      <move element="Soe19Header" after="Soe18Header"/>
+      <move element="SoeSQLRN" after="Soe19Header"/>
+      <move element="SoeDrilldownRN" after="SoeSQLRN"/>
+      <modify element="SoeSumPayCols2" destination="Soe6RN.COL16"/>
+      <modify element="SoeSumPayCols3" rendered="false"/>
+      <modify element="SoeSumPayCols4" rendered="false"/>
+      <modify element="SoeSumPayCols5" rendered="false"/>
+      <modify element="SoeSumPayCols6" rendered="false"/>
+      <modify element="SoeSumPayFCols2" rendered="false"/>
+      <modify element="SoeSumPayFCols3" rendered="false"/>
+      <modify element="SoeSumPayFCols4" rendered="false"/>
+      <modify element="SoeSumPayFCols1" destination="COL01-COL02"/>
+      <modify element="SoeSumPayCols1" destination="Soe5RN.COL16"/>
+      <modify element="Soe5Col16" totalValue="true"/>
+      <modify element="Soe6Col16" totalValue="true"/>
+      <modify element="SoeSumPayCol1" prompt="Total Earnings"/>
+      <modify element="SoeSumPayFCol1" prompt="Total Pay"/>
+      <modify element="Soe1Col9" prompt="NI Number"/>
+      <modify element="Soe11Layout" rendered="true" text="Employer Charges"/>
+      <modify element="Soe11RN" rendered="true"/>
+      <modify element="Soe11Col1" prompt="Element Name" rendered="false"/>
+      <modify element="Soe11Col2" prompt="Description" rendered="true"/>
+      <modify element="Soe11Col3" rendered="false"/>
+      <modify element="Soe11Col4" rendered="false"/>
+      <modify element="Soe11Col5" rendered="false"/>
+      <modify element="Soe11Col6" rendered="false"/>
+      <modify element="Soe11Col7" rendered="false"/>
+      <modify element="Soe11Col8" rendered="false"/>
+      <modify element="Soe11Col9" rendered="false"/>
+      <modify element="Soe11Col10" rendered="false"/>
+      <modify element="Soe11Col11" rendered="false"/>
+      <modify element="Soe11Col12" rendered="false"/>
+      <modify element="Soe11Col13" rendered="false"/>
+      <modify element="Soe11Col14" rendered="false"/>
+      <modify element="Soe11Col15" rendered="false"/>
+      <modify element="Soe11Col16" prompt="Amount" rendered="true" totalValue="true"/>
+      <modify element="Soe11Col17" rendered="false"/>
+      <modify element="Soe11Col18" rendered="false"/>
+      <modify element="Soe11Col19" rendered="false"/>
+      <modify element="Soe11Col20" rendered="false"/>
+      <modify element="Soe11Col21" rendered="false"/>
+      <modify element="Soe11Col22" rendered="false"/>
+      <modify element="Soe11Col23" rendered="false"/>
+      <modify element="Soe11Col24" rendered="false"/>
+      <modify element="Soe11Col25" rendered="false"/>
+      <modify element="Soe11DrillDown" prompt="Run Results" rendered="true"/>
+      <modify element="Region11Func" destination="pay_soe_glb.elements3"/>
+      <modify element="Region12Func" destination="pay_soe_glb.elements4"/>
+      <modify element="Soe11Drilldown" destination="DestNum:COL17:Dest1Ctx1:COL18:Dest1Tl:COL02:Dest2Ctx1:COL18:Dest1Ctx2:COL01:Dest2Tl:COL02:Dest2Ctx1:COL18:Dest2Ctx2:COL01:Dest2Tl:COL02:" prompt="Run Results" rendered="true"/>
+      <modify element="Soe12Drilldown" destination="DestNum:COL17:Dest1Ctx1:COL18:Dest1Tl:COL02:Dest2Ctx1:COL18:Dest1Ctx2:COL01:Dest2Tl:COL02:Dest2Ctx1:COL18:Dest2Ctx2:COL01:Dest2Tl:COL02:" prompt="Run Results" rendered="true"/>
+      <modify element="Soe12Layout" rendered="true" text="Adjustments"/>
+      <modify element="Soe12RN" rendered="true"/>
+      <modify element="Soe12Col1" prompt="Element Name" rendered="false"/>
+      <modify element="Soe12Col2" prompt="Description" rendered="true"/>
+      <modify element="Soe12Col16" prompt="Amount" rendered="true" totalValue="true"/>
+      <modify element="Soe12DrillDown" prompt="Run Results" rendered="true"/>
+      <modify element="Soe7Layout" rendered="false"/>
+      <modify element="Region5Func" destination="pay_no_soe.elements1"/>
+   </modifications>
+</customization>

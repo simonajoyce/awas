@@ -1,0 +1,29 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/ar/hz/components/party/person/webui/HzPuiPersonProfile" file-version="$Header: HzPuiPersonProfile.xml 120.0 2005/09/02 22:31 rramacha noship $" package="/oracle/apps/ar/hz/components/party/person/webui/customizations/function/ASN_PERSONROPG">
+   <modifications>
+      <modify element="PartyNumber" readOnly="true" styleClass="OraDataText"/>
+      <modify element="PersonPreNameAdjunct" readOnly="true" styleClass="OraDataText"/>
+      <modify element="PartyStatus" readOnly="true" styleClass="OraDataText"/>
+      <modify element="PersonFirstName" readOnly="true" styleClass="OraDataText"/>
+      <modify element="PersonPreviousLastName" readOnly="true" rendered="false" styleClass="OraDataText"/>
+      <modify element="PersonMiddleName" readOnly="true" styleClass="OraDataText"/>
+      <modify element="PersonNamePhonetic" readOnly="true" rendered="false" styleClass="OraDataText"/>
+      <modify element="PersonLastName" readOnly="true" styleClass="OraDataText"/>
+      <modify element="KnownAs" readOnly="true" styleClass="OraDataText"/>
+      <modify element="PersonNameSuffix" readOnly="true" rendered="false" styleClass="OraDataText"/>
+      <modify element="PreferredContactMethod" readOnly="true" styleClass="OraDataText"/>
+      <modify element="PersonTitle" readOnly="true" styleClass="OraDataText"/>
+      <modify element="PersonInitials" readOnly="true" styleClass="OraDataText"/>
+      <modify element="PersonLastNamePhonetic" readOnly="true" styleClass="OraDataText"/>
+      <modify element="Salutation" readOnly="true" styleClass="OraDataText"/>
+      <modify element="KnownAs2" readOnly="true" rendered="false" styleClass="OraDataText"/>
+      <modify element="KnownAs3" readOnly="true" rendered="false" styleClass="OraDataText"/>
+      <modify element="PersonAcademicTitle" readOnly="true" rendered="false" styleClass="OraDataText"/>
+      <modify element="KnownAs4" readOnly="true" rendered="false" styleClass="OraDataText"/>
+      <modify element="PersonFirstNamePhonetic" readOnly="true" styleClass="OraDataText"/>
+      <modify element="KnownAs5" readOnly="true" rendered="false" styleClass="OraDataText"/>
+      <modify element="MiddleNamePhonetic" readOnly="true" rendered="false" styleClass="OraDataText"/>
+      <modify element="PartyInformation" readOnly="true"/>
+      <modify element="PersonProfileHideShow" rendered="false"/>
+   </modifications>
+</customization>

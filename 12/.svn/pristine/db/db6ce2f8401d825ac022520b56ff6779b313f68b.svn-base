@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- $Header: XX_AP_EXP_REP_DETAILS.xml 2014/03/07 12:56:20 sjoyce noship $-->
+<dataTemplate name="XX_AP_EXP_REP_DETAILS" defaultPackage="XX_AP_EXP_REP_DETAILS_PKG" version="1.0">
+<properties>
+<property name="debug_mode" value="on" />
+<property name="xml_tag_case" value="upper" />
+<property name="include_parameters" value="true" />
+</properties>
+<parameters>
+<parameter name="P_ENTITY" dataType = "CHARACTER"></parameter>
+<parameter name="P_PERIOD_NAME" dataType = "CHARACTER"></parameter>
+</parameters>
+<dataQuery>
+<sqlStatement name="Q_REPORT">
+<![CDATA[select pap.full_name,
+h.INVOICE_NUM,
+h.total,
+h.payment_currency_code,
+h.description,
+h.report_submitted_date,
+l.item_description,
+l.amount,
+l.currency_code,
+l.distribution_line_number,
+l.justification,
+l.merchant_name,
+d.segment1,
+d.segment2,
+fat.DESCRIPTION Account_desc,
+d.segment3
+from AP_EXPENSE_REPORT_HEADERS_ALL h,
+AP_EXPENSE_REPORT_LINES_ALL L,
+AP_EXP_REPORT_DISTS_ALL D,
+per_all_people_f pap,
+gl_periods p,
+fnd_flex_values fa,
+fnd_flex_values_tl fat
+where h.REPORT_HEADER_ID = L.REPORT_HEADER_ID
+and D.REPORT_HEADER_ID = l.report_header_id
+and D.REPORT_LINE_ID = L.REPORT_LINE_ID
+and pap.person_id = h.employee_id
+and sysdate between pap.EFFECTIVE_START_DATE and pap.effective_end_date
+and d.segment1 = :p_entity
+and h.report_submitted_date between p.start_date and p.end_date
+and p.period_name = :p_period_name
+AND p.PERIOD_SET_NAME = 'AWAS'
+and fa.flex_value_set_id = 1009492
+and fa.flex_value = d.segment2
+and fat.flex_value_id = fa.flex_value_id
+order by pap.full_name, h.invoice_num
+]]>
+</sqlStatement>
+</dataQuery>
+<dataStructure>
+<group name="G_REPORT" source="Q_REPORT">
+<element name="EMPLOYEE"                  value="FULL_NAME"/>
+<element name="INVOICE_NUM"                  value="INVOICE_NUM"/>
+<element name="REPORT_TOTAL"                  value="TOTAL"/>
+<element name="REPORT_CURRENCY"                  value="PAYMENT_CURRENCY_CODE"/>
+<element name="REPORT_DESCRIPTION"                  value="DESCRIPTION"/>
+<element name="SUBMITTED_DATE"                  value="REPORT_SUBMITTED_DATE"/>
+<element name="LINE_DESCRIPTION"                  value="ITEM_DESCRIPTION"/>
+<element name="LINE_AMOUNT"                  value="AMOUNT"/>
+<element name="LINE_CURRENCY"                  value="CURRENCY_CODE"/>
+<element name="LINE_NUM"                  value="DISTRIBUTION_LINE_NUMBER"/>
+<element name="JUSTIFICATION"                  value="JUSTIFICATION"/>
+<element name="MERCHANT"                  value="MERCHANT_NAME"/>
+<element name="ENTITY"                  value="SEGMENT1"/>
+<element name="ACCOUNT"                  value="SEGMENT2"/>
+<element name="ACCOUNT_DESC"                  value="ACCOUNT_DESC"/>
+<element name="COST_CENTRE"                  value="SEGMENT3"/>
+</group>
+</dataStructure>
+</dataTemplate>

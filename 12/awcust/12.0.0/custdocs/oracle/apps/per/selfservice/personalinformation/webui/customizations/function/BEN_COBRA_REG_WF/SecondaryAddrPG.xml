@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.13_413" xml:lang="en-US" customizes="/oracle/apps/per/selfservice/personalinformation/webui/SecondaryAddrPG" developerMode="true" file-version="$Header: SecondaryAddrPG.xml 115.3 2004/06/15 07:12:25 lakrish noship $" package="/oracle/apps/per/selfservice/personalinformation/webui/customizations/function/BEN_COBRA_REG_WF">
+   <modifications>
+      <modify element="HrQuaDummyTextSs" tipMessageName=""/>
+      <modify element="HrNewChgAddressInst" messageName="HR_INST_addr_form_reg"/>
+      <modify element="HrAddressEffctDate" rendered="false"/>
+      <modify element="HrAddressCountry" tipMessageName=""/>
+      <move element="HrNewChgAddressInst" after="HrCorrectAddressInst"/>
+      <move element="HrViewFutureAddressInst" after="HrNewChgAddressInst"/>
+      <move element="REQUIREDREGION" after="HrViewFutureAddressInst"/>
+      <move element="HrQuaDummyTextSs" after="REQUIREDREGION"/>
+      <move element="HrAddressCountry" after="HrQuaDummyTextSs"/>
+      <move element="HrAddressType" after="HrAddressCountry"/>
+      <move element="HrAddressFlex" after="HrAddressType"/>
+      <move element="HrAddressDelete" after="HrAddressFlex"/>
+      <move element="HrAdditionalAddress" after="HrAddressDelete"/>
+      <move element="HrAddressEffctDate" after="HrAdditionalAddress"/>
+      <move element="HrAddressHidden" after="HrAddressEffctDate"/>
+      <move element="HrAddressCountryHidden" after="HrAddressHidden"/>
+      <move element="NewOtherAddress" after="HrAddressCountryHidden"/>
+   </modifications>
+</customization>

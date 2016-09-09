@@ -1,0 +1,35 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/per/selfservice/personalinformation/webui/ContactsReviewRN" developerMode="false" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" file-version="$Header: ContactsReviewRN.xml 120.0 2005/06/03 02:57:06 appldev noship $" version="9.0.5.4.64_464" xml:lang="en-US" package="/oracle/apps/per/selfservice/personalinformation/webui/customizations/localization/RU">
+   <modifications>
+      <modify element="HrFurtherContRel" rendered="true" segmentList="RU|Educational Flag||"/>
+      <modify element="HrAddressFlex____3" rendered="true" segmentList="RU|Address Category|Zip Code|Place(OKATO)|Region/District|City|Street|House Number|Building|Apartment Number||"/>
+      <modify element="HrPrefix____1" prompt="Genitive Last"/>
+      <move element="HrFirstName____1" after="HrRelationshipType"/>
+      <move element="HrLastName____1" after="HrFirstName____1"/>
+      <move element="HrTitle____1" after="HrLastName____1"/>
+      <move element="HrPrefix____1" after="HrTitle____1"/>
+      <move element="HrSuffix____1" after="HrPrefix____1"/>
+      <move element="HrMiddleName____1" after="HrSuffix____1"/>
+      <move element="HrPersonDevDfFlex" after="HrMiddleName____1"/>
+      <move element="HrEmailAddress____1" after="HrPersonDevDfFlex"/>
+      <move element="HrFurtherContRel" after="HrEmailAddress____1"/>
+      <move element="HrPrimaryContact" after="HrFurtherContRel"/>
+      <move element="HrAddContDetDflex" after="HrPrimaryContact"/>
+      <move element="HrGender____1" after="HrAddContDetDflex"/>
+      <move element="HrSocialSecurity" after="HrGender____1"/>
+      <move element="HrMaritalStatus____1" after="HrSocialSecurity"/>
+      <move element="HrRegisteredDisabled____2" after="HrMaritalStatus____1"/>
+      <move element="HrDateOfBirth____1" after="HrRegisteredDisabled____2"/>
+      <move element="HrUsesTobacco____1" after="HrDateOfBirth____1"/>
+      <move element="HrStudentStatus____1" after="HrUsesTobacco____1"/>
+      <move element="HrDeathDate____1" after="HrStudentStatus____1"/>
+      <move element="HrDependentAdoptionDate" after="HrDeathDate____1"/>
+      <move element="HrMilitaryService____1" after="HrDependentAdoptionDate"/>
+      <move element="HrVoluntaryService____1" after="HrMilitaryService____1"/>
+      <move element="HrStartRelationReason" after="HrVoluntaryService____1"/>
+      <move element="HrRelationStartDate" after="HrStartRelationReason"/>
+      <move element="HrEmergencyContact" after="HrRelationStartDate"/>
+      <move element="HrAddPerDetFlexSs" after="HrEmergencyContact"/>
+      <modify element="HrSuffix____1" rendered="false"/>
+   </modifications>
+</customization>

@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/per/irc/vacancy/webui/VacSklsDispTblRN" blockSize="25" developerMode="true" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: VacSklsDispTblRN.xml 115.3 2003/04/10 09:20:44 mmillmor noship $" version="9.0.3.6.2_398" xml:lang="en-US" package="/oracle/apps/per/customizations/function/IRC_VAC_REVIEW_NEW/irc/vacancy/webui">
+   <modifications>
+      <modify element="IrcFlexField1" rendered="true"/>
+      <modify element="FndSkills" sortState="no" rendered="true"/>
+      <modify element="FndMinimumLevel" sortState="no" rendered="true"/>
+      <modify element="FndMaximumLevel" sortState="no" rendered="true"/>
+      <modify element="FndDesirability" sortState="no" rendered="true"/>
+      <modify element="FndAdditionalDetails" sortState="no" rendered="false"/>
+      <move element="FndMinimumLevel" after="FndSkills"/>
+      <move element="FndMaximumLevel" after="FndMinimumLevel"/>
+      <move element="FndDesirability" after="FndMaximumLevel"/>
+      <move element="IrcFlexField1" after="FndDesirability"/>
+      <move element="FndAdditionalDetails" after="IrcFlexField1"/>
+   </modifications>
+</customization>

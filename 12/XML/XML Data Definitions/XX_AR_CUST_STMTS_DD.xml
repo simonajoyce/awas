@@ -1,0 +1,381 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+
+<!--  $Header: XX_AR_CUST_STMTS_DD.xml 120.0.12010000.9 2011/08/24 03:18:53 jiachi ship $ -->
+<!-- dbdrv: exec java oracle/apps/xdo/oa/util XDOLoader.class java &phase=dat checkfile:~PROD:patch/115/publisher/defs:XX_AR_CUST_STMTS_DD.xml UPLOAD -DB_USERNAME &un_apps -DB_PASSWORD &pw_apps -JDBC_CONNECTION &jdbc_db_addr -LOB_TYPE DATA_TEMPLATE -APPS_SHORT_NAME ~PROD -LOB_CODE ARCUSBALSL -LANGUAGE 00 -XDO_FILE_TYPE XML-DATA-TEMPLATE -FILE_NAME &fullpath:~PROD:patch/115/publisher/defs:XX_AR_CUST_STMTS_DD.xml -->
+<!--  GSCC_Category="Xdo Data Definition"   --> 
+
+<dataTemplate name="XX_AR_CUST_STMTS_DD" defaultPackage="XX_AR_CUST_STMTS_REP_PKG" version="1.0">
+<properties>
+<property name="debug_mode" value="on" />
+</properties>
+<parameters>
+<parameter name="P_STMT_DATE" 		dataType = "DATE"></parameter>
+<parameter name="P_CUSTOMER_NAME" dataType = "CHARACTER"></parameter>
+<parameter name="P_RISK_CP" 		  dataType = "CHARACTER"></parameter>
+<parameter name="P_SEND_EMAILS"   dataType = "CHARACTER"></parameter>
+<parameter name="P_BURST"         dataType = "CHARACTER"></parameter>
+</parameters>
+<dataQuery>
+<sqlStatement name="Q_STATEMENT">
+			<![CDATA[
+             SELECT DISTINCT :P_FILE_DATE FILE_DATE
+   , 'OVERDUE' LINE_TYPE
+     , initcap(a.customer_name) customer_name
+     , a.customer_number
+     , a.CREDIT_RATING
+     , a.xrm_LEASE_NUM
+     , a.trx_number
+     , a.trx_date
+     , a.due_date
+     , a.trx_type_name
+     , a.trx_type_desc
+     , decode(z.msn,null, a.MSN2, -1,a.MSN2,z.msn) msn
+     , NVL(initcap(z.RISK_COUNTERPARTY),initcap(a.customer_name)) risk_counterparty
+     , NVL(z.RISK_COUNTERPARTY_ORA_ID,a.customer_number) RISK_COUNTERPARTY_ORA_ID
+     , round(a.amount,2) amount_remaining
+     , round(a.dispute_amount,2) dispute_amount
+     , a.INVOICE_CURRENCY_CODE CURRENCY_CODE
+     , a.amount_due_original
+     , a.portfolio
+     , nvl(z.rcp_id,0) rcp_id
+     , a.customer_id
+     , nvl2(xx_ar_get_contacts('STMTS','Y',a.customer_id),xx_ar_get_contacts('STMTS','Y',a.customer_id)||', ','')||xx_ar_get_contacts('STMTS','N',a.customer_id)  PRIMARY_EMAIL
+     , xx_ar_get_contacts('STMTS','N',a.customer_id) OTHER_EMAIL
+     , :P_SEND_EMAILS SEND_EMAIL
+   FROM
+       (
+               SELECT NVL(x.attribute3,DECODE(x.location,'704279',30002,'704278',30007,NULL))
+                     ||'-'
+                     ||c.CUSTOMER_NUMBER contract_id
+                   , c.customer_name
+                   , c.customer_number
+                   , P.CREDIT_RATING
+                   , NVL(x.attribute3,DECODE(x.location,'704279',30002,'704278',30007,NULL)) xrm_LEASE_NUM
+                   , trx.trx_number
+                   , trx.trx_date
+                   , tt.name trx_type_name
+                   , tt.description trx_type_desc
+                   , s.due_date
+                   , t.amount
+                   , t.dispute_amount
+                   , trx.INVOICE_CURRENCY_CODE
+                   , s.amount_due_original
+                   , x.location MSN2
+                   , nvl2(dh.msn,'ABS','AWAS') portfolio
+                   , c.customer_id
+                 FROM xx_ar_stmt_details t
+                   , AR.AR_PAYMENT_SCHEDULES_ALL s
+                   , ra_customer_trx_all trx
+                   , ra_cust_trx_types_all tt
+                   , ar_customers c
+                   , HZ_CUSTOMER_PROFILES p
+                   , hz_cust_site_uses_all X
+                   , XX_DIAMOND_HEAD_AIRCRAFT dh
+                WHERE T.PAYMENT_SCHEDULE_ID  = S.PAYMENT_SCHEDULE_ID
+                 AND t.stmt_date             = :P_STMT_DATE
+                 and x.attribute3            = DH.LEASE_NUM (+)
+                 AND t.line_type             = 'OVER_DUE'
+                 AND trx.customer_trx_id     = s.customer_trx_id
+                 AND TRX.CUST_TRX_TYPE_ID    = TT.CUST_TRX_TYPE_ID
+                 AND c.customer_id           = s.customer_id
+                 AND trx.bill_to_site_use_id = x.site_Use_id
+                 AND c.customer_id           = p.cust_account_id
+                 and p.site_use_id is null
+                 AND s.class                <> 'PMT'
+                 &WHERE_CLAUSE2
+       )
+       a
+     , (
+               SELECT CMH.contract_id
+                     ||'-'
+                     ||map1.ora_fin_code             AS contract_id
+                   , fngetmsn@basin(CMH.aircraft_no) AS MSN
+                   , initcap(ORG1.ORG_NAME)                   AS LESSEE
+                    , nvl(initcap(ORG3.ORG_NAME),initcap(ORG1.ORG_NAME))     AS RISK_COUNTERPARTY
+                   , nvl(map2.ora_fin_code,map1.ora_fin_code) RISK_COUNTERPARTY_ORA_ID
+                   , initcap(nvl(ORG4.ORG_NAME,ORG1.ORG_NAME)) AS RISK_DBA
+                    , nvl(org3.org_id,org1.org_id)    RCP_ID
+                 FROM tblCMCOntractHeader@basin CMH
+                   , tblCMLEase@basin CML
+                   , tblCMRisk@basin CMR
+                   , TBLORGANISATION@basin ORG1
+                   , TBLORGANISATION@basin ORG2
+                   , TBLORGANISATION@basin ORG3
+                   , TBLORGANISATION@basin ORG4
+                   , (
+                             SELECT *
+                               FROM tblOraFinGLMapping@basin
+                              WHERE MAP_TYPE_DESC = 'AWAS_GL_CUSTOMER'
+                     )
+                     map1
+                   , (
+                             SELECT *
+                               FROM tblOraFinGLMapping@basin
+                              WHERE MAP_TYPE_DESC = 'AWAS_GL_CUSTOMER'
+                     )
+                     map2
+                WHERE cmh.contract_id             = cml.contract_id (+)
+                 AND cmh.contract_id              = cmr.contract_id (+)
+                 AND CML.LESSEE_ORG_ID            = ORG1.ORG_ID (+)
+                 AND CML.LESSEE_ORG_ID            = map1.als_code (+)
+                 AND cmr.guarantor_org_id         = ORG2.ORG_ID (+)
+                 AND cmr.risk_counterparty_org_id = ORG3.ORG_ID (+)
+                 AND cmr.risk_counterparty_org_id = map2.als_code (+)
+                 AND cmr.risk_dba_org_id          = ORG4.ORG_ID (+)
+       )
+       z
+  WHERE a.contract_id = z.contract_id (+)
+  &WHERE_CLAUSE
+UNION ALL
+SELECT DISTINCT :P_FILE_DATE FILE_DATE
+   , 'UNALLOCATED'
+     , initcap(a.customer_name) customer_name
+     , a.customer_number
+     , a.CREDIT_RATING
+     , a.xrm_LEASE_NUM
+     , a.trx_number
+     , a.trx_date
+     , a.due_date
+     , NULL trx_type_name
+     , 'RECEIPT' trx_type_desc
+     , decode(z.msn,null, a.MSN2, -1,a.MSN2,z.msn) msn
+     , NVL(initcap(z.RISK_COUNTERPARTY),initcap(a.customer_name)) risk_counterparty
+     , NVL(z.RISK_COUNTERPARTY_ORA_ID,a.customer_number) RISK_COUNTERPARTY_ORA_ID
+     , round(a.amount,2)
+     , round(a.dispute_amount,2)
+     , a.currency_code
+     , a.amount_due_original
+   , a.portfolio
+        , nvl(z.rcp_id,0) rcp_id
+        , a.customer_id
+        , nvl2(xx_ar_get_contacts('STMTS','Y',a.customer_id),xx_ar_get_contacts('STMTS','Y',a.customer_id)||', ','')||xx_ar_get_contacts('STMTS','N',a.customer_id)  PRIMARY_EMAIL
+     , xx_ar_get_contacts('STMTS','N',a.customer_id) PRIMARY_EMAIL
+     , :P_SEND_EMAILS SEND_EMAIL
+   FROM
+       (
+               SELECT NVL(x.attribute3,DECODE(x.location,'704279',30002,'704278',30007,NULL))
+                     ||'-'
+                     ||c.CUSTOMER_NUMBER contract_id
+                   ,c.customer_name
+                   ,c.customer_number
+                   , P.CREDIT_RATING
+                   , NVL(x.attribute3,DECODE(x.location,'704279',30002,'704278',30007,NULL)) xrm_LEASE_NUM
+                   , r.receipt_number trx_number
+                   , r.receipt_date trx_date
+                   , s.due_date
+                   , t.amount
+                   ,t.dispute_amount
+                   , r.currency_code
+                   , s.amount_due_original
+                   , x.location MSN2
+                   , nvl2(dh.msn,'ABS','AWAS') portfolio
+                   , c.customer_id
+                 FROM xx_ar_stmt_details t
+                   , AR.AR_PAYMENT_SCHEDULES_ALL s
+                   , ar_cash_receipts_all r
+                   , ar_customers c
+                   , HZ_CUSTOMER_PROFILES p
+                   , hz_cust_site_uses_all X
+                   , XX_DIAMOND_HEAD_AIRCRAFT dh
+                WHERE T.PAYMENT_SCHEDULE_ID = S.PAYMENT_SCHEDULE_ID
+                 AND S.CASH_RECEIPT_ID      = r.cash_receipt_id
+                 and x.attribute3            = DH.LEASE_NUM (+)
+                 AND c.customer_id          = r.pay_from_customer
+                 AND r.customer_site_use_id = x.site_Use_id (+)
+                 AND c.customer_id          = p.cust_account_id
+                 AND p.site_use_id         IS NULL
+                 AND t.stmt_date            = :P_STMT_DATE
+                 AND t.line_type            = 'OVER_DUE'
+                 AND s.class                = 'PMT'
+                 and s.status <> 'CL'
+                 &WHERE_CLAUSE2
+       )
+       a
+     , (
+               SELECT CMH.contract_id
+                     ||'-'
+                     ||map1.ora_fin_code             AS contract_id
+                   , fngetmsn@basin(CMH.aircraft_no) AS MSN
+                   , initcap(ORG1.ORG_NAME)                   AS LESSEE
+                    , nvl(initcap(ORG3.ORG_NAME),initcap(ORG1.ORG_NAME))     AS RISK_COUNTERPARTY
+                   , nvl(map2.ora_fin_code,map1.ora_fin_code) RISK_COUNTERPARTY_ORA_ID
+                   , initcap(nvl(ORG4.ORG_NAME,ORG1.ORG_NAME)) AS RISK_DBA
+                    , nvl(org3.org_id,org1.org_id)    RCP_ID
+                 FROM tblCMCOntractHeader@basin CMH
+                   , tblCMLEase@basin CML
+                   , tblCMRisk@basin CMR
+                   , TBLORGANISATION@basin ORG1
+                   , TBLORGANISATION@basin ORG2
+                   , TBLORGANISATION@basin ORG3
+                   , TBLORGANISATION@basin ORG4
+                   , (
+                             SELECT *
+                               FROM tblOraFinGLMapping@basin
+                              WHERE MAP_TYPE_DESC = 'AWAS_GL_CUSTOMER'
+                     )
+                     map1
+                   , (
+                             SELECT *
+                               FROM tblOraFinGLMapping@basin
+                              WHERE MAP_TYPE_DESC = 'AWAS_GL_CUSTOMER'
+                     )
+                     map2
+                WHERE cmh.contract_id             = cml.contract_id (+)
+                 AND cmh.contract_id              = cmr.contract_id (+)
+                 AND CML.LESSEE_ORG_ID            = ORG1.ORG_ID (+)
+                 AND CML.LESSEE_ORG_ID            = map1.als_code (+)
+                 AND cmr.guarantor_org_id         = ORG2.ORG_ID (+)
+                 AND cmr.risk_counterparty_org_id = ORG3.ORG_ID (+)
+                 AND cmr.risk_counterparty_org_id = map2.als_code (+)
+                 AND cmr.risk_dba_org_id          = ORG4.ORG_ID (+)
+       )
+       z
+  WHERE a.contract_id = z.contract_id (+)
+  &WHERE_CLAUSE
+UNION ALL
+SELECT DISTINCT  :P_FILE_DATE FILE_DATE
+   , 'FUTURE'
+     , initcap(a.customer_name) customer_name
+     , a.customer_number
+     , a.CREDIT_RATING
+     , a.xrm_LEASE_NUM
+     , a.trx_number
+     , a.trx_date
+     , a.due_date
+     , a.trx_type_name
+     , a.trx_type_desc
+     , decode(z.msn,null, a.MSN2, -1,a.MSN2,z.msn) msn
+     , NVL(initcap(z.RISK_COUNTERPARTY),initcap(a.customer_name)) risk_counterparty
+     , NVL(z.RISK_COUNTERPARTY_ORA_ID,a.customer_number) RISK_COUNTERPARTY_ORA_ID
+     , round(a.amount,2)
+     , round(a.dispute_amount,2)
+     , a.INVOICE_CURRENCY_CODE
+     , a.amount_due_original
+   , a.portfolio
+        , nvl(z.rcp_id,0) rcp_id
+        , a.customer_id
+        , nvl2(xx_ar_get_contacts('STMTS','Y',a.customer_id),xx_ar_get_contacts('STMTS','Y',a.customer_id)||', ','')||xx_ar_get_contacts('STMTS','N',a.customer_id)  PRIMARY_EMAIL
+     , xx_ar_get_contacts('STMTS','N',a.customer_id) OTHER_EMAIL
+     , :P_SEND_EMAILS SEND_EMAIL
+   FROM
+       (
+               SELECT NVL(x.attribute3,DECODE(x.location,'704279',30002,'704278',30007,NULL))
+                     ||'-'
+                     ||c.CUSTOMER_NUMBER contract_id
+                   , c.customer_name
+                   , c.customer_number
+                   , P.CREDIT_RATING
+                   --, x.attribute3 xrm_LEASE_NUM
+                   , NVL(x.attribute3,DECODE(x.location,'704279',30002,'704278',30007,NULL)) xrm_LEASE_NUM
+                   , trx.trx_number
+                   , trx.trx_date
+                   , tt.name trx_type_name
+                   , tt.description trx_type_desc
+                   , s.due_date
+                   , t.amount
+                   , t.dispute_amount
+                   , trx.INVOICE_CURRENCY_CODE
+                   , s.amount_due_original
+                   , x.location MSN2
+                   , nvl2(dh.msn,'ABS','AWAS') portfolio
+                   , c.customer_id
+                 FROM xx_ar_stmt_details t
+                   , AR.AR_PAYMENT_SCHEDULES_ALL s
+                   , ra_customer_trx_all trx
+                   , ra_cust_trx_types_all tt
+                   , ar_customers c
+                   , HZ_CUSTOMER_PROFILES p
+                   , hz_cust_site_uses_all X
+                    , XX_DIAMOND_HEAD_AIRCRAFT dh
+                WHERE T.PAYMENT_SCHEDULE_ID  = S.PAYMENT_SCHEDULE_ID
+                 AND t.stmt_date             = :P_STMT_DATE
+                 AND t.line_type             = 'FUTURE'
+                 AND trx.customer_trx_id     = s.customer_trx_id
+                 AND TRX.CUST_TRX_TYPE_ID    = TT.CUST_TRX_TYPE_ID
+                 AND c.customer_id           = s.customer_id
+                 AND trx.bill_to_site_use_id = x.site_Use_id
+                 AND c.customer_id           = p.cust_account_id
+                 and p.site_use_id is null
+                 and x.attribute3            = DH.LEASE_NUM (+)
+                 AND s.class                <> 'PMT'
+                 &WHERE_CLAUSE2
+       )
+       a
+     , (
+               SELECT CMH.contract_id
+                     ||'-'
+                     ||map1.ora_fin_code             AS contract_id
+                   , fngetmsn@basin(CMH.aircraft_no) AS MSN
+                   , initcap(ORG1.ORG_NAME)                   AS LESSEE
+                    , nvl(initcap(ORG3.ORG_NAME),initcap(ORG1.ORG_NAME))     AS RISK_COUNTERPARTY
+                   , nvl(map2.ora_fin_code,map1.ora_fin_code) RISK_COUNTERPARTY_ORA_ID
+                   , initcap(nvl(ORG4.ORG_NAME,ORG1.ORG_NAME)) AS RISK_DBA
+                    , nvl(org3.org_id,org1.org_id)    RCP_ID
+                 FROM tblCMCOntractHeader@basin CMH
+                   , tblCMLEase@basin CML
+                   , tblCMRisk@basin CMR
+                   , TBLORGANISATION@basin ORG1
+                   , TBLORGANISATION@basin ORG2
+                   , TBLORGANISATION@basin ORG3
+                   , TBLORGANISATION@basin ORG4
+                   , (
+                             SELECT *
+                               FROM tblOraFinGLMapping@basin
+                              WHERE MAP_TYPE_DESC = 'AWAS_GL_CUSTOMER'
+                     )
+                     map1
+                   , (
+                             SELECT *
+                               FROM tblOraFinGLMapping@basin
+                              WHERE MAP_TYPE_DESC = 'AWAS_GL_CUSTOMER'
+                     )
+                     map2
+                WHERE cmh.contract_id             = cml.contract_id (+)
+                 AND cmh.contract_id              = cmr.contract_id (+)
+                 AND CML.LESSEE_ORG_ID            = ORG1.ORG_ID (+)
+                 AND CML.LESSEE_ORG_ID            = map1.als_code (+)
+                 AND cmr.guarantor_org_id         = ORG2.ORG_ID (+)
+                 AND cmr.risk_counterparty_org_id = ORG3.ORG_ID (+)
+                 AND cmr.risk_counterparty_org_id = map2.als_code (+)
+                 AND cmr.risk_dba_org_id          = ORG4.ORG_ID (+)
+       )
+       z
+  WHERE a.contract_id = z.contract_id (+) 
+  &WHERE_CLAUSE
+  order by risk_counterparty, customer_name,currency_code, due_date, msn
+]]>
+		</sqlStatement>	
+	</dataQuery>
+	<dataTrigger name="beforeReport" source="XX_AR_CUST_STMTS_REP_PKG.Before_Report"/>
+	<dataStructure>
+		<group name="G_RISK_COUNTERPARTY" source="Q_STATEMENT">
+			<element name="RISK_COUNTERPARTY" value="RISK_COUNTERPARTY"/>
+			<element name="RCP_ID"            value="RCP_ID"/>
+			<element name="REP_DATE"          value="FILE_DATE"/>
+      <element name="SEND_EMAIL"        value="SEND_EMAIL"/>
+			<group name="G_CUSTOMER"     source="Q_STATEMENT">
+				<element name="CUSTOMER_NAME" value="CUSTOMER_NAME"/>		
+				<element name="CUSTOMER_NUMBER" value="CUSTOMER_NUMBER"/>
+        <element name="PRIMARY_EMAIL"   value="PRIMARY_EMAIL"/>
+        <element name="OTHER_EMAIL"     value="OTHER_EMAIL"/>
+					<group name="G_CURRENCY" source="Q_STATEMENT">
+						<element name="CURRENCY_CODE" value="CURRENCY_CODE"/>
+						 <group name="G_LINES" source="Q_STATEMENT">
+							<element name="LINE_TYPE" 				value="LINE_TYPE"/>
+							<element name="MSN" 					value="MSN"/>
+							<element name="TRX_NUMBER" 				value="TRX_NUMBER"/>
+							<element name="TRX_DATE" 				value="TRX_DATE"/>
+							<element name="DUE_DATE" 				value="DUE_DATE"/>
+							<element name="TRX_NUMBER" 				value="TRX_NUMBER"/>
+							<element name="TRX_TYPE_DESCRIPTION" 	value="TRX_TYPE_DESC"/>
+							<element name="AMOUNT_REMAINING" 		value="AMOUNT_REMAINING"/>
+							<element name="AMOUNT_DUE_ORIGINAL" 	value="AMOUNT_DUE_ORIGINAL"/>
+							<element name="DISPUTE_AMOUNT" 			value="DISPUTE_AMOUNT"/>
+							<element name="PORTFOLIO" 				value="PORTFOLIO"/>
+						</group>	
+					</group>								  
+			 </group>								  
+		</group>
+	</dataStructure>
+	<dataTrigger name="AfterReport" source="XX_AR_CUST_STMTS_REP_PKG.email_report"/>
+</dataTemplate>

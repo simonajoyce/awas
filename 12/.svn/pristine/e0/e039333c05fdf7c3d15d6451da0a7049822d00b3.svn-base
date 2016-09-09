@@ -1,0 +1,23 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/ar/hz/components/party/person/webui/HzPuiPersonProfileMore" file-version="$Header: HzPuiPersonProfileMore.xml 120.0 2005/09/04 02:38 rramacha noship $" package="/oracle/apps/ar/hz/components/party/person/webui/customizations/function/ASN_PERSONROPG">
+   <modifications>
+      <modify element="PersonIdenType" readOnly="true" rendered="false" styleClass="OraDataText"/>
+      <modify element="Gender" readOnly="true" styleClass="OraDataText"/>
+      <modify element="PersonIdentifier" readOnly="true" rendered="false" styleClass="OraDataText"/>
+      <modify element="DeclaredEthnicity" readOnly="true" rendered="false" styleClass="OraDataText"/>
+      <modify element="JgzzFiscalCode" readOnly="true" styleClass="OraDataText"/>
+      <modify element="MaritalStatus" readOnly="true" styleClass="OraDataText"/>
+      <modify element="TaxReference" readOnly="true" rendered="false" styleClass="OraDataText"/>
+      <modify element="MaritalStatusEffectiveDate" readOnly="true" rendered="false" styleClass="OraDataText"/>
+      <modify element="PlaceOfBirth" readOnly="true" styleClass="OraDataText"/>
+      <modify element="PersonalIncome" readOnly="true" styleClass="OraDataText"/>
+      <modify element="DateOfBirth" readOnly="true" styleClass="OraDataText"/>
+      <modify element="RentOwnInd" readOnly="true" styleClass="OraDataText"/>
+      <modify element="DateOfDeath" readOnly="true" rendered="false" styleClass="OraDataText"/>
+      <modify element="HeadOfHouseholdFlag" readOnly="true" styleClass="OraDataText"/>
+      <modify element="HouseholdSize" readOnly="true" styleClass="OraDataText"/>
+      <modify element="HouseholdIncome" readOnly="true" styleClass="OraDataText"/>
+      <modify element="LastKnownGps" readOnly="true" styleClass="OraDataText"/>
+      <modify element="RowLayout2" rendered="false" styleClass="OraDataText"/>
+   </modifications>
+</customization>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- $Header: XXSAMPLE_DD.xml 2014/02/06 12:56:20 sjoyce noship $-->
+<dataTemplate name="XXSAMPLE_DD" defaultPackage="XXSAMPLE_REP_PKG" version="1.0">
+<properties>
+<property name="debug_mode" value="on" />
+<property name="xml_tag_case" value="upper" />
+<property name="include_parameters" value="true" />
+</properties>
+<parameters>
+<parameter name="P_START_DATE" dataType = "DATE"></parameter>
+<parameter name="P_VENDOR_NAME" dataType = "CHARACTER"></parameter>
+</parameters>
+<dataQuery>
+<sqlStatement name="Q_VENDOR">
+<![CDATA[
+SELECT V.VENDOR_ID,
+       V.SEGMENT1 VENDOR_NUMBER,
+       V.VENDOR_NAME, 
+       V.VENDOR_TYPE_LOOKUP_CODE VENDOR_TYPE 
+FROM AP_SUPPLIERS V
+WHERE V.VENDOR_NAME = :P_VENDOR_NAME
+]]>
+</sqlStatement>
+<sqlStatement name="Q_SITES">
+<![CDATA[
+SELECT  LOC.VENDOR_ID SITE_VENDOR_ID,
+		LOC.SITE_NAME,
+		LOC.ADDRESS1||','||LOC.ADDRESS3||','||LOC.ADDRESS4||','||LOC.CITY||'.'||loc.state||'.'||loc.province||'.'||loc.county||'.'||loc.postal_Code||','||TERR.TERRITORY_SHORT_NAME SITE_ADDRESS
+  FROM AP_SUPPLIER_SITES_ALL loc
+  WHERE &g_vendor_id
+]]>
+</sqlStatement>
+<link name="VENDOR_SITE_LINK" parentQuery="Q_VENDOR" parentColumn="VENDOR_ID" 
+childQuery="Q_SITES"   childColumn="SITE_VENDOR_ID" condition="="/>
+<sqlStatement name="Q_INVOICES">
+<![CDATA[
+SELECT  i.INVOICE_NUM,
+        I.INVOICE_DATE,
+		i.INVOICE_CURRENCY_CODE,
+		I.AMOUNT
+  FROM AP_INVOICES_ALL I
+  WHERE &g_vendor_id
+  and i.creation_date > P_START_DATE
+]]>
+</sqlStatement>
+</dataQuery>
+<dataStructure>
+<group name="G_VENDOR" source="Q_VENDOR">
+<element name="VENDOR_ID"                      value="VENDOR_ID"/>
+<element name="VENDOR_NUMBER"                  value="VENDOR_NUMBER"/>
+<element name="VENDOR_NAME"                    value="VENDOR_NAME"/>
+<element name="VENDOR_TYPE"                    value="VENDOR_TYPE"/>
+<group name="G_SITES" source="Q_SITES">
+<element name="SITE_VENDOR_ID"                 value="SITE_VENDOR_ID"/>
+<element name="SITE_NAME"                      value="SITE_ADDRESS"/>
+</group>
+</group>
+<group name="G_CURRENCY" source="Q_INVOICES">
+<element name="INVOICE_CURRENCY_CODE"          value="INVOICE_CURRENCY_CODE"/>
+<element name="CURRENCY_TOTAL"                 value="AMOUNT"      function="SUM()"/>
+<group name="G_INVOICES" source="Q_INVOICES">
+<element name="INVOICE_NUM"                    value="INVOICE_NUM"/>
+<element name="INVOICE_DATE"                   value="INVOICE_DATE"/>
+<element name="INVOICE_AMOUNT"                 value="AMOUNT"/>
+</group>
+</group>
+</dataStructure>
+<!--<dataTrigger name="afterReportTrigger" source="XXSAMPLE_REP_PKG.email_report"/>-->
+</dataTemplate>

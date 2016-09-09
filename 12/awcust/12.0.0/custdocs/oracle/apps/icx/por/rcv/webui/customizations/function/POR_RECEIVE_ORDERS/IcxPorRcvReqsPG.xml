@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.89_562" xml:lang="en-US" customizes="/oracle/apps/icx/por/rcv/webui/IcxPorRcvReqsPG" xmlns:oa="http://xmlns.oracle.com/oa">
+   <modifications>
+      <move element="Description" after="RequisitionNumber"/>
+      <move element="SuplierName" after="Description"/>
+      <move element="CreationDate" after="SuplierName"/>
+      <move element="Total" after="CreationDate"/>
+      <move element="PoNumber" after="Total"/>
+      <move element="OperatingUnit" after="PoNumber"/>
+      <insert after="OperatingUnit">
+         <oa:messageStyledText id="MSN" adminCustomizable="true" cellNoWrapFormat="false" dataType="VARCHAR2" initSortSeq="none" prompt="MSN" queryable="false" rendered="true" required="no" scope="." selectiveSearchCriteria="false" serverUnvalidated="false" sortState="no" tipType="none" totalValue="false" userCustomizable="false" vAlign="middle" viewAttr="Msn" viewName="xxReceiveRequisitionVO" warnAboutChanges="true" xmlns:oa="http://xmlns.oracle.com/oa"/>
+      </insert>
+      <move element="RequesterSearchOption" after="Requester"/>
+      <move element="Preparer" after="RequesterSearchOption"/>
+      <move element="PreparerSearchOption" after="Preparer"/>
+      <move element="ReqNumber" after="PreparerSearchOption"/>
+      <move element="Supplier" after="ReqNumber"/>
+      <move element="OrderNumber" after="Supplier"/>
+      <move element="messageLayout1" after="OrderNumber"/>
+   </modifications>
+</customization>

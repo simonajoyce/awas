@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- $Header: XX_AWAS_USER_ROLES_DD.xml 2014/02/06 12:56:20 sjoyce noship $-->
+<!-- dbdrv: exec java oracle/apps/xdo/oa/util XDOLoader.class java &phase=dat checkfile:~PROD:patch/115/publisher/defs:XX_AWAS_USER_ROLES_DD.xml UPLOAD - DB_USERNAME &un_apps -DB_PASSWORD &pw_apps -JDBC_CONNECTION &jdbc_db_addr -LOB_TYPE DATA_TEMPLATE -APPS_SHORT_NAME ~PROD -LOB_CODE APOBRR -LANGUAGE 00 -XDO_FILE_TYPE XML-DATA-TEMPLATE -FILE_NAME &fullpath:~PROD:patch/115/publisher/defs:XX_AWAS_USER_ROLES_DD.xml#  -->
+<!-- GSCC_Category="Xdo Data Definition" -->
+<dataTemplate name="XX_AWAS_USER_ROLES_REP" defaultPackage="XX_AWAS_USER_ROLES_REP_pkg" version="1.0">
+<properties>
+<property name="debug_mode" value="on" />
+<property name="xml_tag_case" value="upper" />
+</properties>
+<parameters>
+<parameter name="P_USER_NAME" dataType = "CHARACTER"></parameter>
+</parameters>
+<dataQuery>
+<sqlStatement name="Q_REPORT">
+<![CDATA[
+select reg_request_id 			REG_REQUEST_ID,
+       reg_service_type			REG_SERVICE_TYPE,
+       u.user_name				USER_NAME,
+       status_code				STATUS_CODE,
+       requested_start_date		START_DATE,
+       requested_end_date		END_DATE,
+       w.display_name 			ROLE_NAME,
+       w.description 			ROLE_DESCRIPTION,
+       justification			JUSTIFICATION,
+       w.name 					ROLE_CODE,
+       decode((select sysrole_id from tbluserrole@basin b where  x.external_person_id = b.person_id 
+        and decode(substr(w.name,1,3),'UMX',decode(instr( w.name,'X',4),0,-1,substr(w.name,instr(w.name,'X',4)+1,length(w.name)-instr(w.name,'X',4))),-1) = b.sysrole_id),null,'N','Y') IN_PFOLIO
+from umx_reg_requests r,
+     fnd_user u,
+     wf_roles w,
+     xx_employee_details x
+where u.user_id = r.requested_for_user_id
+and r.wf_role_name = w.name
+and x.user_id = u.user_id
+and user_name = :P_USER_NAME
+and r.wf_role_name NOT IN (
+'UMX|UMX_EXT_ADMIN',
+'UMX|UMX_PARTNER_ADMIN')
+order by w.display_name
+]]>
+</sqlStatement>
+</dataQuery>
+<dataStructure>
+<group name="G_REPORT" source="Q_REPORT">
+<element name="REG_REQUEST_ID"                 value="REG_REQUEST_ID"/>
+<element name="REG_SERVICE_TYPE"               value="REG_SERVICE_TYPE"/>
+<element name="USER_NAME"                      value="USER_NAME"/>
+<element name="STATUS_CODE"                    value="STATUS_CODE"/>
+<element name="START_DATE"                     value="START_DATE"/>
+<element name="END_DATE"                       value="END_DATE"/>
+<element name="ROLE_NAME"                      value="ROLE_NAME"/>
+<element name="ROLE_DESCRIPTION"               value="ROLE_DESCRIPTION"/>
+<element name="JUSTIFICATION"                  value="JUSTIFICATION"/>
+<element name="ROLE_CODE"                      value="ROLE_CODE"/>
+<element name="IN_PFOLIO"                      value="IN_PFOLIO"/>
+</group>
+</dataStructure>
+</dataTemplate>

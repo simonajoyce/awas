@@ -1,0 +1,44 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/per/selfservice/deployperson/webui/AssignmentPG" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" version="9.0.3.6.7_727" xml:lang="en-US" file-version="$Header: AssignmentPG.xml 115.9 2004/05/28 03:49:27 jheer noship $" package="/oracle/apps/per/customizations/localization/FR/selfservice/deployperson/webui">
+   <modifications>
+      <modify element="HrGreRegion" rendered="false"/>
+      <modify element="HrOrganizationRegion" text="Organization"/>
+      <move element="HrOrganizationRegion" after="HrInstruction"/>
+      <move element="HrJobRegion" after="HrOrganizationRegion"/>
+      <move element="HrGradeRegion" after="HrJobRegion"/>
+      <move element="HrPositionRegion" after="HrGradeRegion"/>
+      <move element="HrAssignmentStatusRegion" after="HrPositionRegion"/>
+      <move element="HrPayrollRegion" after="HrAssignmentStatusRegion"/>
+      <move element="HrPeopleGroupRegion" after="HrPayrollRegion"/>
+      <move element="HrNestedRegion11" after="HrPeopleGroupRegion"/>
+      <move element="HrLocationRegion" after="HrNestedRegion11"/>
+      <move element="HrGreRegion" after="HrLocationRegion"/>
+      <move element="HrOtherAssRegion" after="HrGreRegion"/>
+      <move element="HrBusinessGroupId" after="HrOtherAssRegion"/>
+      <move element="HrOrganizationId" after="HrBusinessGroupId"/>
+      <move element="HrJobId" after="HrOrganizationId"/>
+      <move element="HrPositionId" after="HrJobId"/>
+      <move element="_SSHRFORMEVENT" after="HrPositionId"/>
+      <modify element="HrOrgMoreInfoButton" messageName=""/>
+      <modify element="HrDepartment" tipMessageName="" prompt="Organization Name"/>
+      <move element="HrAddressLocationDescFlex" after="HrDepartment"/>
+      <move element="HrOrgMoreInfoButton" after="HrAddressLocationDescFlex"/>
+      <move element="HrBusinessGroupId____2" after="HrOrgMoreInfoButton"/>
+      <move element="HrOrganizationId____2" after="HrBusinessGroupId____2"/>
+      <modify element="HrUsJobTitle" tipMessageName="" prompt="Job Name"/>
+      <modify element="HrManagerFlag" tipMessageName=""/>
+      <modify element="HrJobTitle" tipMessageName="" prompt="Job Name"/>
+      <modify element="HrJobMoreInfoButton" messageName=""/>
+      <move element="HrJobTitle" after="HrUsJobTitle"/>
+      <move element="HrManagerFlag" after="HrJobTitle"/>
+      <move element="HrJobMoreInfoButton" after="HrManagerFlag"/>
+      <move element="HrJobId____3" after="HrJobMoreInfoButton"/>
+      <move element="HrBusinessGroupId____5" after="HrJobId____3"/>
+      <modify element="HrWorkSchedKeyFlex____1" segmentList="GRES_AND_OTHER_DATA|Tax Unit|Timecard Approver|Timecard Required|Work Schedule|Shift||FR_STATUTORY_INFO.|Employee Category|Starting Reason|Ending Reason|Work Pattern|Work Pattern Start Day"/>
+      <move element="HrFrequency" after="HrWorkSchedKeyFlex____1"/>
+      <move element="HrNormalStartTime" after="HrFrequency"/>
+      <move element="HrNormalEndTime" after="HrNormalStartTime"/>
+      <move element="HrInstruction____4" after="HrNormalEndTime"/>
+      <modify element="HrEstablishmentName" rendered="true"/>
+   </modifications>
+</customization>

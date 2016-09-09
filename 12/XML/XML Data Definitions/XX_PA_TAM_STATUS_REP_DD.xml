@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- $Header: XX_PA_TAM_STATUS_REP_DD.xml 2014/03/14 09:30:00 sjoyce noship $-->
+<dataTemplate name="XX_PA_TAM_STATUS_REP_DD" defaultPackage="XX_PA_TAM_STATUS_REP_PKG" version="1.0">
+<properties>
+<property name="debug_mode" value="on" />
+<property name="xml_tag_case" value="upper" />
+<property name="include_parameters" value="true" />
+</properties>
+<parameters>
+<parameter name="P_RETURN_DATE" 	dataType = "DATE"></parameter>
+<parameter name="P_PROJECT_ID"  	dataType = "NUMBER"></parameter>
+<parameter name="P_SUMMARY"     	dataType = "CHARACTER"></parameter>
+<parameter name="P_INCLUDE_PCA" 	dataType = "CHARACTER"></parameter>
+<parameter name="P_PROJECT_TYPE"  	dataType = "CHARACTER"></parameter>
+<parameter name="P_EMAIL_ALL"  	    dataType = "CHARACTER"></parameter>
+<parameter name="P_EMAIL_INDIVIDUAL"  	    dataType = "CHARACTER"></parameter>
+</parameters>
+<dataQuery> 	
+<sqlStatement name="Q_PROJECT">
+<![CDATA[
+SELECT  &G_EMAIL,
+		proj.project_id PROJECT_ID,
+        proj.name PROJECT_NAME,
+        SEGMENT1 PROJECT_NUMBER,
+        proj.project_type project_type_real,
+        (SELECT class_code
+        FROM pa_project_classes
+        WHERE OBJECT_TYPE  = 'PA_PROJECTS'
+        AND CLASS_CATEGORY = 'Aircraft'
+        AND object_id      = proj.project_id
+        ) project_type,
+        description PROJECT_DESCRIPTION,
+        project_status_name,
+        country_name,
+        country_code,
+        region,
+        CITY,
+        PROJ.ATTRIBUTE1 MSN,
+        PROJ.ATTRIBUTE2 ENTITY,
+        PROJ.ATTRIBUTE3 GL_ACCOUNT,
+        PROJ.ATTRIBUTE4 LESSEE,
+        (SELECT PC.CUSTOMER_NAME
+        FROM PA_PROJECT_CUSTOMERS_V PC,
+          PA_CUSTOMERS_V CV1
+        WHERE PROJ.PROJECT_ID         = PC.PROJECT_ID
+        AND PC.BILL_TO_CUSTOMER_ID    = CV1.CUSTOMER_ID
+        AND PC.PROJECT_RELATIONSHIP_M = 'Return From Customer'
+        ) CURRENT_LESSEE,
+        (SELECT pc.customer_name
+        FROM PA_PROJECT_CUSTOMERS_V PC,
+          PA_CUSTOMERS_V CV1
+        WHERE proj.project_id          = pc.project_Id
+        AND PC.BILL_TO_CUSTOMER_ID     = CV1.CUSTOMER_ID
+        AND PC.PROJECT_RELATIONSHIP_M <> 'Return From Customer'
+        ) NEXT_LESSEE,
+        (SELECT PAP.FULL_NAME
+        FROM PER_ALL_PEOPLE_F PAP,
+          PA_PROJECT_PARTIES PPP
+        WHERE PPP.PROJECT_ID       = proj.PROJECT_ID
+        AND PPP.RESOURCE_TYPE_ID   = 101
+        AND PROJECT_ROLE_ID        = 1
+        AND PPP.RESOURCE_SOURCE_ID = PAP.PERSON_ID
+        AND sysdate BETWEEN ppp.start_date_active AND NVL(ppp.end_date_Active,sysdate+1)
+        ) Project_manager,
+        (SELECT ENGINETYPE
+        FROM VAIRCRAFTDETAILS@BASIN X
+        WHERE LPAD(FNGETMSN@BASIN(ACNO),6,'0') = LPAD(PROJ.ATTRIBUTE1,6,'0')
+        ) ENGINE_TYPE,
+        (SELECT ACTYPE
+        FROM VAIRCRAFTDETAILS@BASIN X
+        WHERE LPAD(FNGETMSN@BASIN(ACNO),6,'0') = LPAD(PROJ.ATTRIBUTE1,6,'0')
+        ) AIRCRAFT_TYPE,
+        (SELECT REPLACE(REPLACE(FND_DATE.DATE_TO_CANONICAL(LEASE_EDATE),'/','-'),' ','T')
+        FROM TBLAIRCRAFTLEASE@BASIN
+        WHERE aircraft_lease_no = to_number(proj.attribute7)
+        ) CONTRACTED_RETURN_DATE,
+        REPLACE(REPLACE(FND_DATE.DATE_TO_CANONICAL(dates.sched_ret_date),'/','-'),' ','T') SCHEDULED_RETURN_DATE,
+        REPLACE(REPLACE(FND_DATE.DATE_TO_CANONICAL(dates.cont_del_date),'/','-'),' ','T') CONTRACTED_DELIVERY_DATE,
+        REPLACE(REPLACE(FND_DATE.DATE_TO_CANONICAL(dates.sched_del_date),'/','-'),' ','T') SCHEDULED_DELIVERY_DATE,
+        :P_SUMMARY SUMMARY_YN,
+        XX_PA_MSN_DELIVERY_DATE ( NULL, NULL, NULL,PROJ.ATTRIBUTE1) xRM_Earliest_Del_date,
+        :P_RETURN_DATE DATE_PARAMETER,
+        REPLACE(REPLACE(FND_DATE.DATE_TO_CANONICAL(SYSDATE-1),'/','-'),' ','T') date_control,
+        NVL(:P_INCLUDE_PCA,'Y') INCLUDE_PCA
+FROM    pa_projects_prm_v proj,
+        HR_ALL_ORGANIZATION_UNITS_VL OPR,
+        PA_IMPORTANT_DATES_AGV dates
+WHERE PROJ.ORG_ID        = OPR.ORGANIZATION_ID
+AND project_type        IN ('New Aircraft Program', 'Re-Lease', 'Repossession')
+AND PROJECT_STATUS_CODE  = 'APPROVED'
+AND template_flag        = 'N'
+AND PROJ.PROJECT_ID      = DATES.PROJECT_ID (+)
+AND proj.project_id NOT IN (141,1301,1302) 
+AND PROJ.PROJECT_ID      = NVL(:P_PROJECT_ID, PROJ.PROJECT_ID)
+AND (SELECT class_code
+    FROM pa_project_classes
+    WHERE OBJECT_TYPE  = 'PA_PROJECTS'
+    AND CLASS_CATEGORY = 'Aircraft'
+    AND OBJECT_ID      = PROJ.PROJECT_ID) <> DECODE(NVL(:P_INCLUDE_PCA,'Y'),'N','Post Completion Activities','X')
+&G_DATE_WHERE
+ORDER BY contracted_return_date,
+         proj.attribute1
+]]>
+</sqlStatement>
+<sqlStatement name="Q_TASK_STATUS">
+<![CDATA[
+SELECT  ELEMENT_NUMBER TASK_NUMBER,
+  ppe.name TASK_NAME,
+  L.MEANING progress_status,
+  pc.description progress_overview,
+  PROGRESS_COMMENT,
+  pap.full_name TASK_MANAGER,
+  FU.USER_NAME REPORTED_BY,
+  PC.LAST_UPDATE_DATE REPORTED_DATE,
+  PC.COMPLETED_PERCENTAGE,
+  ptt.task_type
+FROM PA_PERCENT_COMPLETES PC,
+  FND_USER FU,
+  PA_LOOKUPS L,
+  pa_projects_all p,
+  PA_PROJ_ELEMENTS PPE,
+  PER_ALL_PEOPLE_F PAP,
+  PA_TASK_TYPES PTT
+WHERE PPE.OBJECT_TYPE     = 'PA_TASKS'
+AND PPE.TYPE_ID          IN (10160,10161,11160)
+AND PAP.PERSON_ID (+)     = PPE.MANAGER_PERSON_ID
+AND ppe.type_id           = ptt.task_type_id
+AND PC.TASK_ID            = PPE.PROJ_ELEMENT_ID
+AND PC.LAST_UPDATED_BY    = FU.USER_ID (+)
+AND L.LOOKUP_TYPE         = 'PROGRESS_SYSTEM_STATUS'
+AND L.LOOKUP_CODE         = PC.PROGRESS_STATUS_CODE
+AND P.PROJECT_ID          = PC.PROJECT_ID
+AND P.PROJECT_TYPE       IN ('New Aircraft Program','Re-Lease','Repossession')
+AND P.PROJECT_STATUS_CODE = 'APPROVED'
+AND P.TEMPLATE_FLAG       = 'N'
+AND CURRENT_FLAG          = 'Y'
+AND PPE.STATUS_CODE NOT  IN ('127','128')
+and pc.project_id         = :PROJECT_ID
+ORDER BY task_number
+]]>
+</sqlStatement>
+<sqlStatement name="Q_ISSUES">
+<![CDATA[
+SELECT  CI.CI_NUMBER ISSUE_NUMBER,
+        CI.SUMMARY ISSUE_SUMMARY,
+        CI.DESCRIPTION ISSUE_DESCRIPTION,
+        S.project_status_name ISSUE_STATUS_CODE,
+        CI.PROGRESS_AS_OF_DATE ISSUE_PROGRESS_AS_OF_DATE,
+        CI.STATUS_OVERVIEW ISSUE_STATUS_OVERVIEW
+FROM PA_CONTROL_ITEMS CI,
+  PA_PROJECT_STATUSES S
+WHERE CI.CI_TYPE_ID         = 10300
+AND CI.STATUS_CODE NOT     IN ('CI_CANCELED','CI_DRAFT','CI_CLOSED')
+AND CI.PROGRESS_STATUS_CODE = S.PROJECT_STATUS_CODE
+AND status_type             = 'PROGRESS'
+AND CI.PROJECT_ID = :PROJECT_ID
+]]>
+</sqlStatement>
+<sqlStatement name="Q_PROSPECTS">
+<![CDATA[
+SELECT V.TXN_ID PROSPECT_TXN_ID,
+       V.STATUS PROSPECT_STATUS,
+       V.ORGANISATION PROSPECT_ORGANISATION ,
+       v.originator PROSPECT_ORIGINATOR,
+'https://apps04.awas.com/xRM/Txn/Summary/'||V.TXN_ID PROSPECT_URL,
+AC.TXN_DESCRIPTION XRM_TRX_DESCRIPTION,
+ XX_PA_MSN_DELIVERY_DATE ( NULL, AC.VER_AIR_ID, NULL, null) XRM_DELIVERY_DATE,
+v.current_workflow
+FROM TBLXRMTXN@basin TXN,
+TBLXRMTXNVERSION@BASIN VER,
+VXRMTXNAIRCRAFT@BASIN AC,
+VXRMTXN@BASIN V
+WHERE VER.TXN_ID = TXN.TXN_ID 
+AND VER.CURRENT_VERSION = 1
+AND AC.TXN_VERSION_ID = VER.TXN_VERSION_ID
+AND TXN.RECSTATUS_CD = 1
+AND V.TXN_ID = TXN.TXN_ID
+AND V.RECSTATUS_CD = 1
+and lpad(AC.MSN,6,'0') = :MSN
+]]>
+</sqlStatement>
+</dataQuery>
+<dataTrigger name="beforeReportTrigger" source="XX_PA_TAM_STATUS_REP_PKG.before_report"/>
+<dataStructure>
+<group name="G_EMAIL" source="Q_PROJECT">
+	<element name="EMAIL"                      value="EMAIL"/>
+  <group name="G_PROJECT" source="Q_PROJECT">
+    <element name="PROJECT_ID"                      value="PROJECT_ID"/>
+    <element name="PROJECT_NAME"                  value="PROJECT_NAME"/>
+    <element name="PROJECT_NUMBER"                    value="PROJECT_NUMBER"/>
+    <element name="PROJECT_TYPE_REAL"                    value="PROJECT_TYPE_REAL"/>
+	<element name="PROJECT_TYPE"                    value="PROJECT_TYPE"/>
+	<element name="PROJECT_DESCRIPTION"                    value="PROJECT_DESCRIPTION"/>
+	<element name="PROJECT_STATUS_NAME"                    value="PROJECT_STATUS_NAME"/>
+	<element name="COUNTRY_NAME"                    value="COUNTRY_NAME"/>
+	<element name="COUNTRY_CODE"                    value="COUNTRY_CODE"/>
+	<element name="REGION"                    value="REGION"/>
+	<element name="CITY"                    value="CITY"/>
+	<element name="MSN"                    value="MSN"/>
+	<element name="ENTITY"                    value="ENTITY"/>
+	<element name="GL_ACCOUNT"                    value="GL_ACCOUNT"/>
+	<element name="LESSEE"                    value="LESSEE"/>
+	<element name="CURRENT_LESSEE"                    value="CURRENT_LESSEE"/>
+	<element name="NEXT_LESSEE"                    value="NEXT_LESSEE"/>
+	<element name="PROJECT_MANAGER"                    value="PROJECT_MANAGER"/>
+	<element name="ENGINE_TYPE"                    value="ENGINE_TYPE"/>
+	<element name="AIRCRAFT_TYPE"                    value="AIRCRAFT_TYPE"/>
+	<element name="CONTRACTED_RETURN_DATE"                    value="CONTRACTED_RETURN_DATE"/>
+	<element name="SCHEDULED_RETURN_DATE"                    value="SCHEDULED_RETURN_DATE"/>
+	<element name="CONTRACTED_DELIVERY_DATE"                    value="CONTRACTED_DELIVERY_DATE"/>
+	<element name="SCHEDULED_DELIVERY_DATE"                    value="SCHEDULED_DELIVERY_DATE"/>
+	<element name="SUMMARY_YN"                    value="SUMMARY_YN"/>
+	<element name="XRM_EARLIEST_DEL_DATE"                    value="XRM_EARLIEST_DEL_DATE"/>
+	<element name="DATE_PARAMETER"                    value="DATE_PARAMETER"/>
+	<element name="DATE_CONTROL"                    value="DATE_CONTROL"/>
+	<element name="INCLUDE_PCA"                    value="INCLUDE_PCA"/>
+		<group name="G_TASK_STATUS" source="Q_TASK_STATUS">
+			<element name="TASK_NUMBER"                 value="TASK_NUMBER"/>
+			<element name="TASK_NAME"                      value="TASK_NAME"/>
+			<element name="PROGRESS_STATUS"                   value="PROGRESS_STATUS"/>
+			<element name="PROGRESS_OVERVIEW"                   value="PROGRESS_OVERVIEW"/>
+			<element name="PROGRESS_COMMENT"                   value="PROGRESS_COMMENT"/>
+			<element name="TASK_MANAGER"                   value="TASK_MANAGER"/>
+			<element name="REPORTED_BY"                   value="REPORTED_BY"/>
+			<element name="REPORTED_DATE"                   value="REPORTED_DATE"/>
+			<element name="COMPLETED_PERCENTAGE"                   value="COMPLETED_PERCENTAGE"/>
+			<element name="TASK_TYPE"                 value="TASK_TYPE"/>
+			</group>
+		<group name="G_ISSUES" source="Q_ISSUES">
+			<element name="ISSUE_NUMBER"          value="ISSUE_NUMBER"/>
+			<element name="ISSUE_SUMMARY"          value="ISSUE_SUMMARY"/>
+			<element name="ISSUE_DESCRIPTION"          value="ISSUE_DESCRIPTION"/>
+			<element name="ISSUE_STATUS_CODE"          value="ISSUE_STATUS_CODE"/>
+			<element name="ISSUE_PROGRESS_AS_OF_DATE"          value="ISSUE_PROGRESS_AS_OF_DATE"/>
+			<element name="ISSUE_STATUS_OVERVIEW"          value="ISSUE_STATUS_OVERVIEW"/>
+			</group>
+		<group name="G_PROSPECTS" source="Q_PROSPECTS">
+			<element name="PROSPECT_TXN_ID"          value="PROSPECT_TXN_ID"/>
+			<element name="PROSPECT_STATUS"          value="PROSPECT_STATUS"/>
+			<element name="PROSPECT_ORGANISATION"          value="PROSPECT_ORGANISATION"/>
+			<element name="PROSPECT_ORIGINATOR"          value="PROSPECT_ORIGINATOR"/>
+			<element name="PROSPECT_URL"          value="PROSPECT_URL"/>
+			<element name="XRM_TRX_DESCRIPTION"          value="XRM_TRX_DESCRIPTION"/>
+			<element name="XRM_DELIVERY_DATE"          value="XRM_DELIVERY_DATE"/>
+			<element name="CURRENT_WORKFLOW"          value="CURRENT_WORKFLOW"/>
+			</group>
+  </group>
+</group>
+</dataStructure>
+<dataTrigger name="afterReportTrigger" source="XX_PA_TAM_STATUS_REP_PKG.email_report"/>
+</dataTemplate>

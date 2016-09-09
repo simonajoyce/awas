@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.64_464" xml:lang="en-US" customizes="/oracle/apps/irc/candidateSelfService/webui/ApplyReviewPG" developerMode="true" file-version="$Header: ApplyReviewPG.xml 120.5 2005/11/10 08:59 mmillmor noship $" package="/oracle/apps/irc/candidateSelfService/webui/customizations/function/HR_APPLY_REVIEW_SS">
+   <modifications>
+      <modify element="Qualifications" rendered="false"/>
+      <modify element="PersonalDetails.Address" rendered="false"/>
+      <modify element="PersonalDetails.PhoneNumbers" rendered="false"/>
+      <modify element="PersonalDetails.BasicDetails.PersDetsFlexField" rendered="false"/>
+      <modify element="PersonalDetails.BasicDetails.PersonDeveloperFlex" rendered="false"/>
+      <modify element="PersonalDetails.BasicDetails.NotificationPreferencesFlex" rendered="false"/>
+      <modify element="PersonalDetails.BasicDetails.FndFirstName" readOnly="true"/>
+      <modify element="UploadInstruction" messageName="IRC_412188_UPLOAD_RESUME_APPLY"/>
+      <modify element="PersonalDetails.Documents" rendered="false"/>
+   </modifications>
+</customization>

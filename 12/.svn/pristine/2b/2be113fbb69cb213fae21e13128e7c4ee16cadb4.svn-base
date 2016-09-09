@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xapi:requestset xmlns:xapi="http://xmlns.oracle.com/oxp/xapi">
+    <xapi:globalData location="stream"/>
+    <xapi:request select="/XX_SALMON_STATIC_DATA/LIST_COST_CENTRES">
+        <xapi:delivery>
+            <xapi:filesystem id="txt" output="/u01/app/oracle/outbound/salmon/CostCentres.csv"/>
+        </xapi:delivery>
+        <xapi:document key="CSV_CostCentre" output-type="etext" delivery="txt">
+        <xapi:template type="etext"
+                location="xdo://AWCUST.XX_SALMON_STATIC_DATA_CC_CSV.en.00/?getSource=true" filter=""/>
+        </xapi:document>
+    </xapi:request>
+	<xapi:request select="/XX_SALMON_STATIC_DATA/LIST_COUNTERPARTIES>">
+        <xapi:delivery>
+            <xapi:filesystem id="txt" output="/u01/app/oracle/outbound/salmon/CounterParties.csv"/>
+        </xapi:delivery>
+        <xapi:document key="CSV_CounterParties" output-type="etext" delivery="txt">
+        <xapi:template type="etext"
+                location="xdo://AWCUST.XX_SALMON_STATIC_DATA_CP_CSV.en.00/?getSource=true" filter=""/>
+        </xapi:document>
+    </xapi:request>
+	<xapi:request select="/XX_SALMON_STATIC_DATA/LIST_BANKACCOUNTS">
+        <xapi:delivery>
+            <xapi:filesystem id="txt" output="/u01/app/oracle/outbound/salmon/Accounts.csv"/>
+        </xapi:delivery>
+        <xapi:document key="CSV_Accounts" output-type="etext" delivery="txt">
+        <xapi:template type="etext"
+                location="xdo://AWCUST.XX_SALMON_STATIC_DATA_AC_CSV.en.00/?getSource=true" filter=""/>
+        </xapi:document>
+    </xapi:request>
+</xapi:requestset>

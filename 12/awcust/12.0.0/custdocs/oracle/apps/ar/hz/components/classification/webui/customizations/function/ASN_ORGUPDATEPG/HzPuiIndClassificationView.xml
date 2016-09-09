@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.6.5_471" xml:lang="en-US" customizes="/oracle/apps/ar/hz/components/classification/webui/HzPuiIndClassificationView" developerMode="false" file-version="$Header: HzPuiIndClassificationView.xml 115.1 2004/01/09 05:47:59 mkatraga noship $" package="/oracle/apps/ar/hz/components/classification/webui/customizations/function/ASN_ORGUPDATEPG">
+   <modifications>
+      <modify element="IndClassificationTableRGN" blockSize="10"/>
+      <move element="IndClassCode" after="IndClassCategory"/>
+      <move element="IndMeaning" after="IndClassCode"/>
+      <move element="IndRank" after="IndMeaning"/>
+      <move element="IndUpdate" after="IndRank"/>
+      <move element="IndRemove" after="IndUpdate"/>
+      <move element="IndPrimarySwitcher" after="IndRemove"/>
+      <modify element="IndClassCategory" prompt="Category"/>
+      <modify element="IndPrimarySwitcher" rendered="false"/>
+      <move element="HzPuiRegion3CF" after="HzPuiRegion2CF"/>
+      <move element="HzPuiRegion4CF" after="HzPuiRegion3CF"/>
+      <modify element="HzPuiRegion2CF" rendered="false"/>
+   </modifications>
+</customization>

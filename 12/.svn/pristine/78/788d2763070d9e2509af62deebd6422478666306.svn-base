@@ -1,0 +1,9 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.89_562" xml:lang="en-US" customizes="/oracle/apps/pji/projperf/reporting/webui/OverviewRowRN" xmlns:oa="http://xmlns.oracle.com/oa">
+   <modifications>
+      <move element="paCustomViewId" after="OverviewRowQuery"/>
+      <insert after="paCustomViewId">
+         <oa:button id="xx" adminCustomizable="true" dataType="VARCHAR2" destination="OA.jsp?akRegionApplicationId=0&amp;akRegionCode=FNDCPPROGRAMPAGE&amp;programApplName=AWCUST&amp;programName=XXPACOSTDETAIL&amp;programRegion=Hide&amp;scheduleRegion=Hide&amp;notifyRegion=Hide&amp;printRegion=Hide&amp;layoutRegion=Hide" disabled="false" hAlign="start" prompt="Run Project Detail Report" rendered="true" scope="." serverUnvalidated="false" targetFrame="_blank" warnAboutChanges="true" xmlns:oa="http://xmlns.oracle.com/oa"/>
+      </insert>
+   </modifications>
+</customization>

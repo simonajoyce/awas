@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/per/selfservice/personalinformation/webui/MainAddrPG" developerMode="true" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: MainAddrPG.xml 120.0.12010000.1 2008/11/11 10:17:09 vkodedal noship $" version="9.0.3.6.2_398" xml:lang="en-US" package="/oracle/apps/per/selfservice/personalinformation/webui/customizations/function/HR_NEW_HIRE_SS">
+   <modifications>
+      <modify element="HrQuaDummyTextSs" tipMessageName=""/>
+      <modify element="HrNewChgAddressInst" messageName="HR_INST_ADDR_FORM_REG"/>
+      <modify element="HrAddressEffctDate" rendered="false"/>
+      <modify element="HrAddressCountry" tipMessageName=""/>
+      <move element="HrNewChgAddressInst" after="HrCorrectAddressInst"/>
+      <move element="HrViewFutureAddressInst" after="HrNewChgAddressInst"/>
+      <move element="HrQuaDummyTextSs" after="HrViewFutureAddressInst"/>
+      <move element="HrAddressCountry" after="HrQuaDummyTextSs"/>
+      <move element="HrAddressType" after="HrAddressCountry"/>
+      <move element="HrAddressFlex" after="HrAddressType"/>
+      <move element="HrAdditionalAddress" after="HrAddressFlex"/>
+      <move element="HrAddressEffctDate" after="HrAdditionalAddress"/>
+      <move element="HrAddressHidden" after="HrAddressEffctDate"/>
+      <move element="HrAddressCountryHidden" after="HrAddressHidden"/>
+   </modifications>
+</customization>

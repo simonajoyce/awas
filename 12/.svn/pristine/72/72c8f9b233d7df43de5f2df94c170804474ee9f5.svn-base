@@ -1,0 +1,4 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.64_464" xml:lang="en-US" customizes="/oracle/apps/okc/repository/home/webui/ContractsAtRiskRN" developerMode="true" blockSize="3" package="/oracle/apps/okc/repository/home/webui/customizations/function/OKC_REP_HM_HOME_PERSONAL" file-version="$Header: ContractsAtRiskRN.xml 120.0 2005/05/25 18:57:34 appldev noship $">
+   <modifications/>
+</customization>

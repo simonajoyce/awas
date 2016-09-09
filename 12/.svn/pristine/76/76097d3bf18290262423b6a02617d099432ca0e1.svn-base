@@ -1,0 +1,30 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.6.4_447" xml:lang="en-US" customizes="/oracle/apps/per/selfservice/personalinformation/webui/OverviewPG" developerMode="false" file-version="$Header: OverviewPG.xml 115.5 2003/04/09 14:21:03 bramajey noship $" package="/oracle/apps/per/customizations/localization/CN/selfservice/personalinformation/webui">
+   <modifications>
+      <move element="BasicDetailsOverview" after="HrInstruction"/>
+      <move element="PhoneNumberOverview" after="BasicDetailsOverview"/>
+      <move element="MainAddressOverview" after="PhoneNumberOverview"/>
+      <move element="SecondaryAddressOverview" after="MainAddressOverview"/>
+      <move element="EmergencyContactsOverview" after="SecondaryAddressOverview"/>
+      <move element="ContactsOverview" after="EmergencyContactsOverview"/>
+      <move element="TertiaryAddressOverview" after="ContactsOverview"/>
+      <modify element="TertiaryAddressOverview" rendered="false"/>
+      <move element="PerMaritalStatus" after="PerFullName"/>
+      <move element="PerDateOfBirth" after="PerMaritalStatus"/>
+      <move element="HrSsn" after="PerDateOfBirth"/>
+      <move element="HrEmpNum" after="HrSsn"/>
+      <move element="HrEmailAddress" after="HrEmpNum"/>
+      <move element="BasicDetailsUpdate" after="HrEmailAddress"/>
+      <move element="BasicDetailsViewFuture" after="BasicDetailsUpdate"/>
+      <move element="BasicDetailsViewPendingAprv" after="BasicDetailsViewFuture"/>
+      <move element="HrNpwNum" after="BasicDetailsViewPendingAprv"/>
+      <move element="PersonId" after="HrNpwNum"/>
+      <modify element="PerDateOfBirth" tipType="dateFormat"/>
+      <modify element="HrSsn" prompt="Citizen Identification Number"/>
+      <move element="HrPhoneTableView" after="HrInstruction____1"/>
+      <move element="PhoneNumbersUpdate" after="HrPhoneTableView"/>
+      <move element="PhoneNumbersAdd" after="PhoneNumbersUpdate"/>
+      <move element="PhoneNumbersViewPendingAprv" after="PhoneNumbersAdd"/>
+      <modify element="PhoneNumbersUpdate" prompt="Update"/>
+   </modifications>
+</customization>

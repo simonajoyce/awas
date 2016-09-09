@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/fun/rules/webui/RuleCriteriaPage" developerMode="true" file-version="$Header: RuleCriteriaPage.xml 120.3 2005/10/30 22:53:10 skaneshi noship $" package="/oracle/apps/fun/rules/webui/customizations/function/OIE_CONTACTUS_SETUP">
+   <modifications>
+      <modify element="CustomizableIntruction" prompt="Create a rule for when to use a Contact Us type. Rule criteria indicate the values to consider before applying the Contact Us type and type attributes."/>
+      <modify element="ResultHDR" text="Contact Us Type and Type Attributes"/>
+      <modify element="RuleObjectNameVal" rendered="false"/>
+      <modify element="RuleObjectTypeVal" rendered="false"/>
+      <modify element="Separator" rendered="false"/>
+      <modify element="CaseSensitivecolumn" rendered="false"/>
+   </modifications>
+</customization>

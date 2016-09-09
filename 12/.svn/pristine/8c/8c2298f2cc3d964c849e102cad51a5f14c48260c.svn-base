@@ -1,0 +1,57 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/pay/selfservice/soe/webui/SoePG" developerMode="false" file-version="$Header: SoePG.xml 120.1 2005/06/08 02:20:08 kthampan noship $" package="/oracle/apps/pay/selfservice/soe/webui/customizations/localization/GB">
+   <modifications>
+      <modify element="SoeSumPayCols1" destination="Soe5RN.COL16"/>
+      <modify element="SoeSumPayCols2" destination="Soe6RN.COL16"/>
+      <modify element="SoeSumPayFCols1" destination="COL01 - COL02"/>
+      <modify element="SoeSumPayLayout" rendered="true"/>
+      <modify element="SoeSumPayCol1" prompt="Earnings"/>
+      <modify element="SoeSumPayCol2" prompt="Deductions"/>
+      <modify element="SoeSumPayCol3" rendered="false"/>
+      <modify element="SoeSumPayCol4" rendered="false"/>
+      <modify element="SoeSumPayCol5" rendered="false"/>
+      <modify element="SoeSumPayCol6" rendered="false"/>
+      <modify element="SoeSumPayFCol2" rendered="false"/>
+      <modify element="SoeSumPayFCol3" rendered="false"/>
+      <modify element="SoeSumPayFCol4" rendered="false"/>
+      <modify element="SoeSumPayFCol1" prompt="Amount Paid"/>
+      <modify element="Region2aFunc" destination="pay_gb_online_soe.tax_info"/>
+      <modify element="Region8Func" destination="pay_gb_online_soe.balances1"/>
+      <modify element="ParameterFunc" destination="pay_gb_online_soe.setParameters"/>
+      <modify element="Soe1Col7" rendered="false"/>
+      <modify element="Soe1Col9" prompt="N.I Number"/>
+      <modify element="Soe8Col5" rendered="false"/>
+      <modify element="Soe2aCol1" prompt="Tax Period" rendered="true"/>
+      <modify element="Soe2aCol2" prompt="Tax Ref. No." rendered="true"/>
+      <modify element="Soe2aCol3" prompt="Tax Tel. No." rendered="true"/>
+      <modify element="Soe2aCol4" prompt="Tax Code" rendered="true"/>
+      <modify element="Soe2aCol5" prompt="Tax Basis" rendered="true"/>
+      <modify element="Soe2aCol6" prompt="N.I. Category" rendered="true"/>
+      <modify element="Soe2aRN" rendered="true" text="Tax Information"/>
+      <modify element="Soe2aCell" rendered="true"/>
+      <modify element="Soe2Layout" rendered="true"/>
+      <move element="Soe2Layout" after="Soe1RNHeader"/>
+      <move element="Soe3Layout" after="Soe2Layout"/>
+      <move element="Soe4RNHeader" after="Soe3Layout"/>
+      <move element="SoeSumPayLayout" after="Soe4RNHeader"/>
+      <move element="Soe5Layout" after="SoeSumPayLayout"/>
+      <move element="Soe6Layout" after="Soe5Layout"/>
+      <move element="Soe7Layout" after="Soe6Layout"/>
+      <move element="Soe8Layout" after="Soe7Layout"/>
+      <move element="Soe9Layout" after="Soe8Layout"/>
+      <move element="Soe10Layout" after="Soe9Layout"/>
+      <move element="Soe11Layout" after="Soe10Layout"/>
+      <move element="Soe12Layout" after="Soe11Layout"/>
+      <move element="Soe13Layout" after="Soe12Layout"/>
+      <move element="Soe14Layout" after="Soe13Layout"/>
+      <move element="Soe15Layout" after="Soe14Layout"/>
+      <move element="Soe16Header" after="Soe15Layout"/>
+      <move element="Soe17Header" after="Soe16Header"/>
+      <move element="Soe18Header" after="Soe17Header"/>
+      <move element="Soe19Header" after="Soe18Header"/>
+      <move element="SoeSumPayCols" after="Soe19Header"/>
+      <move element="SoeSQLRN" after="SoeSumPayCols"/>
+      <move element="SoeDrilldownRN" after="SoeSQLRN"/>
+      <modify element="Soe1Col12" prompt="Assignment Number" rendered="true"/>
+   </modifications>
+</customization>

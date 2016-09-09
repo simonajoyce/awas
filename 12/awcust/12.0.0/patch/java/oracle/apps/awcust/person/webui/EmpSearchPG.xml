@@ -1,0 +1,25 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<page xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui" version="10.1.3_1312" xml:lang="en-US" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$">
+   <content>
+      <oa:pageLayout id="PageLayoutRN" amDefName="oracle.apps.awcust.person.server.EmpSearchAM" title="Employee Search">
+         <ui:corporateBranding>
+            <oa:image id="corporateBrandingImage" source="/OA_MEDIA/FNDSSCORP.gif"/>
+         </ui:corporateBranding>
+         <ui:contents>
+            <oa:query id="EmpQueryRN" mode="resultsBasedSearch" dispSimple="true" dispCustomized="true" dispAdvanced="true">
+               <ui:contents>
+                  <oa:table id="EmpResultsRN" width="100" userCustomizable="true" shortDesc="Employee Search Results">
+                     <ui:contents>
+                        <oa:messageStyledText id="FirstName" dataType="VARCHAR2" prompt="FirstName" viewName="EmpSearchVO1" viewAttr="FirstName" maximumLength="50" queryable="true" sortState="yes"/>
+                        <oa:messageStyledText id="LastName" dataType="VARCHAR2" prompt="LastName" viewName="EmpSearchVO1" viewAttr="LastName" maximumLength="50" queryable="true" sortState="yes" initSortSeq="first"/>
+                        <oa:messageTextInput id="Email" dataType="VARCHAR2" prompt="Email" viewName="EmpSearchVO1" viewAttr="Email" maximumLength="100"/>
+                        <oa:messageStyledText id="LineManager" dataType="VARCHAR2" prompt="LineManager" viewName="EmpSearchVO1" viewAttr="LineManager" maximumLength="100" queryable="true" sortState="yes"/>
+                        <oa:messageStyledText id="CostCentre" dataType="NUMBER" prompt="CostCentre" viewName="EmpSearchVO1" viewAttr="CostCentre"/>
+                     </ui:contents>
+                  </oa:table>
+               </ui:contents>
+            </oa:query>
+         </ui:contents>
+      </oa:pageLayout>
+   </content>
+</page>

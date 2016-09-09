@@ -1,0 +1,6 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.61_461" xml:lang="en-US" customizes="/oracle/apps/ar/hz/components/classification/webui/HzPuiClassificationView" developerMode="false" file-version="$Header: HzPuiClassificationView.xml 120.0 2005/06/01 02:24:11 appldev noship $" package="/oracle/apps/ar/hz/components/classification/webui/customizations/function/ASN_ORGUPDATEPG">
+   <modifications>
+      <modify element="ClassCategory" prompt="Category"/>
+   </modifications>
+</customization>

@@ -1,0 +1,45 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_10" xml:lang="en-US" customizes="/oracle/apps/wsm/mes/move/webui/MoveOutPG" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui" package="/oracle/apps/wsm/mes/move/webui/customizations/site/0" file-version="$Header: MoveOutPG.xml 120.0 2006/03/06 17:31 skaradib noship $">
+   <modifications>
+      <modify element="Flex2" rows="4"/>
+      <insert parent="Flex2" grouping="contents">
+         <oa:flexibleLayout id="flexibleLayout_0_1141435114203" columns="2" xmlns:oa="http://xmlns.oracle.com/oa">
+            <ui:contents xmlns:ui="http://xmlns.oracle.com/uix/ui">
+               <oa:flexibleLayout id="flexibleLayout_0_1141435214875"/>
+               <oa:flexibleLayout id="flexibleLayout_1_1141435214875"/>
+            </ui:contents>
+         </oa:flexibleLayout>
+      </insert>
+      <insert after="flexibleLayout_0_1141435114203">
+         <oa:flexibleLayout id="flexibleLayout_0_1141672774515" columns="2" xmlns:oa="http://xmlns.oracle.com/oa">
+            <ui:contents xmlns:ui="http://xmlns.oracle.com/uix/ui">
+               <oa:flexibleLayout id="flexibleLayout_0_1141676777328"/>
+               <oa:flexibleLayout id="flexibleLayout_1_1141676777328"/>
+            </ui:contents>
+         </oa:flexibleLayout>
+      </insert>
+      <insert after="flexibleLayout_0_1141435114203">
+         <oa:flexibleLayout id="flexibleLayout_0_1141672760453" xmlns:oa="http://xmlns.oracle.com/oa"/>
+      </insert>
+      <insert after="flexibleLayout_0_1141435114203">
+         <oa:flexibleLayout id="flexibleLayout_1_1141435114203" xmlns:oa="http://xmlns.oracle.com/oa"/>
+      </insert>
+      <modify element="AssyQtyFlex" flexibleLayoutRef="flexibleLayout_0_1141435214875" rendered="true"/>
+      <modify element="SecQtyFlex" flexibleLayoutRef="flexibleLayout_1_1141435214875" rendered="true"/>
+      <modify element="AccountsFlex" flexibleLayoutRef="flexibleLayout_1_1141435114203" rendered="true"/>
+      <modify element="SerialsFlex" flexibleLayoutRef="flexibleLayout_0_1141672760453" rendered="true"/>
+      <modify element="ScrapCodesFlex" flexibleLayoutRef="flexibleLayout_0_1141676777328" rendered="true"/>
+      <modify element="BonusCodesFlex" flexibleLayoutRef="flexibleLayout_1_1141676777328" rendered="true"/>
+      <modify element="Flex3" rows="2"/>
+      <insert parent="Flex3" grouping="contents">
+         <oa:flexibleLayout id="flexibleLayout_0_1141676880421" xmlns:oa="http://xmlns.oracle.com/oa"/>
+      </insert>
+      <insert after="flexibleLayout_0_1141676880421">
+         <oa:flexibleLayout id="flexibleLayout_1_1141676880421" xmlns:oa="http://xmlns.oracle.com/oa"/>
+      </insert>
+      <modify element="BackflushCompFlex" flexibleLayoutRef="flexibleLayout_0_1141676880421" rendered="true"/>
+      <modify element="ResourceUsageFlex" flexibleLayoutRef="flexibleLayout_1_1141676880421" rendered="true"/>
+      <modify element="NextOpsFlex" flexibleLayoutRef="Flex4" rendered="true"/>
+      <modify element="LotAttributesFlex" flexibleLayoutRef="Flex5" rendered="true"/>
+   </modifications>
+</customization>

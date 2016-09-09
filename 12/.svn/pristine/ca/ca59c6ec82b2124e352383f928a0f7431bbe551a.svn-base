@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_22" xml:lang="en-US" customizes="/oracle/apps/pos/rcv/webui/PosRcvRcptsDtlsPG" MDSActiveDoc="true" file-version="$Header: PosRcvRcptsDtlsPG.xml 120.5.12000000.1 2007/10/24 18:19:23 rallamse noship $" package="/oracle/apps/pos/rcv/webui/customizations/function/ILS_ISUPP_PERZ" xmlns:oa="http://xmlns.oracle.com/oa">
+   <modifications>
+      <insert after="ExportButton">
+         <oa:button id="IL_VIEW_TAX" adminCustomizable="true" dataType="VARCHAR2" destination="OA.jsp?page=/oracle/apps/ja/receipt/webui/ReceiptTaxesPG&amp;receiptPGSource=ISPPG&amp;retainLineNo=N&amp;receiptNum={!ReceiptNum}&amp;receiptShipHdrId={!SHIPMENT_HEADER_ID}" disabled="false" hAlign="start" prompt="View IL Tax" rendered="true" scope="." serverUnvalidated="false" viewName="PosRcvRcptsDtlsVO" warnAboutChanges="true" xmlns:oa="http://xmlns.oracle.com/oa"/>
+      </insert>
+      <modify element="PageLayoutRN" controllerClass="oracle.apps.ja.receipt.webui.ILPosRcvRcptsDtlsCO"/>
+      <modify element="PONumber" destination="OA.jsp?OAFunc=ILS_POS_VIEW_ORDER&amp;PoHeaderId={@PoHeaderId}&amp;PoReleaseId={@PoReleaseId}&amp;retainAM=Y&amp;addBreadCrumb=Y"/>
+      <modify element="RcptDtlsRetndSwGt0" destination="OA.jsp?OAFunc=ILS_POS_RETURNS&amp;ShipmentLineID={!SHIPMENT_LINE_ID}&amp;WPARAMSCALLER_ID=SUPP&amp;retainAM=Y&amp;addBreadCrumb=Y"/>
+      <modify element="Inv_Multiple" destination="OA.jsp?OAFunc=ILS_POS_INVOICE_VIEW&amp;ReceiptId={!SHIPMENT_HEADER_ID}&amp;ReceiptLineId={!SHIPMENT_LINE_ID}&amp;ReceiptNum={!ReceiptNum}&amp;SrcApp=POS&amp;SrcPg=RcvDtls&amp;retainAM=Y&amp;addBreadCrumb=Y"/>
+      <modify element="Inv_Single" destination="OA.jsp?OAFunc=ILS_POS_INVOICE_DETAIL&amp;InvoiceId={!InvoiceId}&amp;SrcApp=POS&amp;SrcPg=RcvDtls&amp;retainAM=Y&amp;addBreadCrumb=Y"/>
+   </modifications>
+</customization>

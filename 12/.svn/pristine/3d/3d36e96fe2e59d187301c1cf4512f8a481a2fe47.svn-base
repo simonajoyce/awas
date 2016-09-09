@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/cs/csz/search/webui/AdvSrchSDeskPG" package="/oracle/apps/cs/csz/search/webui/customizations/function/CSZ_SDESK_ADV_SRCH_FN" file-version="$Header: AdvSrchSDeskPG.xml 120.2 2006/01/19 14:06 gesubram noship $">
+   <modifications>
+      <modify element="FreqAttrxRN.CustAcct" readOnly="true"/>
+      <modify element="FreqAttrxRN.CustNum" readOnly="true"/>
+      <modify element="FreqAttrxRN.CustContName" readOnly="true"/>
+      <modify element="FreqAttrxRN.CustContPhone" readOnly="true"/>
+      <modify element="FreqAttrxRN.CustContEmail" readOnly="true"/>
+      <modify element="FreqAttrxRN.ContractNum" readOnly="true"/>
+      <modify element="FreqAttrxRN.CustEmail" readOnly="true"/>
+      <modify element="FreqAttrxRN.CustPhone" readOnly="true"/>
+      <modify element="FreqAttrxRN.ProblemCode" rendered="false"/>
+      <modify element="FreqAttrxRN.EmpContEmail" rendered="true"/>
+      <modify element="FreqAttrxRN.InstSerialNum" rendered="true"/>
+      <modify element="ColumnPropxRN.ColumnPerzRN.CustName" readOnly="true"/>
+      <modify element="ColumnPropxRN.ColumnPerzRN.CustNum" readOnly="true"/>
+      <modify element="ColumnPropxRN.ColumnPerzRN.ContractNum" readOnly="true"/>
+      <modify element="ColumnPropxRN.ColumnPerzRN.CustAcct" readOnly="true"/>
+      <modify element="ColumnPropxRN.ColumnPerzRN.CustContName" readOnly="true"/>
+      <modify element="FreqAttrxRN.CustName" readOnly="true"/>
+   </modifications>
+</customization>

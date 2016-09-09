@@ -1,0 +1,39 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/per/selfservice/personalinformation/webui/BasicDetOthUpdRN" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: BasicDetOthUpdRN.xml 115.1 2003/02/13 12:48:30 jcolman noship $" version="9.0.3.6.2_398" xml:lang="en-US" package="/oracle/apps/per/customizations/localization/IE/selfservice/personalinformation/webui">
+   <modifications>
+      <modify element="HrSsn" prompt="PPS Number"/>
+      <modify element="HrPersonDevDfFlexOther" segmentList="IE|Mother's Maiden Name" rendered="true"/>
+      <move element="HrSsn" after="HrEmpNum"/>
+      <move element="HrDateOfBirth" after="HrSsn"/>
+      <move element="HrMaritalStatus" after="HrDateOfBirth"/>
+      <move element="HrEmailAddress" after="HrMaritalStatus"/>
+      <move element="HrPersonDevDfFlexOther" after="HrEmailAddress"/>
+      <move element="HireDate" after="HrPersonDevDfFlexOther"/>
+      <move element="OriginalHireDate" after="HireDate"/>
+      <move element="PerStartDate" after="OriginalHireDate"/>
+      <move element="HrAdjServiceDate" after="PerStartDate"/>
+      <move element="HrTownOfBirth" after="HrAdjServiceDate"/>
+      <move element="HrRegionOfBirth" after="HrTownOfBirth"/>
+      <move element="HrCountryOfBirth" after="HrRegionOfBirth"/>
+      <move element="HrNationality" after="HrCountryOfBirth"/>
+      <move element="HrDeathDate" after="HrNationality"/>
+      <move element="Sex" after="HrDeathDate"/>
+      <move element="HrStudentStatus" after="Sex"/>
+      <move element="HrStatus" after="HrStudentStatus"/>
+      <move element="HrMilitaryService" after="HrStatus"/>
+      <move element="Hr2ndPassportExists" after="HrMilitaryService"/>
+      <move element="HrCorrespondenceLanguage" after="Hr2ndPassportExists"/>
+      <move element="HrUsesTobacco" after="HrCorrespondenceLanguage"/>
+      <move element="HrAdoptionDate" after="HrUsesTobacco"/>
+      <move element="HrNotCovMediPlan" after="HrAdoptionDate"/>
+      <move element="HrBenefitGroupId" after="HrNotCovMediPlan"/>
+      <move element="HrBloodType" after="HrBenefitGroupId"/>
+      <move element="HrExpenseChckSendToAdd" after="HrBloodType"/>
+      <move element="HrPersonType" after="HrExpenseChckSendToAdd"/>
+      <move element="HrVoluntaryService" after="HrPersonType"/>
+      <move element="HrMailstop" after="HrVoluntaryService"/>
+      <move element="HrLastTestDate" after="HrMailstop"/>
+      <move element="HrLastTestBy" after="HrLastTestDate"/>
+      <move element="HrAddPerDetFlexSs" after="HrLastTestBy"/>
+   </modifications>
+</customization>

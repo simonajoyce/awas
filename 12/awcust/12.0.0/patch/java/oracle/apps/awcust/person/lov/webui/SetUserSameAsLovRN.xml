@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oa:listOfValues version="10.1.3_1312" xml:lang="en-US" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$" scope="/" advancedSearchAllowed="false" amDefName="oracle.apps.awcust.person.lov.server.SetUserSameAsLovAM">
+   <ui:contents>
+      <oa:table name="SetUserSameAsLovRN" id="SetUserSameAsResultRN">
+         <ui:contents>
+            <oa:messageStyledText id="UserName" dataType="VARCHAR2" prompt="User Name" viewName="SetUserSameAsLovVO1" viewAttr="UserName" maximumLength="100" selectiveSearchCriteria="false" queryable="true" popupEnabled="true"/>
+            <oa:messageStyledText id="Description" selectiveSearchCriteria="false" prompt="User Description" viewName="SetUserSameAsLovVO1" viewAttr="Description" queryable="true"/>
+         </ui:contents>
+      </oa:table>
+   </ui:contents>
+</oa:listOfValues>

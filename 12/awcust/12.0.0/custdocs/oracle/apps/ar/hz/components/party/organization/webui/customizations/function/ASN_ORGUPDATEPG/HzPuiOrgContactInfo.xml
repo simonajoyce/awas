@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.6.5_471" xml:lang="en-US" customizes="/oracle/apps/ar/hz/components/party/organization/webui/HzPuiOrgContactInfo" developerMode="false" file-version="$Header: HzPuiOrgContactInfo.xml 120.1 2005/09/17 00:19 rramacha noship $" package="/oracle/apps/ar/hz/components/party/organization/webui/customizations/function/ASN_ORGUPDATEPG">
+   <modifications>
+      <move element="PrimaryPhone" after="PrimaryAddress"/>
+      <move element="PrimaryUrl" after="PrimaryPhone"/>
+      <move element="PrimaryEmail" after="PrimaryUrl"/>
+      <move element="Map" after="PrimaryEmail"/>
+      <move element="FlexfieldRow" after="Map"/>
+      <modify element="Map" rendered="false"/>
+      <modify element="PrimaryUrl" prompt="Primary Web Site" rendered="false"/>
+      <modify element="PrimaryEmail" prompt="Primary E-mail" rendered="false"/>
+   </modifications>
+</customization>

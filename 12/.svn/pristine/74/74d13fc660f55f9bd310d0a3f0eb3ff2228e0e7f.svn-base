@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.89_502" xml:lang="en-US" customizes="/oracle/apps/fun/rules/webui/RuleCriteriaPage" developerMode="true" package="/oracle/apps/fun/rules/webui/customizations/function/OCMCREDITANALYSTASSIGNMENTS" file-version="$Header: RuleCriteriaPage.xml 120.1 2005/12/30 22:42:30 bsarkar noship $">
+   <modifications>
+      <modify element="RuleObjectPop" rendered="false"/>
+      <modify element="MessageType" rendered="false"/>
+      <modify element="RuleObjectNameVal" rendered="false"/>
+      <modify element="RuleObjectTypeVal" rendered="false"/>
+      <modify element="Separator" rendered="false"/>
+      <modify element="ValueLov" prompt="Credit Analyst"/>
+      <modify element="LOVHint" rendered="false"/>
+      <modify element="CustomizableIntruction" prompt="Create credit analyst assignment rules by applying conditions to one or more parameters and specifying if any or all conditions must be met. If the conditions are not met, then the default credit analyst,selected on the Rules List page, will be assigned to the case folder."/>
+   </modifications>
+</customization>

@@ -1,0 +1,214 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.5.4.64_464" xml:lang="en-US" customizes="/oracle/apps/pay/taxcard/webui/GlobalTaxCardPG" developerMode="false" file-version="$Header: GlobalTaxCardPG.xml 120.1 2005/12/19 21:56 mseshadr noship $" package="/oracle/apps/pay/taxcard/webui/customizations/function/PL_SII_CARD_SS">
+   <modifications>
+      <modify element="PageLayoutRN" title="Polish SII Card" windowTitle="Polish SII Card"/>
+      <modify element="HeaderInfoItem01" prompt="Name"/>
+      <modify element="HeaderInfoItem02" prompt="Assignment Number"/>
+      <modify element="HeaderInfoItem03" prompt="National Fund of Health"/>
+      <modify element="HeaderInfoItem04" prompt="Old Age / Pension Rights"/>
+      <modify element="HeaderInfoItem05" prompt="Contract Category"/>
+      <modify element="HeaderInfoItem06" prompt="Contract Type"/>
+      <modify element="HeaderInfoItem07" prompt="Tax Office" rendered="true"/>
+      <modify element="HeaderInfoItem08" prompt="Disability" rendered="true"/>
+      <modify element="TaxCardHeaderRN" text="Old Age and Pension"/>
+      <modify element="TaxCardHeaderCOL01" rendered="false"/>
+      <modify element="TaxCardHeaderCOL02" rendered="false"/>
+      <modify element="TaxCardHeaderCOL03" rendered="false"/>
+      <modify element="TaxCardHeaderCOL04" rendered="false"/>
+      <modify element="TaxCardHeaderCOL05" rendered="false"/>
+      <modify element="TaxCardHeaderNUM01" rendered="false"/>
+      <modify element="TaxCardHeaderNUM02" rendered="false"/>
+      <modify element="TaxCardHeaderNUM03" rendered="false"/>
+      <modify element="TaxCardHeaderNUM04" rendered="false"/>
+      <modify element="TaxCardHeaderNUM05" rendered="false"/>
+      <modify element="TaxCardHeaderDATE01" rendered="false"/>
+      <modify element="TaxCardHeaderDATE02" rendered="false"/>
+      <modify element="TaxCardHeaderLOV01" prompt="Employee Social Security Information"/>
+      <modify element="TaxCardHeaderLOV02" prompt="Old Age Contribution"/>
+      <modify element="TaxCardHeaderLOV03" prompt="Old Age Contribution End Reason" rendered="true"/>
+      <modify element="TaxCardHeaderLOV04" prompt="Pension Contribution" rendered="true"/>
+      <modify element="TaxCardHeaderLOV05" prompt="Pension Contribution End Reason" rendered="true"/>
+      <modify element="LOV01COL01" prompt="Employee Social Security Information Code"/>
+      <modify element="LOV01COL02" prompt="Meaning"/>
+      <modify element="LOV01COL03" rendered="false"/>
+      <modify element="LOV01COL04" rendered="false"/>
+      <modify element="LOV01COL05" rendered="false"/>
+      <modify element="LOV02COL01" prompt="Old Age Contribution Type"/>
+      <modify element="LOV02COL02" rendered="false"/>
+      <modify element="LOV02COL03" rendered="false"/>
+      <modify element="LOV02COL04" rendered="false"/>
+      <modify element="LOV02COL05" rendered="false"/>
+      <modify element="LOV03COL01" prompt="Old Age Contribution End Reason"/>
+      <modify element="LOV03COL02" rendered="false"/>
+      <modify element="LOV03COL03" rendered="false"/>
+      <modify element="LOV03COL04" rendered="false"/>
+      <modify element="LOV03COL05" rendered="false"/>
+      <modify element="LOV04COL01" prompt="Pension Contribution Type"/>
+      <modify element="LOV04COL02" rendered="false"/>
+      <modify element="LOV04COL03" rendered="false"/>
+      <modify element="LOV04COL04" rendered="false"/>
+      <modify element="LOV04COL05" rendered="false"/>
+      <modify element="LOV05COL01" prompt="Pension Contribution End Reason"/>
+      <modify element="LOV05COL02" rendered="false"/>
+      <modify element="LOV05COL03" rendered="false"/>
+      <modify element="LOV05COL04" rendered="false"/>
+      <modify element="LOV05COL05" rendered="false"/>
+      <move element="TaxCardHeaderCOL02" after="TaxCardHeaderCOL01"/>
+      <move element="TaxCardHeaderCOL03" after="TaxCardHeaderCOL02"/>
+      <move element="TaxCardHeaderCOL04" after="TaxCardHeaderCOL03"/>
+      <move element="TaxCardHeaderCOL05" after="TaxCardHeaderCOL04"/>
+      <move element="TaxCardHeaderCOL06" after="TaxCardHeaderCOL05"/>
+      <move element="TaxCardHeaderCOL07" after="TaxCardHeaderCOL06"/>
+      <move element="TaxCardHeaderCOL08" after="TaxCardHeaderCOL07"/>
+      <move element="TaxCardHeaderCOL09" after="TaxCardHeaderCOL08"/>
+      <move element="TaxCardHeaderCOL10" after="TaxCardHeaderCOL09"/>
+      <move element="TaxCardHeaderCOL11" after="TaxCardHeaderCOL10"/>
+      <move element="TaxCardHeaderCOL12" after="TaxCardHeaderCOL11"/>
+      <move element="TaxCardHeaderCOL13" after="TaxCardHeaderCOL12"/>
+      <move element="TaxCardHeaderCOL14" after="TaxCardHeaderCOL13"/>
+      <move element="TaxCardHeaderCOL15" after="TaxCardHeaderCOL14"/>
+      <move element="TaxCardHeaderNUM01" after="TaxCardHeaderCOL15"/>
+      <move element="TaxCardHeaderNUM02" after="TaxCardHeaderNUM01"/>
+      <move element="TaxCardHeaderNUM03" after="TaxCardHeaderNUM02"/>
+      <move element="TaxCardHeaderNUM04" after="TaxCardHeaderNUM03"/>
+      <move element="TaxCardHeaderNUM05" after="TaxCardHeaderNUM04"/>
+      <move element="TaxCardHeaderNUM06" after="TaxCardHeaderNUM05"/>
+      <move element="TaxCardHeaderNUM07" after="TaxCardHeaderNUM06"/>
+      <move element="TaxCardHeaderNUM08" after="TaxCardHeaderNUM07"/>
+      <move element="TaxCardHeaderNUM09" after="TaxCardHeaderNUM08"/>
+      <move element="TaxCardHeaderNUM10" after="TaxCardHeaderNUM09"/>
+      <move element="TaxCardHeaderDATE01" after="TaxCardHeaderNUM10"/>
+      <move element="TaxCardHeaderDATE02" after="TaxCardHeaderDATE01"/>
+      <move element="TaxCardHeaderDATE03" after="TaxCardHeaderDATE02"/>
+      <move element="TaxCardHeaderDATE04" after="TaxCardHeaderDATE03"/>
+      <move element="TaxCardHeaderDATE05" after="TaxCardHeaderDATE04"/>
+      <move element="TaxCardHeaderLOV01" after="TaxCardHeaderDATE05"/>
+      <move element="TaxCardHeaderLOV02" after="TaxCardHeaderLOV01"/>
+      <insert before="TaxCardHeaderLOV02">
+         <oa:spacer id="PL_SII_HEADER_SPACER01" adminCustomizable="true" rendered="true" scope="." width="100%"/>
+      </insert>
+      <move element="TaxCardHeaderLOV03" after="TaxCardHeaderLOV02"/>
+      <move element="TaxCardHeaderLOV04" after="TaxCardHeaderLOV03"/>
+      <move element="TaxCardHeaderLOV05" after="TaxCardHeaderLOV04"/>
+      <move element="TaxCardHeaderLOVID01" after="TaxCardHeaderLOV05"/>
+      <move element="TaxCardHeaderLOVID02" after="TaxCardHeaderLOVID01"/>
+      <move element="TaxCardHeaderLOVID03" after="TaxCardHeaderLOVID02"/>
+      <move element="TaxCardHeaderLOVID04" after="TaxCardHeaderLOVID03"/>
+      <move element="TaxCardHeaderLOVID05" after="TaxCardHeaderLOVID04"/>
+      <move element="TaxCardHeaderFRMVAL01" after="TaxCardHeaderLOVID05"/>
+      <move element="TaxCardHeaderFRMVAL02" after="TaxCardHeaderFRMVAL01"/>
+      <move element="TaxCardHeaderFRMVAL03" after="TaxCardHeaderFRMVAL02"/>
+      <move element="TaxCardHeaderFRMVAL04" after="TaxCardHeaderFRMVAL03"/>
+      <move element="TaxCardHeaderFRMVAL05" after="TaxCardHeaderFRMVAL04"/>
+      <move element="TaxCardHeaderFRMVAL06" after="TaxCardHeaderFRMVAL05"/>
+      <move element="TaxCardHeaderFRMVAL07" after="TaxCardHeaderFRMVAL06"/>
+      <move element="TaxCardHeaderFRMVAL08" after="TaxCardHeaderFRMVAL07"/>
+      <move element="TaxCardHeaderFRMVAL09" after="TaxCardHeaderFRMVAL08"/>
+      <move element="TaxCardHeaderFRMVAL10" after="TaxCardHeaderFRMVAL09"/>
+      <move element="TaxCardHeaderFRMVAL11" after="TaxCardHeaderFRMVAL10"/>
+      <move element="TaxCardHeaderFRMVAL12" after="TaxCardHeaderFRMVAL11"/>
+      <move element="TaxCardHeaderFRMVAL13" after="TaxCardHeaderFRMVAL12"/>
+      <move element="TaxCardHeaderFRMVAL14" after="TaxCardHeaderFRMVAL13"/>
+      <move element="TaxCardHeaderFRMVAL15" after="TaxCardHeaderFRMVAL14"/>
+      <modify element="TabPage1Header" text="Sickness and Work Injury"/>
+      <modify element="TabPage1COL01" rendered="false"/>
+      <modify element="TabPage1COL02" rendered="false"/>
+      <modify element="TabPage1COL03" rendered="false"/>
+      <modify element="TabPage1COL04" rendered="false"/>
+      <modify element="TabPage1COL05" rendered="false"/>
+      <modify element="TabPage1NUM01" rendered="false"/>
+      <modify element="TabPage1NUM02" rendered="false"/>
+      <modify element="TabPage1NUM03" rendered="false"/>
+      <modify element="TabPage1NUM04" rendered="false"/>
+      <modify element="TabPage1NUM05" rendered="false"/>
+      <modify element="TabPage1DATE01" rendered="false"/>
+      <modify element="TabPage1DATE02" rendered="false"/>
+      <modify element="TabPage1LOV01" prompt="Sickness Contribution Type"/>
+      <modify element="TabPage1LOV01COL01" prompt="Sickness Contribution Type"/>
+      <modify element="TabPage1LOV01COL02" rendered="false"/>
+      <modify element="TabPage1LOV01COL03" rendered="false"/>
+      <modify element="TabPage1LOV01COL04" rendered="false"/>
+      <modify element="TabPage1LOV01COL05" rendered="false"/>
+      <modify element="TabPage1LOV02" prompt="Sickness Contribution End Reason"/>
+      <modify element="TabPage1LOV02COL01" prompt="Sickness Contribution End Reason"/>
+      <modify element="TabPage1LOV02COL02" rendered="false"/>
+      <modify element="TabPage1LOV02COL03" rendered="false"/>
+      <modify element="TabPage1LOV02COL04" rendered="false"/>
+      <modify element="TabPage1LOV02COL05" rendered="false"/>
+      <modify element="TabPage1LOV03COL01" prompt="Work Injury Contribution Type"/>
+      <modify element="TabPage1LOV03COL02" rendered="false"/>
+      <modify element="TabPage1LOV03COL03" rendered="false"/>
+      <modify element="TabPage1LOV03COL04" rendered="false"/>
+      <modify element="TabPage1LOV03COL05" rendered="false"/>
+      <modify element="TabPage1LOV03" prompt="Work Injury Contribution Type" rendered="true"/>
+      <modify element="TabPage1LOV04" prompt="Work Injury Contribution End Reason" rendered="true"/>
+      <modify element="TabPage2Header" text="Labor Fund and Unemployment"/>
+      <modify element="TabPage2LOV01COL01" prompt="Labor Fund Contribution Type"/>
+      <modify element="TabPage2LOV01COL02" rendered="false"/>
+      <modify element="TabPage2LOV01COL03" rendered="false"/>
+      <modify element="TabPage2LOV01COL04" rendered="false"/>
+      <modify element="TabPage2LOV01COL05" rendered="false"/>
+      <modify element="TabPage2COL01" rendered="false"/>
+      <modify element="TabPage2COL02" rendered="false"/>
+      <modify element="TabPage2COL03" rendered="false"/>
+      <modify element="TabPage2COL04" rendered="false"/>
+      <modify element="TabPage2COL05" rendered="false"/>
+      <modify element="TabPage2NUM01" rendered="false"/>
+      <modify element="TabPage2NUM02" rendered="false"/>
+      <modify element="TabPage2NUM03" rendered="false"/>
+      <modify element="TabPage2NUM04" rendered="false"/>
+      <modify element="TabPage2NUM05" rendered="false"/>
+      <modify element="TabPage2DATE01" rendered="false"/>
+      <modify element="TabPage2DATE02" rendered="false"/>
+      <modify element="TabPage2LOV01" prompt="Labor Fund Contribution Type"/>
+      <modify element="TabPage2LOV02" prompt="Labor Fund Contribution End Reason"/>
+      <modify element="TabPage2LOV02COL01" prompt="Labor Fund Contribution End Reason"/>
+      <modify element="TabPage2LOV02COL02" rendered="false"/>
+      <modify element="TabPage2LOV02COL03" rendered="false"/>
+      <modify element="TabPage2LOV02COL04" rendered="false"/>
+      <modify element="TabPage2LOV02COL05" rendered="false"/>
+      <modify element="TabPage2LOV03" prompt="Unemployment Contribution Type" rendered="true"/>
+      <modify element="TabPage2LOV03COL01" prompt="Unemployment Contribution Type"/>
+      <modify element="TabPage2LOV03COL02" rendered="false"/>
+      <modify element="TabPage2LOV03COL03" rendered="false"/>
+      <modify element="TabPage2LOV03COL04" rendered="false"/>
+      <modify element="TabPage2LOV03COL05" rendered="false"/>
+      <modify element="TabPage2LOV04" prompt="Unemployment Contribution End Reason" rendered="true"/>
+      <modify element="TabPage2LOV04COL01" prompt="Unemployment Contribution End Reason"/>
+      <modify element="TabPage2LOV04COL02" rendered="false"/>
+      <modify element="TabPage2LOV04COL03" rendered="false"/>
+      <modify element="TabPage2LOV04COL04" rendered="false"/>
+      <modify element="TabPage2LOV04COL05" rendered="false"/>
+      <modify element="TabPage3COL01" rendered="false"/>
+      <modify element="TabPage3COL02" rendered="false"/>
+      <modify element="TabPage3COL03" rendered="false"/>
+      <modify element="TabPage3COL04" rendered="false"/>
+      <modify element="TabPage3COL05" rendered="false"/>
+      <modify element="TabPage3NUM01" rendered="false"/>
+      <modify element="TabPage3NUM02" rendered="false"/>
+      <modify element="TabPage3NUM03" rendered="false"/>
+      <modify element="TabPage3NUM04" rendered="false"/>
+      <modify element="TabPage3NUM05" rendered="false"/>
+      <modify element="TabPage3DATE01" rendered="false"/>
+      <modify element="TabPage3DATE02" rendered="false"/>
+      <modify element="TabPage3LOV01" prompt="Health Contribution Type"/>
+      <modify element="TabPage3LOV02" prompt="Health Contribution End Reason"/>
+      <modify element="TabPage3LOV01COL01" prompt="Health Contribution Type"/>
+      <modify element="TabPage3LOV01COL02" rendered="false"/>
+      <modify element="TabPage3LOV01COL03" rendered="false"/>
+      <modify element="TabPage3LOV01COL04" rendered="false"/>
+      <modify element="TabPage3LOV01COL05" rendered="false"/>
+      <modify element="TabPage3LOV02COL01" prompt="Health Contribution End Reason"/>
+      <modify element="TabPage3LOV02COL02" rendered="false"/>
+      <modify element="TabPage3LOV02COL03" rendered="false"/>
+      <modify element="TabPage3LOV02COL04" rendered="false"/>
+      <modify element="TabPage3LOV02COL05" rendered="false"/>
+      <modify element="TabPage3Header" text="Health"/>
+      <modify element="TabPage4Header" rendered="false"/>
+      <modify element="TabPage1LOV04COL01" prompt="Work Injury Contribution End Reason"/>
+      <modify element="TabPage1LOV04COL02" rendered="false"/>
+      <modify element="TabPage1LOV04COL03" rendered="false"/>
+      <modify element="TabPage1LOV04COL04" rendered="false"/>
+      <modify element="TabPage1LOV04COL05" rendered="false"/>
+   </modifications>
+</customization>

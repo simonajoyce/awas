@@ -1,0 +1,24 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/cs/csz/incident/webui/CaseCreationPG" package="/oracle/apps/cs/csz/incident/webui/customizations/function/CSZ_CASE_CR_FN" file-version="$Header: CaseCreationPG.xml 120.4 2006/01/04 16:37 ujagarla noship $">
+   <modifications>
+      <modify element="SRCreationPageTop" title="Create Case" windowTitle="Case"/>
+      <modify element="createProblemRN" text="Case Details"/>
+      <modify element="createIssueRN" text="Case Classification"/>
+      <modify element="xIssueRN.HIssueIncidentType" prompt="Case Type"/>
+      <modify element="xIssueRN.HIssueProblemCode" prompt="Issue Type"/>
+      <modify element="xIssueRN.HIssueIncidentUrgency" prompt="Urgency"/>
+      <modify element="xIssueRN.HIssueErrorMessage" prompt="Additional Classifications" rendered="true"/>
+      <modify element="xIssueRN.AssignAutoRadio" rendered="false"/>
+      <modify element="xIssueRN.AssignGroupRadio" rendered="false"/>
+      <modify element="xIssueRN.AssignUserRadio" rendered="false"/>
+      <modify element="xIssueRN.PIssueGroup" rendered="true"/>
+      <modify element="xIssueRN.PIssueOwner" rendered="true"/>
+      <modify element="xIssueRN.IncidentDate" tipType="none"/>
+      <move element="xIssueRN.HIssueProblemCode" after="xIssueRN.HIssueIncidentType"/>
+      <move element="xIssueRN.HIssueStatus" after="xIssueRN.HIssueProblemCode"/>
+      <move element="xIssueRN.HIssueResolutionCode" after="xIssueRN.HIssueStatus"/>
+      <move element="xIssueRN.HIssueIncidentSeverity" after="xIssueRN.HIssueResolutionCode"/>
+      <move element="xIssueRN.HIssueIncidentUrgency" after="xIssueRN.HIssueIncidentSeverity"/>
+      <move element="xIssueRN.HIssueErrorMessage" after="xIssueRN.HIssueIncidentUrgency"/>
+   </modifications>
+</customization>

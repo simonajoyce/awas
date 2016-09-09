@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" file-version="$Header: WorkSchedPG.xml 115.0 2003/02/18 11:14:55 mkandasa noship $" version="9.0.3.6.4_447" xml:lang="en-US" customizes="/oracle/apps/per/selfservice/workschedule/webui/WorkSchedPG" developerMode="false" package="/oracle/apps/per/customizations/localization/CN/selfservice/workschedule/webui">
+   <modifications>
+      <move element="HrDummyField" after="HrInstruction"/>
+      <move element="HrWorkSchedKeyFlex" after="HrDummyField"/>
+      <move element="HrWorkHours" after="HrWorkSchedKeyFlex"/>
+      <move element="HrFrequency" after="HrWorkHours"/>
+      <move element="HrNormalStartTime" after="HrFrequency"/>
+      <move element="HrNormalEndTime" after="HrNormalStartTime"/>
+      <move element="HrDummyText" after="HrNormalEndTime"/>
+      <move element="HrWorkSchedDesFlex" after="HrDummyText"/>
+      <modify element="HrWorkSchedKeyFlex" segmentList="GRES_AND_OTHER_DATA|Timecard Approver|Timecard Required|Work Schedule|Shift||CN_STATUTORY_INFO|Tax Area|SIC Area|Salary Payout Location|Employer||"/>
+   </modifications>
+</customization>

@@ -1,0 +1,25 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_50" xml:lang="en-US" customizes="/oracle/apps/ar/cusstd/createcus/webui/ArCreCusPG" developerMode="true" file-version="$Header: ArCreCusPG.xml 120.1.12010000.1 2008/10/17 11:51:14 rmanikan noship $">
+   <modifications>
+      <modify element="organization.PhoneMessageLayout" rendered="false"/>
+      <modify element="organization.OrgPhoneExtension" rendered="false"/>
+      <modify element="person.PhoneExtension" rendered="false"/>
+      <modify element="person.Organization" rendered="false"/>
+      <modify element="person.OrgPartyNumber" rendered="false"/>
+      <modify element="person.ContactNumber" rendered="false"/>
+      <modify element="person.JobTitleCode" rendered="false"/>
+      <modify element="person.JobTitle" rendered="false"/>
+      <modify element="AccountInfo.Classification" rendered="false"/>
+      <modify element="AccountInfo.SalesChan" rendered="false"/>
+      <modify element="AccountInfo.ActStatus" rendered="false"/>
+      <modify element="addressRN.AddressLocationSite.hzAddressee" rendered="false"/>
+      <modify element="addressRN.AcctSItePurposes.BizPurposeStatusStack" rendered="false"/>
+      <modify element="addressRN.AcctSItePurposes.SiteUseUpdateCol" rendered="false"/>
+      <modify element="organization.FaxMessageLayout" rendered="false"/>
+      <modify element="person.TableLayout" rendered="false"/>
+      <modify element="person.PhoneMessageLayout" rendered="false"/>
+      <modify element="person.MobileMessageLayout" rendered="false"/>
+      <modify element="AccountInfo.ProfClass" rendered="true"/>
+      <modify element="addressRN.AddressLocationSite.hzPartySiteName" rendered="true"/>
+   </modifications>
+</customization>

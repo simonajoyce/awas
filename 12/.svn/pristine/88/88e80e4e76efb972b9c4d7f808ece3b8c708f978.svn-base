@@ -1,0 +1,6 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.89_562" xml:lang="en-US" customizes="/oracle/apps/icx/por/req/webui/ShoppingCartPG" xmlns:user="http://xmlns.oracle.com/jrad/user" user:responsibilityKey="awas_procurement_legal" user:responsibilityAppId="178" user:responsibilityAppShortName="ICX">
+   <modifications>
+      <modify element="EmergencyReqCheckbox" defaultValue="Y"/>
+   </modifications>
+</customization>

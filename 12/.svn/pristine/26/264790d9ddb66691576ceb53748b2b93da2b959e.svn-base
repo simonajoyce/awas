@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/per/selfservice/personalinformation/webui/BasicDetNamUpdRN" developerMode="true" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: BasicDetNamUpdRN.xml 115.3 2003/02/13 12:25:48 jcolman noship $" version="9.0.3.6.2_398" xml:lang="en-US" package="/oracle/apps/per/customizations/function/HR_NEWHIRE_SS/selfservice/personalinformation/webui">
+   <modifications>
+      <modify element="HrFullName" rendered="false"/>
+      <modify element="HrEffectiveDate" rendered="false"/>
+      <move element="HrFirstName" after="HrTitle"/>
+      <move element="HrMiddleName" after="HrFirstName"/>
+      <move element="HrLastName" after="HrMiddleName"/>
+      <move element="HrPrefix" after="HrLastName"/>
+      <move element="HrSuffix" after="HrPrefix"/>
+      <move element="HrPreferredName" after="HrSuffix"/>
+      <move element="HrPrevLastName" after="HrPreferredName"/>
+      <move element="HrPersonDevDfFlex" after="HrPrevLastName"/>
+      <move element="HrHonors" after="HrPersonDevDfFlex"/>
+      <move element="HrEffectiveDate" after="HrHonors"/>
+      <move element="HrFullName" after="HrEffectiveDate"/>
+   </modifications>
+</customization>

@@ -1,0 +1,6 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.6.6_557" xml:lang="en-US" customizes="/oracle/apps/ap/mapping/webui/MapCodeDefaultRN" developerMode="true" file-version="$Header: MapCodeDefaultRN.xml 115.2 2003/08/29 21:00:02 kmizuta noship $">
+   <modifications>
+      <modify element="DefaultLookupCode" prompt="Default Card Expense Type"/>
+   </modifications>
+</customization>

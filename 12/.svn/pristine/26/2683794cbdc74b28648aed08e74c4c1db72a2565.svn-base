@@ -1,0 +1,12 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.13_413" xml:lang="en-US" customizes="/oracle/apps/pji/projperf/reporting/webui/ResourceAnalysisPG" package="/oracle/apps/pji/projperf/reporting/webui/customizations/function/PJI_REP_PP_INDIRECT" file-version="$Header: ResourceAnalysisPG.xml 115.1 2004/07/19 18:56:12 ninzhang noship $">
+   <modifications>
+      <modify element="ResourceProfitabilitySummaryTab" rendered="false"/>
+      <modify element="ResourceCostGraphsRN" layoutStyle="horizontal"/>
+      <modify element="RBSActPlanCostFlexContent" flexibleLayoutRef="ResourceCostGraphsRN" rendered="true"/>
+      <modify element="TimeCumActPlanCostFlexContent" flexibleLayoutRef="ResourceCostGraphsRN" rendered="true"/>
+      <modify element="ResourceProfitabilityGraphsRN" layoutStyle="horizontal"/>
+      <modify element="TimeCumActPlanRevenueFlexContent" flexibleLayoutRef="ResourceProfitabilityGraphsRN" rendered="true"/>
+      <modify element="RBSActPlanMarginFlexContent" flexibleLayoutRef="ResourceProfitabilityGraphsRN" rendered="true"/>
+   </modifications>
+</customization>

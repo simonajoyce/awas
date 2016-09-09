@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- $Header: XX_TAM_DIAMONDHEAD_PERIOD_END_DD.xml 2015/07/07 12:56:20 sjoyce noship $-->
+<dataTemplate name="XX_TAM_DIAMONDHEAD_PERIOD_END_DD" defaultPackage="XX_TAM_DHEAD_PERIOD_END_PKG" version="1.0">
+<properties>
+<property name="debug_mode" value="on" />
+<property name="xml_tag_case" value="upper" />
+<property name="include_parameters" value="true" />
+</properties>
+<parameters>
+<parameter name="PERIOD_NAME" dataType = "CHARACTER"></parameter>
+</parameters>
+<dataQuery>
+<sqlStatement name="Q_MAIN">
+<![CDATA[SELECT :PERIOD_NAME REC_PERIOD
+     , XX_PA_BUDGET_STATUS(x.project_id, :period_name,'S') Budget_Status
+     , XX_PA_BUDGET_STATUS(X.PROJECT_ID, :PERIOD_NAME,'L') BUDGET_STATUS_LONG
+     , XX_PA_GET_PROJECT_MGR(x.project_id) project_manager
+     , PROJECT_NAME REC_PROJECT_NAME
+     , PROJECT_NUMBER rec_project_number
+     , PROJECT_TYPE REC_PROJECT_TYPE
+     , MSN REC_MSN
+     , ENTITY REC_ENTITY
+     , LEASEE REC_LEASEE
+     , ACC REC_GL_ACC
+     ,NVL(
+       (
+               SELECT MIN(budget_status_code)
+                 FROM pa_budget_versions v
+                WHERE upper(version_name) = :period_name
+                 AND v.project_id         = x.project_id
+       )
+       , DECODE(SUM(DECODE(source,'iProject', OPREV_CURRENT * -1, 0))+SUM(DECODE(source,'iProject', OPREV_PREVIOUS * -1, 0))+ SUM(
+       DECODE(source,'GL Balances', OPENING_BALANCE, 0))    + SUM(DECODE(source,'iProject', OPENING_BALANCE * -1, 0)) + SUM(DECODE(
+       source,'GL Balances', PTD, 0))                       + SUM(DECODE(source,'iProject', PTD * -1, 0)) + SUM(DECODE(source,
+       'GL Balances', PJTD, 0))                             + SUM(DECODE(source,'iProject', PJTD * -1, 0)),0,'B',NULL)) BS
+     , SUM(DECODE(source,'GL Balances', OPENING_BALANCE, 0)) REC_GL_OB
+     , SUM(DECODE(source,'iProject', OPENING_BALANCE * -1, 0)) REC_PA_OB
+     , SUM(DECODE(source,'GL Balances', OPENING_BALANCE, 0))-SUM(DECODE(source,'iProject', OPENING_BALANCE * -1, 0)) REC_OB_VAR
+     , SUM(DECODE(source,'GL Balances', PTD, 0)) REC_GL_PTD
+     , SUM(DECODE(source,'iProject',DECODE(expenditure_Type,'Security Deposits/Credits',PTD *-1,0),0)) REC_SEC_PTD
+     , SUM(DECODE(source,'iProject',DECODE(EXPENDITURE_TYPE,'Security Deposits/Credits',0,PTD *-1),0))-SUM(DECODE(source,'iProject', FC_CURRENT *-1,0)) REC_PAY_PTD
+     , SUM(DECODE(source,'iProject',DECODE(EXPENDITURE_TYPE,'TAM Operational Revenue',0,FC_CURRENT*-1))) REC_FC_PTD
+     , SUM(DECODE(source,'iProject',DECODE(EXPENDITURE_TYPE,'TAM Operational Revenue',FC_CURRENT  *-1,0))) REC_FC_OPREV_PTD
+     , SUM(DECODE(source,'iProject',FC_SUBMITTED *-1,0)) REC_FC_SUB
+     , SUM(DECODE(source,'iProject',FC_OP_REV *-1,0)) REC_FC_OPREV
+     , SUM(DECODE(source,'iProject', PTD * -1, 0)) REC_PA_PTD
+     , SUM(DECODE(source,'iProject', OPREV_CURRENT * -1, 0)) REC_OPREV_PTD
+     , SUM(DECODE(source,'iProject', OPREV_CURRENT * -1, 0))+SUM(DECODE(source,'iProject', OPREV_PREVIOUS * -1, 0)) REC_OPREV_YTD
+     , SUM(DECODE(source,'GL Balances', PTD, 0))-SUM(DECODE(source,'iProject',PTD* -1, 0)) REC_PTD_VAR
+     , SUM(DECODE(source,'GL Balances', PJTD, 0)) REC_GL_PJTD
+     , SUM(DECODE(source,'iProject', PJTD * -1, 0)) REC_PA_PJTD
+     , SUM(DECODE(source,'GL Balances', PJTD, 0)) - SUM(DECODE(source,'iProject', PJTD * -1, 0)) REC_PJTD_VAR
+     , SUM(DECODE(source,'iProject', COM, 0)) REC_COMS
+   FROM
+       (
+               SELECT 'iProject' source
+                   , name Project_Name
+                   , PROJECT_ID
+                   , SEGMENT1 PROJECT_NUMBER
+                   , PROJECT_TYPE
+                   , MSN
+                   , ENTITY
+                   , LEASEE
+                   , ACC
+                   , EXPENDITURE_TYPE
+                   , SUM(DECODE(type,'Forecast',DECODE(PERIOD,'PREVIOUS', cost,0),0)) FC_PREVIOUS
+                   , SUM(DECODE(type,'Actuals',DECODE(PERIOD,'PREVIOUS', cost,0),0)) ACT_PREVIOUS
+                   , SUM(DECODE(type,'Forecast',DECODE(PERIOD,'PREVIOUS', cost,0),0))-SUM(DECODE(type,'Actuals',DECODE(PERIOD,
+                     'PREVIOUS', cost,0),0)) Opening_Balance
+                   , SUM(DECODE(type,'Forecast',DECODE(PERIOD,'PREVIOUS', 0,cost),0)) FC_CURRENT
+                   , SUM(DECODE(type,'Submitted Forecast',DECODE(EXPENDITURE_TYPE,'TAM Operational Revenue', 0,cost),0))
+                     FC_SUBMITTED
+                   , SUM(DECODE(type,'Submitted Forecast',DECODE(EXPENDITURE_TYPE,'TAM Operational Revenue', cost,0),0)) FC_OP_REV
+                   , SUM(DECODE(type,'OpRev',DECODE(PERIOD,'PREVIOUS', 0,cost),0)) OPREV_CURRENT
+                   , SUM(DECODE(type,'OpRev',DECODE(PERIOD,'PREVIOUS', cost,0),0)) OPREV_PREVIOUS
+                   , SUM(DECODE(type,'Actuals',DECODE(PERIOD,'PREVIOUS', 0,cost),0)) ACT_CURRENT
+                   , (SUM(DECODE(type,'Forecast',DECODE(PERIOD,'PREVIOUS', 0,cost),0))-SUM(DECODE(type,'Actuals',DECODE(PERIOD,
+                     'PREVIOUS', 0,cost),0))) PTD
+                   , (SUM(DECODE(type,'Forecast',DECODE(PERIOD,'PREVIOUS', cost,0),0))-SUM(DECODE(type,'Actuals',DECODE(PERIOD,
+                     'PREVIOUS', cost,0),0)))                                         +(SUM(DECODE(type,'Forecast',DECODE(PERIOD,
+                     'PREVIOUS', 0,cost),0))                                          -SUM(DECODE(type,'Actuals',DECODE(PERIOD,
+                     'PREVIOUS', 0,cost),0))) PJTD
+                   , SUM(DECODE(type,'Commitments',cost,0)) COM
+                 FROM
+                     (
+                             SELECT 'Forecast' type
+                                 , P.name
+                                 , P.PROJECT_ID
+                                 , P.SEGMENT1
+                                 , P.PROJECT_TYPE
+                                 , p.ATTRIBUTE1 MSN
+                                 , p.attribute2 ENTITY
+                                 , p.attribute4 LEASEE
+                                 , p.attribute3 ACC
+                                 , R.EXPENDITURE_TYPE
+                                 , DECODE(L.PERIOD_NAME, :period_name,:period_name, 'PREVIOUS') PERIOD
+                                 , SUM(NVL( L.RAW_COST,0)) cost
+                               FROM PA_BUDGET_VERSIONS V
+                                 , PA_RESOURCE_ASSIGNMENTS R
+                                 , PA_BUDGET_LINES L
+                                 , PA_PROJECTS_ALL P
+                                 , gl_periods g
+                                 , xx_diamond_head_aircraft dh
+                              WHERE R.BUDGET_VERSION_ID (+)     = V.BUDGET_VERSION_ID
+                               AND L.RESOURCE_ASSIGNMENT_ID (+) = R.RESOURCE_ASSIGNMENT_ID
+                               AND P.PROJECT_ID                 = V.PROJECT_ID
+                               AND p.attribute1                 = dh.gl_msn
+                               AND p.segment1 NOT              IN ('100437','100436' ,'100130')
+                               AND V.BUDGET_STATUS_CODE         = 'B'
+                               AND G.PERIOD_NAME                = :period_name
+                               AND G.PERIOD_SET_NAME            = 'AWAS'
+                               AND NVL(L.END_DATE,g.end_date)  <= G.END_DATE
+                               AND V.PRIMARY_COST_FORECAST_FLAG = 'Y'
+                               AND V.VERSION_NUMBER             =
+                                   (
+                                           SELECT MAX(VERSION_NUMBER)
+                                             FROM PA_BUDGET_VERSIONS PBV
+                                            WHERE P.PROJECT_ID          = PBV.PROJECT_ID
+                                             AND PBV.BUDGET_STATUS_CODE = 'B'
+                                   )
+                           GROUP BY P.name
+                                 , P.PROJECT_ID
+                                 , P.SEGMENT1
+                                 , P.PROJECT_TYPE
+                                 , p.ATTRIBUTE1
+                                 , p.attribute2
+                                 , p.attribute4
+                                 , p.attribute3
+                                 , R.EXPENDITURE_TYPE
+                                 , DECODE(L.PERIOD_NAME, :PERIOD_NAME,:PERIOD_NAME, 'PREVIOUS')
+                          UNION ALL
+                             SELECT 'Submitted Forecast' type
+                                 , P.name
+                                 , P.PROJECT_ID
+                                 , P.SEGMENT1
+                                 , P.PROJECT_TYPE
+                                 , p.ATTRIBUTE1 MSN
+                                 , p.attribute2 ENTITY
+                                 , p.attribute4 LEASEE
+                                 , p.attribute3 ACC
+                                 , R.EXPENDITURE_TYPE
+                                 , DECODE(L.PERIOD_NAME, :PERIOD_NAME,:PERIOD_NAME, 'PREVIOUS') PERIOD
+                                 , SUM(NVL( L.RAW_COST,0)) cost
+                               FROM PA_BUDGET_VERSIONS V
+                                 , PA_RESOURCE_ASSIGNMENTS R
+                                 , PA_BUDGET_LINES L
+                                 , PA_PROJECTS_ALL P
+                                 , gl_periods g
+                                 , xx_diamond_head_aircraft dh
+                              WHERE R.BUDGET_VERSION_ID (+)          = V.BUDGET_VERSION_ID
+                               AND L.RESOURCE_ASSIGNMENT_ID (+)      = R.RESOURCE_ASSIGNMENT_ID
+                               AND P.PROJECT_ID                      = V.PROJECT_ID
+                               AND p.attribute1                      = dh.gl_msn
+                               AND p.segment1 NOT                   IN ('100437','100436' ,'100130')
+                               AND V.BUDGET_STATUS_CODE              = 'S'
+                               AND G.PERIOD_NAME                     = :PERIOD_NAME
+                               AND UPPER(V.VERSION_NAME)             = :PERIOD_NAME
+                               AND G.PERIOD_SET_NAME                 = 'AWAS'
+                               AND NVL(L.period_name ,g.period_name) = G.PERIOD_NAME
+                               AND V.PRIMARY_COST_FORECAST_FLAG      = 'Y'
+                               AND V.VERSION_NUMBER                  =
+                                   (
+                                           SELECT MAX(VERSION_NUMBER)
+                                             FROM PA_BUDGET_VERSIONS PBV
+                                            WHERE P.PROJECT_ID          = PBV.PROJECT_ID
+                                             AND PBV.BUDGET_STATUS_CODE = 'S'
+                                   )
+                           GROUP BY P.name
+                                 , P.PROJECT_ID
+                                 , P.SEGMENT1
+                                 , P.PROJECT_TYPE
+                                 , p.ATTRIBUTE1
+                                 , p.attribute2
+                                 , p.attribute4
+                                 , p.attribute3
+                                 , R.EXPENDITURE_TYPE
+                                 , DECODE(L.PERIOD_NAME, :PERIOD_NAME,:PERIOD_NAME, 'PREVIOUS')
+                          UNION ALL
+                             SELECT 'Actuals'
+                                 , p.name
+                                 , p.project_id
+                                 , P.SEGMENT1
+                                 , P.PROJECT_TYPE
+                                 , p.ATTRIBUTE1 MSN
+                                 , p.attribute2 ENTITY
+                                 , p.attribute4 LEASEE
+                                 , p.attribute3 ACC
+                                 , EI.EXPENDITURE_TYPE EXPENDITURE_TYPE
+                                 , DECODE(C.GL_PERIOD_NAME, :period_name,:period_name, 'PREVIOUS') PERIOD
+                                 , ROUND(SUM(EI.RAW_COST),2) AMOUNT
+                               FROM PA_EXPENDITURE_ITEMS_ALL EI
+                                 , PA_PROJECTS_ALL P
+                                 , PA_COST_DISTRIBUTION_LINES_ALL C
+                                 , gl_periods gp
+                                 , PA_SEGMENT_VALUE_LOOKUPS SVL
+                                 , xx_diamond_head_aircraft dh
+                              WHERE P.PROJECT_ID                   = EI.PROJECT_ID
+                               AND p.attribute1                    = dh.gl_msn
+                               AND p.project_type                 IN ('Re-Lease','Repossession')
+                               AND C.EXPENDITURE_ITEM_ID           = EI.EXPENDITURE_ITEM_ID
+                               AND GP.PERIOD_NAME                  = :period_name
+                               AND p.segment1 NOT                 IN ('100437','100436','100130')
+                               AND C.GL_DATE                      <= GP.END_DATE
+                               AND SVL.SEGMENT_VALUE_LOOKUP        = EI.EXPENDITURE_TYPE
+                               AND SVL.SEGMENT_VALUE_LOOKUP_SET_ID = 1
+                               AND DECODE(SEGMENT_VALUE,'000000','Accrual','262105','Accrual','262205','Accrual','Non Accrual') = 'Accrual'
+                           GROUP BY P.name
+                                 , P.PROJECT_ID
+                                 , P.SEGMENT1
+                                 , P.PROJECT_TYPE
+                                 , p.ATTRIBUTE1
+                                 , p.attribute2
+                                 , p.attribute4
+                                 , p.attribute3
+                                 , EI.EXPENDITURE_TYPE
+                                 , DECODE(C.GL_PERIOD_NAME, :PERIOD_NAME,:PERIOD_NAME, 'PREVIOUS')
+                          UNION ALL
+                             SELECT 'Commitments'
+                                 , p.name
+                                 , p.project_id
+                                 , P.SEGMENT1
+                                 , P.PROJECT_TYPE
+                                 , p.ATTRIBUTE1 MSN
+                                 , p.attribute2 ENTITY
+                                 , p.attribute4 LEASEE
+                                 , p.attribute3 ACC
+                                 , C.EXPENDITURE_TYPE EXPENDITURE_TYPE
+                                 , :period_name PERIOD
+                                 , ROUND(SUM(TOT_CMT_RAW_COST),2) AMOUNT
+                               FROM PA_PROJECTS_ALL P
+                                 , PA_COMMITMENT_TXNS C
+                                 , PA_SEGMENT_VALUE_LOOKUPS SVL
+                                 , xx_diamond_head_aircraft dh
+                              WHERE C.PROJECT_ID                   = P.PROJECT_ID
+                               AND p.attribute1                    = dh.gl_msn
+                               AND SVL.SEGMENT_VALUE_LOOKUP        = C.EXPENDITURE_TYPE
+                               AND SVL.SEGMENT_VALUE_LOOKUP_SET_ID = 1
+                               AND DECODE(SEGMENT_VALUE,'000000','Accrual','262105','Accrual','262205','Accrual','Non Accrual') = 'Accrual'
+                           GROUP BY p.name
+                                 , p.project_id
+                                 , P.SEGMENT1
+                                 , P.PROJECT_TYPE
+                                 , p.ATTRIBUTE1
+                                 , p.attribute2
+                                 , p.attribute4
+                                 , p.attribute3
+                                 , C.EXPENDITURE_TYPE
+                                 , :PERIOD_NAME
+                          UNION ALL
+                             SELECT 'OpRev' type
+                                 , P.name
+                                 , P.PROJECT_ID
+                                 , P.SEGMENT1
+                                 , P.PROJECT_TYPE
+                                 , p.ATTRIBUTE1 MSN
+                                 , p.attribute2 ENTITY
+                                 , p.attribute4 LEASEE
+                                 , p.attribute3 ACC
+                                 , R.EXPENDITURE_TYPE
+                                 , DECODE(L.PERIOD_NAME, :period_name,:period_name, 'PREVIOUS') PERIOD
+                                 , SUM(NVL( L.RAW_COST,0)) cost
+                               FROM PA_BUDGET_VERSIONS V
+                                 , PA_RESOURCE_ASSIGNMENTS R
+                                 , PA_BUDGET_LINES L
+                                 , PA_PROJECTS_ALL P
+                                 , gl_periods g
+                                 , xx_diamond_head_aircraft dh
+                              WHERE R.BUDGET_VERSION_ID (+)     = V.BUDGET_VERSION_ID
+                               AND L.RESOURCE_ASSIGNMENT_ID (+) = R.RESOURCE_ASSIGNMENT_ID
+                               AND P.PROJECT_ID                 = V.PROJECT_ID
+                               AND p.attribute1                 = dh.gl_msn
+                               AND p.segment1 NOT              IN ('100437','100436' ,'100130')
+                               AND V.BUDGET_STATUS_CODE         = 'B'
+                               AND G.PERIOD_NAME                = :period_name
+                               AND G.PERIOD_SET_NAME            = 'AWAS'
+                               AND NVL(L.END_DATE,g.end_date) BETWEEN g.year_start_date AND G.END_DATE
+                               AND V.PRIMARY_COST_FORECAST_FLAG = 'Y'
+                               AND V.VERSION_NUMBER             =
+                                   (
+                                           SELECT MAX(VERSION_NUMBER)
+                                             FROM PA_BUDGET_VERSIONS PBV
+                                            WHERE P.PROJECT_ID          = PBV.PROJECT_ID
+                                             AND PBV.BUDGET_STATUS_CODE = 'B'
+                                   )
+                               AND R.EXPENDITURE_TYPE = 'TAM Operational Revenue'
+                           GROUP BY P.name
+                                 , P.PROJECT_ID
+                                 , P.SEGMENT1
+                                 , P.PROJECT_TYPE
+                                 , p.ATTRIBUTE1
+                                 , p.attribute2
+                                 , p.attribute4
+                                 , p.attribute3
+                                 , R.EXPENDITURE_TYPE
+                                 , DECODE(L.PERIOD_NAME, :period_name,:period_name, 'PREVIOUS')
+                           ORDER BY 2
+                                 , 3
+                     )
+             GROUP BY name
+                   , PROJECT_ID
+                   , SEGMENT1
+                   , PROJECT_TYPE
+                   , MSN
+                   , ENTITY
+                   , LEASEE
+                   , ACC
+                   , EXPENDITURE_TYPE
+            UNION ALL
+               SELECT 'GL Balances'
+                   , P.name
+                   , P.PROJECT_ID
+                   , P.SEGMENT1
+                   , P.PROJECT_TYPE
+                   , p.ATTRIBUTE1 MSN
+                   , p.attribute2 ENTITY
+                   , p.attribute4 LEASEE
+                   , p.attribute3 ACC
+                   , C.SEGMENT1
+                     ||'.'
+                     ||C.SEGMENT2
+                     ||'.'
+                     ||C.SEGMENT3
+                     ||'.'
+                     ||C.SEGMENT4
+                     ||'.'
+                     ||C.SEGMENT5
+                     ||'.'
+                     ||C.SEGMENT6
+                     ||'.'
+                     ||C.SEGMENT7 GL_STRING
+                   , TO_NUMBER(NULL)
+                   , to_number(NULL)
+                   , BEGIN_BALANCE_DR - BEGIN_BALANCE_CR BEGIN_BALANCE
+                   , TO_NUMBER(NULL)
+                   , TO_NUMBER(NULL)
+                   , to_number(NULL)
+                   , to_number(NULL)
+                   , to_number(NULL)
+                   , to_number(NULL)
+                   , PERIOD_NET_DR       - PERIOD_NET_CR PTD
+                   , (PROJECT_TO_DATE_DR - PROJECT_TO_DATE_CR)+(PERIOD_NET_DR - PERIOD_NET_CR) PJTD
+                   , to_number(NULL)
+                 FROM PA_PROJECTS_ALL P
+                   , GL_CODE_COMBINATIONS c
+                   , GL_BALANCES B
+                   , XX_diamond_head_aircraft dh
+                WHERE c.SEGMENT1 (+)       = P.ATTRIBUTE2
+                 AND c.SEGMENT2 (+)        = P.ATTRIBUTE3
+                 AND c.SEGMENT3 (+)        = '0000'
+                 AND C.SEGMENT4 (+)        = P.ATTRIBUTE1
+                 AND c.SEGMENT5 (+)        = P.ATTRIBUTE4
+                 AND C.SEGMENT6 (+)        = P.ATTRIBUTE2
+                 AND C.SEGMENT7 (+)        = '0000'
+                 AND B.PERIOD_NAME         = :period_name
+                 AND p.attribute1          = dh.gl_msn
+                 AND p.segment1 NOT       IN ('100437','100436','100130')
+                 AND p.project_type       IN ('Re-Lease','Repossession')
+                 AND C.CODE_COMBINATION_ID = B.CODE_COMBINATION_ID
+                 AND B.LEDGER_ID           = 8
+                 AND B.ACTUAL_FLAG         = 'A'
+                 AND C.SUMMARY_FLAG        = 'N'
+                 AND B.CURRENCY_CODE       = 'USD'
+       )
+       x
+GROUP BY PROJECT_NAME
+     , X.PROJECT_ID
+     , XX_PA_BUDGET_STATUS(X.PROJECT_ID, :PERIOD_NAME,'S')
+     , XX_PA_GET_PROJECT_MGR(project_id)
+     , PROJECT_NUMBER
+     , PROJECT_TYPE
+     , MSN
+     , ENTITY
+     , LEASEE
+     , ACC
+HAVING
+       (
+              SUM(DECODE(source,'GL Balances', OPENING_BALANCE, 0)) + SUM(DECODE(source,'iProject', OPENING_BALANCE * -1, 0)) + SUM
+              (DECODE( source,'GL Balances', PTD, 0))               + SUM(DECODE(source,'iProject', PTD * -1, 0)) + SUM(DECODE(
+              source, 'GL Balances', PJTD, 0))                      + SUM(DECODE(source,'iProject', PJTD * -1, 0)) <> 0
+           OR XX_PA_BUDGET_STATUS( x.project_id, :period_name,'S')                                                 IS NOT NULL
+           OR SUM(DECODE( source,'GL Balances', PTD, 0))                                                           <> 0
+           OR SUM(DECODE(source, 'iProject', PTD                                                         * -1, 0))                                                         <> 0
+           OR ABS(SUM(DECODE(source, 'iProject',DECODE(EXPENDITURE_TYPE,'Security Deposits/Credits',0,PTD*-1),0))-SUM(DECODE(source
+              , 'iProject',FC_CURRENT                                                                    *-1,0))) + ABS(SUM(DECODE(
+              source,'iProject',FC_CURRENT                                                               *-1,0))) <> 0
+           OR SUM(DECODE(source,'iProject', OPREV_CURRENT                                                * -1, 0))+SUM(DECODE(
+              source ,'iProject', OPREV_PREVIOUS                                                         * -1, 0)) <> 0
+       )
+ORDER BY PROJECT_TYPE
+     , MSN
+     , PROJECT_NAME
+]]>
+</sqlStatement>
+</dataQuery>
+<dataStructure>
+	<group name="G_MAIN" source="Q_MAIN">
+		<element name="REC_PERIOD"    value="REC_PERIOD"/>
+		<element name="BUDGET_STATUS"    value="BUDGET_STATUS"/>
+		<element name="BUDGET_STATUS_LONG"    value="BUDGET_STATUS_LONG"/>
+		<element name="PROJECT_MANAGER"    value="PROJECT_MANAGER"/>
+		<element name="REC_PROJECT_NAME"    value="REC_PROJECT_NAME"/>
+		<element name="REC_PROJECT_NUMBER"    value="REC_PROJECT_NUMBER"/>
+		<element name="REC_PROJECT_TYPE"    value="REC_PROJECT_TYPE"/>
+		<element name="REC_MSN"    value="REC_MSN"/>
+		<element name="REC_ENTITY"    value="REC_ENTITY"/>
+		<element name="REC_LEASEE"    value="REC_LEASEE"/>
+		<element name="REC_GL_ACC"    value="REC_GL_ACC"/>
+		<element name="BS"    value="BS"/>
+		<element name="REC_GL_OB"    value="REC_GL_OB"/>
+		<element name="REC_PA_OB"    value="REC_PA_OB"/>
+		<element name="REC_OB_VAR"    value="REC_OB_VAR"/>
+		<element name="REC_GL_PTD"    value="REC_GL_PTD"/>
+		<element name="REC_SEC_PTD"    value="REC_SEC_PTD"/>
+		<element name="REC_PAY_PTD"    value="REC_PAY_PTD"/>
+		<element name="REC_FC_PTD"    value="REC_FC_PTD"/>
+		<element name="REC_FC_OPREV_PTD"    value="REC_FC_OPREV_PTD"/>
+		<element name="REC_FC_SUB"    value="REC_FC_SUB"/>
+		<element name="REC_FC_OPREV"    value="REC_FC_OPREV"/>
+		<element name="REC_PA_PTD"    value="REC_PA_PTD"/>
+		<element name="REC_OPREV_PTD"    value="REC_OPREV_PTD"/>
+		<element name="REC_OPREV_YTD"    value="REC_OPREV_YTD"/>
+		<element name="REC_PTD_VAR"    value="REC_PTD_VAR"/>
+		<element name="REC_GL_PJTD"    value="REC_GL_PJTD"/>
+		<element name="REC_PA_PJTD"    value="REC_PA_PJTD"/>
+		<element name="REC_PJTD_VAR"    value="REC_PJTD_VAR"/>
+		<element name="REC_COMS"    value="REC_COMS"/>
+	</group>
+</dataStructure>
+</dataTemplate>

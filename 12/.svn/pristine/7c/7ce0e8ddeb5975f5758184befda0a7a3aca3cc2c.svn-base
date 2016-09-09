@@ -1,0 +1,33 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_27" xml:lang="en-US" customizes="/oracle/apps/cs/csz/search/webui/AdvSrchSDeskPG" package="/oracle/apps/cs/csz/search/webui/customizations/function/CSZ_ITIL_ADV_SRCH_FN" file-version="$Header: AdvSrchSDeskPG.xml 120.0.12010000.3 2009/09/17 17:42:12 lkullamb noship $">
+   <modifications>
+      <modify element="FreqAttrxRN.CustAcct" readOnly="true"/>
+      <modify element="KeywordAndDatesxRN.KeywordRN" text="Ticket Summary and Notes"/>
+      <modify element="KeywordAndDatesxRN.DatesRN" text="Ticket Dates"/>
+      <modify element="KeywordAndDatesxRN.OccurDateStart" prompt="Ticket Date From"/>
+      <modify element="FreqAttrxRN.CustNum" readOnly="true"/>
+      <modify element="FreqAttrxRN.CustContName" readOnly="true"/>
+      <modify element="FreqAttrxRN.CustContPhone" readOnly="true"/>
+      <modify element="FreqAttrxRN.CustContEmail" readOnly="true"/>
+      <modify element="FreqAttrxRN.ProblemCode" prompt="Issue Code" rendered="false"/>
+      <modify element="FreqAttrxRN.EmpContEmail" rendered="true"/>
+      <modify element="FreqAttrxRN.InstSerialNum" rendered="true"/>
+      <modify element="FreqAttrxRN.CustName" readOnly="true"/>
+      <modify element="ColumnPropxRN.ColumnPerzRN.CustName" readOnly="true"/>
+      <modify element="ColumnPropxRN.ColumnPerzRN.CustNum" readOnly="true"/>
+      <modify element="ColumnPropxRN.ColumnPerzRN.ContractNum" readOnly="true"/>
+      <modify element="ColumnPropxRN.ColumnPerzRN.CustAcct" readOnly="true"/>
+      <modify element="ColumnPropxRN.ColumnPerzRN.CustContName" readOnly="true"/>
+      <modify element="FreqAttrxRN.ContractNum" readOnly="true"/>
+      <modify element="FreqAttrxRN.CustEmail" readOnly="true"/>
+      <modify element="FreqAttrxRN.CustPhone" readOnly="true"/>
+      <modify element="FreqAttrxRN.RequestType" prompt="Issue Type"/>
+      <modify element="FreqAttrxRN" text="Ticket Attributes"/>
+      <modify element="NonFreqAttrxRN" text="Ticket Additional Attributes"/>
+      <modify element="ColumnPropxRN.ColumnPerzRN.Severity" prompt="Priority"/>
+      <modify element="ColumnPropxRN.ColumnPerzRN.RequestType" prompt="Issue Type"/>
+      <modify element="ColumnPropxRN.ColumnPerzRN.ProblemCode" prompt="Issue Code"/>
+      <modify element="FreqAttrxRN.Severity" prompt="Priority"/>
+      <modify element="SrchTip" messageAppShortName="CS" messageName="CSZ_SRCH_MIN_CRITERIA_ITIL"/>
+   </modifications>
+</customization>

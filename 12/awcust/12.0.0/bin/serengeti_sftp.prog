@@ -1,0 +1,81 @@
+# serengeti_sftp.sh    sjoyce 13-May-2016
+# Files will be downloaded to the $AWCUST_TOP/SERENGETI/NEW directory
+# =========================================================
+# Parameters from 1 to 4 i.e $1 $2 $3 $4 are standard parameters
+# $1 : USERNAME/PASSWORD OF THE DATABASE
+# $2 : USERID
+# $3 : USERNAME
+# $4 : CONCURRENT REQUEST ID
+# $5 : FTP Username
+# $6 : FTP Password
+echo ___________________________________________________
+echo Parameters received from concurrent program ..
+echo Time : `date +"%Y%m%d_%H%M%S"`
+echo ___________________________________________________
+echo Arguments : 
+echo none
+echo ___________________________________________________
+echo Connecting to AWAS SFTP Server...........
+
+export  APPS_UNAME=$1
+export  APPS_REQ=$4
+export  FTPUSERNAME=$5
+export  FTPPW=$6
+export  TARGET="10.20.10.143"
+
+
+export SERENGETI="/u01/app/oracle/apps/apps_st/appl/awcust/12.0.0/SERENGETI"
+
+
+echo "Parameter Used List"
+echo "APPS_REQ=$APPS_REQ"
+echo "TARGET=$TARGET"
+
+
+cd $SERENGETI/NEW
+echo "Starting SFTP Transfer"
+/usr/bin/expect -- << EOF
+spawn /usr/bin/sftp $FTPUSERNAME@$TARGET
+expect "prdorc@10.20.10.143's password:"
+send "$FTPPW\r"
+expect "sftp> "
+send "cd INBOX\r"
+expect "sftp> "
+send "get *\r"
+expect "sftp> "
+send "bye \r"
+expect EOF
+EOF
+
+RC=$?
+if [[ ${RC} -ne 0 ]]; then
+  echo "Error"
+  exit 1 
+else
+  echo "Success"
+fi
+
+echo "SFTP Complete"
+
+echo "Renaming Files, replacing spaces with underscores"
+for f in *\ *; do mv "$f" "${f// /_}"; done
+
+echo "Inserting File details into XX_AP_SERENGETI_FILES Table"
+for file in *;
+do sqlplus $APPS_UNAME@PRD @/u01/app/oracle/apps/apps_st/appl/awcust/12.0.0/sql/serengeti_sql_stmt.sql $file N N $APPS_REQ
+
+RC=$?
+if [[ ${RC} -ne 0 ]]; then
+  echo "Error"
+  exit 1 
+else
+  echo "Success"
+fi
+
+done
+
+echo "Inserts Complete"
+
+echo "Process Complete"
+
+exit 0

@@ -1,0 +1,10 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_50" xml:lang="en-US" customizes="/oracle/apps/ar/cusstd/ovrview/webui/ArCusOvrPG" developerMode="true" file-version="$Header: ArCusOvrPG.xml 120.0.12010000.2 2008/11/03 06:54:44 rravikir ship $">
+   <modifications>
+      <modify element="region13.SiteAddress1Filter" rendered="true"/>
+      <modify element="region13.SiteAddress2Filter" rendered="true"/>
+      <modify element="region13.SiteStateFilter" rendered="true"/>
+      <modify element="region13.SiteCityFilter" rendered="true"/>
+      <modify element="region13.SiteCountryFilter" rendered="true"/>
+   </modifications>
+</customization>

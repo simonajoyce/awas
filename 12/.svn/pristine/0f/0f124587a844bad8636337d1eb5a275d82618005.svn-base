@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding='windows-1252'?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+
+<AppModule
+   Name="awcustGenericAM"
+   ComponentClass="oracle.apps.awcust.awcustPerson.server.awcustGenericAMImpl"
+   LoadComponentsLazily="true" >
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_version" Value="9.0.3.13.93" />
+      <Attr Name="_deployType" Value="0" />
+   </DesignTime>
+   <ViewUsage
+      Name="awcustCostCentreVO1"
+      ViewObjectName="oracle.apps.awcust.awcustPerson.server.awcustCostCentreVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="awcustLocationVO1"
+      ViewObjectName="oracle.apps.awcust.awcustPerson.server.awcustLocationVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="awcustManagerVO1"
+      ViewObjectName="oracle.apps.awcust.awcustPerson.server.awcustManagerVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="awcustDepartmentVO1"
+      ViewObjectName="oracle.apps.awcust.awcustPerson.server.awcustDepartmentVO" >
+   </ViewUsage>
+</AppModule>

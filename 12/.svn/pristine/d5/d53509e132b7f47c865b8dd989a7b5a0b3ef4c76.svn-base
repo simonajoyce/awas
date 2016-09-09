@@ -1,0 +1,6 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.6.3_415" xml:lang="en-US" customizes="/oracle/apps/per/selfservice/loa/webui/LoaDdfRN" developerMode="false" package="/oracle/apps/per/customizations/localization/AU/selfservice/loa/webui" file-version="$Header: LoaDdfRN.xml 115.9 2003/02/17 12:59:45 apunekar noship $" text="Absence Details">
+   <modifications>
+      <modify element="PerLoaDDF" segmentList="AU_AULSL|Pay Date|Advance Defer|Advance Override||AU_AUAL|Pay Date|Advance Defer|Advance Override||AU_AUSL|Certificate Required|Certificate Received"/>
+   </modifications>
+</customization>

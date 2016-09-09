@@ -1,0 +1,6 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.89_562" xml:lang="en-US" customizes="/oracle/apps/fnd/framework/attachments/webui/FND_ATTACH_UPLOAD_PAGE" xmlns:user="http://xmlns.oracle.com/jrad/user" user:responsibilityKey="tam_self_service_purchasing_5" user:responsibilityAppShortName="ICX">
+   <modifications>
+      <modify element="DocCatRN.searchRN.SearchCategoryId" defaultValue="To Buyer"/>
+   </modifications>
+</customization>

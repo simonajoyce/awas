@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_50" xml:lang="en-US" customizes="/oracle/apps/ar/cusstd/ovrview/webui/ArCusOvrPG">
+   <modifications>
+      <modify element="region13.SitePartySiteNameCol" rendered="true"/>
+      <modify element="region13.SiteMialStopCol" rendered="false"/>
+      <modify element="region13.SiteSourceCol" rendered="false"/>
+      <modify element="profTab" rendered="false"/>
+      <modify element="relTab" rendered="false"/>
+      <modify element="taxProfileTab" rendered="false"/>
+   </modifications>
+</customization>

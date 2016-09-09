@@ -1,0 +1,6 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/oks/renewal/webui/CustomerAcceptanceHomePG" developerMode="true" file-version="$Header: CustomerAcceptanceHomePG.xml 120.0 2005/07/19 17:43 skekkar noship $">
+   <modifications>
+      <modify element="CustomerCol" rendered="false"/>
+   </modifications>
+</customization>

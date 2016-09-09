@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/per/selfservice/common/webui/PersonSummaryRN" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: PersonSummaryRN.xml 115.1 2004/06/17 05:02:47 hpandya noship $" version="9.0.3.7.0_425" xml:lang="en-US" package="/oracle/apps/per/customizations/localization/KR/selfservice/common/webui">
+   <modifications>
+      <modify element="HrPerInfoHeaderRightCell" rendered="false"/>
+      <modify element="HrPerInfoHeaderLeftCell" rendered="false"/>
+      <move element="HrPerInfoHeaderRightCell" after="HrPerInfoHeaderLeftCell"/>
+      <modify element="EmployeeNumber" rendered="false"/>
+      <modify element="BusinessGroup" rendered="false"/>
+      <move element="BusinessGroup" after="EmployeeNumber"/>
+   </modifications>
+</customization>

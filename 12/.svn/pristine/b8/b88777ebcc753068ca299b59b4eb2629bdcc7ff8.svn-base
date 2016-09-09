@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+ xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet">
+ <xsl:output method="xml" encoding="UTF-8"/>
+ <xsl:template match="/">
+<xsl:processing-instruction name="mso-application">
+   <xsl:text>progid="Excel.Sheet"</xsl:text>
+  </xsl:processing-instruction>
+  <Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+            xmlns:x="urn:schemas-microsoft-com:office:excel"
+            xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet">
+   <xsl:apply-templates/>
+  </Workbook>
+ </xsl:template>
+ <xsl:template match="LIST_G_REPORT">
+ <Worksheet ss:Name="PivotTable">
+  <Table>
+   <Row>
+    <Cell><Data ss:Type="String">Type Lookup Code</Data></Cell>
+    <Cell><Data ss:Type="String">(All)</Data></Cell>
+   </Row>
+   <Row ss:Index="3">
+    <Cell><Data ss:Type="String">Sum of Extended Cost</Data></Cell>
+    <Cell><Data ss:Type="String">Column Labels</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Row Labels</Data></Cell>
+    <Cell><Data ss:Type="String">EUR</Data></Cell>
+    <Cell><Data ss:Type="String">Grand Total</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">0-3 Months</Data></Cell>
+    <Cell><Data ss:Type="Number">291167.00</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Grand Total</Data></Cell>
+    <Cell><Data ss:Type="Number">291167.00</Data></Cell>
+   </Row>
+  </Table>
+  <RefreshOnFileOpen/>
+  <ConsolidationReference>
+      <FileName>[<xsl:value-of select="//FILE_NAME"/>]Data</FileName>
+      <Reference>R1C1:R<xsl:value-of select="count(G_DATA)+1"/>C11</Reference>
+     </ConsolidationReference>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Selected/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>4</ActiveRow>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="PO Data">
+  <Table>
+	<Row>
+     <Cell><Data ss:Type="String">PO Number</Data></Cell>
+     <Cell><Data ss:Type="String">Line Num</Data></Cell>
+     <Cell><Data ss:Type="String">Type Lookup Code</Data></Cell>
+     <Cell><Data ss:Type="String">Vendor Number</Data></Cell>
+     <Cell><Data ss:Type="String">Vendor Name</Data></Cell>
+     <Cell><Data ss:Type="String">Item Number</Data></Cell>
+     <Cell><Data ss:Type="String">Item Category</Data></Cell>
+     <Cell><Data ss:Type="String">Item Description</Data></Cell>
+     <Cell><Data ss:Type="String">UOM</Data></Cell>
+     <Cell><Data ss:Type="String">Currency</Data></Cell>
+	 <Cell><Data ss:Type="String">Unit Price</Data></Cell>
+     <Cell><Data ss:Type="String">Qty Ordered</Data></Cell>
+	 <Cell><Data ss:Type="String">Extended Cost</Data></Cell>
+	 <Cell><Data ss:Type="String">Qty Received</Data></Cell>
+	 <Cell><Data ss:Type="String">Qty Invoiced</Data></Cell>
+	 <Cell><Data ss:Type="String">Qty Cancelled</Data></Cell>
+	 <Cell><Data ss:Type="String">Age</Data></Cell>
+	 </Row>
+    <xsl:apply-templates/>
+   </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+  </WorksheetOptions>	      
+  </Worksheet>  
+ </xsl:template>
+ <xsl:template match="G_REPORT">
+  <Row>
+   <Cell><Data ss:Type="String"><xsl:value-of select="PO_NUMBER"/></Data></Cell>
+   <Cell><Data ss:Type="String"><xsl:value-of select="LINE_NUM"/></Data></Cell>
+   <Cell><Data ss:Type="String"><xsl:value-of select="TYPE_LOOKUP_CODE"/></Data></Cell>
+   <Cell><Data ss:Type="String"><xsl:value-of select="VENDOR_NUM"/></Data></Cell>
+   <Cell><Data ss:Type="String"><xsl:value-of select="VENDOR_NAME"/></Data></Cell>
+   <Cell><Data ss:Type="String"><xsl:value-of select="ITEM_NUMBER"/></Data></Cell>
+   <Cell><Data ss:Type="String"><xsl:value-of select="CATEGORY"/></Data></Cell>
+   <Cell><Data ss:Type="String"><xsl:value-of select="ITEM_DESCRIPTION"/></Data></Cell>
+   <Cell><Data ss:Type="String"><xsl:value-of select="UNIT_MEAS_LOOKUP_CODE"/></Data></Cell>
+   <Cell><Data ss:Type="String"><xsl:value-of select="CURRENCY_CODE"/></Data></Cell>
+   <Cell><Data ss:Type="Number"><xsl:value-of select="UNIT_PRICE"/></Data></Cell>
+   <Cell><Data ss:Type="Number"><xsl:value-of select="QTY_ORD"/></Data></Cell>
+   <Cell><Data ss:Type="Number"><xsl:value-of select="EXTENDED_COST"/></Data></Cell>
+   <Cell><Data ss:Type="Number"><xsl:value-of select="QTY_REC"/></Data></Cell>
+   <Cell><Data ss:Type="Number"><xsl:value-of select="QTY_INV"/></Data></Cell>
+   <Cell><Data ss:Type="Number"><xsl:value-of select="QTY_CAN"/></Data></Cell>
+   <Cell><Data ss:Type="String"><xsl:value-of select="AGE_CREATION_BUCKET"/></Data></Cell>
+   </Row>
+ </xsl:template>
+</xsl:stylesheet>

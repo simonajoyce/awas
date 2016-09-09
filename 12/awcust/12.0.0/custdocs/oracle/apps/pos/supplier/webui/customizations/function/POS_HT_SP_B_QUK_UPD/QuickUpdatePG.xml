@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_50" xml:lang="en-US" customizes="/oracle/apps/pos/supplier/webui/QuickUpdatePG">
+   <modifications>
+      <move element="supplierNumber" after="SupplierName"/>
+      <move element="Pronunciation" after="supplierNumber"/>
+      <move element="RegistryID" after="Pronunciation"/>
+      <move element="InactiveOn" after="RegistryID"/>
+      <move element="Alias" after="InactiveOn"/>
+      <move element="messageLayout2" after="Alias"/>
+      <move element="HoldPOs" after="messageLayout2"/>
+      <move element="HoldPOReason" after="HoldPOs"/>
+      <move element="messageLayout1" after="HoldPOReason"/>
+      <move element="hldAllInv" after="messageLayout1"/>
+      <move element="unMtchInv" after="hldAllInv"/>
+      <move element="unValdtInv" after="unMtchInv"/>
+      <move element="invHldReason" after="unValdtInv"/>
+   </modifications>
+</customization>

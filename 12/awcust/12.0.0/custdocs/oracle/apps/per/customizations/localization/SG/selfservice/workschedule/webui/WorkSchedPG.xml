@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/per/selfservice/workschedule/webui/WorkSchedPG" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: WorkSchedPG.xml 115.2 2003/02/13 13:06:51 jcolman noship $" version="9.0.3.7.0_425" xml:lang="en-US" package="/oracle/apps/per/customizations/localization/SG/selfservice/workschedule/webui">
+   <modifications>
+      <modify element="HrDummyField" tipMessageName=""/>
+      <modify element="HrWorkSchedKeyFlex" segmentList="SG_STATUTORY_INFO.|LEGAL_ENTITY" readOnly="true"/>
+      <modify element="HrWorkHours" tipMessageName=""/>
+      <modify element="HrFrequency" tipMessageName=""/>
+      <modify element="HrDummyText" tipMessageName=""/>
+      <move element="HrDummyField" after="HrInstruction"/>
+      <move element="HrWorkSchedKeyFlex" after="HrDummyField"/>
+      <move element="HrWorkHours" after="HrWorkSchedKeyFlex"/>
+      <move element="HrFrequency" after="HrWorkHours"/>
+      <move element="HrNormalStartTime" after="HrFrequency"/>
+      <move element="HrNormalEndTime" after="HrNormalStartTime"/>
+      <move element="HrDummyText" after="HrNormalEndTime"/>
+      <move element="HrWorkSchedDesFlex" after="HrDummyText"/>
+   </modifications>
+</customization>

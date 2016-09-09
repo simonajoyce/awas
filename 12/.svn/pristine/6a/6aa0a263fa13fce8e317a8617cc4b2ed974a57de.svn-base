@@ -1,0 +1,43 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/irc/candidateSelfService/webui/AplPersDetsRN" developerMode="true" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: AplPersDetsRN.xml 120.4 2005/11/10 08:52:56 mmillmor noship $" version="9.0.3.6.2_398" xml:lang="en-US" package="/oracle/apps/irc/customizations/function/IRC_CM_APPLICANT_DETAILS/candidateSelfService/webui">
+   <modifications>
+      <modify element="IrcFlexField2" rendered="false"/>
+      <modify element="FndTitle" rendered="false"/>
+      <modify element="Person" rendered="false"/>
+      <modify element="PersonNameSuffix" rendered="false"/>
+      <modify element="PersonNamePhonetic" rendered="false"/>
+      <modify element="PersonMiddleName" rendered="false"/>
+      <modify element="MaritalStatus" rendered="false"/>
+      <modify element="LastNamePhonetic" rendered="false"/>
+      <modify element="FndLanguage" rendered="true"/>
+      <modify element="KnownAs" rendered="false"/>
+      <modify element="EnterPersonalWebSite" rendered="false"/>
+      <modify element="EnterPersonalDets" rendered="false"/>
+      <modify element="Gender" rendered="false"/>
+      <modify element="FullName" rendered="true"/>
+      <modify element="FirstNamePhonetic" rendered="false"/>
+      <modify element="FndFirstName" rendered="false"/>
+      <modify element="FamilyName" rendered="false"/>
+      <modify element="EmailAddress" rendered="true"/>
+      <modify element="BirthDate" rendered="false"/>
+      <move element="EmailAddress" after="FullName"/>
+      <move element="FndLanguage" after="EmailAddress"/>
+      <move element="BirthDate" after="FndLanguage"/>
+      <move element="Gender" after="BirthDate"/>
+      <move element="Person" after="Gender"/>
+      <move element="PersonMiddleName" after="Person"/>
+      <move element="PersonNameSuffix" after="PersonMiddleName"/>
+      <move element="KnownAs" after="PersonNameSuffix"/>
+      <move element="PersonNamePhonetic" after="KnownAs"/>
+      <move element="FirstNamePhonetic" after="PersonNamePhonetic"/>
+      <move element="LastNamePhonetic" after="FirstNamePhonetic"/>
+      <move element="EnterPersonalWebSite" after="LastNamePhonetic"/>
+      <move element="FamilyName" after="EnterPersonalWebSite"/>
+      <move element="FndFirstName" after="FamilyName"/>
+      <move element="EnterPersonalDets" after="FndFirstName"/>
+      <move element="FndTitle" after="EnterPersonalDets"/>
+      <move element="MaritalStatus" after="FndTitle"/>
+      <move element="IrcFlexField2" after="MaritalStatus"/>
+      <move element="PartyId" after="IrcFlexField2"/>
+   </modifications>
+</customization>

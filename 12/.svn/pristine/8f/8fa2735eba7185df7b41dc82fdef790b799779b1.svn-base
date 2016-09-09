@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xapi:requestset xmlns:xapi="http://xmlns.oracle.com/oxp/xapi">
+    <xapi:globalData location="stream"/>
+    <xapi:request select="/AWAS_EXP_ANALYSIS_SUM2/LIST_G_DEPT_HEAD/G_DEPT_HEAD">
+        <xapi:delivery>
+            <xapi:email server="DUBMMA01" server-alias="" proxy=""
+                port="25" from="${EMAIL}" reply-to="${EMAIL}">
+                <xapi:message id="1" to="${DEPT_HEAD_EMAIL}"
+                    cc="${EMAIL}" bcc="jennifer.creevey@awas.com,helen.shanley@awas.com, john.gannon@awas.com, charlie.mcginley@awas.com"
+                    attachment="true" subject="Employee Expenses Analysis Report - ${PERIOD_NAME} for ${EXP_APPROVER7}">
+Dear ${EXP_APPROVER7}   
+
+Please find attached the Employee Expenses Analysis Report for Expenses charged to yourself and your employees during ${PERIOD_NAME}.
+
+This report includes details on any expense violations over the previous 3 months also which you have approved on the system.  
+If you disagree with any of these violations or require further information, please advise myself or John Gannon.
+
+Please don't hesitate to contact me should you have any questions.
+
+Kind regards,
+
+${REQUESTER}
+
+</xapi:message>
+                <xapi:authentication username="awas" password="awas_175"/>
+            </xapi:email>
+        </xapi:delivery>
+        <xapi:document key="${PERIOD_NAME}-${EXP_APPROVER7}"
+            output-type="pdf" delivery="1">
+            <xapi:template type="rtf"
+                location="xdo://AWCUST.AWAS_EXP_ANALYSIS_SUM2.en.00/?getSource=true" filter=""/>
+        </xapi:document>
+    </xapi:request>
+</xapi:requestset>

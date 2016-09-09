@@ -1,0 +1,27 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_19" xml:lang="en-US" customizes="/oracle/apps/ar/hz/components/contact/webui/HzPuiPartyRelTableComponent" developerMode="false" file-version="$Header: HzPuiPartyRelTableComponent.xml 120.2 2006/04/18 14:30:46 rramacha noship $" package="/oracle/apps/ar/hz/components/contact/webui/customizations/function/ASN_ORGUPDATEPG">
+   <modifications>
+      <modify element="HzPuiContactRelTable" blockSize="10"/>
+      <move element="relationship_role" after="party_name_link"/>
+      <move element="start_date" after="relationship_role"/>
+      <move element="end_date" after="start_date"/>
+      <move element="update_switcher" after="end_date"/>
+      <move element="remove_switcher" after="update_switcher"/>
+      <move element="first_name" after="remove_switcher"/>
+      <move element="last_name" after="first_name"/>
+      <move element="alias" after="last_name"/>
+      <move element="registry_id" after="alias"/>
+      <move element="phone" after="registry_id"/>
+      <move element="email" after="phone"/>
+      <move element="address" after="email"/>
+      <move element="restore" after="address"/>
+      <modify element="relationship_role" prompt="Role"/>
+      <modify element="phone" rendered="false"/>
+      <modify element="email" rendered="false"/>
+      <modify element="address" rendered="false"/>
+      <modify element="end_date" rendered="true"/>
+      <modify element="SearchRL1" rendered="false"/>
+      <modify element="item3" rendered="false"/>
+      <modify element="item4" rendered="false"/>
+   </modifications>
+</customization>

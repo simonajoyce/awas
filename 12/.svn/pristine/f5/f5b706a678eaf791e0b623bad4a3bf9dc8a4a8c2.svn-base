@@ -1,0 +1,49 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.5.4.64_464" xml:lang="en-US" customizes="/oracle/apps/pay/selfservice/soe/webui/SoePG" developerMode="false" file-version="$Header: SoePG.xml 120.0 2005/05/30 05:54:32 appldev noship $" package="/oracle/apps/pay/selfservice/soe/webui/customizations/localization/FI">
+   <modifications>
+      <move element="Soe4RNHeader" after="Soe1RNHeader"/>
+      <move element="SoeSumPayLayout" after="Soe4RNHeader"/>
+      <move element="Soe5Layout" after="SoeSumPayLayout"/>
+      <move element="Soe6Layout" after="Soe5Layout"/>
+      <move element="Soe7Layout" after="Soe6Layout"/>
+      <move element="Soe8Layout" after="Soe7Layout"/>
+      <move element="Soe9Layout" after="Soe8Layout"/>
+      <move element="Soe10Layout" after="Soe9Layout"/>
+      <move element="Soe2Layout" after="Soe10Layout"/>
+      <move element="Soe3Layout" after="Soe2Layout"/>
+      <move element="Soe11Layout" after="Soe3Layout"/>
+      <move element="Soe12Layout" after="Soe11Layout"/>
+      <move element="Soe13Layout" after="Soe12Layout"/>
+      <move element="Soe14Layout" after="Soe13Layout"/>
+      <move element="Soe15Layout" after="Soe14Layout"/>
+      <move element="Soe16Header" after="Soe15Layout"/>
+      <move element="Soe17Header" after="Soe16Header"/>
+      <move element="Soe18Header" after="Soe17Header"/>
+      <move element="Soe19Header" after="Soe18Header"/>
+      <move element="SoeSumPayCols" after="Soe19Header"/>
+      <move element="SoeSQLRN" after="SoeSumPayCols"/>
+      <move element="SoeDrilldownRN" after="SoeSQLRN"/>
+      <modify element="SoeSumPayCol1" prompt="Total Earnings"/>
+      <modify element="SoeSumPayCol2" prompt="Total Deductions"/>
+      <modify element="SoeSumPayCol3" rendered="false"/>
+      <modify element="SoeSumPayCol4" rendered="false"/>
+      <modify element="SoeSumPayCol5" rendered="false"/>
+      <modify element="SoeSumPayFCol1" prompt="Total Pay"/>
+      <modify element="SoeSumPayCol6" rendered="false"/>
+      <modify element="SoeSumPayFCol2" rendered="false"/>
+      <modify element="SoeSumPayFCol3" rendered="false"/>
+      <modify element="SoeSumPayFCol4" rendered="false"/>
+      <modify element="SoeSumPayCols1" destination="SOE5RN.COL16" prompt="Total Earnings"/>
+      <modify element="SoeSumPayCols2" destination="SOE6RN.COL16" prompt="Total Deductions"/>
+      <modify element="SoeSumPayCols3" rendered="false"/>
+      <modify element="SoeSumPayCols4" rendered="false"/>
+      <modify element="SoeSumPayCols5" rendered="false"/>
+      <modify element="SoeSumPayCols6" rendered="false"/>
+      <modify element="SoeSumPayFCols1" destination="COL01 - COL02" prompt="Total Pay"/>
+      <modify element="SoeSumPayFCols2" rendered="false"/>
+      <modify element="SoeSumPayFCols3" rendered="false"/>
+      <modify element="SoeSumPayFCols4" rendered="false"/>
+      <modify element="Soe1Col9" prompt="Personal ID"/>
+      <modify element="Soe1Col12" prompt="Assignment Number" rendered="true"/>
+   </modifications>
+</customization>

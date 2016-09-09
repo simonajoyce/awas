@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.6.5_471" xml:lang="en-US" customizes="/oracle/apps/ar/hz/components/party/organization/webui/HzPuiOrgProfileInfo" developerMode="false" file-version="$Header: HzPuiOrgProfileInfo.xml 115.2 2004/03/23 19:27:38 kichan noship $" package="/oracle/apps/ar/hz/components/party/organization/webui/customizations/function/ASN_ORGVIEWPG">
+   <modifications>
+      <move element="OrgTotalEmp" after="SicCode"/>
+      <move element="ChiefExecutiveName" after="OrgTotalEmp"/>
+      <move element="YearEstablished" after="ChiefExecutiveName"/>
+      <move element="MissionStatement" after="YearEstablished"/>
+      <move element="CorporateTotalEmp" after="MissionStatement"/>
+      <move element="PrincipalName" after="CorporateTotalEmp"/>
+      <move element="IncorporationYear" after="PrincipalName"/>
+      <move element="FlexfieldRow" after="IncorporationYear"/>
+      <modify element="OrgTotalEmp" rendered="true" prompt="Total Employees"/>
+      <modify element="ChiefExecutiveName" rendered="false"/>
+      <modify element="YearEstablished" rendered="false"/>
+      <modify element="MissionStatement" rendered="false"/>
+      <modify element="CorporateTotalEmp" rendered="false" prompt="Org Total Employees"/>
+   </modifications>
+</customization>

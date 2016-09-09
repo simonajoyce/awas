@@ -1,0 +1,6 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.89_554" xml:lang="en-US" customizes="/oracle/apps/per/selfservice/loa/webui/LoaViewPG" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: LoaViewPG.xml 120.1 2007/08/28 11:21:55 pdavidra noship $" package="/oracle/apps/per/selfservice/loa/webui/customizations/localization/NO">
+   <modifications>
+      <modify element="PerLoaDDF" rendered="true"/>
+   </modifications>
+</customization>

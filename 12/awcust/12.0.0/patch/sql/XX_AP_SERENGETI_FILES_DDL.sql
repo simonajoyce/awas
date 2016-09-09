@@ -1,0 +1,27 @@
+--------------------------------------------------------
+--  File created - Thursday-August-25-2016   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Table XX_AP_SERENGETI_FILES
+--------------------------------------------------------
+
+  CREATE TABLE "APPS"."XX_AP_SERENGETI_FILES" 
+   (	"FILENAME" VARCHAR2(100 BYTE), 
+	"IMPORTED" VARCHAR2(1 BYTE), 
+	"ARCHIVED" VARCHAR2(1 BYTE), 
+	"REQUEST_ID" NUMBER
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 40960 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "APPS_TS_TX_DATA" ;
+--------------------------------------------------------
+--  Constraints for Table XX_AP_SERENGETI_FILES
+--------------------------------------------------------
+
+  ALTER TABLE "APPS"."XX_AP_SERENGETI_FILES" MODIFY ("REQUEST_ID" NOT NULL ENABLE);
+  ALTER TABLE "APPS"."XX_AP_SERENGETI_FILES" MODIFY ("ARCHIVED" NOT NULL ENABLE);
+  ALTER TABLE "APPS"."XX_AP_SERENGETI_FILES" MODIFY ("IMPORTED" NOT NULL ENABLE);
+  ALTER TABLE "APPS"."XX_AP_SERENGETI_FILES" MODIFY ("FILENAME" NOT NULL ENABLE);

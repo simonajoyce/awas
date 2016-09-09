@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.89_562" xml:lang="en-US" customizes="/oracle/apps/pji/projperf/reporting/webui/ResourceAnalysisPG" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:user="http://xmlns.oracle.com/jrad/user" user:responsibilityKey="pa_prm_proj_su" user:responsibilityAppShortName="PA">
+   <modifications>
+      <modify element="ResourceProfitabilityGraphsRN" columns="2"/>
+      <insert parent="ResourceProfitabilityGraphsRN" grouping="contents">
+         <oa:flexibleLayout id="flexibleLayout_0_1368612061187" columns="2" xmlns:oa="http://xmlns.oracle.com/oa">
+            <ui:contents xmlns:ui="http://xmlns.oracle.com/uix/ui">
+               <oa:flexibleLayout id="flexibleLayout_0_1368612098547" disclosed="true" title="Hello"/>
+               <oa:flexibleLayout id="flexibleLayout_1_1368612098547"/>
+            </ui:contents>
+         </oa:flexibleLayout>
+      </insert>
+      <insert after="flexibleLayout_0_1368612061187">
+         <oa:flexibleLayout id="flexibleLayout_1_1368612061187" xmlns:oa="http://xmlns.oracle.com/oa"/>
+      </insert>
+   </modifications>
+</customization>

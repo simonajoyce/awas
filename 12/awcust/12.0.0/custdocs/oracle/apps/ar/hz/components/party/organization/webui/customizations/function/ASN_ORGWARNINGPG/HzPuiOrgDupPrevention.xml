@@ -1,0 +1,15 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.6.6_606" xml:lang="en-US" customizes="/oracle/apps/ar/hz/components/party/organization/webui/HzPuiOrgDupPrevention" developerMode="false" file-version="$Header: HzPuiOrgDupPrevention.xml 115.2 2004/01/09 06:58:47 mkatraga noship $" package="/oracle/apps/ar/hz/components/party/organization/webui/customizations/function/ASN_ORGWARNINGPG">
+   <modifications>
+      <modify element="header" text="New Customer"/>
+      <modify element="HzPuiOrgCreate" prompt="Use New Customer"/>
+      <modify element="HzPuiOrganizationDetails" blockSize="10"/>
+      <move element="HzPuiOrganizationNameAlias" after="HzPuiOrganizationName"/>
+      <move element="HzPuiOrganizationAddress" after="HzPuiOrganizationNameAlias"/>
+      <move element="HzPuiOrganizationCountry" after="HzPuiOrganizationAddress"/>
+      <move element="HzPuiOrganizationPhoneNumber" after="HzPuiOrganizationCountry"/>
+      <move element="HzPuiOrganizationURL" after="HzPuiOrganizationPhoneNumber"/>
+      <modify element="HzPuiOrganizationName" prompt="Customer"/>
+      <modify element="HzPuiOrganizationURL" prompt="Web Site"/>
+   </modifications>
+</customization>

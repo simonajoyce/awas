@@ -1,0 +1,29 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/irc/candidateSearch/webui/CmCandSrchCritDumRN" developerMode="true" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: CmCandSrchCritDumRN.xml 115.0 2003/04/10 08:23:23 mmillmor noship $" version="9.0.3.6.2_398" xml:lang="en-US" package="/oracle/apps/irc/customizations/function/IRC_CM_CANDIDATE_SEARCH/candidateSearch/webui">
+   <modifications>
+      <modify element="FndLocation" rendered="false"/>
+      <modify element="FndLastNameDummy" rendered="false"/>
+      <modify element="FndHomePhoneDummy" rendered="false"/>
+      <modify element="FndFirstNameDummy" rendered="false"/>
+      <modify element="FndEmailDummy" rendered="false"/>
+      <modify element="FndConsiderationDummy" rendered="false"/>
+      <modify element="FndBirthDateDummy" rendered="false"/>
+      <move element="FndContract" after="FndProfessionalArea"/>
+      <move element="FndApplicantTypeDummy" after="FndContract"/>
+      <move element="FndEmployee" after="FndApplicantTypeDummy"/>
+      <move element="FndEmployeeTypeDummy" after="FndEmployee"/>
+      <move element="FndFullTime" after="FndEmployeeTypeDummy"/>
+      <move element="FndMaximumSalary" after="FndFullTime"/>
+      <move element="FndMinimumQualificationDummy" after="FndMaximumSalary"/>
+      <move element="FndSalaryCurr" after="FndMinimumQualificationDummy"/>
+      <move element="FndMaximumQualificationDummy" after="FndSalaryCurr"/>
+      <move element="FndCandidateNameDummy" after="FndMaximumQualificationDummy"/>
+      <move element="FndConsiderationDummy" after="FndCandidateNameDummy"/>
+      <move element="FndFirstNameDummy" after="FndConsiderationDummy"/>
+      <move element="FndLastNameDummy" after="FndFirstNameDummy"/>
+      <move element="FndEmailDummy" after="FndLastNameDummy"/>
+      <move element="FndHomePhoneDummy" after="FndEmailDummy"/>
+      <move element="FndBirthDateDummy" after="FndHomePhoneDummy"/>
+      <move element="FndLocation" after="FndBirthDateDummy"/>
+   </modifications>
+</customization>

@@ -1,0 +1,12 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.6.5_471" xml:lang="en-US" customizes="/oracle/apps/ar/hz/components/party/organization/webui/HzPuiOrgProfileComponent" developerMode="false" file-version="$Header: HzPuiOrgProfileComponent.xml 120.0 2005/06/01 02:31:02 appldev noship $" package="/oracle/apps/ar/hz/components/party/organization/webui/customizations/function/ASN_ORGUPDATEPG">
+   <modifications>
+      <move element="alias" after="organization_name"/>
+      <move element="party_status" after="alias"/>
+      <move element="registry_id" after="party_status"/>
+      <move element="pronunciation" after="registry_id"/>
+      <modify element="organization_name" prompt="Customer"/>
+      <modify element="pronunciation" rendered="false"/>
+      <modify element="HzPuiHideShowOrgProfile" rendered="false"/>
+   </modifications>
+</customization>

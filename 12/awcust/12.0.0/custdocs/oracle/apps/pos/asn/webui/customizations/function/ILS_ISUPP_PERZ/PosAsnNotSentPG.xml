@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/pos/asn/webui/PosAsnNotSentPG" xmlns:oa="http://xmlns.oracle.com/oa" file-version="$Header: PosAsnNotSentPG.xml 120.1.12000000.1 2007/10/24 18:18:15 rallamse noship $" package="/oracle/apps/pos/asn/webui/customizations/function/ILS_ISUPP_PERZ">
+   <modifications>
+      <modify element="POSASNNOTICESENT" controllerClass="oracle.apps.ja.isp.asbn.webui.ILPosPgImgHelperCO"/>
+      <insert after="PosAsnNoticeConfirm">
+         <oa:button id="SetupIL" adminCustomizable="true" dataType="VARCHAR2" disabled="false" hAlign="start" prompt="View / Update IL Info" rendered="true" scope="." serverUnvalidated="false" warnAboutChanges="true"/>
+      </insert>
+      <modify element="PosAsnReturn" destination="/OA_HTML/OA.jsp?akRegionCode=POSASNMAINPAGE&amp;akRegionApplicationId=178&amp;retainAM=Y&amp;OAFunc=ILS_ISUPP_PERZ"/>
+      <modify element="PosAsnNoticeConfirm" controllerClass="oracle.apps.ja.asn.webui.ILPosAsnNoticeConfirmCO"/>
+   </modifications>
+</customization>

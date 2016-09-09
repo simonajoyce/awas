@@ -1,0 +1,15 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_19" xml:lang="en-US" customizes="/oracle/apps/cs/csz/incident/webui/UpdateSDeskPG" file-version="$Header: UpdateSDeskPG.xml 120.1 2006/04/20 16:21 jianyan noship $" package="/oracle/apps/cs/csz/incident/webui/customizations/function/CSZ_SDESK_UP_FN">
+   <modifications>
+      <modify element="CustomerContactBinRN.CustomerHeaderRL" rendered="false"/>
+      <modify element="CustomerContactBinRN.CustInfoRL" rendered="false"/>
+      <modify element="ContractRN.ViewContractButton" rendered="false"/>
+      <modify element="ContractRN.ContractSpacer" rendered="false"/>
+      <modify element="ContractRN.Contract" rendered="false"/>
+      <modify element="ContractRN.Coverage" rendered="false"/>
+      <modify element="ContractRN.Warranty" rendered="false"/>
+      <modify element="ContractRN.ExpectedReactionDate" rendered="true"/>
+      <modify element="ContractRN.ExpectedResolutionDate" rendered="true"/>
+      <modify element="ContractRN" text="Deadlines"/>
+   </modifications>
+</customization>

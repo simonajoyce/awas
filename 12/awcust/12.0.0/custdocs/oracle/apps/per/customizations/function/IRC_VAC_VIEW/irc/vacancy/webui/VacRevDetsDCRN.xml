@@ -1,0 +1,46 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/per/irc/vacancy/webui/VacRevDetsDCRN" developerMode="true" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: VacRevDetsDCRN.xml 115.3 2003/04/10 09:21:53 mmillmor noship $" version="9.0.3.6.2_398" xml:lang="en-US" package="/oracle/apps/per/customizations/function/IRC_VAC_VIEW/irc/vacancy/webui">
+   <modifications>
+      <modify element="IrcFlexField2" rendered="true"/>
+      <modify element="IrcFlexField1" rendered="true"/>
+      <modify element="FndVacancyName" rendered="true"/>
+      <modify element="FndTotalOpenings" rendered="true"/>
+      <modify element="FndStatus" rendered="true"/>
+      <modify element="FndStartDate" rendered="true"/>
+      <modify element="FndSecurity" rendered="true"/>
+      <modify element="FndRecruiter" rendered="true"/>
+      <modify element="FndProfessionalArea" rendered="true"/>
+      <modify element="FndPositionName" rendered="true"/>
+      <modify element="FndOrganization" rendered="true"/>
+      <modify element="FndManager" rendered="true"/>
+      <modify element="FndLocation" rendered="true"/>
+      <modify element="FndJobTitle" rendered="true"/>
+      <modify element="FndGrade" rendered="true"/>
+      <modify element="FndEndDate" rendered="true"/>
+      <modify element="FndEmploymentStatus" rendered="true"/>
+      <modify element="FndEmployee" rendered="true"/>
+      <modify element="FndCreationDate" rendered="true"/>
+      <modify element="FndContractor" rendered="true"/>
+      <modify element="FndBusinessGroup" rendered="false"/>
+      <move element="FndStatus" after="FndVacancyName"/>
+      <move element="FndStartDate" after="FndStatus"/>
+      <move element="FndEndDate" after="FndStartDate"/>
+      <move element="FndManager" after="FndEndDate"/>
+      <move element="FndTotalOpenings" after="FndManager"/>
+      <move element="FndOrganization" after="FndTotalOpenings"/>
+      <move element="FndLocation" after="FndOrganization"/>
+      <move element="FndProfessionalArea" after="FndLocation"/>
+      <move element="FndJobTitle" after="FndProfessionalArea"/>
+      <move element="FndGrade" after="FndJobTitle"/>
+      <move element="FndPositionName" after="FndGrade"/>
+      <move element="FndEmployee" after="FndPositionName"/>
+      <move element="FndEmploymentStatus" after="FndEmployee"/>
+      <move element="FndContractor" after="FndEmploymentStatus"/>
+      <move element="FndCreationDate" after="FndContractor"/>
+      <move element="FndRecruiter" after="FndCreationDate"/>
+      <move element="FndSecurity" after="FndRecruiter"/>
+      <move element="IrcFlexField2" after="FndSecurity"/>
+      <move element="IrcFlexField1" after="IrcFlexField2"/>
+      <move element="FndBusinessGroup" after="IrcFlexField1"/>
+   </modifications>
+</customization>

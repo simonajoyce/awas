@@ -1,0 +1,9 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_35" xml:lang="en-US" customizes="/oracle/apps/fun/rules/webui/RuleMainPage" developerMode="true" file-version="$Header: RuleMainPage.xml 120.0.12010000.2 2010/03/03 10:44:18 rviriyal noship $" package="/oracle/apps/fun/rules/webui/customizations/function/AR_CAO_ASSIGNMENT">
+   <modifications>
+      <modify element="RuleListRN.MainInstr" prompt=""/>
+      <modify element="RuleListRN.ValueLov" prompt="Default User Name"/>
+      <modify element="RuleParamsSubTabLink" rendered="true"/>
+      <modify element="RulesParamRN.ColumnCol" rendered="true"/>
+   </modifications>
+</customization>

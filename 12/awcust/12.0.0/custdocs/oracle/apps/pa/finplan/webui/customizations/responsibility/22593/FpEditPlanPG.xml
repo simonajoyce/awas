@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.89_562" xml:lang="en-US" customizes="/oracle/apps/pa/finplan/webui/FpEditPlanPG" xmlns:user="http://xmlns.oracle.com/jrad/user" user:responsibilityKey="pa_prm_proj_su" user:responsibilityAppShortName="PA">
+   <modifications>
+      <modify element="budgetLinesQueryRegion.spreadCurvePoplistC" rendered="true"/>
+      <modify element="forecastLinesQueryRegion.spreadCurvePoplistC" rendered="true"/>
+   </modifications>
+</customization>

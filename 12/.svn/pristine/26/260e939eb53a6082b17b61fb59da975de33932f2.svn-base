@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" file-version="$Header: FteMlsSrvRewPG.xml 115.3 2003/02/17 23:47:58 hbhagava noship $" version="9.0.3.6.3_417" xml:lang="en-US" customizes="/oracle/apps/fte/multileg/webui/FteMlsSrvRewPG" developerMode="false" package="/oracle/apps/fte/customizations/function/FTE_DELIVERY_RATING/multileg/webui">
+   <modifications>
+      <modify element="ServicesReviewTable" blockSize="10"/>
+      <move element="ServiceType" after="Carrier"/>
+      <move element="ModeOfTransport" after="ServiceType"/>
+      <move element="EstimatedRate" after="ModeOfTransport"/>
+      <move element="ArrivalDateDp" after="EstimatedRate"/>
+      <modify element="ArrivalDateDp" rendered="false"/>
+      <modify element="TenderRegion3" text=""/>
+      <modify element="FndNestedRegion1" rendered="false"/>
+   </modifications>
+</customization>

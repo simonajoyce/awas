@@ -1,0 +1,67 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.89_562" xml:lang="en-US" customizes="/oracle/apps/pji/projperf/reporting/webui/OverviewPG" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" user:responsibilityKey="pa_prm_proj_su" user:responsibilityAppShortName="PA">
+   <modifications>
+      <modify element="TimeNonCumActPlanCostFlexContent" flexibleLayoutRef="" rendered="true"/>
+      <modify element="RBSActPlanCostFlexContent" flexibleLayoutRef="flexibleLayout_0_1361546341503" rendered="true"/>
+      <modify element="TimeCumActPlanCostFlexContent" flexibleLayoutRef="flexibleLayout_0_1361546341503" rendered="true"/>
+      <move element="OverviewRowRnFlexContent1" after="RowColumnflexContent"/>
+      <move element="TimeNonCumActPlanCostFlexContent" after="OverviewRowRnFlexContent1"/>
+      <move element="TimeCumActPlanCostFlexContent" after="TimeNonCumActPlanCostFlexContent"/>
+      <move element="RBSActPlanCostFlexContent" after="TimeCumActPlanCostFlexContent"/>
+      <move element="TimeCumActPlanMarginPctFlexContent" after="RBSActPlanCostFlexContent"/>
+      <move element="WBSActPlanCostFlexContent" after="TimeCumActPlanMarginPctFlexContent"/>
+      <move element="WBSBillNonbillCostFlexContent" after="WBSActPlanCostFlexContent"/>
+      <move element="WBSActPlanEffortFlexContent" after="WBSBillNonbillCostFlexContent"/>
+      <move element="WBSBillNonbillEffortFlexContent" after="WBSActPlanEffortFlexContent"/>
+      <move element="WBSActPlanRevenueFlexContent" after="WBSBillNonbillEffortFlexContent"/>
+      <move element="WBSActPlanMarginFlexContent" after="WBSActPlanRevenueFlexContent"/>
+      <move element="WBSActPlanMarginPctFlexContent" after="WBSActPlanMarginFlexContent"/>
+      <move element="WBSSchCostPerformFlexContent" after="WBSActPlanMarginPctFlexContent"/>
+      <move element="RBSBillNonbillCostFlexContent" after="WBSSchCostPerformFlexContent"/>
+      <move element="RBSActPlanEffortFlexContent" after="RBSBillNonbillCostFlexContent"/>
+      <move element="RBSBillNonbillEffortFlexContent" after="RBSActPlanEffortFlexContent"/>
+      <move element="RBSActPlanRevenueFlexContent" after="RBSBillNonbillEffortFlexContent"/>
+      <move element="RBSActPlanMarginFlexContent" after="RBSActPlanRevenueFlexContent"/>
+      <move element="RBSActPlanMarginPctFlexContent" after="RBSActPlanMarginFlexContent"/>
+      <move element="TimeNonCumBillNonbillCostFlexContent" after="RBSActPlanMarginPctFlexContent"/>
+      <move element="TimeNonCumActPlanEffortFlexContent" after="TimeNonCumBillNonbillCostFlexContent"/>
+      <move element="TimeNonCumBillNonbillEffortFlexContent" after="TimeNonCumActPlanEffortFlexContent"/>
+      <move element="TimeNonCumActPlanRevenueFlexContent" after="TimeNonCumBillNonbillEffortFlexContent"/>
+      <move element="TimeNonCumActPlanMarginFlexContent" after="TimeNonCumActPlanRevenueFlexContent"/>
+      <move element="TimeNonCumActPlanMarginPctFlexContent" after="TimeNonCumActPlanMarginFlexContent"/>
+      <move element="AtCompltActPlanCostFlexContent" after="TimeNonCumActPlanMarginPctFlexContent"/>
+      <move element="AtCompltActPlanEffortFlexContent" after="AtCompltActPlanCostFlexContent"/>
+      <move element="AtCompltActPlanRevenueFlexContent" after="AtCompltActPlanEffortFlexContent"/>
+      <move element="AtCompltActPlanMarginFlexContent" after="AtCompltActPlanRevenueFlexContent"/>
+      <move element="AtCompltActPlanMarginPctFlexContent" after="AtCompltActPlanMarginFlexContent"/>
+      <move element="TimeCumBillNonbillCostFlexContent" after="AtCompltActPlanMarginPctFlexContent"/>
+      <move element="TimeCumActPlanEffortFlexContent" after="TimeCumBillNonbillCostFlexContent"/>
+      <move element="TimeCumBillNonbillEffortFlexContent" after="TimeCumActPlanEffortFlexContent"/>
+      <move element="TimeCumActPlanRevenueFlexContent" after="TimeCumBillNonbillEffortFlexContent"/>
+      <move element="TimeCumActPlanMarginFlexContent" after="TimeCumActPlanRevenueFlexContent"/>
+      <move element="TimeCumPctSptCompltFlexContent" after="TimeCumActPlanMarginFlexContent"/>
+      <move element="TimeCumBgtEarnedValActFlexContent" after="TimeCumPctSptCompltFlexContent"/>
+      <move element="TimeCumEarnedValVarFlexContent" after="TimeCumBgtEarnedValActFlexContent"/>
+      <move element="PTDActPlanCostFlexContent" after="TimeCumEarnedValVarFlexContent"/>
+      <move element="PTDBillNonbillCostFlexContent" after="PTDActPlanCostFlexContent"/>
+      <move element="PTDActPlanEffortFlexContent" after="PTDBillNonbillCostFlexContent"/>
+      <move element="PTDBillNonbillEffortFlexContent" after="PTDActPlanEffortFlexContent"/>
+      <move element="PTDActPlanRevenueFlexContent" after="PTDBillNonbillEffortFlexContent"/>
+      <move element="PTDActPlanMarginFlexContent" after="PTDActPlanRevenueFlexContent"/>
+      <move element="PTDActPlanMarginPctFlexContent" after="PTDActPlanMarginFlexContent"/>
+      <insert after="PTDActPlanMarginPctFlexContent">
+         <oa:flexibleContent id="flexibleContent_0_1361546390019" extends="/oracle/apps/pji/projperf/reporting/webui/OverviewPG.OverviewRowRnFlexContent1" flexibleLayoutRef="flexibleLayout_1_1361546341503" title="Cost" viewRef="devSeed2" viewSourceRegionId="/oracle/apps/pji/projperf/reporting/webui/OverviewRowRN" xmlns:oa="http://xmlns.oracle.com/oa"/>
+      </insert>
+      <modify element="PerfRowRegionsFlexibleLayout" columns="1" layoutStyle="horizontal" rendered="false" rows="1"/>
+      <modify element="GraphsFlexybleLayout" layoutStyle="horizontal" rendered="false"/>
+      <modify element="TimeCumPctSptCompltFlexContent" flexibleLayoutRef="" rendered="true"/>
+      <modify element="RowColumnFlexibleLayout" layoutStyle="horizontal" rows="2"/>
+      <insert parent="RowColumnFlexibleLayout" grouping="contents">
+         <oa:flexibleLayout id="flexibleLayout_0_1361546341503" layoutStyle="horizontal" xmlns:oa="http://xmlns.oracle.com/oa"/>
+      </insert>
+      <insert after="flexibleLayout_0_1361546341503">
+         <oa:flexibleLayout id="flexibleLayout_1_1361546341503" xmlns:oa="http://xmlns.oracle.com/oa"/>
+      </insert>
+      <modify element="RowColumnflexContent" flexibleLayoutRef="" rendered="true"/>
+   </modifications>
+</customization>

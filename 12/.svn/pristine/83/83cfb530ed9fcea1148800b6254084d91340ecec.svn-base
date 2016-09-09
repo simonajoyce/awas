@@ -1,0 +1,6 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.89_502" xml:lang="en-US" customizes="/oracle/apps/fun/rules/webui/RuleMainPage" developerMode="true" package="/oracle/apps/fun/rules/webui/customizations/function/ARI_SERVICE_CHARGE_ENABLED" file-version="$Header: RuleMainPage.xml 120.0 2006/02/07 09:48:51 vgundlap noship $">
+   <modifications>
+      <modify element="RuleMainPageSubtab" title="Service Charge Enabled" windowTitle="Service Charge Enabled"/>
+   </modifications>
+</customization>

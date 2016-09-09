@@ -1,0 +1,53 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_22" xml:lang="en-US" customizes="/oracle/apps/pos/asn/webui/PosAsnViewResultRN" MDSActiveDoc="true" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui" file-version="$Header: PosAsnViewResultRN.xml 120.1.12010000.2 2009/04/03 06:47:18 srjayara ship $" package="/oracle/apps/pos/asn/webui/customizations/function/ILS_ISUPP_PERZ">
+   <modifications>
+      <modify element="PosShipmentNum1" destination="OA.jsp?page=/oracle/apps/pos/asn/webui/PosViewAsnDetailsPG&amp;OAFunc=ILS_ISUPP_PERZ&amp;akRegionApplicationId=177&amp;ShipmentNum={@ShipmentNum}&amp;HeaderId={@HeaderId}&amp;VendorId={@VendorId}&amp;VendorSiteId={@VendorSiteId}&amp;fromView=Y&amp;addBreadCrumb=Y&amp;retainAM=Y"/>
+      <modify element="YesInv" destination="OA.jsp?OAFunc=ILS_POS_INVOICE_VIEW&amp;InvoiceNum={@InvoiceNum}&amp;SrcApp=POS&amp;SrcPg=AsnView&amp;retainAM=Y&amp;addBreadCrumb=Y"/>
+      <move element="PosShipDateCol" after="PosShipmentNum1Col"/>
+      <move element="ShipFromLocCodeCol" after="PosShipDateCol"/>
+      <move element="PosExpectedReceiptDateCol" after="ShipFromLocCodeCol"/>
+      <move element="PosFreightCarrier1Col" after="PosExpectedReceiptDateCol"/>
+      <move element="PosWaybillAirbillNumCol" after="PosFreightCarrier1Col"/>
+      <move element="PosSupplierNameCol" after="PosWaybillAirbillNumCol"/>
+      <move element="PosVendorNumberCol" after="PosSupplierNameCol"/>
+      <move element="PosSupplierSite1Col" after="PosVendorNumberCol"/>
+      <move element="PosFreightTermCol" after="PosSupplierSite1Col"/>
+      <move element="InvoiceSwitcherCol" after="PosFreightTermCol"/>
+      <move element="PosNumOfcontainersCol" after="InvoiceSwitcherCol"/>
+      <move element="PosBillOfLading1Col" after="PosNumOfcontainersCol"/>
+      <move element="PosCommentsCol" after="PosBillOfLading1Col"/>
+      <move element="PosPackingSlip1Col" after="PosCommentsCol"/>
+      <move element="PosCarrierEquipmentCol" after="PosPackingSlip1Col"/>
+      <move element="PosCarrierMethodCol" after="PosCarrierEquipmentCol"/>
+      <move element="PosHazardCodeCol" after="PosCarrierMethodCol"/>
+      <move element="PosHazardClassCol" after="PosHazardCodeCol"/>
+      <move element="PosHazardDescCol" after="PosHazardClassCol"/>
+      <move element="PosPackagingCodeCol" after="PosHazardDescCol"/>
+      <move element="SpecialHandlingCodeCol" after="PosPackagingCodeCol"/>
+      <move element="PosTarWeightCol" after="SpecialHandlingCodeCol"/>
+      <move element="PosTarWeightUomCodeCol" after="PosTarWeightCol"/>
+      <move element="PosNetWeightCol" after="PosTarWeightUomCodeCol"/>
+      <move element="PosNetWeightUomC0l" after="PosNetWeightCol"/>
+      <move element="PosUssglCodeCol" after="PosNetWeightUomC0l"/>
+      <move element="PosProcessingStatusCodeCol" after="PosUssglCodeCol"/>
+      <move element="IcxStatusCol" after="PosProcessingStatusCodeCol"/>
+      <move element="PosVendorId" after="IcxStatusCol"/>
+      <move element="PosVendorSiteId" after="PosVendorId"/>
+      <move element="PosUniqueIdentifier" after="PosVendorSiteId"/>
+      <move element="PosShipmentHeaderId" after="PosUniqueIdentifier"/>
+      <move element="PosPoNumberCol" after="PosShipmentHeaderId"/>
+      <move element="PosVendorItemNumCol" after="PosPoNumberCol"/>
+      <move element="PosShipToLocationCodeCol" after="PosVendorItemNumCol"/>
+      <move element="PosItemNumCol" after="PosShipToLocationCodeCol"/>
+      <insert after="PosItemNumCol">
+         <oa:column id="SetupILCol" adminCustomizable="true" bandingShade="none" cellNoWrapFormat="false" columnDataFormat="iconButtonFormat" displayGrid="true" rendered="true" scope="." totalValue="false" userCustomizable="false" xmlns:oa="http://xmlns.oracle.com/oa">
+            <ui:columnHeader xmlns:ui="http://xmlns.oracle.com/uix/ui">
+               <oa:sortableHeader id="SetupILHdr" adminCustomizable="true" cellNoWrapFormat="false" initSortSeq="none" prompt="View/Update IL Taxes" rendered="true" required="no" scope="." sortState="no" userCustomizable="false"/>
+            </ui:columnHeader>
+            <ui:contents xmlns:ui="http://xmlns.oracle.com/uix/ui">
+               <oa:button id="SetupIL" adminCustomizable="true" dataType="VARCHAR2" destination="OA.jsp?page=/oracle/apps/ja/isp/asbn/webui/AsbnTaxDetailsPG&amp;shipmentNum={!ShipmentNum}&amp;vendorId={!VendorId}&amp;headerInterfaceId={!HeaderId}&amp;OAFunc=ILS_ISUPP_PERZ" disabled="false" hAlign="start" prompt="View / Update IL Taxes" rendered="true" scope="." serverUnvalidated="false" shortDesc="View and Update India Localized taxes" warnAboutChanges="true"/>
+            </ui:contents>
+         </oa:column>
+      </insert>
+   </modifications>
+</customization>

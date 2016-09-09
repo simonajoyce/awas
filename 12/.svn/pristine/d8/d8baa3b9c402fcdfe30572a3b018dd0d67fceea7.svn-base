@@ -1,0 +1,9 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.13_413" xml:lang="en-US" customizes="/oracle/apps/per/irc/candidateSelfService/webui/VisHomeLoginDCRN" developerMode="true" file-version="$Header: VisHomeLoginDCRN.xml 115.2 2004/06/10 03:29:07 pzwalker noship $" package="/oracle/apps/per/irc/candidateSelfService/webui/customizations/function/IRC_EMP_VIS_HOME_PAGE">
+   <modifications>
+      <move element="Password" after="UserName"/>
+      <move element="Login" after="Password"/>
+      <modify element="UserName" prompt="Username" tipMessageAppShortName="Inherit" tipMessageName=""/>
+      <modify element="Password" tipMessageName=""/>
+   </modifications>
+</customization>

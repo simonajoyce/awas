@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- $Header: XX_PO_CC_COSTS_REP_DD.xml 2014/02/06 12:56:20 sjoyce noship $-->
+<!-- dbdrv: exec java oracle/apps/xdo/oa/util XDOLoader.class java &phase=dat checkfile:~PROD:patch/115/publisher/defs:XX_PO_CC_COSTS_REP.xml UPLOAD - DB_USERNAME &un_apps -DB_PASSWORD &pw_apps -JDBC_CONNECTION &jdbc_db_addr -LOB_TYPE DATA_TEMPLATE -APPS_SHORT_NAME ~PROD -LOB_CODE APOBRR -LANGUAGE 00 -XDO_FILE_TYPE XML-DATA-TEMPLATE -FILE_NAME &fullpath:~PROD:patch/115/publisher/defs:XX_PO_CC_COSTS_REP_DD.xml#  -->
+<!-- GSCC_Category="Xdo Data Definition" -->
+<dataTemplate name="XX_PO_CC_COSTS_REP" defaultPackage="XX_PO_CC_COSTS_REP_pkg" version="1.0">
+<properties>
+<property name="debug_mode" value="on" />
+<property name="xml_tag_case" value="upper" />
+</properties>
+<parameters>
+<parameter name="P_COST_CENTRE" dataType = "CHARACTER"></parameter>
+<parameter name="P_GL_ACCOUNT" dataType = "CHARACTER"></parameter>
+<parameter name="P_START_DATE" dataType = "DATE"></parameter>
+<parameter name="P_END_DATE" dataType = "DATE"></parameter>
+</parameters>
+<dataQuery>
+<sqlStatement name="Q_REPORT">
+<![CDATA[
+SELECT b.name                               batch_name, 
+       b.description                        batch_description, 
+       h.name                               header_name, 
+       h.description                        header_description, 
+       h.je_category                        je_category, 
+       h.je_source                          je_source, 
+       h.currency_code                      currency_code, 
+       l.period_name                        period_name, 
+       p.end_date                           period_start_date,
+       l.effective_date                     effective_date, 
+       l.je_line_num                        je_line_num, 
+       l.description                        line_description, 
+       Nvl(l.entered_dr, 0)                 entered_dr, 
+       Nvl(l.entered_cr, 0)                 entered_cr, 
+	   Nvl(l.entered_dr, 0)-Nvl(l.entered_cr, 0)  entered_net,
+       Nvl(l.accounted_dr, 0)               accounted_dr, 
+       Nvl(l.accounted_cr, 0)               accounted_cr, 
+	   Nvl(l.accounted_dr, 0)-Nvl(l.accounted_cr, 0) accounted_net,
+       gcc.segment1                         entity, 
+       gcc.segment2                         account, 
+       gcc.segment3                         cost_centre, 
+       gcc.segment4                         msn, 
+       gcc.segment5                         leasee, 
+       gcc.segment6                         ic, 
+       gcc.segment7                         spare, 
+       Nvl(Xx_xla_ap_invoice('VENDOR_NAME', l.gl_sl_link_id, l.reference_8), 
+       l.reference_1)                       ap_vendor, 
+       Nvl(Xx_xla_ap_invoice('TRX_NUMBER', l.gl_sl_link_id, l.reference_8), 
+       l.reference_5)                       ap_trx_ref, 
+       l.reference_4                        ap_payment_num, 
+       CASE 
+         WHEN h.je_source = 'Payables' 
+              AND h.je_category = 'Purchase Invoices' THEN Replace( 
+         Replace(Nvl(Xx_ap_invoice_approver(To_number(Xx_xla_ap_invoice 
+                     ('TRX_ID', l.gl_sl_link_id, l.reference_8))), Nvl( 
+                   Xx_ap_req_approver(To_number(Xx_xla_ap_invoice( 
+                 'TRX_ID', l.gl_sl_link_id, l.reference_8))), 
+                 Nvl (Xx_ap_exp_approver(To_number(Xx_xla_ap_invoice('TRX_ID', 
+                                                   l.gl_sl_link_id, 
+                    l.reference_8))), CASE 
+                                        WHEN h.je_source = 'Payables' 
+                                             AND h.je_category = 
+                                                 'Purchase Invoices' THEN 
+                                        Replace(Replace( 
+                                        Nvl(Xx_ap_invoice_approver( 
+                                            To_number(l.reference_2)), 
+                                        Nvl( 
+                                                Xx_ap_req_approver( 
+                                                To_number 
+                                                (l.reference_2)), 
+                                        Nvl( 
+                                                Xx_ap_exp_approver(To_number 
+                                                (l.reference_2)), 
+                                        'No Approval in Oracle' 
+                                        ) 
+                                        )), 
+                                                'GUEST', ''), ',,', ',') 
+                                        ELSE NULL 
+                                      END))), 'GUEST', ''), ',,', ',') 
+         ELSE NULL 
+       END                                  trx_approver 
+FROM   gl_je_batches b, 
+       gl_je_headers h, 
+       gl_je_lines l, 
+       gl_code_combinations gcc, 
+       gl_ledgers x,
+       gl_periods p
+WHERE  l.je_header_id = h.je_header_id 
+       AND h.je_batch_id = b.je_batch_id 
+       AND gcc.code_combination_id = l.code_combination_id 
+       AND x.ledger_id = h.ledger_id 
+       and p.period_name = l.period_name
+       and p.period_set_name = 'AWAS'
+       AND x.ledger_id = 8 
+	   AND gcc.segment3 = :P_COST_CENTRE
+	   AND gcc.segment2 = :P_GL_ACCOUNT
+	   &G_WHERE
+]]>
+</sqlStatement>
+</dataQuery>
+<dataTrigger name="beforeReportTrigger" source="XX_PO_CC_COSTS_REP_PKG.before_report"/>
+<dataStructure>
+<group name="G_REPORT" source="Q_REPORT">
+<element name="BATCH_NAME"				 value="BATCH_NAME"/>
+<element name="BATCH_DESCRIPTION"		 value="BATCH_DESCRIPTION"/>
+<element name="HEADER_NAME"     		 value="HEADER_NAME"/>
+<element name="HEADER_DESCRIPTION"		 value="HEADER_DESCRIPTION"/>
+<element name="JE_CATEGORY"     		 value="JE_CATEGORY"/>
+<element name="JE_SOURCE"       		 value="JE_SOURCE"/>
+<element name="CURRENCY_CODE"     		 value="CURRENCY_CODE"/>
+<element name="PERIOD_NAME"     		 value="PERIOD_NAME"/>
+<element name="PERIOD_START_DATE"  		 value="PERIOD_START_DATE"/>
+<element name="EFFECTIVE_DATE"     		 value="EFFECTIVE_DATE"/>
+<element name="JE_LINE_NUM"     		 value="JE_LINE_NUM"/>
+<element name="LINE_DESCRIPTION"   		 value="LINE_DESCRIPTION"/>
+<element name="ENTERED_DR"       		 value="ENTERED_DR"/>
+<element name="ENTERED_CR"     		     value="ENTERED_CR"/>
+<element name="ENTERED_NET"    		     value="ENTERED_NET"/>
+<element name="ACCOUNTED_DR"     		 value="ACCOUNTED_DR"/>
+<element name="ACCOUNTED_CR"     		 value="ACCOUNTED_CR"/>
+<element name="ACCOUNTED_NET"      		 value="ACCOUNTED_NET"/>
+<element name="ENTITY"      		     value="ENTITY"/>
+<element name="ACCOUNT"      		     value="ACCOUNT"/>
+<element name="COST_CENTRE"      		 value="COST_CENTRE"/>
+<element name="MSN"             		 value="MSN"/>
+<element name="LEASEE"          		 value="LEASEE"/>
+<element name="IC"              		 value="IC"/>
+<element name="SPARE"           		 value="SPARE"/>
+<element name="AP_VENDOR"      		     value="AP_VENDOR"/>
+<element name="AP_TRX_REF"      		 value="AP_TRX_REF"/>
+<element name="AP_PAYMENT_NUM"      	 value="AP_PAYMENT_NUM"/>
+<element name="TRX_APPROVER"      	     value="TRX_APPROVER"/>
+</group>
+</dataStructure>
+</dataTemplate>

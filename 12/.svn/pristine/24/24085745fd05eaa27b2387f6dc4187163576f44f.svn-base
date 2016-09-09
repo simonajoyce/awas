@@ -1,0 +1,12 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/ar/hz/components/party/person/webui/HzPuiPersonProfileMore" file-version="$Header: HzPuiPersonProfileMore.xml 120.0 2005/09/04 02:45 rramacha noship $" package="/oracle/apps/ar/hz/components/party/person/webui/customizations/function/ASN_PERSONUPDATEPG">
+   <modifications>
+      <modify element="PersonIdenType" rendered="false"/>
+      <modify element="PersonIdentifier" rendered="false"/>
+      <modify element="DeclaredEthnicity" rendered="false"/>
+      <modify element="TaxReference" rendered="false"/>
+      <modify element="MaritalStatusEffectiveDate" rendered="false"/>
+      <modify element="DateOfDeath" rendered="false"/>
+      <modify element="RowLayout2" rendered="false"/>
+   </modifications>
+</customization>

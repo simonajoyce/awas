@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- $Header: XX_AR_DIAMONDHEAD_REP.xml 2014/02/06 12:56:20 sjoyce noship $-->
+<!-- dbdrv: exec java oracle/apps/xdo/oa/util XDOLoader.class java &phase=dat checkfile:~PROD:patch/115/publisher/defs:XX_AR_DIAMONDHEAD_REP.xml UPLOAD - DB_USERNAME &un_apps -DB_PASSWORD &pw_apps -JDBC_CONNECTION &jdbc_db_addr -LOB_TYPE DATA_TEMPLATE -APPS_SHORT_NAME ~PROD -LOB_CODE APOBRR -LANGUAGE 00 -XDO_FILE_TYPE XML-DATA-TEMPLATE -FILE_NAME &fullpath:~PROD:patch/115/publisher/defs:XX_GIFT_REGISTERxml#  -->
+<!-- GSCC_Category="Xdo Data Definition" -->
+<dataTemplate name="XX_AR_DIAMONDHEAD_REP" defaultPackage="XX_AR_DIAMONDHEAD_REP_pkg" version="1.0">
+<properties>
+<property name="debug_mode" value="on" />
+<property name="xml_tag_case" value="upper" />
+</properties>
+<parameters>
+<parameter name="P_PERIOD" dataType = "CHARACTER"></parameter>
+</parameters>
+<dataQuery>
+<sqlStatement name="Q_REPORT">
+<![CDATA[
+select customer_name					CUSTOMER_NAME,
+	   lease_number						LEASE_NUMBER, 
+	   fngetmsn@basin(l.aircraft_no) 	MSN, 
+	   '2' 								SORT_ORDER, 
+	   actype AIRCRAFT_TYPE,
+	   period							PERIOD, 
+decode(transaction_type, 'Maintenance Invoice','Maintenance','Maint. Credit Memo','Maintenance','Man Main Invoice','Maintenance','Aircraft Rental','Rental','Rent Credit Memo','Rental',
+'Stepped Rent Invoice','Rental','Stepped Rent Credit','Rental','Engine Rent Inv','Rental','Consumption Tax','Consumption Tax','Cons Tax Credit Memo','Consumption Tax',transaction_type) TRANSACTION_TYPE,
+transaction_type 						TRANSACTION_TYPE_SUB,
+sum(Amount) AMOUNT,
+decode(is_application,'Y','Cash Applied','Invoiced') INVRECEIPT,
+ invoice_no INVOICE_NO, 
+ due_Date DUE_DATE, 
+ trx_date TRX_DATE
+from xx_dwh_ar_trx_temp x
+,   tblaircraftlease@basin l
+, VAIRCRAFTDETAILS@BASIN a
+where  l.aircraft_lease_no = x.lease_number
+and x.period = :P_PERIOD
+and a.acno = l.aircraft_no
+group by customer_name,lease_number, fngetmsn@basin(l.aircraft_no), actype,period, 
+decode(transaction_type, 'Maintenance Invoice','Maintenance','Maint. Credit Memo','Maintenance','Man Main Invoice','Maintenance','Aircraft Rental','Rental','Rent Credit Memo','Rental',
+'Stepped Rent Invoice','Rental','Stepped Rent Credit','Rental','Engine Rent Inv','Rental','Consumption Tax','Consumption Tax','Cons Tax Credit Memo','Consumption Tax',transaction_type),
+transaction_type,
+decode(is_application,'Y','Cash Applied','Invoiced'), invoice_no, due_Date, trx_date
+union all
+select customer_name,lease_number, fngetmsn@basin(l.aircraft_no) MSN, '1' sort_ord, actype Aircraft_Type, :P_PERIOD, 'Opening_Balance',null,sum(amount), null,null,null, p.start_date-1
+from xx_dwh_ar_trx_temp x
+,   gl_periods p
+,   tblaircraftlease@basin l
+, VAIRCRAFTDETAILS@BASIN a
+where p.period_name = :P_PERIOD
+and   p.period_set_name = 'AWAS'
+and   x.gl_date < p.start_date 
+and   l.aircraft_lease_no = x.lease_number
+and a.acno = l.aircraft_no
+group by customer_name,lease_number, fngetmsn@basin(l.aircraft_no),actype,p.start_date
+union all
+select customer_name,lease_number, fngetmsn@basin(l.aircraft_no) MSN, '3' sort_ord, actype Aircraft_Type,:P_PERIOD, 'Closing_Balance',null,sum(amount), null,null,null, p.end_date
+from xx_dwh_ar_trx_temp x
+,   gl_periods p
+,   tblaircraftlease@basin l
+, VAIRCRAFTDETAILS@BASIN a
+where p.period_name = :P_PERIOD
+and   p.period_set_name = 'AWAS'
+and   x.gl_date <= p.end_date 
+and   l.aircraft_lease_no = x.lease_number
+and a.acno = l.aircraft_no
+group by customer_name,lease_number, fngetmsn@basin(l.aircraft_no),actype,p.end_date
+order by 1,3,4,12
+]]>
+</sqlStatement>
+<sqlStatement name="Q_SUMMARY">
+<![CDATA[
+select customer_name SUM_CUSTOMER_NAME, 
+       fngetmsn@basin(l.aircraft_no) SUM_MSN,
+       actype SUM_AIRCRAFT_TYPE,
+       OPENING_BALANCE SUM_OPENING_BALANCE,
+sum(decode(is_transaction,'Y',decode(transaction_type, 'Aircraft Rental',1,'Rent Credit Memo',1,'Stepped Rent Invoice',1,'Stepped Rent Credit',1,'Engine Rent Inv',1,0),0)*amount) SUM_RENTAL_BILLED,
+sum(decode(is_transaction,'N',decode(transaction_type, 'Aircraft Rental',1,'Rent Credit Memo',1,'Stepped Rent Invoice',1,'Stepped Rent Credit',1,'Engine Rent Inv',1,0),0)*amount) SUM_RENTAL_PAID,
+sum(decode(is_transaction,'Y',decode(transaction_type, 'Maintenance Invoice',1,'Maint. Credit Memo',1,'Man Main Invoice',1,0),0)*amount) SUM_MAINTENANCE_BILLED,
+sum(decode(is_transaction,'N',decode(transaction_type, 'Maintenance Invoice',1,'Maint. Credit Memo',1,'Man Main Invoice',1,0),0)*amount) SUM_MAINTENANCE_PAID,
+sum(decode(is_transaction,'Y',decode(transaction_type, 'Interest Invoice',1,'Interest Credit Memo',1,0),0)*amount) SUM_INTEREST_BILLED,
+sum(decode(is_transaction,'N',decode(transaction_type, 'Interest Invoice',1,'Interest Credit Memo',1,0),0)*amount) SUM_INTEREST_PAID,
+sum(decode(is_transaction,'Y',amount)) SUM_TOTAL_BILLED,
+sum(decode(is_transaction,'N',amount)) SUM_TOTAL_PAID,
+closing_balance SUM_CLOSING_BALANCE
+from xx_dwh_ar_trx_temp t,
+(select x.lease_number, sum(amount) OPENING_BALANCE
+from xx_dwh_ar_trx_temp x
+,   gl_periods p
+,   tblaircraftlease@basin l
+where p.period_name = :P_PERIOD
+and   p.period_set_name = 'AWAS'
+and   x.gl_date < p.start_date 
+and   l.aircraft_lease_no = x.lease_number
+group by customer_name,lease_number, fngetmsn@basin(l.aircraft_no),p.start_date) Y,
+(select x.lease_number, sum(amount) CLOSING_BALANCE
+from xx_dwh_ar_trx_temp x
+,   gl_periods p
+,   tblaircraftlease@basin l
+where p.period_name = :P_PERIOD
+and   p.period_set_name = 'AWAS'
+and   x.gl_date <= p.end_date 
+and   l.aircraft_lease_no = x.lease_number
+group by customer_name,lease_number, fngetmsn@basin(l.aircraft_no),p.start_date) Z,
+tblaircraftlease@basin l,
+VAIRCRAFTDETAILS@BASIN a
+where t.period = :P_PERIOD
+and   l.aircraft_lease_no = t.lease_number
+and y.lease_number  = t.lease_number
+and z.lease_number  = t.lease_number
+and a.acno = l.aircraft_no
+group by customer_name, fngetmsn@basin(l.aircraft_no), actype, OPENING_BALANCE,closing_balance
+order by 1, 2
+]]>
+</sqlStatement>
+</dataQuery>
+<dataTrigger name="beforeReportTrigger" source="XX_AR_DIAMONDHEAD_REP_pkg.before_report"/>
+<dataStructure>
+<group name="G_REPORT" source="Q_REPORT">
+<element name="CUSTOMER_NAME"                 value="CUSTOMER_NAME"/>
+<element name="LEASE_NUMBER"                  value="LEASE_NUMBER"/>
+<element name="MSN"                   		  value="MSN"/>
+<element name="SORT_ORDER"                    value="SORT_ORDER"/>
+<element name="AIRCRAFT_TYPE"                 value="AIRCRAFT_TYPE"/>
+<element name="PERIOD"                        value="PERIOD"/>
+<element name="TRANSACTION_TYPE"              value="TRANSACTION_TYPE"/>
+<element name="TRANSACTION_TYPE_SUB"          value="TRANSACTION_TYPE_SUB"/>
+<element name="AMOUNT"                        value="AMOUNT"/>
+<element name="INVRECEIPT"                    value="INVRECEIPT"/>
+<element name="INVOICE_NO"                    value="INVOICE_NO"/>
+<element name="DUE_DATE"                      value="DUE_DATE"/>
+<element name="TRX_DATE"                      value="TRX_DATE"/>
+</group>
+<group name="G_SUMMARY" source="Q_SUMMARY">
+<element name="SUM_CUSTOMER_NAME"                 value="SUM_CUSTOMER_NAME"/>
+<element name="SUM_MSN"                   		  value="SUM_MSN"/>
+<element name="SUM_AIRCRAFT_TYPE"                 value="SUM_AIRCRAFT_TYPE"/>
+<element name="SUM_OPENING_BALANCE"               value="SUM_OPENING_BALANCE"/>
+<element name="SUM_RENTAL_BILLED"                 value="SUM_RENTAL_BILLED"/>
+<element name="SUM_RENTAL_PAID"                   value="SUM_RENTAL_PAID"/>
+<element name="SUM_MAINTENANCE_BILLED"            value="SUM_MAINTENANCE_BILLED"/>
+<element name="SUM_MAINTENANCE_PAID"              value="SUM_MAINTENANCE_PAID"/>
+<element name="SUM_INTEREST_BILLED"               value="SUM_INTEREST_BILLED"/>
+<element name="SUM_INTEREST_PAID"                 value="SUM_INTEREST_PAID"/>
+<element name="SUM_TOTAL_BILLED"                  value="SUM_TOTAL_BILLED"/>
+<element name="SUM_TOTAL_PAID"                    value="SUM_TOTAL_PAID"/>
+<element name="SUM_CLOSING_BALANCE"               value="SUM_CLOSING_BALANCE"/>
+</group>
+</dataStructure>
+</dataTemplate>

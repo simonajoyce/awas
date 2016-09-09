@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_50" xml:lang="en-US" customizes="/oracle/apps/ar/cusstd/ovrview/webui/ArCusOvrPG">
+   <modifications>
+      <modify element="orgRN.OrgProfileFlex" rendered="false"/>
+      <move element="region13.SiteSourceCol" after="region13.SiteAddressCol"/>
+      <move element="region13.SiteMialStopCol" after="region13.SiteSourceCol"/>
+      <move element="region13.SiteCountryCol" after="region13.SiteMialStopCol"/>
+      <move element="region13.SitePurposesCol" after="region13.SiteCountryCol"/>
+      <move element="region13.SiteOUCol" after="region13.SitePurposesCol"/>
+      <move element="region13.SitePartySiteNameCol" after="region13.SiteOUCol"/>
+      <move element="region13.SitePartySiteNumCol" after="region13.SitePartySiteNameCol"/>
+      <move element="region13.SiteAddressLinePhoneticCol" after="region13.SitePartySiteNumCol"/>
+      <move element="region13.SiteIdentifyingCol" after="region13.SiteAddressLinePhoneticCol"/>
+      <move element="region13.SiteMapCol" after="region13.SiteIdentifyingCol"/>
+      <move element="region13.SiteContactsCol" after="region13.SiteMapCol"/>
+      <move element="region13.SiteStatusMeaningCol" after="region13.SiteContactsCol"/>
+      <move element="region13.SiteViewCol" after="region13.SiteStatusMeaningCol"/>
+      <move element="region13.SiteUpdateCol" after="region13.SiteViewCol"/>
+      <move element="region13.SiteDeleteCol" after="region13.SiteUpdateCol"/>
+      <move element="region13.SiteRestoreCol" after="region13.SiteDeleteCol"/>
+   </modifications>
+</customization>

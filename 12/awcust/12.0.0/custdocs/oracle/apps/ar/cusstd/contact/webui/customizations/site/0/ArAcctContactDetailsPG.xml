@@ -1,0 +1,29 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_50" xml:lang="en-US" customizes="/oracle/apps/ar/cusstd/contact/webui/ArAcctContactDetailsPG" developerMode="true" file-version="$Header: ArAcctContactDetailsPG.xml 120.1.12010000.1 2008/10/17 11:46:28 rmanikan noship $">
+   <modifications>
+      <modify element="ContactInfoRN.RelationshipRole" rendered="false"/>
+      <modify element="ContactInfoRN.NameInitials" rendered="false"/>
+      <modify element="ContactInfoRN.PreviousLastName" rendered="false"/>
+      <modify element="ContactInfoRN.Alias" rendered="false"/>
+      <modify element="ContactInfoRN.FullNamePronunciation" rendered="false"/>
+      <modify element="ContactInfoRN.Department" rendered="false"/>
+      <modify element="ContactInfoRN.JobTitleCode" rendered="false"/>
+      <modify element="ContactInfoRN.DepartmentCode" rendered="false"/>
+      <modify element="ContactInfoRN.EndDate" rendered="false"/>
+      <modify element="ContactInfoRN.Comments" rendered="false"/>
+      <modify element="ContactInfoRN.AcademicTitle" rendered="false"/>
+      <modify element="ContactInfoRN.Salutation" rendered="false"/>
+      <modify element="ContactInfoRN.Alias2" rendered="false"/>
+      <modify element="ContactInfoRN.Alias3" rendered="false"/>
+      <modify element="ContactInfoRN.FirstNamePronunciation" rendered="false"/>
+      <modify element="ContactInfoRN.Alias4" rendered="false"/>
+      <modify element="ContactInfoRN.MiddleNamePronunciation" rendered="false"/>
+      <modify element="ContactInfoRN.Alias5" rendered="false"/>
+      <modify element="ContactInfoRN.LastNamePronunciation" rendered="false"/>
+      <modify element="AddressRN.primarySwitcher" rendered="false"/>
+      <modify element="AddressRN.singleAddressSelection" rendered="false"/>
+      <modify element="AddressRN.mapImage" rendered="false"/>
+      <modify element="PhoneRN.singleSelection" rendered="false"/>
+      <modify element="RoleRN.HzPuiATTExport" rendered="false"/>
+   </modifications>
+</customization>

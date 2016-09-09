@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/ar/hz/components/party/organization/webui/HzPuiOrgProfileComponent" file-version="$Header: HzPuiOrgProfileComponent.xml 120.1 2005/09/17 00:15 rramacha noship $" package="/oracle/apps/ar/hz/components/party/organization/webui/customizations/function/ASN_ORGROPG">
+   <modifications>
+      <move element="alias" after="organization_name"/>
+      <move element="party_status" after="alias"/>
+      <move element="registry_id" after="party_status"/>
+      <move element="pronunciation" after="registry_id"/>
+      <modify element="organization_name" prompt="Customer" readOnly="true" styleClass="OraDataText"/>
+      <modify element="alias" readOnly="true" styleClass="OraDataText"/>
+      <modify element="registry_id" readOnly="true" styleClass="OraDataText"/>
+      <modify element="pronunciation" readOnly="true" rendered="false" styleClass="OraDataText"/>
+      <modify element="PreferredContactMethod" readOnly="true" styleClass="OraDataText"/>
+      <modify element="party_status" readOnly="true" styleClass="OraDataText"/>
+      <modify element="salutation" readOnly="true" styleClass="OraDataText"/>
+      <modify element="alias2" readOnly="true" styleClass="OraDataText"/>
+      <modify element="alias4" readOnly="true" styleClass="OraDataText"/>
+      <modify element="alias3" readOnly="true" styleClass="OraDataText"/>
+      <modify element="alias5" readOnly="true" styleClass="OraDataText"/>
+      <modify element="HzPuiHideShowOrgProfile" rendered="false"/>
+      <modify element="OrgProfileFlex" readOnly="true" styleClass="OraDataText"/>
+   </modifications>
+</customization>

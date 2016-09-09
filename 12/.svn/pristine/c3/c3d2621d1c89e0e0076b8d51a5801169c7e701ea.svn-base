@@ -1,0 +1,6 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.89_562" xml:lang="en-US" customizes="/oracle/apps/per/selfservice/personalinformation/webui/BasicDetOthUpdRN" file-version="$Header: BasicDetOthUpdRN.xml 120.0.12010000.1 2011/08/11 11:39:00 nkjaladi noship $" package="/oracle/apps/per/selfservice/personalinformation/webui/customizations/localization/US">
+   <modifications>
+      <modify element="HrPersonDevDfFlexOther" segmentList="US|I_9|I_9 Expiration Date|VETS 100|VETS 100A|New Hire Status|Reason for Exclusion|Child Support Obligation|Opted for Medicare Part B|Ethnicity Disclosed||"/>
+   </modifications>
+</customization>

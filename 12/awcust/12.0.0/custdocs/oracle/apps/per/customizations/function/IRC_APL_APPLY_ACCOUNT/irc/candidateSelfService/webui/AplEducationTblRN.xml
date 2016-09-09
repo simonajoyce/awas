@@ -1,0 +1,28 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/per/irc/candidateSelfService/webui/AplEducationTblRN" developerMode="true" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: AplEducationTblRN.xml 115.0 2003/04/10 08:29:11 mmillmor noship $" version="9.0.3.6.2_398" xml:lang="en-US" package="/oracle/apps/per/customizations/function/IRC_APL_APPLY_ACCOUNT/irc/candidateSelfService/webui">
+   <modifications>
+      <modify element="StartDate" sortState="no" rendered="true"/>
+      <modify element="ShowQualification" sortState="no" rendered="true"/>
+      <modify element="ShowLocation" sortState="no" rendered="true"/>
+      <modify element="ShowEstablishment" sortState="no" rendered="true"/>
+      <modify element="Location" sortState="no" rendered="false"/>
+      <modify element="FullTime" sortState="no" rendered="false"/>
+      <modify element="Establishment" sortState="no" rendered="false"/>
+      <modify element="Delete" sortState="no" rendered="true"/>
+      <modify element="AttendanceLastUpdateDate" sortState="no" rendered="false"/>
+      <modify element="EndDate" sortState="no" rendered="true"/>
+      <modify element="AddAnotherRow" rendered="true"/>
+      <modify element="FndAdditionalDetails" sortState="no" rendered="false"/>
+      <move element="ShowLocation" after="ShowEstablishment"/>
+      <move element="StartDate" after="ShowLocation"/>
+      <move element="EndDate" after="StartDate"/>
+      <move element="ShowQualification" after="EndDate"/>
+      <move element="Delete" after="ShowQualification"/>
+      <move element="AddAnotherRow" after="Delete"/>
+      <move element="FullTime" after="IrcFlexField1"/>
+      <move element="AttendanceLastUpdateDate" after="FullTime"/>
+      <move element="FndAdditionalDetails" after="AttendanceLastUpdateDate"/>
+      <move element="Establishment" after="FndAdditionalDetails"/>
+      <move element="Location" after="Establishment"/>
+   </modifications>
+</customization>

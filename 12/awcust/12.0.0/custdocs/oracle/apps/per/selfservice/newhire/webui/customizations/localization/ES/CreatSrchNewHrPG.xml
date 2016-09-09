@@ -1,0 +1,6 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/per/selfservice/newhire/webui/CreatSrchNewHrPG" developerMode="false" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" file-version="$Header: CreatSrchNewHrPG.xml 120.0 2005/09/16 05:26:55 psnellin noship $" version="9.0.5.4.81_481" xml:lang="en-US" package="/oracle/apps/per/selfservice/newhire/webui/customizations/localization/ES">
+   <modifications>
+      <modify element="HireNationalIdentifier" prompt="NIF Number"/>
+   </modifications>
+</customization>

@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/irc/vacancy/webui/VacSrchQueryRN" developerMode="true" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header$" version="9.0.3.8.12_1271" xml:lang="en-US">
+   <modifications>
+      <modify element="VacancySearchTable" blockSize="25"/>
+      <modify element="FndOrganization____3" rendered="false" sortState="no"/>
+      <modify element="FndOrganizationId____2" rendered="false" sortState="no"/>
+      <modify element="IrcMyVacancies" rendered="false" sortState="no"/>
+      <modify element="FndVacancyName____1" sortState="no"/>
+      <modify element="FndJobTitle____2" sortState="no"/>
+      <modify element="FndStatus____1" sortState="no"/>
+      <modify element="FndOpenings" sortState="no"/>
+      <modify element="FndFilled" sortState="no"/>
+      <modify element="FndApplicants" sortState="no"/>
+      <modify element="FndLocation____1" sortState="no"/>
+      <modify element="FndManager____2" rendered="false" sortState="no"/>
+      <modify element="FndRecruiter____1" rendered="false" sortState="no"/>
+      <modify element="FndManagerId____2" rendered="false" sortState="no"/>
+      <modify element="FndRecruiterId____1" rendered="false" sortState="no"/>
+      <move element="ApplicantsSelection" after="CandidatesSelection"/>
+      <move element="copyVacancy" after="ApplicantsSelection"/>
+   </modifications>
+</customization>

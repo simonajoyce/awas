@@ -1,0 +1,215 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_22" xml:lang="en-US" customizes="/oracle/apps/pos/changeorder/webui/PosViewPOPG" file-version="$Header: PosViewPOPG.xml 120.5 2008/01/29 05:12:16 jianliu noship $" package="/oracle/apps/pos/changeorder/webui/customizations/function/ILS_ISUPP_PERZ" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui">
+   <modifications>
+      <modify element="PosBuyerName" destination="OA.jsp?akRegionCode=POS_LOCATIONS_PAGE&amp;OAFunc=ILS_ISUPP_PERZ&amp;akRegionApplicationId=177&amp;LPARAMSEMPLOYEE_ID={@AgentId}&amp;PoHeaderId={@PO_HEADER_ID}&amp;retainAM=Y&amp;addBreadCrumb=Y"/>
+      <move element="PosSupplierName" after="PosAmountCurrency"/>
+      <move element="PosSupplierSite" after="PosSupplierName"/>
+      <move element="PosSupAddr1" after="PosSupplierSite"/>
+      <move element="PosSupAddr2" after="PosSupAddr1"/>
+      <move element="PosSupAddr3" after="PosSupAddr2"/>
+      <move element="PosSupCityState" after="PosSupAddr3"/>
+      <move element="PosSupCountry" after="PosSupCityState"/>
+      <move element="PosBuyerName" after="PosSupCountry"/>
+      <move element="PosOrderDate" after="PosBuyerName"/>
+      <move element="PosPoDescription" after="PosOrderDate"/>
+      <move element="PosHeaderStatus" after="PosPoDescription"/>
+      <move element="PosHeaderReason" after="PosHeaderStatus"/>
+      <move element="PosNoteToVendor" after="PosHeaderReason"/>
+      <move element="PosOrganizationName" after="PosNoteToVendor"/>
+      <move element="PosSrcDocument" after="PosOrganizationName"/>
+      <move element="PosGlobalAgreement" after="PosSrcDocument"/>
+      <move element="SupOrderHdr" after="PosGlobalAgreement"/>
+      <move element="PosHeaderFlex" after="SupOrderHdr"/>
+      <move element="PosReleaseFlex" after="PosHeaderFlex"/>
+      <move element="PosBuyerHeaderAttach" after="PosReleaseFlex"/>
+      <move element="PosSupHeaderAttach" after="PosBuyerHeaderAttach"/>
+      <move element="PosStartDate" after="PosSupHeaderAttach"/>
+      <move element="PosEndDate" after="PosStartDate"/>
+      <modify element="OrderDetailsContainer" controllerClass="oracle.apps.ja.changeorder.webui.ILPosViewPOCO"/>
+      <modify element="OrderPGControlRN" controllerClass="oracle.apps.ja.changeorder.webui.ILViewPOControlsCO"/>
+      <move element="PosOrderLines.LineTypeCol" after="PosOrderLines.LineNumCol"/>
+      <move element="PosOrderLines.ItemJobCol" after="PosOrderLines.LineTypeCol"/>
+      <move element="PosOrderLines.ItemRevCol" after="PosOrderLines.ItemJobCol"/>
+      <move element="PosOrderLines.SupItemCol" after="PosOrderLines.ItemRevCol"/>
+      <move element="PosOrderLines.ItemDescCol" after="PosOrderLines.SupItemCol"/>
+      <move element="PosOrderLines.UomCol" after="PosOrderLines.ItemDescCol"/>
+      <move element="PosOrderLines.LineQtyCol" after="PosOrderLines.UomCol"/>
+      <move element="PosOrderLines.LinePriceCol" after="PosOrderLines.LineQtyCol"/>
+      <move element="PosOrderLines.LineAmtCol" after="PosOrderLines.LinePriceCol"/>
+      <move element="PosOrderLines.LineAmtDeliveredCol" after="PosOrderLines.LineAmtCol"/>
+      <insert before="PosOrderLines.LineAmtDeliveredCol">
+         <oa:column id="InclusiveTotalTax" adminCustomizable="true" bandingShade="none" cellNoWrapFormat="false" columnDataFormat="numberFormat" displayGrid="true" rendered="true" scope="." totalValue="false" userCustomizable="false" xmlns:oa="http://xmlns.oracle.com/oa">
+            <ui:columnHeader xmlns:ui="http://xmlns.oracle.com/uix/ui">
+               <oa:sortableHeader id="LinesInclusiveTaxHeader" adminCustomizable="true" cellNoWrapFormat="false" initSortSeq="none" prompt="Inclusive Tax" rendered="true" required="no" scope="." shortDesc="Inclusive Tax" sortState="no" userCustomizable="false"/>
+            </ui:columnHeader>
+            <ui:contents xmlns:ui="http://xmlns.oracle.com/uix/ui">
+               <oa:messageStyledText id="LinesInclusiveTaxAmount" adminCustomizable="true" cellNoWrapFormat="false" dataType="NUMBER" initSortSeq="none" prompt="Inclusive Tax" queryable="false" rendered="true" required="no" scope="." selectiveSearchCriteria="false" serverUnvalidated="false" shortDesc="Inclusive Tax" sortState="no" tipType="none" totalValue="false" userCustomizable="false" vAlign="middle" warnAboutChanges="true"/>
+            </ui:contents>
+         </oa:column>
+      </insert>
+      <insert before="PosOrderLines.LineAmtDeliveredCol">
+         <oa:column id="LinesExclusiveTotalTax" adminCustomizable="true" bandingShade="none" cellNoWrapFormat="false" columnDataFormat="numberFormat" displayGrid="true" rendered="true" scope="." totalValue="false" userCustomizable="false" xmlns:oa="http://xmlns.oracle.com/oa">
+            <ui:columnHeader xmlns:ui="http://xmlns.oracle.com/uix/ui">
+               <oa:sortableHeader id="LinesExclusiveTaxHeader" adminCustomizable="true" cellNoWrapFormat="false" initSortSeq="none" prompt="Exclusive Tax" rendered="true" required="no" scope="." shortDesc="Exclusive Tax" sortState="no" userCustomizable="false"/>
+            </ui:columnHeader>
+            <ui:contents xmlns:ui="http://xmlns.oracle.com/uix/ui">
+               <oa:messageStyledText id="LinesExclusiveTaxAmount" adminCustomizable="true" cellNoWrapFormat="false" dataType="NUMBER" initSortSeq="none" prompt="Exclusive Tax" queryable="false" rendered="true" required="no" scope="." selectiveSearchCriteria="false" serverUnvalidated="false" shortDesc="Exclusive Tax Amount" sortState="no" tipType="none" totalValue="false" userCustomizable="false" vAlign="middle" warnAboutChanges="true"/>
+            </ui:contents>
+         </oa:column>
+      </insert>
+      <insert before="PosOrderLines.LineAmtDeliveredCol">
+         <oa:column id="LineTaxCol" adminCustomizable="true" bandingShade="none" cellNoWrapFormat="false" columnDataFormat="numberFormat" displayGrid="true" rendered="true" scope="." totalValue="false" userCustomizable="false" xmlns:oa="http://xmlns.oracle.com/oa">
+            <ui:columnHeader xmlns:ui="http://xmlns.oracle.com/uix/ui">
+               <oa:sortableHeader id="LineTaxHdr" adminCustomizable="true" cellNoWrapFormat="false" initSortSeq="none" prompt="Tax Amount" rendered="true" required="no" scope="." sortState="no" userCustomizable="false"/>
+            </ui:columnHeader>
+            <ui:contents xmlns:ui="http://xmlns.oracle.com/uix/ui">
+               <oa:messageStyledText id="LineTax" adminCustomizable="true" cellNoWrapFormat="false" dataType="NUMBER" destination="OA.jsp?page=/oracle/apps/ja/pos/po/webui/IspTaxDetailsPG&amp;taxHeaderId={!PoHeaderId}&amp;taxLineId={!PO_LINE_ID}&amp;ilSource=PO_LINES" initSortSeq="none" prompt="Tax Amount" queryable="false" rendered="true" required="no" scope="." selectiveSearchCriteria="false" serverUnvalidated="false" sortState="no" tipType="none" totalValue="false" userCustomizable="false" vAlign="middle" warnAboutChanges="true"/>
+            </ui:contents>
+         </oa:column>
+      </insert>
+      <move element="PosOrderLines.LineAmtBilledCol" after="PosOrderLines.LineAmtDeliveredCol"/>
+      <move element="PosOrderLines.AdvanceAmtCol" after="PosOrderLines.LineAmtBilledCol"/>
+      <move element="PosOrderLines.AdvanceBilledCol" after="PosOrderLines.AdvanceAmtCol"/>
+      <move element="PosOrderLines.AdvRecoupedCol" after="PosOrderLines.AdvanceBilledCol"/>
+      <move element="PosOrderLines.RecoupRateCol" after="PosOrderLines.AdvRecoupedCol"/>
+      <move element="PosOrderLines.ProgressPmtCol" after="PosOrderLines.RecoupRateCol"/>
+      <move element="PosOrderLines.MaxRetainAmtCol" after="PosOrderLines.ProgressPmtCol"/>
+      <move element="PosOrderLines.RetainageRateCol" after="PosOrderLines.MaxRetainAmtCol"/>
+      <move element="PosOrderLines.NotToVendorCol" after="PosOrderLines.RetainageRateCol"/>
+      <move element="PosOrderLines.ContractorCol" after="PosOrderLines.NotToVendorCol"/>
+      <move element="PosOrderLines.UnNumberCol" after="PosOrderLines.ContractorCol"/>
+      <move element="PosOrderLines.HazardCol" after="PosOrderLines.UnNumberCol"/>
+      <move element="PosOrderLines.UssglCodeCol" after="PosOrderLines.HazardCol"/>
+      <move element="PosOrderLines.LineStatusCol" after="PosOrderLines.UssglCodeCol"/>
+      <move element="PosOrderLines.StartDateCol" after="PosOrderLines.LineStatusCol"/>
+      <move element="PosOrderLines.EndDateCol" after="PosOrderLines.StartDateCol"/>
+      <move element="PosOrderLines.LineAttachCol" after="PosOrderLines.EndDateCol"/>
+      <move element="PosOrderLines.LineReasonCol" after="PosOrderLines.LineAttachCol"/>
+      <move element="PosOrderLines.GANumCol" after="PosOrderLines.LineReasonCol"/>
+      <move element="PosOrderLines.BomDtlCol" after="PosOrderLines.GANumCol"/>
+      <move element="PosOrderLines.SupRefNumCol" after="PosOrderLines.BomDtlCol"/>
+      <move element="PosOrderLines.LinePriceDiffCol" after="PosOrderLines.SupRefNumCol"/>
+      <move element="PosOrderLines.LineFlexCol" after="PosOrderLines.LinePriceDiffCol"/>
+      <move element="PosOrderLines.AmtReceivedCol" after="PosOrderLines.AmtOrderedCol"/>
+      <insert before="PosOrderLines.AmtReceivedCol">
+         <oa:column id="ShipmentsInclusiveTotalTax" adminCustomizable="true" bandingShade="none" cellNoWrapFormat="false" columnDataFormat="numberFormat" displayGrid="true" rendered="true" scope="." totalValue="false" userCustomizable="false" xmlns:oa="http://xmlns.oracle.com/oa">
+            <ui:columnHeader xmlns:ui="http://xmlns.oracle.com/uix/ui">
+               <oa:sortableHeader id="ShipmentsInclusiveTaxHeader" adminCustomizable="true" cellNoWrapFormat="false" initSortSeq="none" prompt="Inclusive Tax" rendered="true" required="no" scope="." shortDesc="Inclusive Tax" sortState="no" userCustomizable="false"/>
+            </ui:columnHeader>
+            <ui:contents xmlns:ui="http://xmlns.oracle.com/uix/ui">
+               <oa:messageStyledText id="ShipmentsInclusiveTaxAmount" adminCustomizable="true" cellNoWrapFormat="false" dataType="NUMBER" initSortSeq="none" queryable="false" rendered="true" required="no" scope="." selectiveSearchCriteria="false" serverUnvalidated="false" shortDesc="Inclusive Tax" sortState="no" tipType="none" totalValue="false" userCustomizable="false" vAlign="middle" warnAboutChanges="true"/>
+            </ui:contents>
+         </oa:column>
+      </insert>
+      <insert before="PosOrderLines.AmtReceivedCol">
+         <oa:column id="ShipmentsExclusiveTotalTax" adminCustomizable="true" bandingShade="none" cellNoWrapFormat="false" columnDataFormat="numberFormat" displayGrid="true" rendered="true" scope="." totalValue="false" userCustomizable="false" xmlns:oa="http://xmlns.oracle.com/oa">
+            <ui:columnHeader xmlns:ui="http://xmlns.oracle.com/uix/ui">
+               <oa:sortableHeader id="ShipmentsExclusiveTaxHeader" adminCustomizable="true" cellNoWrapFormat="false" initSortSeq="none" prompt="Exclusive Tax" rendered="true" required="no" scope="." shortDesc="Exclusive Tax" sortState="no" userCustomizable="false"/>
+            </ui:columnHeader>
+            <ui:contents xmlns:ui="http://xmlns.oracle.com/uix/ui">
+               <oa:messageStyledText id="ShipmentsExclusiveTaxAmount" adminCustomizable="true" cellNoWrapFormat="false" dataType="NUMBER" initSortSeq="none" queryable="false" rendered="true" required="no" scope="." selectiveSearchCriteria="false" serverUnvalidated="false" shortDesc="Exclusive Tax" sortState="no" tipType="none" totalValue="false" userCustomizable="false" vAlign="middle" warnAboutChanges="true"/>
+            </ui:contents>
+         </oa:column>
+      </insert>
+      <insert before="PosOrderLines.AmtReceivedCol">
+         <oa:column id="DetailTaxCol" adminCustomizable="true" bandingShade="none" cellNoWrapFormat="false" columnDataFormat="numberFormat" displayGrid="true" rendered="true" scope="." totalValue="false" userCustomizable="false" xmlns:oa="http://xmlns.oracle.com/oa">
+            <ui:columnHeader xmlns:ui="http://xmlns.oracle.com/uix/ui">
+               <oa:sortableHeader id="DetailTaxHdr" adminCustomizable="true" cellNoWrapFormat="false" initSortSeq="none" prompt="Tax on Order" rendered="true" required="no" scope="." sortState="no" userCustomizable="false"/>
+            </ui:columnHeader>
+            <ui:contents xmlns:ui="http://xmlns.oracle.com/uix/ui">
+               <oa:messageStyledText id="DetailTax" adminCustomizable="true" cellNoWrapFormat="false" dataType="NUMBER" destination="OA.jsp?page=/oracle/apps/ja/pos/po/webui/IspTaxDetailsPG&amp;taxHeaderId={!PoHeaderId}&amp;taxLineId={!PoLineId}&amp;taxLineLocId={!LINE_LOCATION_ID}&amp;taxShipNum={!ShipmentNum}&amp;ilSource=PO_SHIPMENTS" initSortSeq="none" prompt="Tax on Order" queryable="false" rendered="true" required="no" scope="." selectiveSearchCriteria="false" serverUnvalidated="false" sortState="no" tipType="none" totalValue="false" userCustomizable="false" vAlign="middle" warnAboutChanges="true"/>
+            </ui:contents>
+         </oa:column>
+      </insert>
+      <move element="PosOrderLines.AmtInvoicedCol" after="PosOrderLines.AmtReceivedCol"/>
+      <insert before="PosOrderLines.AmtInvoicedCol">
+         <oa:column id="ReceivedTaxCol" adminCustomizable="true" bandingShade="none" cellNoWrapFormat="false" columnDataFormat="numberFormat" displayGrid="true" rendered="true" scope="." totalValue="false" userCustomizable="false" xmlns:oa="http://xmlns.oracle.com/oa">
+            <ui:columnHeader xmlns:ui="http://xmlns.oracle.com/uix/ui">
+               <oa:sortableHeader id="ReceivedTaxHdr" adminCustomizable="true" cellNoWrapFormat="false" initSortSeq="none" prompt="Tax on Receipts" rendered="true" required="no" scope="." sortState="no" userCustomizable="false"/>
+            </ui:columnHeader>
+            <ui:contents xmlns:ui="http://xmlns.oracle.com/uix/ui">
+               <oa:messageStyledText id="ReceivedTax" adminCustomizable="true" cellNoWrapFormat="false" dataType="NUMBER" initSortSeq="none" prompt="Tax on Receipts" queryable="false" rendered="true" required="no" scope="." selectiveSearchCriteria="false" serverUnvalidated="false" sortState="no" tipType="none" totalValue="false" userCustomizable="false" vAlign="middle" warnAboutChanges="true"/>
+            </ui:contents>
+         </oa:column>
+      </insert>
+      <move element="PosOrderLines.AmtApprovedCol" after="PosOrderLines.AmtInvoicedCol"/>
+      <insert before="PosOrderLines.AmtApprovedCol">
+         <oa:column id="InvoicedTaxCol" adminCustomizable="true" bandingShade="none" cellNoWrapFormat="false" columnDataFormat="numberFormat" displayGrid="true" rendered="true" scope="." totalValue="false" userCustomizable="false" xmlns:oa="http://xmlns.oracle.com/oa">
+            <ui:columnHeader xmlns:ui="http://xmlns.oracle.com/uix/ui">
+               <oa:sortableHeader id="InvoicedTaxHdr" adminCustomizable="true" cellNoWrapFormat="false" initSortSeq="none" prompt="Tax on Invoices" rendered="true" required="no" scope="." sortState="no" userCustomizable="false"/>
+            </ui:columnHeader>
+            <ui:contents xmlns:ui="http://xmlns.oracle.com/uix/ui">
+               <oa:messageStyledText id="InvoicedTax" adminCustomizable="true" cellNoWrapFormat="false" dataType="NUMBER" initSortSeq="none" prompt="Tax on Invoices" queryable="false" rendered="true" required="no" scope="." selectiveSearchCriteria="false" serverUnvalidated="false" sortState="no" tipType="none" totalValue="false" userCustomizable="false" vAlign="middle" warnAboutChanges="true"/>
+            </ui:contents>
+         </oa:column>
+      </insert>
+      <move element="PosOrderLines.AmtFinancedCol" after="PosOrderLines.AmtApprovedCol"/>
+      <move element="PosOrderLines.AmtBilledCol" after="PosOrderLines.AmtFinancedCol"/>
+      <move element="PosOrderLines.AmtRetainedCol" after="PosOrderLines.AmtBilledCol"/>
+      <move element="PosOrderLines.AmtRecoupedCol" after="PosOrderLines.AmtRetainedCol"/>
+      <move element="PosOrderLines.QtyReceivedCol" after="PosOrderLines.QtyOrderedCol"/>
+      <move element="PosOrderLines.QtyInvoicedCol" after="PosOrderLines.QtyReceivedCol"/>
+      <move element="PosOrderLines.QtyInTransitCol" after="PosOrderLines.QtyInvoicedCol"/>
+      <modify element="HeaderSummaryRN.AmtReceived" destination="OA.jsp?OAFunc=ILS_POS_RECEIPT_VIEW&amp;POHeaderID={!PoHeaderId}&amp;POReleaseID={!PoReleaseId}&amp;SrcApp=POS&amp;retainAM=Y&amp;addBreadCrumb=Y"/>
+      <modify element="HeaderSummaryRN.AmtInvoiced" destination="OA.jsp?OAFunc=ILS_POS_INVOICE_VIEW&amp;HeaderId={!PoHeaderId}&amp;ReleaseId={!PoReleaseId}&amp;SrcApp=POS&amp;retainAM=Y&amp;addBreadCrumb=Y"/>
+      <modify element="HeaderSummaryRN" controllerClass="oracle.apps.ja.orders.webui.ILPosPoStatusSummCO"/>
+      <move element="HeaderSummaryRN.AmtReceived" after="HeaderSummaryRN.TotalAmt"/>
+      <insert before="HeaderSummaryRN.AmtReceived">
+         <oa:messageStyledText id="ExclusiveTaxAmount" adminCustomizable="true" cellNoWrapFormat="false" dataType="NUMBER" initSortSeq="none" prompt="Tax Amount" queryable="false" rendered="true" required="no" scope="." selectiveSearchCriteria="false" serverUnvalidated="false" shortDesc="Exclusive Tax Amount" sortState="no" styleClass="OraDataText" tipType="none" totalValue="false" userCustomizable="false" vAlign="middle" viewAttr="ExclusiveTaxAmount" viewName="PosPOHdrSummVO" warnAboutChanges="true" xmlns:oa="http://xmlns.oracle.com/oa"/>
+      </insert>
+      <move element="HeaderSummaryRN.AmtInvoiced" after="HeaderSummaryRN.AmtReceived"/>
+      <insert before="HeaderSummaryRN.AmtInvoiced">
+         <oa:messageStyledText id="JaiReceiptTax" adminCustomizable="true" cellNoWrapFormat="false" dataType="NUMBER" initSortSeq="none" prompt="Receipt Tax" queryable="false" rendered="true" required="no" scope="." selectiveSearchCriteria="false" serverUnvalidated="false" sortState="no" styleClass="OraDataText" tipType="none" totalValue="false" userCustomizable="false" vAlign="middle" viewAttr="JaiReceiptTax" viewName="PosPOHdrSummVO" warnAboutChanges="true" xmlns:oa="http://xmlns.oracle.com/oa"/>
+      </insert>
+      <move element="HeaderSummaryRN.PayStatus" after="HeaderSummaryRN.AmtInvoiced"/>
+      <insert before="HeaderSummaryRN.PayStatus">
+         <oa:messageStyledText id="JaiInvoiceTax" adminCustomizable="true" cellNoWrapFormat="false" dataType="NUMBER" initSortSeq="none" prompt="Invoice Tax" queryable="false" rendered="true" required="no" scope="." selectiveSearchCriteria="false" serverUnvalidated="false" sortState="no" styleClass="OraDataText" tipType="none" totalValue="false" userCustomizable="false" vAlign="middle" viewAttr="JaiInvoiceTax" viewName="PosPOHdrSummVO" warnAboutChanges="true" xmlns:oa="http://xmlns.oracle.com/oa"/>
+      </insert>
+      <move element="HeaderSummaryRN.AmtApproved" after="HeaderSummaryRN.PayStatus"/>
+      <move element="HeaderSummaryRN.AmtBilled" after="HeaderSummaryRN.AmtApproved"/>
+      <move element="HeaderSummaryRN.AmtFinanced" after="HeaderSummaryRN.AmtBilled"/>
+      <move element="HeaderSummaryRN.AdvBilled" after="HeaderSummaryRN.AmtFinanced"/>
+      <move element="HeaderSummaryRN.ProgressPmt" after="HeaderSummaryRN.AdvBilled"/>
+      <move element="HeaderSummaryRN.AmtRecouped" after="HeaderSummaryRN.ProgressPmt"/>
+      <move element="HeaderSummaryRN.AmtRetained" after="HeaderSummaryRN.AmtRecouped"/>
+      <move element="HeaderSummaryRN.AmtDelivered" after="HeaderSummaryRN.AmtRetained"/>
+      <move element="PosOrderLines.ShipTypeCol" after="PosOrderLines.ShipNumSwrCol"/>
+      <move element="PosOrderLines.ShipDescCol" after="PosOrderLines.ShipTypeCol"/>
+      <move element="PosOrderLines.ShipLocationCol" after="PosOrderLines.ShipDescCol"/>
+      <move element="PosOrderLines.OwnerCol" after="PosOrderLines.ShipLocationCol"/>
+      <move element="PosOrderLines.ShipUomCol" after="PosOrderLines.OwnerCol"/>
+      <move element="PosOrderLines.QtyCol" after="PosOrderLines.ShipUomCol"/>
+      <move element="PosOrderLines.ValuePercentCol" after="PosOrderLines.QtyCol"/>
+      <move element="PosOrderLines.ShipPriceCol" after="PosOrderLines.ValuePercentCol"/>
+      <move element="PosOrderLines.QtyGroup" after="PosOrderLines.ShipPriceCol"/>
+      <insert before="PosOrderLines.QtyGroup">
+         <oa:column id="DetailTaxAmount" adminCustomizable="true" bandingShade="none" cellNoWrapFormat="false" columnDataFormat="numberFormat" displayGrid="true" rendered="true" scope="." totalValue="false" userCustomizable="false" xmlns:oa="http://xmlns.oracle.com/oa">
+            <ui:columnHeader xmlns:ui="http://xmlns.oracle.com/uix/ui">
+               <oa:sortableHeader id="TaxAmountHdr" adminCustomizable="true" cellNoWrapFormat="false" initSortSeq="none" prompt="Tax Amount" rendered="true" required="no" scope="." sortState="no" userCustomizable="false"/>
+            </ui:columnHeader>
+            <ui:contents xmlns:ui="http://xmlns.oracle.com/uix/ui">
+               <oa:messageStyledText id="TaxAmount" adminCustomizable="true" cellNoWrapFormat="false" dataType="NUMBER" destination="OA.jsp?page=/oracle/apps/ja/pos/po/webui/IspTaxDetailsPG&amp;taxHeaderId={!PoHeaderId}&amp;taxLineId={!PoLineId}&amp;taxLineLocId={!LINE_LOCATION_ID}&amp;taxShipNum={!ShipmentNum}&amp;ilSource=PO_SHIPMENTS" initSortSeq="none" prompt="Tax Amount" queryable="false" rendered="true" required="no" scope="." selectiveSearchCriteria="false" serverUnvalidated="false" shortDesc="Detailed Tax Amount" sortState="no" tipType="none" totalValue="false" userCustomizable="false" vAlign="middle" viewAttr="DetailTaxAmount" viewName="PosViewShipmentsVO" warnAboutChanges="true"/>
+            </ui:contents>
+         </oa:column>
+      </insert>
+      <move element="PosOrderLines.AmtGroup" after="PosOrderLines.QtyGroup"/>
+      <move element="PosOrderLines.PromisedDateCol" after="PosOrderLines.AmtGroup"/>
+      <move element="PosOrderLines.NeedByDateCol" after="PosOrderLines.PromisedDateCol"/>
+      <move element="PosOrderLines.PayStatusCol" after="PosOrderLines.NeedByDateCol"/>
+      <move element="PosOrderLines.ShipStatusCol" after="PosOrderLines.PayStatusCol"/>
+      <move element="PosOrderLines.SupOrderCol" after="PosOrderLines.ShipStatusCol"/>
+      <move element="PosOrderLines.PriceDiscountCol" after="PosOrderLines.SupOrderCol"/>
+      <move element="PosOrderLines.ShipStartDateCol" after="PosOrderLines.PriceDiscountCol"/>
+      <move element="PosOrderLines.ShipEndDateCol" after="PosOrderLines.ShipStartDateCol"/>
+      <move element="PosOrderLines.SplitCol" after="PosOrderLines.ShipEndDateCol"/>
+      <move element="PosOrderLines.ShipReasonCol" after="PosOrderLines.SplitCol"/>
+      <move element="PosOrderLines.VmiCol" after="PosOrderLines.ShipReasonCol"/>
+      <move element="PosOrderLines.ConsignCol" after="PosOrderLines.VmiCol"/>
+      <move element="PosOrderLines.OrgNameCol" after="PosOrderLines.ConsignCol"/>
+      <move element="PosOrderLines.RequestorCol" after="PosOrderLines.OrgNameCol"/>
+      <move element="PosOrderLines.ShipAttachCol" after="PosOrderLines.RequestorCol"/>
+      <move element="PosOrderLines.ShipPriceDiffCol" after="PosOrderLines.ShipAttachCol"/>
+      <move element="PosOrderLines.ShipFlexCol" after="PosOrderLines.ShipPriceDiffCol"/>
+      <modify element="PosOrderLines.AmtInvoiced" destination="OA.jsp?OAFunc=ILS_POS_INVOICE_VIEW&amp;HeaderId={!PoHeaderId}&amp;ReleaseId={!PoReleaseId}&amp;LineLocationId={!LINE_LOCATION_ID}&amp;LineNum={!LineNum}&amp;ShipNum={!ShipmentNum}&amp;SrcApp=POS&amp;retainAM=Y&amp;addBreadCrumb=Y"/>
+   </modifications>
+</customization>

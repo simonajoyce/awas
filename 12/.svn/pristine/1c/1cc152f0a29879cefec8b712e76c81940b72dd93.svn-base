@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EndUserLayerExport SourceEULId="20080828174914" SourceEULVersion="11.1.1.3.0" MinimumCodeVersion="10.0.0" ExportFileVersion="10.0.0" EULSecurityModel="OracleApplications">
+<CustomObject CBOHint="" CustomSQL="  SELECT ac.bank_account_num                          ,&#x000d;&#x000a;  ac.bank_account_name                               ,&#x000d;&#x000a;  x.segment1 Bank_account_entity,&#x000d;&#x000a;  r.receipt_number                                   ,&#x000d;&#x000a;  r.receipt_Date                                     ,&#x000d;&#x000a;  r.amount receipt_amount                            ,&#x000d;&#x000a;  c.trx_number                                       ,&#x000d;&#x000a;  C.TRX_DATE                                         ,&#x000d;&#x000a;  --A.AMOUNT_APPLIED                                   ,&#x000d;&#x000a;  round(A.AMOUNT_APPLIED/ D2.AMOUNT* D.AMOUNT,2) AMOUNT_APPLIED,&#x000d;&#x000a;  d.amount trx_amount                                ,&#x000d;&#x000a;  a.gl_date APPLIED_GL_DATE                          ,&#x000d;&#x000a;  DECODE(c.set_of_books_id,1,&apos;AWAS&apos;,8,&apos;AWAS IFRS&apos;,&apos;PEGASUS&apos;) Ledger,&#x000d;&#x000a;  cu.customer_name                                   ,&#x000d;&#x000a;  gcc.segment1 Entity                                  ,&#x000d;&#x000a;  gcc.segment2 Account                                 ,&#x000d;&#x000a;  gcc.segment3 Base                                    ,&#x000d;&#x000a;  gcc.segment4 Aircraft_type                           ,&#x000d;&#x000a;  gcc.segment5 MSN                                     ,&#x000d;&#x000a;  gcc.segment6 Operator                                ,&#x000d;&#x000a;  gcc.segment7 Department                              ,&#x000d;&#x000a;  Gcc.SEGMENT8 INTERCO,&#x000d;&#x000a;  X.SEGMENT2 BANK_GL_ACCOUNT,&#x000d;&#x000a;  r.actual_value_date,&#x000d;&#x000a;  bb.bank_name, bb.bank_branch_name&#x000d;&#x000a;FROM apps.ar_cash_receipts_all r    ,&#x000d;&#x000a;  APPS.CE_BANK_ACCOUNTS AC         ,&#x000d;&#x000a;  APPS.CE_BANK_BRANCHES_V BB,&#x000d;&#x000a;  apps.CE_BANK_ACCT_USES_all bau,&#x000d;&#x000a;  apps.ar_receivable_applications_all a,&#x000d;&#x000a;  apps.ra_customer_trx_all c           ,&#x000d;&#x000a;  apps.ra_customer_trx_lines_all l     ,&#x000d;&#x000a;  apps.ra_cust_trx_line_gl_dist_all d  ,&#x000d;&#x000a;  apps.ar_customers cu                 ,&#x000d;&#x000a;  APPS.GL_CODE_COMBINATIONS X,&#x000d;&#x000a;  apps.ra_cust_trx_line_gl_dist_all d2 ,&#x000d;&#x000a;  xla.xla_ae_lines xal,&#x000d;&#x000a;  xla.xla_ae_headers xah,&#x000d;&#x000a;  xla.xla_events xe,&#x000d;&#x000a;xla.xla_transaction_entities xte,&#x000d;&#x000a;   xla_distribution_links       lk,&#x000d;&#x000a;   GL_CODE_COMBINATIONS gcc&#x000d;&#x000a;WHERE A.CASH_RECEIPT_ID        = R.CASH_RECEIPT_ID&#x000d;&#x000a;AND D2.ACCOUNT_CLASS = &apos;REC&apos; &#x000d;&#x000a;AND D2.CUSTOMER_TRX_ID = C.CUSTOMER_TRX_ID &#x000d;&#x000a;AND BB.BRANCH_PARTY_ID = AC.BANK_BRANCH_ID&#x000d;&#x000a;and bau.bank_acct_use_id = R.REMIT_BANK_ACCT_USE_ID&#x000d;&#x000a;AND C.CUSTOMER_TRX_ID            = A.APPLIED_CUSTOMER_TRX_ID&#x000d;&#x000a;AND bau.BANK_ACCOUNT_ID = ac.bank_account_id&#x000d;&#x000a;AND c.sold_to_customer_id        = cu.customer_id&#x000d;&#x000a;AND l.customer_trx_id            = c.customer_trx_id&#x000d;&#x000a;AND d.customer_trx_line_id       = l.customer_trx_line_Id&#x000d;&#x000a;and ac.asset_code_combination_id = x.code_combination_id&#x000d;&#x000a;and d.account_class              = &apos;REV&apos;&#x000d;&#x000a;AND xal.application_id = xah.application_id&#x000d;&#x000a;AND xal.ae_header_id = xah.ae_header_id&#x000d;&#x000a;AND xah.application_id = xe.application_id&#x000d;&#x000a;AND xah.event_id = xe.event_id&#x000d;&#x000a;AND xe.application_id = xte.application_id&#x000d;&#x000a;AND xte.application_id = 222&#x000d;&#x000a;AND xe.entity_id = xte.entity_id&#x000d;&#x000a;AND xte.entity_code = &apos;TRANSACTIONS&apos;&#x000d;&#x000a;AND xte.source_id_int_1 = c.customer_trx_id&#x000d;&#x000a;and xal.accounting_class_code = &apos;REVENUE&apos;&#x000d;&#x000a;and lk.source_distribution_type (+)   = &apos;RA_CUST_TRX_LINE_GL_DIST_ALL&apos;&#x000d;&#x000a;and lk.application_id (+)             = 222&#x000d;&#x000a;and lk.ae_header_id                   = xal.ae_header_id (+)&#x000d;&#x000a;and lk.ae_line_num                    = xal.ae_line_num (+)&#x000d;&#x000a;and xal.CODE_COMBINATION_ID = gcc.code_combination_id&#x000d;&#x000a;and lk.source_distribution_id_num_1 = d.CUST_TRX_LINE_GL_DIST_ID&#x000d;&#x000a;" Description="Applied Receipts Detail" DeveloperKey="APPLIED_RECEIPTS_DETAIL" DeveloperKeyFrozen="False" DistinctFlag="False" ExternalDatabaseLink="" ExternalObjectName="" ExternalObjectOwner="" Hidden="False" Id="348273" Name="Applied Receipts Detail" NonDeterministic="False" SQL="( SELECT BANK_ACCOUNT_NUM AS i348277, BANK_ACCOUNT_NAME AS i348278, RECEIPT_NUMBER AS i348279, (RECEIPT_DATE+((0))) AS i348280, RECEIPT_AMOUNT AS i348281, TRX_NUMBER AS i348282, (TRX_DATE+((0))) AS i348283, AMOUNT_APPLIED AS i348284, TRX_AMOUNT AS i348285, (APPLIED_GL_DATE+((0))) AS i348286, LEDGER AS i348287, CUSTOMER_NAME AS i348288, ENTITY AS i348289, ACCOUNT AS i348290, BASE AS i348291, AIRCRAFT_TYPE AS i348292, MSN AS i348293, OPERATOR AS i348294, DEPARTMENT AS i348295, INTERCO AS i348296, BANK_ACCOUNT_ENTITY AS i358533, (ACTUAL_VALUE_DATE+((0))) AS i707835, BANK_GL_ACCOUNT AS i631510, BANK_NAME AS i744096, BANK_BRANCH_NAME AS i744097 FROM (  SELECT ac.bank_account_num                          ,&#x000d;&#x000a;  ac.bank_account_name                               ,&#x000d;&#x000a;  x.segment1 Bank_account_entity,&#x000d;&#x000a;  r.receipt_number                                   ,&#x000d;&#x000a;  r.receipt_Date                                     ,&#x000d;&#x000a;  r.amount receipt_amount                            ,&#x000d;&#x000a;  c.trx_number                                       ,&#x000d;&#x000a;  C.TRX_DATE                                         ,&#x000d;&#x000a;  --A.AMOUNT_APPLIED                                   ,&#x000d;&#x000a;  round(A.AMOUNT_APPLIED/ D2.AMOUNT* D.AMOUNT,2) AMOUNT_APPLIED,&#x000d;&#x000a;  d.amount trx_amount                                ,&#x000d;&#x000a;  a.gl_date APPLIED_GL_DATE                          ,&#x000d;&#x000a;  DECODE(c.set_of_books_id,1,&apos;AWAS&apos;,8,&apos;AWAS IFRS&apos;,&apos;PEGASUS&apos;) Ledger,&#x000d;&#x000a;  cu.customer_name                                   ,&#x000d;&#x000a;  gcc.segment1 Entity                                  ,&#x000d;&#x000a;  gcc.segment2 Account                                 ,&#x000d;&#x000a;  gcc.segment3 Base                                    ,&#x000d;&#x000a;  gcc.segment4 Aircraft_type                           ,&#x000d;&#x000a;  gcc.segment5 MSN                                     ,&#x000d;&#x000a;  gcc.segment6 Operator                                ,&#x000d;&#x000a;  gcc.segment7 Department                              ,&#x000d;&#x000a;  Gcc.SEGMENT8 INTERCO,&#x000d;&#x000a;  X.SEGMENT2 BANK_GL_ACCOUNT,&#x000d;&#x000a;  r.actual_value_date,&#x000d;&#x000a;  bb.bank_name, bb.bank_branch_name&#x000d;&#x000a;FROM apps.ar_cash_receipts_all r    ,&#x000d;&#x000a;  APPS.CE_BANK_ACCOUNTS AC         ,&#x000d;&#x000a;  APPS.CE_BANK_BRANCHES_V BB,&#x000d;&#x000a;  apps.CE_BANK_ACCT_USES_all bau,&#x000d;&#x000a;  apps.ar_receivable_applications_all a,&#x000d;&#x000a;  apps.ra_customer_trx_all c           ,&#x000d;&#x000a;  apps.ra_customer_trx_lines_all l     ,&#x000d;&#x000a;  apps.ra_cust_trx_line_gl_dist_all d  ,&#x000d;&#x000a;  apps.ar_customers cu                 ,&#x000d;&#x000a;  APPS.GL_CODE_COMBINATIONS X,&#x000d;&#x000a;  apps.ra_cust_trx_line_gl_dist_all d2 ,&#x000d;&#x000a;  xla.xla_ae_lines xal,&#x000d;&#x000a;  xla.xla_ae_headers xah,&#x000d;&#x000a;  xla.xla_events xe,&#x000d;&#x000a;xla.xla_transaction_entities xte,&#x000d;&#x000a;   xla_distribution_links       lk,&#x000d;&#x000a;   GL_CODE_COMBINATIONS gcc&#x000d;&#x000a;WHERE A.CASH_RECEIPT_ID        = R.CASH_RECEIPT_ID&#x000d;&#x000a;AND D2.ACCOUNT_CLASS = &apos;REC&apos; &#x000d;&#x000a;AND D2.CUSTOMER_TRX_ID = C.CUSTOMER_TRX_ID &#x000d;&#x000a;AND BB.BRANCH_PARTY_ID = AC.BANK_BRANCH_ID&#x000d;&#x000a;and bau.bank_acct_use_id = R.REMIT_BANK_ACCT_USE_ID&#x000d;&#x000a;AND C.CUSTOMER_TRX_ID            = A.APPLIED_CUSTOMER_TRX_ID&#x000d;&#x000a;AND bau.BANK_ACCOUNT_ID = ac.bank_account_id&#x000d;&#x000a;AND c.sold_to_customer_id        = cu.customer_id&#x000d;&#x000a;AND l.customer_trx_id            = c.customer_trx_id&#x000d;&#x000a;AND d.customer_trx_line_id       = l.customer_trx_line_Id&#x000d;&#x000a;and ac.asset_code_combination_id = x.code_combination_id&#x000d;&#x000a;and d.account_class              = &apos;REV&apos;&#x000d;&#x000a;AND xal.application_id = xah.application_id&#x000d;&#x000a;AND xal.ae_header_id = xah.ae_header_id&#x000d;&#x000a;AND xah.application_id = xe.application_id&#x000d;&#x000a;AND xah.event_id = xe.event_id&#x000d;&#x000a;AND xe.application_id = xte.application_id&#x000d;&#x000a;AND xte.application_id = 222&#x000d;&#x000a;AND xe.entity_id = xte.entity_id&#x000d;&#x000a;AND xte.entity_code = &apos;TRANSACTIONS&apos;&#x000d;&#x000a;AND xte.source_id_int_1 = c.customer_trx_id&#x000d;&#x000a;and xal.accounting_class_code = &apos;REVENUE&apos;&#x000d;&#x000a;and lk.source_distribution_type (+)   = &apos;RA_CUST_TRX_LINE_GL_DIST_ALL&apos;&#x000d;&#x000a;and lk.application_id (+)             = 222&#x000d;&#x000a;and lk.ae_header_id                   = xal.ae_header_id (+)&#x000d;&#x000a;and lk.ae_line_num                    = xal.ae_line_num (+)&#x000d;&#x000a;and xal.CODE_COMBINATION_ID = gcc.code_combination_id&#x000d;&#x000a;and lk.source_distribution_id_num_1 = d.CUST_TRX_LINE_GL_DIST_ID&#x000d;&#x000a;) CUO348273 )" UserProperty1="" UserProperty2="">
+<ColumnItem Alignment="Left" CaseDisplay="Unchanged" CaseStorage="Mixed" DataType="Varchar" Description="" DeveloperKey="BANK_ACCOUNT_NUM" DeveloperKeyFrozen="False" DisplayNullValue="" ExternalColumnName="BANK_ACCOUNT_NUM" FormatMask="" Heading="Bank Account Num" Hidden="False" Id="348277" MaxDataWidth="30" MaxDisplayWidth="" Name="Bank Account Num" Nullable="False" Placement="XAxis" Sequence="1" UserDefinedFormat="" UserProperty1="" UserProperty2="" WordWrap="False">
+<ElementRef Name="Object" Type="CustomObject">
+<UniqueIdent ConstraintName="OBJ1" DeveloperKey="APPLIED_RECEIPTS_DETAIL"/>
+<UniqueIdent ConstraintName="OBJ2" Name="Applied Receipts Detail"/>
+</ElementRef>
+<ElementRef Name="RollUpFunction" Type="Function">
+<UniqueIdent ConstraintName="FUN1" DeveloperKey="EUL_110"/>
+<UniqueIdent ConstraintName="FUN2" Name="Detail"/>
+</ElementRef>
+</ColumnItem>
+<ColumnItem Alignment="Left" CaseDisplay="Unchanged" CaseStorage="Mixed" DataType="Varchar" Description="" DeveloperKey="BANK_ACCOUNT_NAME" DeveloperKeyFrozen="False" DisplayNullValue="" ExternalColumnName="BANK_ACCOUNT_NAME" FormatMask="" Heading="Bank Account Name" Hidden="False" Id="348278" MaxDataWidth="100" MaxDisplayWidth="" Name="Bank Account Name" Nullable="False" Placement="XAxis" Sequence="2" UserDefinedFormat="" UserProperty1="" UserProperty2="" WordWrap="False">
+<ElementRef Name="Object" Type="CustomObject">
+<UniqueIdent ConstraintName="OBJ1" DeveloperKey="APPLIED_RECEIPTS_DETAIL"/>
+<UniqueIdent ConstraintName="OBJ2" Name="Applied Receipts Detail"/>
+</ElementRef>
+<ElementRef Name="RollUpFunction" Type="Function">
+<UniqueIdent ConstraintName="FUN1" DeveloperKey="EUL_110"/>
+<UniqueIdent ConstraintName="FUN2" Name="Detail"/>
+</ElementRef>
+</ColumnItem>
+<ColumnItem Alignment="Left" CaseDisplay="Unchanged" CaseStorage="Mixed" DataType="Varchar" Description="" DeveloperKey="RECEIPT_NUMBER" DeveloperKeyFrozen="False" DisplayNullValue="" ExternalColumnName="RECEIPT_NUMBER" FormatMask="" Heading="Receipt Number" Hidden="False" Id="348279" MaxDataWidth="30" MaxDisplayWidth="" Name="Receipt Number" Nullable="True" Placement="XAxis" Sequence="4" UserDefinedFormat="" UserProperty1="" UserProperty2="" WordWrap="False">
+<ElementRef Name="Object" Type="CustomObject">
+<UniqueIdent ConstraintName="OBJ1" DeveloperKey="APPLIED_RECEIPTS_DETAIL"/>
+<UniqueIdent ConstraintName="OBJ2" Name="Applied Receipts Detail"/>
+</ElementRef>
+<ElementRef Name="RollUpFunction" Type="Function">
+<UniqueIdent ConstraintName="FUN1" DeveloperKey="EUL_110"/>
+<UniqueIdent ConstraintName="FUN2" Name="Detail"/>
+</ElementRef>
+</ColumnItem>
+<ColumnItem Alignment="Left" CaseDisplay="Unchanged" CaseStorage="Unknown" DataType="Date" Description="" DeveloperKey="RECEIPT_DATE" DeveloperKeyFrozen="False" DisplayNullValue="" ExternalColumnName="RECEIPT_DATE" FormatMask="DD-MON-RRRR" Heading="Receipt Date" Hidden="False" Id="348280" MaxDataWidth="11" MaxDisplayWidth="" Name="Receipt Date" Nullable="False" Placement="XAxis" Sequence="5" UserDefinedFormat="" UserProperty1="" UserProperty2="" WordWrap="False">
+<ElementRef Name="Object" Type="CustomObject">
+<UniqueIdent ConstraintName="OBJ1" DeveloperKey="APPLIED_RECEIPTS_DETAIL"/>
+<UniqueIdent ConstraintName="OBJ2" Name="Applied Receipts Detail"/>
+</ElementRef>
+<ElementRef Name="RollUpFunction" Type="Function">
+<UniqueIdent ConstraintName="FUN1" DeveloperKey="EUL_110"/>
+<UniqueIdent ConstraintName="FUN2" Name="Detail"/>
+</ElementRef>
+</ColumnItem>
+<ColumnItem Alignment="Right" CaseDisplay="Unchanged" CaseStorage="Unknown" DataType="Number" Description="" DeveloperKey="RECEIPT_AMOUNT" DeveloperKeyFrozen="False" DisplayNullValue="" ExternalColumnName="RECEIPT_AMOUNT" FormatMask="9999999999" Heading="Receipt Amount" Hidden="False" Id="348281" MaxDataWidth="10" MaxDisplayWidth="" Name="Receipt Amount" Nullable="False" Placement="Measure" Sequence="6" UserDefinedFormat="" UserProperty1="" UserProperty2="" WordWrap="False">
+<ElementRef Name="Object" Type="CustomObject">
+<UniqueIdent ConstraintName="OBJ1" DeveloperKey="APPLIED_RECEIPTS_DETAIL"/>
+<UniqueIdent ConstraintName="OBJ2" Name="Applied Receipts Detail"/>
+</ElementRef>
+<ElementRef Name="RollUpFunction" Type="Function">
+<UniqueIdent ConstraintName="FUN1" DeveloperKey="EUL_1"/>
+<UniqueIdent ConstraintName="FUN2" Name="SUM"/>
+</ElementRef>
+</ColumnItem>
+<ColumnItem Alignment="Left" CaseDisplay="Unchanged" CaseStorage="Mixed" DataType="Varchar" Description="" DeveloperKey="TRX_NUMBER" DeveloperKeyFrozen="False" DisplayNullValue="" ExternalColumnName="TRX_NUMBER" FormatMask="" Heading="Trx Number" Hidden="False" Id="348282" MaxDataWidth="20" MaxDisplayWidth="" Name="Trx Number" Nullable="False" Placement="XAxis" Sequence="7" UserDefinedFormat="" UserProperty1="" UserProperty2="" WordWrap="False">
+<ElementRef Name="Object" Type="CustomObject">
+<UniqueIdent ConstraintName="OBJ1" DeveloperKey="APPLIED_RECEIPTS_DETAIL"/>
+<UniqueIdent ConstraintName="OBJ2" Name="Applied Receipts Detail"/>
+</ElementRef>
+<ElementRef Name="RollUpFunction" Type="Function">
+<UniqueIdent ConstraintName="FUN1" DeveloperKey="EUL_110"/>
+<UniqueIdent ConstraintName="FUN2" Name="Detail"/>
+</ElementRef>
+</ColumnItem>
+<ColumnItem Alignment="Left" CaseDisplay="Unchanged" CaseStorage="Unknown" DataType="Date" Description="" DeveloperKey="TRX_DATE" DeveloperKeyFrozen="False" DisplayNullValue="" ExternalColumnName="TRX_DATE" FormatMask="DD-MON-RRRR" Heading="Trx Date" Hidden="False" Id="348283" MaxDataWidth="11" MaxDisplayWidth="" Name="Trx Date" Nullable="False" Placement="XAxis" Sequence="8" UserDefinedFormat="" UserProperty1="" UserProperty2="" WordWrap="False">
+<ElementRef Name="Object" Type="CustomObject">
+<UniqueIdent ConstraintName="OBJ1" DeveloperKey="APPLIED_RECEIPTS_DETAIL"/>
+<UniqueIdent ConstraintName="OBJ2" Name="Applied Receipts Detail"/>
+</ElementRef>
+<ElementRef Name="RollUpFunction" Type="Function">
+<UniqueIdent ConstraintName="FUN1" DeveloperKey="EUL_110"/>
+<UniqueIdent ConstraintName="FUN2" Name="Detail"/>
+</ElementRef>
+</ColumnItem>
+<ColumnItem Alignment="Right" CaseDisplay="Unchanged" CaseStorage="Unknown" DataType="Number" Description="" DeveloperKey="AMOUNT_APPLIED" DeveloperKeyFrozen="False" DisplayNullValue="" ExternalColumnName="AMOUNT_APPLIED" FormatMask="9999999999" Heading="Amount Applied" Hidden="False" Id="348284" MaxDataWidth="10" MaxDisplayWidth="" Name="Amount Applied" Nullable="False" Placement="Measure" Sequence="9" UserDefinedFormat="" UserProperty1="" UserProperty2="" WordWrap="False">
+<ElementRef Name="Object" Type="CustomObject">
+<UniqueIdent ConstraintName="OBJ1" DeveloperKey="APPLIED_RECEIPTS_DETAIL"/>
+<UniqueIdent ConstraintName="OBJ2" Name="Applied Receipts Detail"/>
+</ElementRef>
+<ElementRef Name="RollUpFunction" Type="Function">
+<UniqueIdent ConstraintName="FUN1" DeveloperKey="EUL_1"/>
+<UniqueIdent ConstraintName="FUN2" Name="SUM"/>
+</ElementRef>
+</ColumnItem>
+<ColumnItem Alignment="Right" CaseDisplay="Unchanged" CaseStorage="Unknown" DataType="Number" Description="" DeveloperKey="TRX_AMOUNT" DeveloperKeyFrozen="False" DisplayNullValue="" ExternalColumnName="TRX_AMOUNT" FormatMask="9999999999" Heading="Trx Amount" Hidden="False" Id="348285" MaxDataWidth="10" MaxDisplayWidth="" Name="Trx Amount" Nullable="True" Placement="Measure" Sequence="10" UserDefinedFormat="" UserProperty1="" UserProperty2="" WordWrap="False">
+<ElementRef Name="Object" Type="CustomObject">
+<UniqueIdent ConstraintName="OBJ1" DeveloperKey="APPLIED_RECEIPTS_DETAIL"/>
+<UniqueIdent ConstraintName="OBJ2" Name="Applied Receipts Detail"/>
+</ElementRef>
+<ElementRef Name="RollUpFunction" Type="Function">
+<UniqueIdent ConstraintName="FUN1" DeveloperKey="EUL_1"/>
+<UniqueIdent ConstraintName="FUN2" Name="SUM"/>
+</ElementRef>
+</ColumnItem>
+<ColumnItem Alignment="Left" CaseDisplay="Unchanged" CaseStorage="Unknown" DataType="Date" Description="" DeveloperKey="APPLIED_GL_DATE" DeveloperKeyFrozen="False" DisplayNullValue="" ExternalColumnName="APPLIED_GL_DATE" FormatMask="DD-MON-RRRR" Heading="Applied Gl Date" Hidden="False" Id="348286" MaxDataWidth="11" MaxDisplayWidth="" Name="Applied Gl Date" Nullable="False" Placement="XAxis" Sequence="11" UserDefinedFormat="" UserProperty1="" UserProperty2="" WordWrap="False">
+<ElementRef Name="Object" Type="CustomObject">
+<UniqueIdent ConstraintName="OBJ1" DeveloperKey="APPLIED_RECEIPTS_DETAIL"/>
+<UniqueIdent ConstraintName="OBJ2" Name="Applied Receipts Detail"/>
+</ElementRef>
+<ElementRef Name="RollUpFunction" Type="Function">
+<UniqueIdent ConstraintName="FUN1" DeveloperKey="EUL_110"/>
+<UniqueIdent ConstraintName="FUN2" Name="Detail"/>
+</ElementRef>
+</ColumnItem>
+<ColumnItem Alignment="Left" CaseDisplay="Unchanged" CaseStorage="Mixed" DataType="Varchar" Description="" DeveloperKey="LEDGER" DeveloperKeyFrozen="False" DisplayNullValue="" ExternalColumnName="LEDGER" FormatMask="" Heading="Ledger" Hidden="False" Id="348287" MaxDataWidth="9" MaxDisplayWidth="" Name="Ledger" Nullable="True" Placement="XAxis" Sequence="12" UserDefinedFormat="" UserProperty1="" UserProperty2="" WordWrap="False">
+<ElementRef Name="Object" Type="CustomObject">
+<UniqueIdent ConstraintName="OBJ1" DeveloperKey="APPLIED_RECEIPTS_DETAIL"/>
+<UniqueIdent ConstraintName="OBJ2" Name="Applied Receipts Detail"/>
+</ElementRef>
+<ElementRef Name="RollUpFunction" Type="Function">
+<UniqueIdent ConstraintName="FUN1" DeveloperKey="EUL_110"/>
+<UniqueIdent ConstraintName="FUN2" Name="Detail"/>
+</ElementRef>
+</ColumnItem>
+<ColumnItem Alignment="Left" CaseDisplay="Unchanged" CaseStorage="Mixed" DataType="Varchar" Description="" DeveloperKey="CUSTOMER_NAME" DeveloperKeyFrozen="False" DisplayNullValue="" ExternalColumnName="CUSTOMER_NAME" FormatMask="" Heading="Customer Name" Hidden="False" Id="348288" MaxDataWidth="50" MaxDisplayWidth="" Name="Customer Name" Nullable="True" Placement="XAxis" Sequence="13" UserDefinedFormat="" UserProperty1="" UserProperty2="" WordWrap="False">
+<ElementRef Name="Object" Type="CustomObject">
+<UniqueIdent ConstraintName="OBJ1" DeveloperKey="APPLIED_RECEIPTS_DETAIL"/>
+<UniqueIdent ConstraintName="OBJ2" Name="Applied Receipts Detail"/>
+</ElementRef>
+<ElementRef Name="RollUpFunction" Type="Function">
+<UniqueIdent ConstraintName="FUN1" DeveloperKey="EUL_110"/>
+<UniqueIdent ConstraintName="FUN2" Name="Detail"/>
+</ElementRef>
+</ColumnItem>
+<ColumnItem Alignment="Left" CaseDisplay="Unchanged" CaseStorage="Mixed" DataType="Varchar" Description="" DeveloperKey="ENTITY" DeveloperKeyFrozen="False" DisplayNullValue="" ExternalColumnName="ENTITY" FormatMask="" Heading="Entity" Hidden="False" Id="348289" MaxDataWidth="25" MaxDisplayWidth="" Name="Entity" Nullable="True" Placement="XAxis" Sequence="14" UserDefinedFormat="" UserProperty1="" UserProperty2="" WordWrap="False">
+<ElementRef Name="Object" Type="CustomObject">
+<UniqueIdent ConstraintName="OBJ1" DeveloperKey="APPLIED_RECEIPTS_DETAIL"/>
+<UniqueIdent ConstraintName="OBJ2" Name="Applied Receipts Detail"/>
+</ElementRef>
+<ElementRef Name="RollUpFunction" Type="Function">
+<UniqueIdent ConstraintName="FUN1" DeveloperKey="EUL_110"/>
+<UniqueIdent ConstraintName="FUN2" Name="Detail"/>
+</ElementRef>
+</ColumnItem>
+<ColumnItem Alignment="Left" CaseDisplay="Unchanged" CaseStorage="Mixed" DataType="Varchar" Description="" DeveloperKey="ACCOUNT" DeveloperKeyFrozen="False" DisplayNullValue="" ExternalColumnName="ACCOUNT" FormatMask="" Heading="Account" Hidden="False" Id="348290" MaxDataWidth="25" MaxDisplayWidth="" Name="Account" Nullable="True" Placement="XAxis" Sequence="15" UserDefinedFormat="" UserProperty1="" UserProperty2="" WordWrap="False">
+<ElementRef Name="Object" Type="CustomObject">
+<UniqueIdent ConstraintName="OBJ1" DeveloperKey="APPLIED_RECEIPTS_DETAIL"/>
+<UniqueIdent ConstraintName="OBJ2" Name="Applied Receipts Detail"/>
+</ElementRef>
+<ElementRef Name="RollUpFunction" Type="Function">
+<UniqueIdent ConstraintName="FUN1" DeveloperKey="EUL_110"/>
+<UniqueIdent ConstraintName="FUN2" Name="Detail"/>
+</ElementRef>
+</ColumnItem>
+<ColumnItem Alignment="Left" CaseDisplay="Unchanged" CaseStorage="Mixed" DataType="Varchar" Description="" DeveloperKey="BASE" DeveloperKeyFrozen="False" DisplayNullValue="" ExternalColumnName="BASE" FormatMask="" Heading="Base" Hidden="False" Id="348291" MaxDataWidth="25" MaxDisplayWidth="" Name="Base" Nullable="True" Placement="XAxis" Sequence="16" UserDefinedFormat="" UserProperty1="" UserProperty2="" WordWrap="False">
+<ElementRef Name="Object" Type="CustomObject">
+<UniqueIdent ConstraintName="OBJ1" DeveloperKey="APPLIED_RECEIPTS_DETAIL"/>
+<UniqueIdent ConstraintName="OBJ2" Name="Applied Receipts Detail"/>
+</ElementRef>
+<ElementRef Name="RollUpFunction" Type="Function">
+<UniqueIdent ConstraintName="FUN1" DeveloperKey="EUL_110"/>
+<UniqueIdent ConstraintName="FUN2" Name="Detail"/>
+</ElementRef>
+</ColumnItem>
+<ColumnItem Alignment="Left" CaseDisplay="Unchanged" CaseStorage="Mixed" DataType="Varchar" Description="" DeveloperKey="AIRCRAFT_TYPE" DeveloperKeyFrozen="False" DisplayNullValue="" ExternalColumnName="AIRCRAFT_TYPE" FormatMask="" Heading="Aircraft Type" Hidden="False" Id="348292" MaxDataWidth="25" MaxDisplayWidth="" Name="Aircraft Type" Nullable="True" Placement="XAxis" Sequence="17" UserDefinedFormat="" UserProperty1="" UserProperty2="" WordWrap="False">
+<ElementRef Name="Object" Type="CustomObject">
+<UniqueIdent ConstraintName="OBJ1" DeveloperKey="APPLIED_RECEIPTS_DETAIL"/>
+<UniqueIdent ConstraintName="OBJ2" Name="Applied Receipts Detail"/>
+</ElementRef>
+<ElementRef Name="RollUpFunction" Type="Function">
+<UniqueIdent ConstraintName="FUN1" DeveloperKey="EUL_110"/>
+<UniqueIdent ConstraintName="FUN2" Name="Detail"/>
+</ElementRef>
+</ColumnItem>
+<ColumnItem Alignment="Left" CaseDisplay="Unchanged" CaseStorage="Mixed" DataType="Varchar" Description="" DeveloperKey="MSN" DeveloperKeyFrozen="False" DisplayNullValue="" ExternalColumnName="MSN" FormatMask="" Heading="Msn" Hidden="False" Id="348293" MaxDataWidth="25" MaxDisplayWidth="" Name="Msn" Nullable="True" Placement="XAxis" Sequence="18" UserDefinedFormat="" UserProperty1="" UserProperty2="" WordWrap="False">
+<ElementRef Name="Object" Type="CustomObject">
+<UniqueIdent ConstraintName="OBJ1" DeveloperKey="APPLIED_RECEIPTS_DETAIL"/>
+<UniqueIdent ConstraintName="OBJ2" Name="Applied Receipts Detail"/>
+</ElementRef>
+<ElementRef Name="RollUpFunction" Type="Function">
+<UniqueIdent ConstraintName="FUN1" DeveloperKey="EUL_110"/>
+<UniqueIdent ConstraintName="FUN2" Name="Detail"/>
+</ElementRef>
+</ColumnItem>
+<ColumnItem Alignment="Left" CaseDisplay="Unchanged" CaseStorage="Mixed" DataType="Varchar" Description="" DeveloperKey="OPERATOR" DeveloperKeyFrozen="False" DisplayNullValue="" ExternalColumnName="OPERATOR" FormatMask="" Heading="Operator" Hidden="False" Id="348294" MaxDataWidth="25" MaxDisplayWidth="" Name="Operator" Nullable="True" Placement="XAxis" Sequence="19" UserDefinedFormat="" UserProperty1="" UserProperty2="" WordWrap="False">
+<ElementRef Name="Object" Type="CustomObject">
+<UniqueIdent ConstraintName="OBJ1" DeveloperKey="APPLIED_RECEIPTS_DETAIL"/>
+<UniqueIdent ConstraintName="OBJ2" Name="Applied Receipts Detail"/>
+</ElementRef>
+<ElementRef Name="RollUpFunction" Type="Function">
+<UniqueIdent ConstraintName="FUN1" DeveloperKey="EUL_110"/>
+<UniqueIdent ConstraintName="FUN2" Name="Detail"/>
+</ElementRef>
+</ColumnItem>
+<ColumnItem Alignment="Left" CaseDisplay="Unchanged" CaseStorage="Mixed" DataType="Varchar" Description="" DeveloperKey="DEPARTMENT" DeveloperKeyFrozen="False" DisplayNullValue="" ExternalColumnName="DEPARTMENT" FormatMask="" Heading="Department" Hidden="False" Id="348295" MaxDataWidth="25" MaxDisplayWidth="" Name="Department" Nullable="True" Placement="XAxis" Sequence="20" UserDefinedFormat="" UserProperty1="" UserProperty2="" WordWrap="False">
+<ElementRef Name="Object" Type="CustomObject">
+<UniqueIdent ConstraintName="OBJ1" DeveloperKey="APPLIED_RECEIPTS_DETAIL"/>
+<UniqueIdent ConstraintName="OBJ2" Name="Applied Receipts Detail"/>
+</ElementRef>
+<ElementRef Name="RollUpFunction" Type="Function">
+<UniqueIdent ConstraintName="FUN1" DeveloperKey="EUL_110"/>
+<UniqueIdent ConstraintName="FUN2" Name="Detail"/>
+</ElementRef>
+</ColumnItem>
+<ColumnItem Alignment="Left" CaseDisplay="Unchanged" CaseStorage="Mixed" DataType="Varchar" Description="" DeveloperKey="INTERCO" DeveloperKeyFrozen="False" DisplayNullValue="" ExternalColumnName="INTERCO" FormatMask="" Heading="Interco" Hidden="False" Id="348296" MaxDataWidth="25" MaxDisplayWidth="" Name="Interco" Nullable="True" Placement="XAxis" Sequence="21" UserDefinedFormat="" UserProperty1="" UserProperty2="" WordWrap="False">
+<ElementRef Name="Object" Type="CustomObject">
+<UniqueIdent ConstraintName="OBJ1" DeveloperKey="APPLIED_RECEIPTS_DETAIL"/>
+<UniqueIdent ConstraintName="OBJ2" Name="Applied Receipts Detail"/>
+</ElementRef>
+<ElementRef Name="RollUpFunction" Type="Function">
+<UniqueIdent ConstraintName="FUN1" DeveloperKey="EUL_110"/>
+<UniqueIdent ConstraintName="FUN2" Name="Detail"/>
+</ElementRef>
+</ColumnItem>
+<ColumnItem Alignment="Left" CaseDisplay="Unchanged" CaseStorage="Mixed" DataType="Varchar" Description="" DeveloperKey="BANK_ACCOUNT_ENTITY" DeveloperKeyFrozen="False" DisplayNullValue="" ExternalColumnName="BANK_ACCOUNT_ENTITY" FormatMask="" Heading="Bank Account Entity" Hidden="False" Id="358533" MaxDataWidth="25" MaxDisplayWidth="" Name="Bank Account Entity" Nullable="True" Placement="XAxis" Sequence="3" UserDefinedFormat="" UserProperty1="" UserProperty2="" WordWrap="False">
+<ElementRef Name="Object" Type="CustomObject">
+<UniqueIdent ConstraintName="OBJ1" DeveloperKey="APPLIED_RECEIPTS_DETAIL"/>
+<UniqueIdent ConstraintName="OBJ2" Name="Applied Receipts Detail"/>
+</ElementRef>
+<ElementRef Name="RollUpFunction" Type="Function">
+<UniqueIdent ConstraintName="FUN1" DeveloperKey="EUL_110"/>
+<UniqueIdent ConstraintName="FUN2" Name="Detail"/>
+</ElementRef>
+</ColumnItem>
+<ColumnItem Alignment="Left" CaseDisplay="Unchanged" CaseStorage="Unknown" DataType="Date" Description="" DeveloperKey="ACTUAL_VALUE_DATE" DeveloperKeyFrozen="False" DisplayNullValue="" ExternalColumnName="ACTUAL_VALUE_DATE" FormatMask="DD-MON-RRRR" Heading="Actual Value Date" Hidden="False" Id="707835" MaxDataWidth="11" MaxDisplayWidth="" Name="Actual Value Date" Nullable="True" Placement="XAxis" Sequence="23" UserDefinedFormat="" UserProperty1="" UserProperty2="" WordWrap="False">
+<ElementRef Name="Object" Type="CustomObject">
+<UniqueIdent ConstraintName="OBJ1" DeveloperKey="APPLIED_RECEIPTS_DETAIL"/>
+<UniqueIdent ConstraintName="OBJ2" Name="Applied Receipts Detail"/>
+</ElementRef>
+<ElementRef Name="RollUpFunction" Type="Function">
+<UniqueIdent ConstraintName="FUN1" DeveloperKey="EUL_110"/>
+<UniqueIdent ConstraintName="FUN2" Name="Detail"/>
+</ElementRef>
+</ColumnItem>
+<ColumnItem Alignment="Left" CaseDisplay="Unchanged" CaseStorage="Mixed" DataType="Varchar" Description="" DeveloperKey="BANK_GL_ACCOUNT" DeveloperKeyFrozen="False" DisplayNullValue="" ExternalColumnName="BANK_GL_ACCOUNT" FormatMask="" Heading="Bank Gl Account" Hidden="False" Id="631510" MaxDataWidth="25" MaxDisplayWidth="" Name="Bank Gl Account" Nullable="True" Placement="XAxis" Sequence="22" UserDefinedFormat="" UserProperty1="" UserProperty2="" WordWrap="False">
+<ElementRef Name="Object" Type="CustomObject">
+<UniqueIdent ConstraintName="OBJ1" DeveloperKey="APPLIED_RECEIPTS_DETAIL"/>
+<UniqueIdent ConstraintName="OBJ2" Name="Applied Receipts Detail"/>
+</ElementRef>
+<ElementRef Name="RollUpFunction" Type="Function">
+<UniqueIdent ConstraintName="FUN1" DeveloperKey="EUL_110"/>
+<UniqueIdent ConstraintName="FUN2" Name="Detail"/>
+</ElementRef>
+</ColumnItem>
+<ColumnItem Alignment="Left" CaseDisplay="Unchanged" CaseStorage="Mixed" DataType="Varchar" Description="" DeveloperKey="BANK_NAME" DeveloperKeyFrozen="False" DisplayNullValue="" ExternalColumnName="BANK_NAME" FormatMask="" Heading="Bank Name" Hidden="False" Id="744096" MaxDataWidth="360" MaxDisplayWidth="" Name="Bank Name" Nullable="False" Placement="XAxis" Sequence="24" UserDefinedFormat="" UserProperty1="" UserProperty2="" WordWrap="False">
+<ElementRef Name="Object" Type="CustomObject">
+<UniqueIdent ConstraintName="OBJ1" DeveloperKey="APPLIED_RECEIPTS_DETAIL"/>
+<UniqueIdent ConstraintName="OBJ2" Name="Applied Receipts Detail"/>
+</ElementRef>
+<ElementRef Name="RollUpFunction" Type="Function">
+<UniqueIdent ConstraintName="FUN1" DeveloperKey="EUL_110"/>
+<UniqueIdent ConstraintName="FUN2" Name="Detail"/>
+</ElementRef>
+</ColumnItem>
+<ColumnItem Alignment="Left" CaseDisplay="Unchanged" CaseStorage="Mixed" DataType="Varchar" Description="" DeveloperKey="BANK_BRANCH_NAME" DeveloperKeyFrozen="False" DisplayNullValue="" ExternalColumnName="BANK_BRANCH_NAME" FormatMask="" Heading="Bank Branch Name" Hidden="False" Id="744097" MaxDataWidth="360" MaxDisplayWidth="" Name="Bank Branch Name" Nullable="False" Placement="XAxis" Sequence="25" UserDefinedFormat="" UserProperty1="" UserProperty2="" WordWrap="False">
+<ElementRef Name="Object" Type="CustomObject">
+<UniqueIdent ConstraintName="OBJ1" DeveloperKey="APPLIED_RECEIPTS_DETAIL"/>
+<UniqueIdent ConstraintName="OBJ2" Name="Applied Receipts Detail"/>
+</ElementRef>
+<ElementRef Name="RollUpFunction" Type="Function">
+<UniqueIdent ConstraintName="FUN1" DeveloperKey="EUL_110"/>
+<UniqueIdent ConstraintName="FUN2" Name="Detail"/>
+</ElementRef>
+</ColumnItem>
+</CustomObject>
+</EndUserLayerExport>

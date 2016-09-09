@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- $Header: XX_TAM_PA_STATUS.xml 2014/02/06 12:56:20 sjoyce noship $-->
+<!-- dbdrv: exec java oracle/apps/xdo/oa/util XDOLoader.class java &phase=dat checkfile:~PROD:patch/115/publisher/defs:XX_TAM_DAILY_REPORT.xml UPLOAD - DB_USERNAME &un_apps -DB_PASSWORD &pw_apps -JDBC_CONNECTION &jdbc_db_addr -LOB_TYPE DATA_TEMPLATE -APPS_SHORT_NAME ~PROD -LOB_CODE APOBRR -LANGUAGE 00 -XDO_FILE_TYPE XML-DATA-TEMPLATE -FILE_NAME &fullpath:~PROD:patch/115/publisher/defs:XX_TAM_PA_STATUS.xml#  -->
+<!-- GSCC_Category="Xdo Data Definition" -->
+<dataTemplate name="XX_TAM_PA_STATUS" defaultPackage="XX_TAM_PA_STATUS_pkg" version="1.0">
+<properties>
+<property name="debug_mode" value="on" />
+<property name="xml_tag_case" value="upper" />
+</properties>
+<parameters>
+<parameter name="P_PROJECT_ID" dataType = "NUMBER"></parameter>
+</parameters>
+<dataQuery>
+<sqlStatement name="Q_REPORT">
+<![CDATA[
+SELECT P.SEGMENT1 PROJECT_NUMBER,
+P.NAME PROJECT_NAME
+FROM PA_PROJECTS_ALL p
+where project_id = :p_project_id
+]]>
+</sqlStatement>
+</dataQuery>
+<!--<dataTrigger name="beforeReportTrigger" source="XX_GIFT_REGISTER_pkg.before_report"/>-->
+<dataStructure>
+<group name="G_REPORT" source="Q_REPORT">
+<element name="PROJECT_NUMBER"                 value="project_number"/>
+<element name="PROJECT_NAME"                   value="project_name"/>
+</group>
+</dataStructure>
+</dataTemplate>

@@ -1,0 +1,3683 @@
+# $Header$
+
+# dbdrv: exec fnd bin FNDLOAD bin &phase=daa+51 checkfile:~PROD:~PATH:~FILE &ui_apps 0 Y UPLOAD @FND:patch/115/import/afsload.lct @~PROD:~PATH/~FILE
+LANGUAGE = "US"
+LDRCONFIG = "afsload.lct 120.2.12010000.3"
+
+#Source Database SIT
+
+#RELEASE_NAME 12.1.3
+
+# -- Begin Entity Definitions -- 
+
+DEFINE MENU
+  KEY   MENU_NAME                       VARCHAR2(4000)
+  BASE  TYPE                            VARCHAR2(30)
+  BASE  LAST_UPDATE_DATE                VARCHAR2(10)
+  TRANS USER_MENU_NAME                  VARCHAR2(80)
+  TRANS DESCRIPTION                     VARCHAR2(240)
+  CTX   OWNER                           VARCHAR2(4000)
+
+  DEFINE ENTRY
+    TRANS PROMPT                          VARCHAR2(60)
+    TRANS DESCRIPTION                     VARCHAR2(240)
+    BASE  GRANT_FLAG                      VARCHAR2(1)
+    BASE  LAST_UPDATE_DATE                VARCHAR2(10)
+    CTX   SUBMENU                         REFERENCES MENU
+    CTX   FUNCTION                        REFERENCES FUNCTION
+    CTX   OWNER                           VARCHAR2(4000)
+  END ENTRY
+END MENU
+
+DEFINE FUNCTION
+  KEY   FUNCTION_NAME                   VARCHAR2(4000)
+  BASE  FORM                            REFERENCES FORM
+  BASE  TYPE                            VARCHAR2(30)
+  BASE  PARAMETERS                      VARCHAR2(4000)
+  BASE  WEB_HOST_NAME                   VARCHAR2(4000)
+  BASE  WEB_AGENT_NAME                  VARCHAR2(4000)
+  BASE  WEB_HTML_CALL                   VARCHAR2(4000)
+  BASE  WEB_ENCRYPT_PARAMETERS          VARCHAR2(4000)
+  BASE  WEB_SECURED                     VARCHAR2(4000)
+  BASE  WEB_ICON                        VARCHAR2(4000)
+  BASE  FUNC_OBJECT                     REFERENCES OBJECT
+  BASE  OBJECT_NAME                     REFERENCES OBJECT
+  BASE  REGION_APPLICATION_SHORT_NAME   VARCHAR2(50)
+  BASE  REGION_APPLICATION_NAME         VARCHAR2(50)
+  BASE  REGION_CODE                     VARCHAR2(4000)
+  BASE  LAST_UPDATE_DATE                VARCHAR2(10)
+  BASE  MAINTENANCE_MODE_SUPPORT        VARCHAR2(8)
+  BASE  CONTEXT_DEPENDENCE              VARCHAR2(8)
+  BASE  JRAD_REF_PATH                   VARCHAR2(4000)
+  TRANS USER_FUNCTION_NAME              VARCHAR2(80)
+  TRANS DESCRIPTION                     VARCHAR2(240)
+  CTX   OWNER                           VARCHAR2(4000)
+END FUNCTION
+
+DEFINE OBJECT
+  KEY   OBJ_NAME                        VARCHAR2(4000)
+  BASE  APPLICATION_SHORT_NAME          VARCHAR2(50)
+  BASE  DATABASE_OBJECT_NAME            VARCHAR2(30)
+  BASE  PK1_COLUMN_NAME                 VARCHAR2(30)
+  BASE  PK2_COLUMN_NAME                 VARCHAR2(30)
+  BASE  PK3_COLUMN_NAME                 VARCHAR2(30)
+  BASE  PK4_COLUMN_NAME                 VARCHAR2(30)
+  BASE  PK5_COLUMN_NAME                 VARCHAR2(30)
+  BASE  PK1_COLUMN_TYPE                 VARCHAR2(8)
+  BASE  PK2_COLUMN_TYPE                 VARCHAR2(8)
+  BASE  PK3_COLUMN_TYPE                 VARCHAR2(8)
+  BASE  PK4_COLUMN_TYPE                 VARCHAR2(8)
+  BASE  PK5_COLUMN_TYPE                 VARCHAR2(8)
+  BASE  LAST_UPDATE_DATE                VARCHAR2(10)
+  TRANS DISPLAY_NAME                    VARCHAR2(240)
+  TRANS DESCRIPTION                     VARCHAR2(2000)
+  CTX   OWNER                           VARCHAR2(4000)
+END OBJECT
+
+DEFINE FORM
+  KEY   APPLICATION_SHORT_NAME          VARCHAR2(4000)
+  KEY   FORM_NAME                       VARCHAR2(4000)
+  BASE  AUDIT_ENABLED_FLAG              VARCHAR2(1)
+  BASE  LAST_UPDATE_DATE                VARCHAR2(10)
+  TRANS USER_FORM_NAME                  VARCHAR2(80)
+  TRANS DESCRIPTION                     VARCHAR2(240)
+  CTX   OWNER                           VARCHAR2(4000)
+END FORM
+
+# -- End Entity Definitions -- 
+
+
+BEGIN MENU "*NULL*"
+  LAST_UPDATE_DATE = "2014/05/20"
+  USER_MENU_NAME = "*NULL*"
+  OWNER = "ORACLE12.1.3"
+
+END MENU
+
+BEGIN FUNCTION "ICX_POR_REQMGMT_SUMMARY"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL = "OA.jsp?page=/oracle/apps/icx/por/reqmgmt/webui/ReqSummaryPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Requisition Management Summary"
+  DESCRIPTION = "Requisition Management Summary"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICXPOR_CHO_HISTORY_PAGE"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/changeorder/webui/IcxPorChoHistPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Change Order History Page"
+  DESCRIPTION = "Change Order History Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICXPOR_CHO_COMPARE_PAGE"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/changeorder/webui/IcxPorChoCompPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Change Order Compare Page"
+  DESCRIPTION = "Compare Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICXPOR_CHO_REVIEW_PAGE"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/changeorder/webui/IcxPorChoRvwPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Change Order Review and Submit Page"
+  DESCRIPTION = "Change Order Review and Submit Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICXPOR_CHO_CONF_PAGE"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/changeorder/webui/IcxPorChoConfPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Change Order Confirmation Page"
+  DESCRIPTION = "Change Order Confirmation Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICXPOR_CHO_ENTER_PAGE"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/changeorder/webui/IcxPorChoPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Change Order Page"
+  DESCRIPTION = "Change Order Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICXPOR_CNCLREQ_ENTER_PAGE"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/cancelreq/webui/IcxPorCrqPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Cancel Requisition Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICXPOR_CNCLREQ_REVIEW_PAGE"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/cancelreq/webui/IcxPorCrqRvwPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME =
+ "iProcurement: Cancel Requisition Review and Submit Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICXPOR_CNCLREQ_CONF_PAGE"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/cancelreq/webui/IcxPorCrqConfPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Cancel Requisition Confirmation Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICXPOR_CHO_ENTER_QTY_PAGE"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/changeorder/webui/IcxPorChoDistrPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Change Order Enter Quantity Page"
+  DESCRIPTION = "Change Order Enter Quantity Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICXPOR_CHO_HIST_LINE_DET_PAGE"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/changeorder/webui/IcxPorChoHstDtPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Change Order History Line Detail Page"
+  DESCRIPTION = "Change Order History Line Detail Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICXPOR_CHO_FS_COMP_PAGE"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/changeorder/webui/IcxPorChoCompAmtPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME =
+ "iProcurement: Change Order Comparison Page (Fixed Price Line)"
+  DESCRIPTION = "Change Order comparison page for fixed priced service lines"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICXPOR_CHO_LB_COMP_PAGE"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/changeorder/webui/IcxPorChoCompLaborPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME =
+ "iProcurement: Change Order Comparison Page (Temp labor line)"
+  DESCRIPTION = "Change Order comparison page for temp labor line"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_POR_REQMGMT_EXPSRCH"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL = "OA.jsp?page=/oracle/apps/icx/por/reqmgmt/webui/ExpSearchPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Requisition Expanded Search Page"
+  DESCRIPTION = "Requisition Expanded Search Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_POR_REQMGMT_DETAIL"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL = "OA.jsp?page=/oracle/apps/icx/por/reqmgmt/webui/ReqDetailsPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Requisition Details"
+  DESCRIPTION = "Requisition Details Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_POR_REQMGMT_LIFECYCLE"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL = "OA.jsp?page=/oracle/apps/icx/por/reqmgmt/webui/LifecyclePG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Requisition Lifecycle Tracking"
+  DESCRIPTION = "Requisition Line Details Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_POR_REQMGMT_APPR_HIST"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/reqmgmt/webui/ApprovalHistoryPG&OASF=ICX_POR_REQMGMT_APPR_HIST"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Requisition Approval History Page"
+  DESCRIPTION = "Requisition Approval History Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_POR_REQMGMT_ONETIME"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/reqmgmt/webui/ReqMgmtOneTimePG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME =
+ "iProcurement: Requisition Management One Time Location Page"
+  DESCRIPTION = "iProcurement: Requisition Management One Time Location Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICXPOR_CANCEL_IR_CONF_PAGE"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/cancelreq/webui/IcxPorCIrqConfPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME =
+ "iProcurement: Cancel Internal Requisition Confirmation Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICXPOR_CANCEL_IR_ENTER_PAGE"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/cancelreq/webui/IcxPorCIrqPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Cancel Internal Requisition Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICXPOR_CANCEL_IR_REVIEW_PAGE"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/cancelreq/webui/IcxPorCIrqRvwPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Cancel Internal Requisition Review Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICXPOR_CHIO_CONF_PAGE"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/changeorder/webui/IcxPorChIoConfPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Change Internal Order Confirmation Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICXPOR_CHIO_ENTER_PAGE"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/changeorder/webui/IcxPorChIoPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Change Internal Order Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICXPOR_CHIO_REVIEW_PAGE"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/changeorder/webui/IcxPorChIoRvwPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME =
+ "iProcurement: Change Internal Order Review And Submit Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN MENU "ICXPOR_REQUISITIONS"
+  TYPE = "SUBTAB"
+  LAST_UPDATE_DATE = "2008/11/14"
+  USER_MENU_NAME = "iProcurement: Requisitions"
+  DESCRIPTION = "'Requisitions' subtab menu"
+  OWNER = "ORACLE12.1.3"
+
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "Requisition Summary Page"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_POR_REQMGMT_SUMMARY"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "Change Order History Page"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICXPOR_CHO_HISTORY_PAGE"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "Change Order Compare Page"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICXPOR_CHO_COMPARE_PAGE"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "Change Order Review and Submit Page"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICXPOR_CHO_REVIEW_PAGE"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "Change Order Confirmation Page"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICXPOR_CHO_CONF_PAGE"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "Change Order Page"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICXPOR_CHO_ENTER_PAGE"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "Cancel Requisition Page"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICXPOR_CNCLREQ_ENTER_PAGE"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "Cancel Requisition Review and Submit Page"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICXPOR_CNCLREQ_REVIEW_PAGE"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "Cancel Requisition Confirmation Page"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICXPOR_CNCLREQ_CONF_PAGE"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "Change Order Enter Quantity Page"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICXPOR_CHO_ENTER_QTY_PAGE"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "Change History Line Detail Page"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICXPOR_CHO_HIST_LINE_DET_PAGE"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "Change Order Comparison Page (Fixed Price Line)"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICXPOR_CHO_FS_COMP_PAGE"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "Change Order Comparison Page (Temp labor line)"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICXPOR_CHO_LB_COMP_PAGE"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "Requisition Expanded Search Page"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_POR_REQMGMT_EXPSRCH"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "Requisition Details Page"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_POR_REQMGMT_DETAIL"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "Requisition Line Details Page"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_POR_REQMGMT_LIFECYCLE"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "Requisition Approval History Page"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_POR_REQMGMT_APPR_HIST"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "iProcurement: Requisition Management One Time Location Page"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_POR_REQMGMT_ONETIME"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICXPOR_CANCEL_IR_CONF_PAGE"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICXPOR_CANCEL_IR_ENTER_PAGE"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICXPOR_CANCEL_IR_REVIEW_PAGE"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICXPOR_CHIO_CONF_PAGE"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICXPOR_CHIO_ENTER_PAGE"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICXPOR_CHIO_REVIEW_PAGE"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+END MENU
+
+BEGIN FUNCTION "ICXPOR_NOTIF_VIEW_PAGE"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL = "OA.jsp?page=/oracle/apps/icx/por/wf/webui/IcxPorWfListPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Notifications Views Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICXPOR_NOTIF_DETAIL_PAGE"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/fnd/wf/worklist/webui/NotifDetailsPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Notifications Detail Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICXPOR_NOTIF_ROUT_PAGE"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL = "OA.jsp?page=/oracle/apps/fnd/wf/worklist/webui/RouteRulePG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Notifications Routing Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_POR_REQLINES_NTFN"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/wf/webui/ReqLinesNotificationsRN"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iP Requisition Approval Req Lines Region"
+  DESCRIPTION = "ip Notifications Region"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_POR_RCO_REQLINES_NTFN"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/wf/webui/RCOReqLinesNotificationsRN"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iP Requestor Change Order Req Lines Region"
+  DESCRIPTION = "ip Notifications Region"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_POR_RCO_RESP_REQLINES_NTFN"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/wf/webui/RCOReqLinesResponseNotificationsRN"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iP Requestor Change Order Response Req Lines Region"
+  DESCRIPTION = "ip Notifications Region"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_POR_APPRV_SEQ_NTFN"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/wf/webui/ApprovalSequenceNotificationsRN"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iP Requsition Approval Sequence Region"
+  DESCRIPTION = "ip Notifications Region"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_POR_SUPPL_CONTR_NOTIF"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/wf/webui/SupplContrNotifyRN"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Notify Contractor Request to Supplier"
+  DESCRIPTION =
+ "Region for the workflow notification to Notify Contractor Request to Supplier"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_POR_ADV_WARN_NTFN"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL = "OA.jsp?page=/oracle/apps/icx/por/wf/webui/AdvisoryWarningRN"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iP Requisition Advisory Warning Region"
+  DESCRIPTION = "ip Notifications Region"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_POR_RCO_BUYER_APPRVAL_NTFN"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/wf/webui/RCOBuyerApprovalNotfnRN"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iP Requestor Change Order Buyer Approval Notification"
+  DESCRIPTION = "ip Notifications Region"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_POR_RCV_PO_LINES_NTFN"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL = "OA.jsp?page=/oracle/apps/icx/por/wf/webui/RcvPOItemsNotfnRN"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME =
+ "iP Confirm Receipts Notification: Purchase Order Details"
+  DESCRIPTION = "iP Confirm Receipts Notification: Purchase Order Details"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_POR_RCV_IO_LINES_NTFN"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL = "OA.jsp?page=/oracle/apps/icx/por/wf/webui/RcvIOItemsNotfnRN"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME =
+ "iP Confirm Receipts Notification: Internal Order Details"
+  DESCRIPTION = "iP Confirm Receipts Notification: Internal Order Details"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_POR_RCV_PO_INV_LINES"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL = "OA.jsp?page=/oracle/apps/icx/por/wf/webui/RcvPOInvoicesRN"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iP Confirm Receipts Notification: Invoice Details"
+  DESCRIPTION = "iP Confirm Receipts Notification: Invoice Details"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "FND_WFNTF_ROUTE_RULE"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/fnd/wf/worklist/webui/RouteRulePG&OAFunc=FND_WFNTF_ROUTE_RULE"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "NONE"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "Notification Routing Rules"
+  DESCRIPTION = "Notification Routing Rules"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_POR_IRCO_REQLINES_NTFN"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/wf/webui/RCOIReqLinesNotificationsRN"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Internal Change Cancel Notification"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN MENU "ICXPOR_NOTIFICATIONS"
+  TYPE = "SUBTAB"
+  LAST_UPDATE_DATE = "2008/11/14"
+  USER_MENU_NAME = "iProcurement: Notifications"
+  DESCRIPTION = "'Notifications' subtab menu"
+  OWNER = "ORACLE12.1.3"
+
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "Notifications Views Page"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICXPOR_NOTIF_VIEW_PAGE"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "Notifications Detail Page"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICXPOR_NOTIF_DETAIL_PAGE"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "iProcurement: Notifications Routing Page"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICXPOR_NOTIF_ROUT_PAGE"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "iP Requisition Approval Req Lines Region"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_POR_REQLINES_NTFN"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "iP Requestor Change Order Req Lines Region"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_POR_RCO_REQLINES_NTFN"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "iP Requestor Change Order Response Req Lines Region"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_POR_RCO_RESP_REQLINES_NTFN"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "iP Requsition Approval Sequence Region"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_POR_APPRV_SEQ_NTFN"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "iProcurement: Notify contractor request to supplier"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_POR_SUPPL_CONTR_NOTIF"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "iP Requisition Advisory Warning Region"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_POR_ADV_WARN_NTFN"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "iP Requestor Change Order Buyer Approval Notification"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_POR_RCO_BUYER_APPRVAL_NTFN"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "iP Confirm Receipts Notification: Purchase Order Details"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_POR_RCV_PO_LINES_NTFN"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "iP Confirm Receipts Notification: Internal Order Details"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_POR_RCV_IO_LINES_NTFN"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "iP Confirm Receipts Notification: Invoice Details"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_POR_RCV_PO_INV_LINES"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "Notification Routing Rules"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "FND_WFNTF_ROUTE_RULE"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_POR_IRCO_REQLINES_NTFN"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+END MENU
+
+BEGIN FUNCTION "ICX_POR_REQMGMT_APPROVALS"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL = "OA.jsp?page=/oracle/apps/icx/por/reqmgmt/webui/ApprovalsPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Requisition Management Approvals Page"
+  DESCRIPTION = "Requisition Management Approvals"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN MENU "ICXPOR_APPROVALS"
+  TYPE = "SUBTAB"
+  LAST_UPDATE_DATE = "2008/11/14"
+  USER_MENU_NAME = "iProcurement: Approvals"
+  DESCRIPTION = "'Approvals' subtab menu"
+  OWNER = "ORACLE12.1.3"
+
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "Requisition Management Approvals Page"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_POR_REQMGMT_APPROVALS"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+END MENU
+
+BEGIN FUNCTION "POS_VIEW_ORDER"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/pos/changeorder/webui/PosViewPOPG&akRegionApplicationId=177&CallMode=View"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "View Purchase Order"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "PON_NEG_SUMMARY"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/pon/negotiation/inquiry/webui/ponNegSumPG&akRegionApplicationId=396"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "Negotiation Summary Page"
+  DESCRIPTION = "Users can view the Negotiation Summary page."
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "POS_WC_VIEW"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL = "OA.jsp?page=/oracle/apps/pos/wc/webui/WcSummaryPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "View Work Confirmations"
+  DESCRIPTION = "View Work Confirmations"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "POS_VIEW_ASN"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/pos/asn/webui/PosAsnViewPG&akRegionApplicationId=177&OASF=POS_VIEW_ASN"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_APPLICATION_SHORT_NAME = "FND"
+  REGION_APPLICATION_NAME = "FND"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "View ASN"
+  DESCRIPTION = "View ASN"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "POS_RECEIPT_VIEW"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/pos/rcv/webui/PosRcvSumTxnsPG&akRegionApplicationId=177&addBreadCrumb=Y&OASF=POS_RECEIPT_VIEW"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "Receipt View"
+  DESCRIPTION = "Receipt View Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "POS_INVOICE_VIEW"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/pos/account/webui/PosInvoiceViewPG&akRegionApplicationId=177&addBreadCrumb=Y&OASF=POS_INVOICE_VIEW"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "Invoice View"
+  DESCRIPTION = "Invoice View Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "POS_PAYMENT_VIEW"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/pos/account/webui/PosPaymentViewPG&akRegionApplicationId=177&addBreadCrumb=Y&OASF=POS_PAYMENT_VIEW"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "Payment View"
+  DESCRIPTION = "Payment View Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "POS_WC_CREATE"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL = "OA.jsp?page=/oracle/apps/pos/wc/webui/WcPayItemsSelectPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "Create Work Confirmations"
+  DESCRIPTION = "Create Work Confirmations"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "POS_WC_PO_VIEW"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL = "OA.jsp?page=/oracle/apps/pos/wc/webui/WcSummaryPoViewPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "View Work Confirmations (PO View)"
+  DESCRIPTION = "View Work Confirmations (PO View)"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN MENU "ICXPOR_REQSTATUS"
+  TYPE = "TAB"
+  LAST_UPDATE_DATE = "2008/11/14"
+  USER_MENU_NAME = "iProcurement: Requisition Status"
+  DESCRIPTION = "'Requisition Status' tab menu"
+  OWNER = "ORACLE12.1.3"
+
+  BEGIN ENTRY
+    PROMPT = "Requisitions"
+    DESCRIPTION = "Requisitions subtab"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "ICXPOR_REQUISITIONS"
+    FUNCTION = "*NULL*"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "Notifications"
+    DESCRIPTION = "Notifications subtab"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "ICXPOR_NOTIFICATIONS"
+    FUNCTION = "*NULL*"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "Approvals"
+    DESCRIPTION = "Approvals subtab"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "ICXPOR_APPROVALS"
+    FUNCTION = "*NULL*"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "iSP: View Purchase Order Details"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "POS_VIEW_ORDER"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "Sourcing: Negotiation Summary Page"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "PON_NEG_SUMMARY"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "iSP: View Work Confirmations page"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "POS_WC_VIEW"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "iSP: View Asn"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "POS_VIEW_ASN"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "iSP: Receipt View"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "POS_RECEIPT_VIEW"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "iSP: Invoice View"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "POS_INVOICE_VIEW"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "iSP: Payment View"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "POS_PAYMENT_VIEW"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "iSP: Create Work Confirmations"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "POS_WC_CREATE"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "iSP: View Work Confirmations PO page"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "POS_WC_PO_VIEW"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+END MENU
+
+BEGIN FUNCTION "ICX_CAT_SHOP_HOME"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/icatalog/shopping/webui/ShoppingHomePG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iCatalog Shopping Home"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_CAT_ITEM_COMPARE"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/icatalog/shopping/webui/ItemComparePG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iCatalog Item Compare"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_CAT_SELECT_LANGUAGE"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/icatalog/shopping/webui/SelectLangPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iCatalog Select Language"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_CAT_SEARCH_RESULTS_FILTER"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/icatalog/shopping/webui/SearchFilterPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iCatalog Search Results Filter"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_CAT_SELECT_SOURCE"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/icatalog/shopping/webui/SelectSourcePG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Select Source Page"
+  DESCRIPTION = "Select Source Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_POR_CHECKOUT_SUMMARY"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/req/webui/CheckoutSummaryPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Requisition Checkout Summary Page"
+  DESCRIPTION = "Requisition Checkout Summary Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_POR_CHECKOUT_MULTIPLE"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/req/webui/CheckoutUpdateMultiplePG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME =
+ "iProcurement: Requisition Checkout Update Multiple Lines Page"
+  DESCRIPTION = "Requisition Checkout Update Multiple Lines Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_POR_CHECKOUT_SINGLE"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/req/webui/CheckoutUpdateSinglePG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Requisition Checkout Update Single Line"
+  DESCRIPTION = "Requisition Checkout Update Single Line Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_POR_CHECKOUT_LINES"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL = "OA.jsp?page=/oracle/apps/icx/por/req/webui/CheckoutLinesPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Requisition Checkout Edit Lines Page"
+  DESCRIPTION = "Requisition Checkout Edit Lines Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_POR_CHECKOUT_DISTS"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL = "OA.jsp?page=/oracle/apps/icx/por/req/webui/CheckoutDistsPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME =
+ "iProcurement: Requisition Checkout Edit Distributions page"
+  DESCRIPTION = "Requisition Checkout Edit Distributions page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_POR_ONE_TIME_LOCATION"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/req/webui/OneTimeLocationPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: One Time Location Page"
+  DESCRIPTION = "Requisition One Time Location Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_POR_CHECK_FUNDS_WARN"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/req/webui/CheckFundsWarningPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Requisition Check Funds Warning Page"
+  DESCRIPTION = "Requisition Check Funds Warning Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_POR_REQ_DESC"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL = "OA.jsp?page=/oracle/apps/icx/por/req/webui/ReqDescPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Requisition Description Page"
+  DESCRIPTION = "Requisition Description Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_POR_SAVE_CONFIRMATION"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/req/webui/SaveConfirmationPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Save Confirmation Page"
+  DESCRIPTION = "Save Confirmation Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_POR_REQAPPRV_LIST"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/approval/webui/ReqApprListPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Approver List Page"
+  DESCRIPTION = "Approver List Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_POR_REQAPPRV_CHF"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/approval/webui/ReqApprChfPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Change First Approver Page"
+  DESCRIPTION = "Change First Approver Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_POR_REVIEW_SUBMIT"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL = "OA.jsp?page=/oracle/apps/icx/por/req/webui/ReviewSubmitPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Review and Submit"
+  DESCRIPTION = "Review and Submit Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_POR_CONFIRM_REQ"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL = "OA.jsp?page=/oracle/apps/icx/por/req/webui/ReqConfirmPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Requisition Submit Confirmation"
+  DESCRIPTION = "Requisition Submit Confirmation"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_POR_CONTR_SHOPPING_CART"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/req/webui/ContractorShoppingCartPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Contractor Shopping Cart Page"
+  DESCRIPTION = "Contractor Shopping Cart Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_POR_CONTRACTOR_SUPPL_NOTE"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/req/webui/ContractorSupplNotePG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Contractor Note to Supplier Page"
+  DESCRIPTION = "Contractor Note to Supplier Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_POR_CONTR_SUPPL_INFO"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/req/webui/ContractorSupplierInfoPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Contractor Supplier Information Page"
+  DESCRIPTION = "Contractor Supplier Information Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_POR_RVW_PRICE_DIFF"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/req/webui/ReviewPriceDifferentialPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Review Price Differentials Page"
+  DESCRIPTION = "Review Price Differentials Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_POR_LAUNCH_IP"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL = "OA.jsp?page=/oracle/apps/icx/por/common/webui/LaunchIPPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Launch Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "POS_VIEW_ORDER_INT"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/pos/changeorder/webui/PosViewPOPG&akRegionApplicationId=177&CallMode=ViewInt"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "View Purchase Order Internal"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_CAT_PUNCHOUT_LOGIN"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL = "OA.jsp?page=/oracle/apps/icx/punchout/webui/PunchoutLoginPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iCatalog Punchout Login Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_POR_INFO_TEMP"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/req/webui/InfoTemplateReqPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Info Template Page"
+  DESCRIPTION = "Info Template Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_CAT_INFO_TEMP"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/icatalog/shopping/webui/InfoTempShoppingPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Info Template Page"
+  DESCRIPTION = "Info Template Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICXPOR_APPR_NOLIST_PAGE"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL = "OA.jsp?page=/oracle/apps/icx/appr/webui/IcxPorApprNoPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Approval List No Approver Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_CAT_PUNCHOUT_CALLBACK"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/punchout/webui/PunchoutCallbackPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iCatalog Punchout call back page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICXPOR_APPR_CHANGE_FIRST_PAGE"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/approval/webui/IcxPorApprChfPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Approval List Change First Approver Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICXPOR_APPR_LIST_PAGE"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/approval/webui/IcxPorApprListPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Approval List Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "POS_VIEW_TIMECARDS_SUMMARY"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/pos/services/webui/PosTCSummaryPG&akRegionApplicationId=177"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "Timecards Summary Page"
+  DESCRIPTION = "Timecards Summary page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_POR_ADJUST_FUNDS_WARN"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/req/webui/AdjustFundsWarningPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Adjust Funds Warning Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_POR_REQ_OP"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL = "OA.jsp?page=/oracle/apps/icx/por/req/webui/ReqOpPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Requisition Operation Page"
+  DESCRIPTION = "iProcurement: Requisition Operation Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_POR_ASSIGN_CONTRACTOR"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/req/webui/AssignContractorPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Assign Contractor Page"
+  DESCRIPTION = "Assign Contractor Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_CAT_PUNCHOUT_HEARTBEAT"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/punchout/webui/PunchoutHeartbeatPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Punchout Heartbeat Page"
+  DESCRIPTION = "Punchout Heartbeat Page for extending the session"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICXPOR_CHKOUT_MANAGE_APPROVAL"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/approval/webui/EditApproversPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Req Checkout - Edit Approvals"
+  DESCRIPTION = "iProcurement: Req Checkout - Edit Approvals"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICXPOR_RCO_MANAGE_APPROVAL"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/approval/webui/RcoEditApproversPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: RCO Edit Approvals"
+  DESCRIPTION = "iProcurement: RCO Edit Approvals"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICXPOR_CHKOUT_APPROVAL_GROUP"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/approval/webui/ReqApprovalGroupPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Req Approval Group"
+  DESCRIPTION = "iProcurement: Req Approval Group"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICXPOR_RCO_APPROVAL_GROUP"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/approval/webui/RcoApprovalGroupPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Rco Approval Group"
+  DESCRIPTION = "iProcurement: Rco Approval Group"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_CAT_ITEM_DETAIL"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/icatalog/shopping/webui/ItemComparePG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2003/11/12"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iCatalog Item Detail"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICXPOR_HISTORY_APPROVAL_GROUP"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/reqmgmt/webui/ReqHistoryApprovalGroupPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Req History Approval Group"
+  DESCRIPTION = "iProcurement: Req History Approval Group"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICXPOR_CHO_HIST_APPROVAL_GRP"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/changeorder/webui/ChoHistoryApprovalGroupPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Change History Approval Group"
+  DESCRIPTION = "iProcurement: Change History Approval Group"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_POR_INVALID_USER_REDIRECT"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/icatalog/shopping/webui/InvalidUserPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2007/12/11"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Invalid User Error Page"
+  DESCRIPTION = "Invalid User Error Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_SPEND_ASSISTED"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/icatalog/shopping/webui/SpendClsfPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2009/07/28"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "Assisted Classification page for Non Catalog Request"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_POR_CHECK_FUNDS"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL = "OA.jsp?page=/oracle/apps/icx/por/req/webui/CheckFundsPG"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2012/03/12"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Requisition Check Funds Page"
+  DESCRIPTION = "Requisition Check Funds Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN MENU "ICX_POR_COMMON_FUNCTIONS"
+  TYPE = "STANDARD"
+  LAST_UPDATE_DATE = "2008/11/14"
+  USER_MENU_NAME = "iProcurement: Common Functions"
+  DESCRIPTION = "iProcurement Common Functions"
+  OWNER = "ORACLE12.1.3"
+
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_CAT_ITEM_COMPARE"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_CAT_SELECT_LANGUAGE"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_CAT_SEARCH_RESULTS_FILTER"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_CAT_SELECT_SOURCE"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_POR_CHECKOUT_SUMMARY"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_POR_CHECKOUT_MULTIPLE"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_POR_CHECKOUT_SINGLE"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_POR_CHECKOUT_LINES"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_POR_CHECKOUT_DISTS"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_POR_ONE_TIME_LOCATION"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_POR_CHECK_FUNDS_WARN"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_POR_REQ_DESC"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_POR_SAVE_CONFIRMATION"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_POR_REQAPPRV_LIST"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_POR_REQAPPRV_CHF"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_POR_REVIEW_SUBMIT"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_POR_CONFIRM_REQ"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_POR_CONTR_SHOPPING_CART"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_POR_CONTRACTOR_SUPPL_NOTE"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_POR_CONTR_SUPPL_INFO"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_POR_RVW_PRICE_DIFF"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_POR_LAUNCH_IP"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "POS_VIEW_ORDER_INT"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_CAT_PUNCHOUT_LOGIN"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_POR_INFO_TEMP"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_CAT_INFO_TEMP"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICXPOR_APPR_NOLIST_PAGE"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_CAT_PUNCHOUT_CALLBACK"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICXPOR_APPR_CHANGE_FIRST_PAGE"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICXPOR_APPR_LIST_PAGE"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "POS_VIEW_TIMECARDS_SUMMARY"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_POR_ADJUST_FUNDS_WARN"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_POR_REQ_OP"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_POR_ASSIGN_CONTRACTOR"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "Punchout Heartbeat Page"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_CAT_PUNCHOUT_HEARTBEAT"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "Req Checkout - Manage Approvals"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICXPOR_CHKOUT_MANAGE_APPROVAL"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "RCO - Manage Approvals"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICXPOR_RCO_MANAGE_APPROVAL"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "Req Checkout - Approval Group Details"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICXPOR_CHKOUT_APPROVAL_GROUP"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "RCO - Approval Group Details"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICXPOR_RCO_APPROVAL_GROUP"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2003/10/21"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_CAT_ITEM_DETAIL"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "Approval History - Approval Group Details"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICXPOR_HISTORY_APPROVAL_GROUP"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICXPOR_CHO_HIST_APPROVAL_GRP"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "Invalid User Error Page"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2007/12/11"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_POR_INVALID_USER_REDIRECT"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "Spend Classification page"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2009/07/28"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_SPEND_ASSISTED"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "Requisition Check Funds Page"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2012/03/13"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_POR_CHECK_FUNDS"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+END MENU
+
+BEGIN FUNCTION "ICX_POR_SHOPPING_CART"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/icx/por/req/webui/ShoppingCartPG&OASF=ICX_POR_SHOPPING_CART"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "global_cart_enabled.gif"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement: Shopping Cart Page"
+  DESCRIPTION = "Shopping Cart Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN MENU "ICXPOR_GLOBAL_MENU"
+  TYPE = "GLOBAL"
+  LAST_UPDATE_DATE = "2008/11/14"
+  USER_MENU_NAME = "iProcurement: Global Menu"
+  DESCRIPTION = "Global Menu"
+  OWNER = "ORACLE12.1.3"
+
+  BEGIN ENTRY
+    PROMPT = "Shopping Cart"
+    DESCRIPTION = "Shopping Cart"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2008/11/14"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_POR_SHOPPING_CART"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+END MENU
+
+BEGIN FUNCTION "ICX_CLOSE"
+  FORM = "" "*NULL*"
+  TYPE = "WWW"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL = "OALogout.jsp"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "global_closewind_greyscale.gif"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2014/05/20"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "Close"
+  DESCRIPTION = "Global Function to close the window"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_RETURN_TO_PORTAL"
+  FORM = "" "*NULL*"
+  TYPE = "WWW"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL = "OracleNavigate.Responsibility"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "returntoportal_greyscale.gif"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2014/05/20"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "Return to Portal"
+  DESCRIPTION = "Function to return you to the Self Service Home Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_LOGOUT"
+  FORM = "" "*NULL*"
+  TYPE = "WWW"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL = "OALogout.jsp"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "logout_greyscale.gif"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2014/05/20"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "Logout"
+  DESCRIPTION =
+ "Global Function to logout of the system and take you to the main login screen"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_USER_PREFERENCES"
+  FORM = "" "*NULL*"
+  TYPE = "WWW"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL = "OracleApps.DU"
+  WEB_ENCRYPT_PARAMETERS = "Y"
+  WEB_SECURED = "N"
+  WEB_ICON = "FNDPREFS.gif"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_APPLICATION_SHORT_NAME = "FND"
+  REGION_APPLICATION_NAME = "FND"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2014/05/20"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "General Preferences"
+  DESCRIPTION = "Set personal information including password and language."
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_HELP"
+  FORM = "" "*NULL*"
+  TYPE = "WWW"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL = "fndgfm/fnd_help.get/US/FND/@ICXPHP"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "help_greyscale.gif"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2014/05/20"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "Self Service Help"
+  DESCRIPTION = "Function to show help page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "ICX_SSWA_USER_PREFERENCES"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/fnd/preferences/webui/PreferencesPG&retainAM=Y"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "FNDPREFS.gif"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2014/05/20"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "NONE"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "New General Preferences"
+  DESCRIPTION =
+ "This Preference Function points to new SSWA Pref Function (OAF5.7C Above)"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "OAM_UALERT_PAGE"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?region=/oracle/apps/fnd/oam/diag/alerts/ReportProblemPage"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2014/05/20"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "OAM User Alert Page"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "UMX_MY_APP_ACCESS"
+  FORM = "" "*NULL*"
+  TYPE = "JSP"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/fnd/umx/accessRequest/webui/MyAppAccessPG&akRegionApplicationId=0"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2014/05/20"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "User Management - My Application Access"
+  DESCRIPTION = "Function for My Application Access (ART)"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN FUNCTION "FND_MANAGE_PROXIES"
+  FORM = "" "*NULL*"
+  TYPE = "WWW"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL =
+ "OA.jsp?page=/oracle/apps/fnd/umx/proxy/webui/ManageProxiesPG&akRegionApplicationId=0"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2014/05/20"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "NONE"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "Manage Proxies Page"
+  DESCRIPTION = "Function for the Manage Proxies Page UI"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN MENU "FND_GEN_PREF_MENU"
+  LAST_UPDATE_DATE = "2014/05/20"
+  USER_MENU_NAME = "General Pref Menu"
+  DESCRIPTION = "OA Based Apps General Preference Menu"
+  OWNER = "ORACLE12.1.3"
+
+  BEGIN ENTRY
+    PROMPT = "Display Preferences"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2014/05/20"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_SSWA_USER_PREFERENCES"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "Access Requests"
+    DESCRIPTION = "Self Service Requests for Additional Access"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2014/05/20"
+    SUBMENU = "*NULL*"
+    FUNCTION = "UMX_MY_APP_ACCESS"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "Manage Proxies"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2014/05/20"
+    SUBMENU = "*NULL*"
+    FUNCTION = "FND_MANAGE_PROXIES"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+END MENU
+
+BEGIN MENU "FND_PREF_MENU_SIDEBAR"
+  TYPE = "SIDEBAR"
+  LAST_UPDATE_DATE = "2014/05/20"
+  USER_MENU_NAME = "Pref Menu SideBar"
+  DESCRIPTION = "OA based Preference Menu Sidebar"
+  OWNER = "ORACLE12.1.3"
+
+  BEGIN ENTRY
+    PROMPT = "General"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2014/05/20"
+    SUBMENU = "FND_GEN_PREF_MENU"
+    FUNCTION = "*NULL*"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+END MENU
+
+BEGIN MENU "ICX_STANDARD_GLOBAL_MENU"
+  TYPE = "GLOBAL"
+  LAST_UPDATE_DATE = "2014/05/20"
+  USER_MENU_NAME = "ICX_STANDARD_GLOBAL_MENU"
+  DESCRIPTION = "Global Menu"
+  OWNER = "ORACLE12.1.3"
+
+  BEGIN ENTRY
+    PROMPT = "Close Window"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2014/05/20"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_CLOSE"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "Home"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2014/05/20"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_RETURN_TO_PORTAL"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "Logout"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2014/05/20"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_LOGOUT"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "Preferences"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2014/05/20"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_USER_PREFERENCES"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "Help"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2014/05/20"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_HELP"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION =
+ "This Preference Function points to new SSWA Perf Function (OAF5.7C Above)"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2014/05/20"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_SSWA_USER_PREFERENCES"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "Contact Admin"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2014/05/20"
+    SUBMENU = "*NULL*"
+    FUNCTION = "OAM_UALERT_PAGE"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    DESCRIPTION = "Preference Menu(5.10C above)"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2014/05/20"
+    SUBMENU = "FND_PREF_MENU_SIDEBAR"
+    FUNCTION = "*NULL*"
+    OWNER = "ORACLE12.1.3"
+  END ENTRY
+  
+END MENU
+
+BEGIN FUNCTION "ICX_POR_IP_BRAND"
+  FORM = "" "*NULL*"
+  TYPE = "SUBFUNCTION"
+  PARAMETERS = "*NULL*"
+  WEB_HOST_NAME = "*NULL*"
+  WEB_AGENT_NAME = "*NULL*"
+  WEB_HTML_CALL = "*NULL*"
+  WEB_ENCRYPT_PARAMETERS = "N"
+  WEB_SECURED = "N"
+  WEB_ICON = "*NULL*"
+  FUNC_OBJECT = "*NULL*"
+  OBJECT_NAME = "*NULL*"
+  REGION_CODE = "*NULL*"
+  LAST_UPDATE_DATE = "2008/11/14"
+  MAINTENANCE_MODE_SUPPORT = "NONE"
+  CONTEXT_DEPENDENCE = "RESP"
+  JRAD_REF_PATH = "*NULL*"
+  USER_FUNCTION_NAME = "iProcurement"
+  OWNER = "ORACLE12.1.3"
+END FUNCTION
+
+BEGIN MENU "AWAS_IPROC_SUMMARY"
+  TYPE = "HOMEPAGE"
+  LAST_UPDATE_DATE = "2013/02/25"
+  USER_MENU_NAME = "AWAS Internet Procurement View Only"
+  OWNER = "SJOYCE"
+
+  BEGIN ENTRY
+    PROMPT = "Requisitions"
+    DESCRIPTION = "Requisition Status"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2013/02/25"
+    SUBMENU = "ICXPOR_REQSTATUS"
+    FUNCTION = "*NULL*"
+    OWNER = "SJOYCE"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2013/02/25"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_CAT_SHOP_HOME"
+    OWNER = "SJOYCE"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2013/02/25"
+    SUBMENU = "ICX_POR_COMMON_FUNCTIONS"
+    FUNCTION = "*NULL*"
+    OWNER = "SJOYCE"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2013/02/25"
+    SUBMENU = "ICXPOR_GLOBAL_MENU"
+    FUNCTION = "*NULL*"
+    OWNER = "SJOYCE"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2013/02/25"
+    SUBMENU = "ICX_STANDARD_GLOBAL_MENU"
+    FUNCTION = "*NULL*"
+    OWNER = "SJOYCE"
+  END ENTRY
+  
+  BEGIN ENTRY
+    PROMPT = "*NULL*"
+    GRANT_FLAG = "Y"
+    LAST_UPDATE_DATE = "2013/02/25"
+    SUBMENU = "*NULL*"
+    FUNCTION = "ICX_POR_IP_BRAND"
+    OWNER = "SJOYCE"
+  END ENTRY
+  
+END MENU
+

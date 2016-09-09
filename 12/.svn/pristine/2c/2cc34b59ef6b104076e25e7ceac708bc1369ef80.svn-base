@@ -1,0 +1,6 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" file-version="$Header: AgencyAddAplInfoPG.xml 120.5 2005/11/10 09:06 mmillmor noship $" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/irc/agency/webui/AgencyAddAplInfoPG" package="/oracle/apps/irc/agency/webui/customizations/localization/ZA">
+   <modifications>
+      <modify element="MainHeader.EqualOp.SourceInfo.MainInstruction" rendered="false"/>
+   </modifications>
+</customization>

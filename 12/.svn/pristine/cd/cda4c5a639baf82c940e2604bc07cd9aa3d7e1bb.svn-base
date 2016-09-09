@@ -1,0 +1,4 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.6.6_513" xml:lang="en-US" customizes="/oracle/apps/per/irc/candidateSelfService/webui/AplQualDetsStkRN" developerMode="true" file-version="$Header: AplQualDetsStkRN.xml 115.4 2004/03/25 02:01:31 gganesan noship $" package="/oracle/apps/per/customizations/function/IRC_APL_APPLY_ACCOUNT/irc/candidateSelfService/webui">
+   <modifications/>
+</customization>

@@ -1,0 +1,33 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.6.5_471" xml:lang="en-US" customizes="/oracle/apps/ar/hz/components/party/organization/webui/HzPuiOrgProfileInfoComponent" developerMode="false" text="Customer Information" file-version="$Header: HzPuiOrgProfileInfoComponent.xml 115.1 2004/01/09 06:54:18 mkatraga noship $" package="/oracle/apps/ar/hz/components/party/organization/webui/customizations/function/ASN_ORGUPDATEPG">
+   <modifications>
+      <move element="ceo_name" after="duns_number"/>
+      <move element="mission_statement" after="ceo_name"/>
+      <move element="year_established" after="mission_statement"/>
+      <move element="legal_structure_lov_value" after="year_established"/>
+      <move element="spacer1" after="legal_structure_lov_value"/>
+      <move element="ceo_title" after="spacer1"/>
+      <move element="legal_structure" after="ceo_title"/>
+      <move element="principal_name" after="legal_structure"/>
+      <move element="spacer2" after="principal_name"/>
+      <move element="principal_title" after="spacer2"/>
+      <move element="spacer3" after="principal_title"/>
+      <move element="incorporation_year" after="spacer3"/>
+      <move element="congressional_district_code" after="incorporation_year"/>
+      <move element="control_year" after="congressional_district_code"/>
+      <move element="spacer4" after="control_year"/>
+      <move element="spacer5" after="spacer4"/>
+      <modify element="ceo_name" prompt="Chief Executive"/>
+      <modify element="spacer1" rendered="false"/>
+      <modify element="ceo_title" rendered="false"/>
+      <modify element="legal_structure" rendered="false"/>
+      <modify element="principal_name" rendered="false"/>
+      <modify element="spacer2" rendered="false"/>
+      <modify element="principal_title" rendered="false"/>
+      <modify element="spacer3" rendered="false"/>
+      <modify element="incorporation_year" rendered="false"/>
+      <modify element="control_year" rendered="false"/>
+      <modify element="spacer4" rendered="false"/>
+      <modify element="spacer5" rendered="false"/>
+   </modifications>
+</customization>

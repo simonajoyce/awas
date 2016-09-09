@@ -1,0 +1,15 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/irc/applicant/webui/CmSelectedAplicantsTblRN" developerMode="true" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: CmSelectedAplicantsTblRN.xml 120.4.12010000.3 2010/05/20 10:33:25 avarri ship $" version="9.0.3.6.2_398" xml:lang="en-US" package="/oracle/apps/irc/customizations/function/IRC_CM_MASS_UPDATE_PAGE/applicant/webui">
+   <modifications>
+      <modify element="FndVacancyName" destination="javascript:void submitForm('DefaultFormName',1,{IrcAction:'ShowVac',IrcActionType:'DrillDownToFunction',IrcActionValue:'{!VacancyId}',IrcFunction:'IRC_VAC_VIEW'});" sortState="no" rendered="true"/>
+      <modify element="FndLocation" sortState="no" rendered="true"/>
+      <modify element="FndAssignmentStatus" sortState="no" rendered="true"/>
+      <modify element="FndApplicantRank" sortState="no" rendered="true"/>
+      <modify element="FndApplicantName" destination="javascript:void submitForm('DefaultFormName',1,{IrcAction:'ApplicantDetails',IrcActionType:'DrillDownToFunction',IrcActionValue:'{!PersonId}',IrcFunction:'IRC_CM_APPLICANT_DETAILS'});" sortState="yes" rendered="true"/>
+      <move element="FndVacancyName" after="CPApplicantName"/>
+      <move element="FndLocation" after="FndVacancyName"/>
+      <move element="FndAssignmentStatus" after="FndLocation"/>
+      <move element="FndApplicantRank" after="FndAssignmentStatus"/>
+      <move element="CPApplicantName" after="FndApplicantName"/>
+   </modifications>
+</customization>

@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/cs/csz/dashboard/webui/DashboardPG" package="/oracle/apps/cs/csz/dashboard/webui/customizations/function/CSZ_SR_DB_FN_PUSH" file-version="$Header: DashboardPG.xml 120.5 2006/05/17 16:50 nazhang noship $">
+   <modifications>
+      <modify element="GetNextWorkFC" rendered="false"/>
+      <modify element="xGroupQueueFC" rendered="false"/>
+      <modify element="xAgentQueueRN.RefreshAgentRow" rendered="false"/>
+   </modifications>
+</customization>

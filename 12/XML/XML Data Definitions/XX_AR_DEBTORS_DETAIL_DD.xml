@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- $Header: XX_AR_DEBTORS_DETAIL_DD.xml 2016/02/17 12:56:20 sjoyce noship $-->
+<dataTemplate name="XX_AR_DEBTORS_DETAIL" defaultPackage="XX_AR_DEBTORS_DETAIL_PKG" version="1.0">
+<properties>
+<property name="debug_mode" value="on" />
+<property name="xml_tag_case" value="upper" />
+<property name="include_parameters" value="true" />
+</properties>
+<parameters>
+</parameters>
+<dataQuery>
+<sqlStatement name="Q_MAIN">
+<![CDATA[select customer_name, trx_date, invoice_no, due_date, sum(amount) amount, decode(is_transaction, 'Y', 'Transaction','Application') TA, dispute_amount, currency_code, transaction_type, gl_msn, gl_date, period
+from xx_dwh_ar_trx_temp1
+where customer_name = 'Air Asia X Berhad'
+group by customer_name, trx_date, invoice_no, due_date, decode(is_transaction, 'Y', 'Transaction','Application'), dispute_amount, currency_code, transaction_type, gl_msn, gl_date, period
+order by gl_date
+]]>
+</sqlStatement>
+</dataQuery>
+<dataStructure>
+	<group name="G_TOP" source="Q_MAIN" >
+		<element name="TEST" value="CUSTOMER_NAME"/>
+		<group name="G_MAIN" source="Q_MAIN">
+			<element name="CUSTOMER_NAME"                   value="CUSTOMER_NAME"/>
+			<element name="TRX_DATE"                        value="TRX_DATE"/>
+			<element name="INVOICE_NO"                      value="INVOICE_NO"/>
+			<element name="AMOUNT"                       	value="AMOUNT"/>
+			<element name="TA"    				  			value="TA"/>
+			<element name="DISPUTE_AMOUNT"               	value="DISPUTE_AMOUNT"/>
+			<element name="CURRENCY_CODE"	                value="CURRENCY_CODE"/>
+			<element name="TRANSACTION_TYPE"	            value="TRANSACTION_TYPE"/>
+			<element name="GL_MSN"	                        value="GL_MSN"/>
+			<element name="GL_DATE"	                        value="GL_DATE"/>
+			<element name="PERIOD"	                        value="PERIOD"/>
+		</group>
+	</group>
+</dataStructure>
+</dataTemplate>

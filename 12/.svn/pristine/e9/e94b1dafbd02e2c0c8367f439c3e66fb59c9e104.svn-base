@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.6.4_447" xml:lang="en-US" customizes="/oracle/apps/per/irc/vacancy/webui/MgrHomeStkRN" developerMode="false" file-version="$Header: MgrHomeStkRN.xml 115.0 2003/04/10 09:16:35 mmillmor noship $" package="/oracle/apps/per/customizations/function/IRC_CM_HOME/irc/vacancy/webui">
+   <modifications>
+      <modify element="IRC_LINK_1" rendered="true" messageName=""/>
+      <modify element="FndLink1" messageName=""/>
+      <move element="IRC_LINK_1" after="FndLink1"/>
+   </modifications>
+</customization>

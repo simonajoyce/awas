@@ -1,0 +1,69 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/per/selfservice/personalinformation/webui/BasicDetOthUpdRN" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: BasicDetOthUpdRN.xml 120.1 2007/03/22 10:44:23 avenkatk noship $" version="9.0.3.7.0_424" xml:lang="en-US" package="/oracle/apps/per/customizations/localization/NZ/selfservice/personalinformation/webui">
+   <modifications>
+      <modify element="HrBenefitGroupId" rendered="true" tipMessageName=""/>
+      <modify element="HrBloodType" tipMessageName=""/>
+      <modify element="HrExpenseChckSendToAdd" tipMessageName=""/>
+      <modify element="HrPersonType" tipMessageName=""/>
+      <modify element="HrPersonDevDfFlexOther" rendered="true"/>
+      <modify element="HrStudentStatus" tipMessageName=""/>
+      <modify element="HrStatus" tipMessageName=""/>
+      <modify element="HrMilitaryService" tipMessageName=""/>
+      <modify element="Hr2ndPassportExists" tipMessageName=""/>
+      <modify element="HrCorrespondenceLanguage" tipMessageName=""/>
+      <modify element="HrUsesTobacco" tipMessageName=""/>
+      <modify element="HrAdoptionDate" tipMessageName=""/>
+      <modify element="HrNotCovMediPlan" tipMessageName=""/>
+      <modify element="HrVoluntaryService" tipMessageName=""/>
+      <modify element="HrMailstop" tipMessageName=""/>
+      <modify element="HrEmailAddress" rendered="false" tipMessageName=""/>
+      <modify element="HrLastTestDate" tipMessageName=""/>
+      <modify element="HrLastTestBy" tipMessageName=""/>
+      <modify element="HireDate" tipMessageName=""/>
+      <modify element="OriginalHireDate" tipMessageName=""/>
+      <modify element="PerStartDate" tipMessageName=""/>
+      <modify element="HrAdjServiceDate" tipMessageName=""/>
+      <modify element="HrEmpNum" tipMessageName=""/>
+      <modify element="HrSsn" prompt="Social Security NUmber" rendered="false" tipMessageName=""/>
+      <modify element="HrDateOfBirth" tipMessageName=""/>
+      <modify element="HrTownOfBirth" tipMessageName=""/>
+      <modify element="HrRegionOfBirth" tipMessageName=""/>
+      <modify element="HrCountryOfBirth" tipMessageName=""/>
+      <modify element="HrNationality" tipMessageName=""/>
+      <modify element="HrDeathDate" tipMessageName=""/>
+      <modify element="Sex" rendered="true" tipMessageName=""/>
+      <modify element="HrMaritalStatus" tipMessageName=""/>
+      <move element="HrDateOfBirth" after="HrEmpNum"/>
+      <move element="Sex" after="HrDateOfBirth"/>
+      <move element="HrMaritalStatus" after="Sex"/>
+      <move element="HrBenefitGroupId" after="HrMaritalStatus"/>
+      <move element="HrPersonDevDfFlexOther" after="HrBenefitGroupId"/>
+      <move element="HireDate" after="HrPersonDevDfFlexOther"/>
+      <move element="OriginalHireDate" after="HireDate"/>
+      <move element="PerStartDate" after="OriginalHireDate"/>
+      <move element="HrAdjServiceDate" after="PerStartDate"/>
+      <move element="HrTownOfBirth" after="HrAdjServiceDate"/>
+      <move element="HrRegionOfBirth" after="HrTownOfBirth"/>
+      <move element="HrCountryOfBirth" after="HrRegionOfBirth"/>
+      <move element="HrNationality" after="HrCountryOfBirth"/>
+      <move element="HrDeathDate" after="HrNationality"/>
+      <move element="HrStudentStatus" after="HrDeathDate"/>
+      <move element="HrMilitaryService" after="HrStudentStatus"/>
+      <move element="Hr2ndPassportExists" after="HrMilitaryService"/>
+      <move element="HrCorrespondenceLanguage" after="Hr2ndPassportExists"/>
+      <move element="HrUsesTobacco" after="HrCorrespondenceLanguage"/>
+      <move element="HrAdoptionDate" after="HrUsesTobacco"/>
+      <move element="HrNotCovMediPlan" after="HrAdoptionDate"/>
+      <move element="HrVoluntaryService" after="HrNotCovMediPlan"/>
+      <move element="HrMailstop" after="HrVoluntaryService"/>
+      <move element="HrBloodType" after="HrMailstop"/>
+      <move element="HrLastTestDate" after="HrBloodType"/>
+      <move element="HrLastTestBy" after="HrLastTestDate"/>
+      <move element="HrExpenseChckSendToAdd" after="HrLastTestBy"/>
+      <move element="HrPersonType" after="HrExpenseChckSendToAdd"/>
+      <move element="HrAddPerDetFlexSs" after="HrPersonType"/>
+      <move element="HrSsn" after="HrAddPerDetFlexSs"/>
+      <move element="HrEmailAddress" after="HrSsn"/>
+      <move element="HrStatus" after="HrEmailAddress"/>
+   </modifications>
+</customization>

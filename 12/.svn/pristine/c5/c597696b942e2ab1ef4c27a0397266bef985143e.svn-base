@@ -1,0 +1,27 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/fnd/wf/worklist/webui/AdvancWorklistRG" package="/oracle/apps/fnd/customizations/function/EAM_APPL_MENU_HOME/wf/worklist/webui" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: AdvancWorklistRG.xml 115.3 2003/02/19 01:13:55 dizhao noship $" version="9.0.3.6.1_364" xml:lang="en-US">
+   <modifications>
+      <modify element="NtfWorklist" blockSize="5">
+         <queryCriteria>
+            <criterion element="NtfSubject" operator="contain" operand="Work Request"/>
+         </queryCriteria>
+      </modify>
+      <modify element="NtfStatus" initSortSeq="none" required="no"/>
+      <modify element="NtfDue" rendered="false" initSortSeq="none" required="no"/>
+      <modify element="NtfType" initSortSeq="none" required="no"/>
+      <modify element="NtfPriority" rendered="false" initSortSeq="none" required="no"/>
+      <modify element="NtfFromUser" initSortSeq="none" required="no"/>
+      <modify element="NtfSelector" initSortSeq="none" required="no" readOnly="false"/>
+      <modify element="NtfSent" initSortSeq="none" required="no"/>
+      <modify element="NtfSubject" initSortSeq="none" required="no"/>
+      <move element="NtfSubject" after="NtfFromUser"/>
+      <move element="NtfSent" after="NtfSubject"/>
+      <move element="NtfType" after="NtfSent"/>
+      <move element="NtfStatus" after="NtfType"/>
+      <move element="NtfPriority" after="NtfStatus"/>
+      <move element="NtfDue" after="NtfPriority"/>
+      <move element="Ntfid" after="NtfDue"/>
+      <move element="NtfReassign" after="NtfOpen"/>
+      <move element="NtfClose" after="NtfReassign"/>
+   </modifications>
+</customization>

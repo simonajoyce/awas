@@ -1,0 +1,6 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_26" xml:lang="en-US" customizes="/oracle/apps/cs/csz/srlink/lov/webui/SrLnkSRNumLOVRN" file-version="$Header: SrLnkSRNumLOVRN.xml 120.0.12010000.2 2009/09/11 10:56:52 sanjrao noship $" package="/oracle/apps/cs/csz/srlink/lov/webui/customizations/function/CSZ_ITIL_UP_FN">
+   <modifications>
+      <modify element="IncidentNumber" prompt="Ticket Number"/>
+   </modifications>
+</customization>

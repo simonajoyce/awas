@@ -1,0 +1,6 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="" xml:lang="en-US" customizes="/oracle/apps/prp/proposal/savedsearch/webui/PropRscQryRN" file-version="$Header: PropRscQryRN.xml 120.1 2005/11/18 17:59:53 asahoo noship $" package="/oracle/apps/prp/proposal/savedsearch/webui/customizations/function/ASN_DASHBOARDPG">
+   <modifications>
+      <modify element="ExportBtn" rendered="false"/>
+   </modifications>
+</customization>

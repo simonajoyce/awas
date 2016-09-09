@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.6.6_557" xml:lang="en-US" customizes="/oracle/apps/per/selfservice/newhire/webui/CreatSrchNewHrPG" developerMode="false" package="/oracle/apps/per/selfservice/newhire/webui/customizations/localization/SA" file-version="$Header: CreatSrchNewHrPG.xml 120.7 2007/02/19 11:49:57 dbatra noship $">
+   <modifications>
+      <move element="HireLastName" after="HireBusinessGroup"/>
+      <move element="HireFirstName" after="HireLastName"/>
+      <move element="HireDateOfBirth" after="HireFirstName"/>
+      <move element="HireNationalIdentifier" after="HireDateOfBirth"/>
+      <move element="HrPersonDevDfFlex" after="HireNationalIdentifier"/>
+      <move element="HireHireDate" after="HrPersonDevDfFlex"/>
+      <move element="HireBusinessGroupId" after="HireHireDate"/>
+      <move element="HireLegislationCode" after="HireBusinessGroupId"/>
+      <modify element="HrPersonDevDfFlex" rendered="true" segmentList="SA|FATHER_NAME|GRANDFATHER_NAME|ALT_FIRST_NAME|ALT_FATHER_NAME|ALT_GRANDFATHER_NAME|ALT_FAMILY_NAME|Hijrah Birth Date|Hijrah Hire Date"/>
+      <modify element="HireDateOfBirth" tipType="dateFormat"/>
+      <modify element="HireNationalIdentifier" prompt="Civil Identity Number" required="no"/>
+      <modify element="HireHireDate" tipType="dateFormat"/>
+      <modify element="HireLastName" prompt="Family Name"/>
+      <modify element="HireFirstName" required="yes"/>
+   </modifications>
+</customization>

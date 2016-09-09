@@ -1,0 +1,9 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="" xml:lang="en-US" customizes="/oracle/apps/fnd/cp/program/webui/CreateConcProgPG" file-version="$Header: CreateConcProgPG.xml 120.2 2005/08/18 11:30:37 ddhulla noship $" developerMode="true" package="/oracle/apps/fnd/cp/program/webui/customizations/function/FND_CP_UPDATE_CONC_PROG">
+   <modifications>
+      <modify element="CPShortName" readOnly="true"/>
+      <modify element="CPApplication" readOnly="true"/>
+      <modify element="Annotation" prompt="Update Annotation"/>
+      <modify element="AnnotationSpacer2" width="483"/>
+   </modifications>
+</customization>

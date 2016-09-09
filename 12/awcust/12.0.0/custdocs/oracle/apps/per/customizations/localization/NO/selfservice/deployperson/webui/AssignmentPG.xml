@@ -1,0 +1,33 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/per/selfservice/deployperson/webui/AssignmentPG" developerMode="false" file-version="$Header: AssignmentPG.xml 120.2 2006/07/14 09:28:46 saurai noship $" package="/oracle/apps/per/customizations/localization/NO/selfservice/deployperson/webui">
+   <modifications>
+      <move element="HrInstruction" after="REQUIREDREGION"/>
+      <move element="HrGreRegion" after="HrInstruction"/>
+      <move element="HrOrganizationRegion" after="HrGreRegion"/>
+      <move element="HrJobRegion" after="HrOrganizationRegion"/>
+      <move element="HrPositionRegion" after="HrJobRegion"/>
+      <move element="HrLocationRegion" after="HrPositionRegion"/>
+      <move element="HrGradeRegion" after="HrLocationRegion"/>
+      <move element="HrPayrollRegion" after="HrGradeRegion"/>
+      <move element="HrPeopleGroupRegion" after="HrPayrollRegion"/>
+      <move element="HrAssignmentStatusRegion" after="HrPeopleGroupRegion"/>
+      <move element="HrOtherAssRegion" after="HrAssignmentStatusRegion"/>
+      <move element="HrSalaryRegion" after="HrOtherAssRegion"/>
+      <move element="HrVendorRegion" after="HrSalaryRegion"/>
+      <move element="HrProjectRegion" after="HrVendorRegion"/>
+      <move element="HrBusinessGroupId" after="HrProjectRegion"/>
+      <move element="HrOrganizationId" after="HrBusinessGroupId"/>
+      <move element="HrJobId" after="HrOrganizationId"/>
+      <move element="HrPositionId" after="HrJobId"/>
+      <move element="_SSHRFORMEVENT" after="HrPositionId"/>
+      <move element="HrProbationPeriodRegion" after="_SSHRFORMEVENT"/>
+      <move element="HrNoticePeriodRegion" after="HrProbationPeriodRegion"/>
+      <modify element="HrGreRegion" rendered="true"/>
+      <move element="HrWorkSchedKeyFlex____1" after="HrInstruction____4"/>
+      <move element="HrWorkHours" after="HrWorkSchedKeyFlex____1"/>
+      <move element="HrFrequency" after="HrWorkHours"/>
+      <move element="HrNormalStartTime" after="HrFrequency"/>
+      <move element="HrNormalEndTime" after="HrNormalStartTime"/>
+      <modify element="HrWorkSchedKeyFlex____1" segmentList="NO_STATUTORY_INFO.|Local Unit|SSB Position Code|Work Title|Job Status|Condition of Employment|Full Part Time|Shift Work|Payroll Period|Agreed Working Hours|Date Notice Received|Retirement Date|Retirement Inquiry Sent|Retirement Age"/>
+   </modifications>
+</customization>

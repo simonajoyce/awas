@@ -1,0 +1,37 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.40_440" xml:lang="en-US" customizes="/oracle/apps/pa/project/webui/TeamHomeConfigPG" developerMode="true" file-version="$Header: TeamHomeConfigPG.xml 115.5 2004/09/13 13:29:39 sanantha noship $" package="/oracle/apps/pa/project/webui/customizations/function/PA_DEFAULT_TM_HOME" xmlns:oa="http://xmlns.oracle.com/oa">
+   <modifications>
+      <modify element="AssignedActionsFlex" flexibleLayoutRef="" rendered="true"/>
+      <modify element="NotificationHeaderFlex" flexibleLayoutRef="GeneralFlex" rendered="true"/>
+      <modify element="OwnedWorkFlex" flexibleLayoutRef="" rendered="true"/>
+      <move element="TeamHomeChgDocsFlex" after="CiOpenActionFlex"/>
+      <move element="TeamHomeIssuesFlex" after="TeamHomeChgDocsFlex"/>
+      <move element="TeamHomeTaskListFlex" after="TeamHomeIssuesFlex"/>
+      <move element="MyTaskAsgmtsFlex" after="TeamHomeTaskListFlex"/>
+      <move element="AssignedActionsFlex" after="MyTaskAsgmtsFlex"/>
+      <insert before="AssignedActionsFlex">
+         <oa:flexibleContent id="flexibleContent_0_1089626895031" extends="/oracle/apps/pa/project/webui/TeamHomeConfigPG.DlvStackLayoutRNFlex" flexibleLayoutRef="TaskDelivFlex" title="Deliverables Due" viewRef="devSeed2"/>
+      </insert>
+      <insert before="AssignedActionsFlex">
+         <oa:flexibleContent id="flexibleContent_0_1084508970461" extends="/oracle/apps/pa/project/webui/TeamHomeConfigPG.TeamHomeTaskListFlex" flexibleLayoutRef="TaskDelivFlex" title="In Trouble and At Risk Tasks" viewRef="devSeed2"/>
+      </insert>
+      <move element="NotificationHeaderFlex" after="AssignedActionsFlex"/>
+      <insert before="NotificationHeaderFlex">
+         <oa:flexibleContent id="flexibleContent_0_1095076777172" extends="/oracle/apps/pa/project/webui/TeamHomeConfigPG.AssignedActionsFlex" flexibleLayoutRef="GeneralFlex" title="Assigned Actions" viewRef="devSeed1"/>
+      </insert>
+      <insert before="NotificationHeaderFlex">
+         <oa:flexibleContent id="flexibleContent_0_1089626820429" extends="/oracle/apps/pa/project/webui/TeamHomeConfigPG.OwnedWorkFlex" flexibleLayoutRef="GeneralFlex" title="Owned Work" viewRef="devSeed1"/>
+      </insert>
+      <move element="OwnedWorkFlex" after="NotificationHeaderFlex"/>
+      <move element="DlvStackLayoutRNFlex" after="OwnedWorkFlex"/>
+      <insert before="DlvStackLayoutRNFlex">
+         <oa:flexibleContent id="flexibleContent_0_1084508777969" extends="/oracle/apps/pa/project/webui/TeamHomeConfigPG.TeamHomeIssuesFlex" flexibleLayoutRef="IssueChangeFlex" title="Open Issues" viewRef="275_1035498630172PA_ISSUE_LIST_TBL"/>
+      </insert>
+      <insert before="DlvStackLayoutRNFlex">
+         <oa:flexibleContent id="flexibleContent_0_1084508687027" extends="/oracle/apps/pa/project/webui/TeamHomeConfigPG.TeamHomeChgDocsFlex" flexibleLayoutRef="IssueChangeFlex" title="Open Change Documents" viewRef="275_1035499433087PA_CHG_DOC_LIST_"/>
+      </insert>
+      <move element="DlvrActionsListFlex" after="DlvStackLayoutRNFlex"/>
+      <modify element="MyTaskAsgmtsFlex" flexibleLayoutRef="TaskDelivFlex" rendered="true"/>
+      <modify element="ActionsLink" rendered="false"/>
+   </modifications>
+</customization>

@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.6.6_513" xml:lang="en-US" customizes="/oracle/apps/irc/candidateSelfService/webui/AplWorkPrefRN" developerMode="true" package="/oracle/apps/irc/customizations/function/IRC_APL_MY_ACCT_SEARCHES_PAGE/candidateSelfService/webui" file-version="$Header: AplWorkPrefRN.xml 120.4 2005/11/10 08:49:50 mmillmor noship $">
+   <modifications>
+      <move element="spacerItem" after="EnterWorkPreferences"/>
+      <move element="Keywords" after="spacerItem"/>
+      <move element="ProfessionalAreaCode" after="Keywords"/>
+      <move element="Location" after="ProfessionalAreaCode"/>
+      <move element="DistanceToLocation" after="Location"/>
+      <move element="FullTimeCode" after="DistanceToLocation"/>
+      <move element="Employee" after="FullTimeCode"/>
+      <move element="Contractor" after="Employee"/>
+      <move element="Travel" after="Contractor"/>
+      <move element="WorkFromHome" after="Travel"/>
+      <move element="MinimumSalary" after="WorkFromHome"/>
+      <move element="Currency" after="MinimumSalary"/>
+      <move element="MatchMySkills" after="Currency"/>
+      <move element="MatchMyQuals" after="MatchMySkills"/>
+      <move element="SearchCriteriaFlex" after="MatchMyQuals"/>
+      <move element="ManagerWorkPreferences" after="SearchCriteriaFlex"/>
+      <modify element="ManagerWorkPreferences" rendered="false"/>
+   </modifications>
+</customization>

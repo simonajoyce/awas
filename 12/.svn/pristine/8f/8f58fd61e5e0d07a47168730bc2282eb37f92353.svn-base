@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.6.5_471" xml:lang="en-US" customizes="/oracle/apps/ar/hz/components/contactpoints/webui/HzPuiContactPointEmailTable" developerMode="false" file-version="$Header: HzPuiContactPointEmailTable.xml 115.1 2004/01/09 07:51:04 mkatraga noship $" package="/oracle/apps/ar/hz/components/contactpoints/webui/customizations/function/ASN_CTCTUPDATEPG">
+   <modifications>
+      <modify element="HzPuiEmailCreateButton" prompt="Create E-mail Address"/>
+      <modify element="EmailAddress" prompt="E-mail Address"/>
+   </modifications>
+</customization>

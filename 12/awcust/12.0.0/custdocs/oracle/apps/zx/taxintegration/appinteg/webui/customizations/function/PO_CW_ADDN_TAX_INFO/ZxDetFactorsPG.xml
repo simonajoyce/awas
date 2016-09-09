@@ -1,0 +1,38 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/zx/taxintegration/appinteg/webui/ZxDetFactorsPG" developerMode="true" package="/oracle/apps/zx/taxintegration/appinteg/webui/customizations/function/PO_CW_ADDN_TAX_INFO" file-version="$Header: ZxDetFactorsPG.xml 120.2 2006/08/17 05:18:28 pchintal noship $">
+   <modifications>
+      <modify element="ZxPageLayoutRN" controllerClass="oracle.apps.po.tax.webui.ManageTaxAddnInfoPerzCO"/>
+      <modify element="ZxSrchRN.TrxLineNumberSrch" prompt="Pay Item"/>
+      <modify element="ZxSrchRN.LineTrxUserKey1Srch" prompt="Line"/>
+      <move element="TrxLineNumber" after="LineTrxUserKey1"/>
+      <move element="ProductDescription" after="TrxLineNumber"/>
+      <move element="LineTrxUserKey2" after="ProductDescription"/>
+      <move element="LineTrxUserKey3" after="LineTrxUserKey2"/>
+      <move element="LineTrxUserKey4" after="LineTrxUserKey3"/>
+      <move element="LineTrxUserKey5" after="LineTrxUserKey4"/>
+      <move element="LineTrxUserKey6" after="LineTrxUserKey5"/>
+      <move element="TrxBusinessCategory" after="LineTrxUserKey6"/>
+      <move element="TrxBusinessCategoryCode" after="TrxBusinessCategory"/>
+      <move element="ProductFiscClassification" after="TrxBusinessCategoryCode"/>
+      <move element="ProductFiscClassificationCode" after="ProductFiscClassification"/>
+      <move element="ProductType" after="ProductFiscClassificationCode"/>
+      <move element="ProductTypeCode" after="ProductType"/>
+      <move element="ProductCategory" after="ProductTypeCode"/>
+      <move element="ProductCategoryCode" after="ProductCategory"/>
+      <move element="LineIntendedUse" after="ProductCategoryCode"/>
+      <move element="LineIntendedUseCode" after="LineIntendedUse"/>
+      <move element="UserDefinedFiscClass" after="LineIntendedUseCode"/>
+      <move element="UserDefinedFiscClassCode" after="UserDefinedFiscClass"/>
+      <move element="AssessableValue" after="UserDefinedFiscClassCode"/>
+      <move element="InputTaxClassificationCode" after="AssessableValue"/>
+      <move element="InputTaxClassification" after="InputTaxClassificationCode"/>
+      <move element="OutputTaxClassification" after="InputTaxClassification"/>
+      <move element="OutputTaxClassificationCode" after="OutputTaxClassification"/>
+      <modify element="LineTrxUserKey1" prompt="Line"/>
+      <modify element="TrxLineNumber" prompt="Pay Item"/>
+      <modify element="LineTrxUserKey2" initSortSeq="first" rendered="false" sortState="ascending"/>
+      <move element="ZxSrchRN.TrxLineNumberSrch" after="ZxSrchRN.LineTrxUserKey1Srch"/>
+      <move element="ZxSrchRN.ProductDescriptionSrch" after="ZxSrchRN.TrxLineNumberSrch"/>
+      <move element="ZxSrchRN.ButtonLayout" after="ZxSrchRN.ProductDescriptionSrch"/>
+   </modifications>
+</customization>

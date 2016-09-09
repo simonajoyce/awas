@@ -1,0 +1,294 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/pay/selfservice/soe/webui/SoePG" developerMode="true" file-version="$Header: SoePG.xml 120.1.12010000.3 2008/12/11 10:11:51 rsaharay ship $" package="/oracle/apps/pay/selfservice/soe/webui/customizations/localization/CN">
+   <modifications>
+      <modify element="Soe1Col9" prompt="Citizen Identification Number"/>
+      <modify element="Soe1Col7" prompt="Employer Name"/>
+      <modify element="Soe5Layout" text="Taxable Earnings"/>
+      <modify element="Soe5DrillDown" rendered="false"/>
+      <modify element="Soe5Col1" rendered="false"/>
+      <modify element="Soe6Layout" text="Statutory Deductions"/>
+      <modify element="Soe6DrillDown" rendered="false"/>
+      <modify element="Soe7Layout" text="Non Taxable Earnings"/>
+      <modify element="Soe7Col3" rendered="false"/>
+      <modify element="Soe7Col4" rendered="false"/>
+      <modify element="Soe7DrillDown" rendered="false"/>
+      <modify element="Soe7Col16" prompt="This Pay" rendered="true" totalValue="true"/>
+      <modify element="Soe8Layout" text="Voluntary Deductions"/>
+      <modify element="Soe8Col4" rendered="false"/>
+      <modify element="Soe8Col2" prompt="Description" rendered="true"/>
+      <modify element="Soe8Col16" prompt="This Pay" totalValue="true"/>
+      <modify element="Soe8Col5" rendered="false"/>
+      <modify element="Soe21Layout" rendered="true" text="Balances"/>
+      <modify element="Soe21Col4" prompt="Description" rendered="true"/>
+      <modify element="Soe21Col2" rendered="false"/>
+      <modify element="Soe21Col16" rendered="false" totalValue="false"/>
+      <modify element="Soe21Col5" rendered="false"/>
+      <modify element="Region6Func" destination="pay_cn_soe.get_statutory_deductions"/>
+      <modify element="Region5Func" destination="pay_cn_soe.get_taxable_earnings"/>
+      <modify element="Region7Func" destination="pay_cn_soe.get_non_taxable_earnings"/>
+      <modify element="Region8Func" destination="pay_cn_soe.get_voluntary_deductions"/>
+      <modify element="Region21Func" destination="pay_cn_soe.get_balances"/>
+      <modify element="SoeSumPayCols1" destination="Soe5RN.COL16"/>
+      <modify element="SoeSumPayCols2" destination="Soe7RN.COL16"/>
+      <modify element="SoeSumPayFCols1" destination="COL01 + COL02"/>
+      <move element="Soe4RNHeader" after="Soe1RNHeader"/>
+      <move element="SoeSumPayLayout" after="Soe4RNHeader"/>
+      <move element="Soe5Layout" after="SoeSumPayLayout"/>
+      <move element="Soe7Layout" after="Soe5Layout"/>
+      <move element="Soe9Layout" after="Soe7Layout"/>
+      <move element="Soe6Layout" after="Soe9Layout"/>
+      <move element="Soe8Layout" after="Soe6Layout"/>
+      <move element="Soe21Layout" after="Soe8Layout"/>
+      <move element="Soe12Layout" after="Soe21Layout"/>
+      <move element="Soe14Layout" after="Soe12Layout"/>
+      <move element="Soe15Layout" after="Soe14Layout"/>
+      <move element="Soe13Layout" after="Soe15Layout"/>
+      <move element="Soe11Layout" after="Soe13Layout"/>
+      <move element="Soe10Layout" after="Soe11Layout"/>
+      <move element="Soe2Layout" after="Soe10Layout"/>
+      <move element="Soe3Layout" after="Soe2Layout"/>
+      <move element="Soe16Header" after="Soe3Layout"/>
+      <move element="Soe17Header" after="Soe16Header"/>
+      <move element="Soe18Header" after="Soe17Header"/>
+      <move element="Soe19Header" after="Soe18Header"/>
+      <move element="SoeSumPayCols" after="Soe19Header"/>
+      <move element="SoeSQLRN" after="SoeSumPayCols"/>
+      <move element="SoeDrilldownRN" after="SoeSQLRN"/>
+      <move element="Soe20Layout" after="SoeDrilldownRN"/>
+      <move element="Soe22Layout" after="Soe20Layout"/>
+      <move element="Soe23Layout" after="Soe22Layout"/>
+      <move element="Soe24Layout" after="Soe23Layout"/>
+      <move element="Soe25Layout" after="Soe24Layout"/>
+      <move element="Soe26Layout" after="Soe25Layout"/>
+      <move element="Soe27Layout" after="Soe26Layout"/>
+      <move element="Soe28Layout" after="Soe27Layout"/>
+      <move element="Soe29Layout" after="Soe28Layout"/>
+      <modify element="SoeSumPayCols3" destination="Soe6RN.COL16"/>
+      <modify element="SoeSumPayCols4" destination="Soe8RN.COL16"/>
+      <modify element="SoeSumPayFCols2" destination="COL01+COL02-COL03-COL04-COL06"/>
+      <modify element="Region10Func" destination="pay_cn_soe.get_messages"/>
+      <modify element="SoeSumPayCols" rendered="false"/>
+      <modify element="SoeSumPayFCol1" prompt="Total Gross Pay"/>
+      <modify element="SoeSumPayCol1" rendered="false"/>
+      <modify element="SoeSumPayCol2" rendered="false"/>
+      <modify element="SoeSumPayCol3" prompt="Total Statutory Deductions"/>
+      <modify element="SoeSumPayCol4" prompt="Total Other Deductions"/>
+      <modify element="SoeSumPayCol5" rendered="false"/>
+      <modify element="SoeSumPayCol6" prompt="Total Pre Tax Non Statutory Deductions" rendered="true"/>
+      <modify element="SoeSumPayFCol2" prompt="Total Amount Paid"/>
+      <modify element="SoeSumPayFCol3" rendered="false"/>
+      <modify element="SoeSumPayFCol4" rendered="false"/>
+      <move element="SoeSumPayCol6" after="SoeSumPayFCol1"/>
+      <move element="SoeSumPayCol3" after="SoeSumPayCol6"/>
+      <move element="SoeSumPayCol4" after="SoeSumPayCol3"/>
+      <move element="SoeSumPayFCol2" after="SoeSumPayCol4"/>
+      <move element="SoeSumPayCol2" after="SoeSumPayFCol2"/>
+      <move element="SoeSumPayCol1" after="SoeSumPayCol2"/>
+      <move element="SoeSumPayCol5" after="SoeSumPayCol1"/>
+      <move element="SoeSumPayFCol3" after="SoeSumPayCol5"/>
+      <move element="SoeSumPayFCol4" after="SoeSumPayFCol3"/>
+      <modify element="Soe9Layout" text="Pre Tax Non Statutory Deductions"/>
+      <modify element="Soe9Col16" prompt="This Pay" rendered="true" totalValue="true"/>
+      <modify element="Soe9Col1" rendered="false"/>
+      <modify element="Soe9Col2" prompt="Description" rendered="true"/>
+      <modify element="Soe9Col3" rendered="false"/>
+      <modify element="Soe9Col4" prompt="Description" rendered="false"/>
+      <modify element="Soe9Col18" prompt="YTD" rendered="false"/>
+      <move element="Soe9Col16" after="Soe9Col2"/>
+      <move element="Soe9Col18" after="Soe9Col16"/>
+      <move element="Soe9Col4" after="Soe9Col18"/>
+      <move element="Soe9Col1" after="Soe9Col4"/>
+      <move element="Soe9Col3" after="Soe9Col1"/>
+      <move element="Soe9Col5" after="Soe9Col3"/>
+      <move element="Soe9Col6" after="Soe9Col5"/>
+      <move element="Soe9Col7" after="Soe9Col6"/>
+      <move element="Soe9Col8" after="Soe9Col7"/>
+      <move element="Soe9Col9" after="Soe9Col8"/>
+      <move element="Soe9Col10" after="Soe9Col9"/>
+      <move element="Soe9Col11" after="Soe9Col10"/>
+      <move element="Soe9Col12" after="Soe9Col11"/>
+      <move element="Soe9Col13" after="Soe9Col12"/>
+      <move element="Soe9Col14" after="Soe9Col13"/>
+      <move element="Soe9Col15" after="Soe9Col14"/>
+      <move element="Soe9Col17" after="Soe9Col15"/>
+      <move element="Soe9Col19" after="Soe9Col17"/>
+      <move element="Soe9Col20" after="Soe9Col19"/>
+      <move element="Soe9Col21" after="Soe9Col20"/>
+      <move element="Soe9Col22" after="Soe9Col21"/>
+      <move element="Soe9Col23" after="Soe9Col22"/>
+      <move element="Soe9Col24" after="Soe9Col23"/>
+      <move element="Soe9Col25" after="Soe9Col24"/>
+      <move element="Soe9DrillDown" after="Soe9Col25"/>
+      <modify element="Region9Func" destination="pay_cn_soe.get_non_statutory_deductions"/>
+      <modify element="Soe11Layout" rendered="true" text="Leave Taken"/>
+      <modify element="Soe11Col1" prompt="Name"/>
+      <modify element="Soe11Col2" prompt="Start Date"/>
+      <modify element="Soe11Col3" prompt="End Date"/>
+      <modify element="Soe11Col4" rendered="false"/>
+      <modify element="Soe11Col5" rendered="false"/>
+      <modify element="Soe11Col6" rendered="false"/>
+      <modify element="Soe11Col7" rendered="false"/>
+      <modify element="Soe11Col8" rendered="false"/>
+      <modify element="Soe11Col9" rendered="false"/>
+      <modify element="Soe11RN" rendered="true"/>
+      <modify element="Soe11Col10" rendered="false"/>
+      <modify element="Soe11Col11" rendered="false"/>
+      <modify element="Soe11Col12" rendered="false"/>
+      <modify element="Soe11Col13" rendered="false"/>
+      <modify element="Soe11Col14" rendered="false"/>
+      <modify element="Soe11Col15" rendered="false"/>
+      <modify element="Soe11Col16" prompt="This Pay"/>
+      <modify element="Soe11Col17" rendered="false"/>
+      <modify element="Soe11Col18" rendered="false"/>
+      <modify element="Soe11Col19" rendered="false"/>
+      <modify element="Soe11Col20" rendered="false"/>
+      <modify element="Soe11Col21" rendered="false"/>
+      <modify element="Soe11Col22" rendered="false"/>
+      <modify element="Soe11Col23" rendered="false"/>
+      <modify element="Soe11Col24" rendered="false"/>
+      <modify element="Soe11Col25" rendered="false"/>
+      <modify element="Soe13Layout" rendered="true" text="Annual Leave Information"/>
+      <modify element="Soe13Col1" prompt="Name"/>
+      <modify element="Soe13Col2" prompt="Units"/>
+      <modify element="Soe13Col3" rendered="false"/>
+      <modify element="Soe13Col4" rendered="false"/>
+      <modify element="Soe13Col5" rendered="false"/>
+      <modify element="Soe13Col6" rendered="false"/>
+      <modify element="Soe13Col7" rendered="false"/>
+      <modify element="Soe13Col8" rendered="false"/>
+      <modify element="Soe13Col9" rendered="false"/>
+      <modify element="Soe13Col10" rendered="false"/>
+      <modify element="Soe13Col11" rendered="false"/>
+      <modify element="Soe13Col12" rendered="false"/>
+      <modify element="Soe13Col13" rendered="false"/>
+      <modify element="Soe13Col14" rendered="false"/>
+      <modify element="Soe13Col15" rendered="false"/>
+      <modify element="Soe13Col17" rendered="false"/>
+      <modify element="Soe13Col18" rendered="false"/>
+      <modify element="Soe13Col19" rendered="false"/>
+      <modify element="Soe13Col20" rendered="false"/>
+      <modify element="Soe13Col21" rendered="false"/>
+      <modify element="Soe13Col22" rendered="false"/>
+      <modify element="Soe13Col23" rendered="false"/>
+      <modify element="Soe13Col24" rendered="false"/>
+      <modify element="Soe13Col25" rendered="false"/>
+      <modify element="Region13Func" destination="pay_cn_soe.get_annual_leave_information"/>
+      <modify element="Soe13Col16" prompt="Balance"/>
+      <modify element="Region11Func" destination="pay_cn_soe.get_leave_taken"/>
+      <modify element="Soe14Layout" rendered="true" text="Other Balance Information"/>
+      <modify element="Soe14RN" rendered="true"/>
+      <modify element="Soe14Col2" prompt="Description"/>
+      <modify element="Soe14Col16" prompt="Value"/>
+      <modify element="Soe14Col1" rendered="false"/>
+      <modify element="Soe14Col3" rendered="false"/>
+      <modify element="Soe14Col4" rendered="false"/>
+      <modify element="Soe14Col5" rendered="false"/>
+      <modify element="Soe14Col6" rendered="false"/>
+      <modify element="Soe14Col7" rendered="false"/>
+      <modify element="Soe14Col8" rendered="false"/>
+      <modify element="Soe14Col9" rendered="false"/>
+      <modify element="Soe14Col10" rendered="false"/>
+      <modify element="Soe14Col11" rendered="false"/>
+      <modify element="Soe14Col12" rendered="false"/>
+      <modify element="Soe14Col13" rendered="false"/>
+      <modify element="Soe14Col14" rendered="false"/>
+      <modify element="Soe14Col15" rendered="false"/>
+      <modify element="Soe14Col17" rendered="false"/>
+      <modify element="Soe14Col18" rendered="false"/>
+      <modify element="Soe14Col19" rendered="false"/>
+      <modify element="Soe14Col20" rendered="false"/>
+      <modify element="Soe14Col21" rendered="false"/>
+      <modify element="Soe14Col22" rendered="false"/>
+      <modify element="Soe14Col23" rendered="false"/>
+      <modify element="Soe14Col24" rendered="false"/>
+      <modify element="Soe14Col25" rendered="false"/>
+      <modify element="Soe15Layout" rendered="true" text="Other Element Information"/>
+      <modify element="Soe15RN" rendered="true"/>
+      <modify element="Soe15Col2" prompt="Description"/>
+      <modify element="Soe15Col16" prompt="Value"/>
+      <modify element="Soe15Col1" rendered="false"/>
+      <modify element="Soe15Col3" rendered="false"/>
+      <modify element="Soe15Col4" rendered="false"/>
+      <modify element="Soe15Col5" rendered="false"/>
+      <modify element="Soe15Col6" rendered="false"/>
+      <modify element="Soe15Col7" rendered="false"/>
+      <modify element="Soe15Col8" rendered="false"/>
+      <modify element="Soe15Col9" rendered="false"/>
+      <modify element="Soe15Col10" rendered="false"/>
+      <modify element="Soe15Col11" rendered="false"/>
+      <modify element="Soe15Col12" rendered="false"/>
+      <modify element="Soe15Col13" rendered="false"/>
+      <modify element="Soe15Col14" rendered="false"/>
+      <modify element="Soe15Col15" rendered="false"/>
+      <modify element="Soe15Col17" rendered="false"/>
+      <modify element="Soe15Col18" rendered="false"/>
+      <modify element="Soe15Col19" rendered="false"/>
+      <modify element="Soe15Col20" rendered="false"/>
+      <modify element="Soe15Col21" rendered="false"/>
+      <modify element="Soe15Col22" rendered="false"/>
+      <modify element="Soe15Col23" rendered="false"/>
+      <modify element="Soe15Col24" rendered="false"/>
+      <modify element="Soe15Col25" rendered="false"/>
+      <modify element="Soe12Layout" rendered="true" text="Payments"/>
+      <modify element="Soe12Col1" prompt="Payment Method" rendered="true"/>
+      <modify element="Soe12Col2" prompt="Bank"/>
+      <modify element="Soe12Col3" prompt="Account Number" rendered="true"/>
+      <modify element="Soe12Col4" prompt="Currency" rendered="true"/>
+      <modify element="Soe12Col5" prompt="Branch" rendered="true"/>
+      <modify element="Soe12Col16" prompt="Amount"/>
+      <modify element="Region12Func" destination="pay_cn_soe.get_payment_methods"/>
+      <move element="Soe12Col2" after="Soe12Col1"/>
+      <move element="Soe12Col5" after="Soe12Col2"/>
+      <move element="Soe12Col3" after="Soe12Col5"/>
+      <move element="Soe12Col4" after="Soe12Col3"/>
+      <move element="Soe12Col16" after="Soe12Col4"/>
+      <move element="Soe12Col6" after="Soe12Col16"/>
+      <move element="Soe12Col7" after="Soe12Col6"/>
+      <move element="Soe12Col8" after="Soe12Col7"/>
+      <move element="Soe12Col9" after="Soe12Col8"/>
+      <move element="Soe12Col10" after="Soe12Col9"/>
+      <move element="Soe12Col11" after="Soe12Col10"/>
+      <move element="Soe12Col12" after="Soe12Col11"/>
+      <move element="Soe12Col13" after="Soe12Col12"/>
+      <move element="Soe12Col14" after="Soe12Col13"/>
+      <move element="Soe12Col15" after="Soe12Col14"/>
+      <move element="Soe12Col17" after="Soe12Col15"/>
+      <move element="Soe12Col18" after="Soe12Col17"/>
+      <move element="Soe12Col19" after="Soe12Col18"/>
+      <move element="Soe12Col20" after="Soe12Col19"/>
+      <move element="Soe12Col21" after="Soe12Col20"/>
+      <move element="Soe12Col22" after="Soe12Col21"/>
+      <move element="Soe12Col23" after="Soe12Col22"/>
+      <move element="Soe12Col24" after="Soe12Col23"/>
+      <move element="Soe12Col25" after="Soe12Col24"/>
+      <move element="Soe12DrillDown" after="Soe12Col25"/>
+      <modify element="Region15Func" destination="pay_cn_soe.get_other_element_information"/>
+      <modify element="Region14Func" destination="pay_cn_soe.get_other_balance_information"/>
+      <modify element="Soe5Col16" prompt="This Pay"/>
+      <modify element="Soe6Col16" prompt="This Pay"/>
+      <modify element="Soe10Layout" text="Messages to Employee"/>
+      <modify element="Soe21RN" rendered="true"/>
+      <modify element="Soe21Col6" rendered="false"/>
+      <modify element="Soe21Col7" rendered="false"/>
+      <modify element="Soe21Col8" rendered="false"/>
+      <modify element="Soe21Col9" rendered="false"/>
+      <modify element="Soe21Col10" rendered="false"/>
+      <modify element="Soe21Col11" rendered="false"/>
+      <modify element="Soe21Col1" rendered="false"/>
+      <modify element="Soe21Col12" rendered="false"/>
+      <modify element="Soe21Col13" rendered="false"/>
+      <modify element="Soe21Col14" rendered="false"/>
+      <modify element="Soe21Col15" rendered="false"/>
+      <modify element="Soe21Col17" rendered="false"/>
+      <modify element="Soe21Col18" prompt="YTD" rendered="true"/>
+      <modify element="Soe21Col19" rendered="false"/>
+      <modify element="Soe21Col20" rendered="false"/>
+      <modify element="Soe21Col21" rendered="false"/>
+      <modify element="Soe21Col22" rendered="false"/>
+      <modify element="Soe21Col23" rendered="false"/>
+      <modify element="Soe21Col24" rendered="false"/>
+      <modify element="Soe21Col25" rendered="false"/>
+      <modify element="Soe21Col3" rendered="false"/>
+      <modify element="SoeSumPayCols6" destination="Soe9RN.COL16"/>
+   </modifications>
+</customization>

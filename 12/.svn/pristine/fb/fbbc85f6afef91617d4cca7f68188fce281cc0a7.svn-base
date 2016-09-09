@@ -1,0 +1,4 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/per/irc/candidateSelfService/webui/AplNavBarRN" developerMode="true" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: AplNavBarRN.xml 115.4 2004/03/04 23:01:47 pmaganah noship $" version="9.0.3.6.2_398" xml:lang="en-US" package="/oracle/apps/per/customizations/function/IRC_APL_ACCOUNT_REVIEW_EDUQUAL/irc/candidateSelfService/webui">
+   <modifications/>
+</customization>

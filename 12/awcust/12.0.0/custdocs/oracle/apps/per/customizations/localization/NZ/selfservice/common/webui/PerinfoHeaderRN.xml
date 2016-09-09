@@ -1,0 +1,10 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/per/selfservice/common/webui/PerinfoHeaderRN" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header$" version="9.0.3.8.12_1271" xml:lang="en-US">
+   <modifications>
+      <modify element="HrNestedRegion30" rendered="false"/>
+      <modify element="HrNestedRegion31" rendered="false"/>
+      <modify element="HrNestedRegion32" rendered="false"/>
+      <move element="HrNestedRegion31" after="HrNestedRegion30"/>
+      <move element="HrNestedRegion32" after="HrNestedRegion31"/>
+   </modifications>
+</customization>

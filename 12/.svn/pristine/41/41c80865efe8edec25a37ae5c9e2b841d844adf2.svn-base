@@ -1,0 +1,717 @@
+<?xml version='1.0' encoding='windows-1252' ?>
+<!DOCTYPE JboProject SYSTEM "jbo_03_01.dtd">
+
+<JboProject
+   Name="NewPersonProject"
+   SeparateXMLFiles="true"
+   PackageName="" >
+   <DesignTime>
+      <Attr Name="_appModuleNames19" Value="oracle.apps.fnd.framework.toolbox.labsolutions.server.DebugBLabAM" />
+      <Attr Name="_appModuleNames18" Value="oracle.apps.fnd.framework.toolbox.labsolutions.server.DebugLabAM" />
+      <Attr Name="_appModuleNames17" Value="oracle.apps.fnd.framework.toolbox.labsolutions.server.GanttAM" />
+      <Attr Name="_appModuleNames16" Value="oracle.apps.awcust.reports.server.PubAM" />
+      <Attr Name="_appModuleNames15" Value="oracle.apps.awcust.reports.server.sjPubAM" />
+      <Attr Name="_appModuleNames119" Value="oracle.apps.iby.lov.server.PayServiceReqStatusLovAM" />
+      <Attr Name="_appModuleNames14" Value="oracle.apps.fnd.framework.toolbox.tutorial.server.HelloWorldAM" />
+      <Attr Name="_appModuleNames118" Value="oracle.apps.iby.lov.server.CreditCardLovAM" />
+      <Attr Name="_appModuleNames13" Value="oracle.apps.fnd.framework.toolbox.tutorial.server.UpdateAM" />
+      <Attr Name="_appModuleNames117" Value="oracle.apps.iby.lov.server.FCAuthTypeLovAM" />
+      <Attr Name="_appModuleNames12" Value="oracle.apps.fnd.framework.toolbox.tutorial.server.DeleteAM" />
+      <Attr Name="_appModuleNames116" Value="oracle.apps.iby.lov.server.ReviewPaymentsExternalBankAcctsLovAM" />
+      <Attr Name="_appModuleNames11" Value="oracle.apps.fnd.framework.toolbox.tutorial.server.HomeAM" />
+      <Attr Name="_appModuleNames115" Value="oracle.apps.iby.lov.server.CountryLovAM" />
+      <Attr Name="_appModuleNames10" Value="oracle.apps.fnd.framework.toolbox.tutorial.server.PoSummaryAM" />
+      <Attr Name="_appModuleNames114" Value="oracle.apps.iby.lov.server.BillingAddressSelectLovAM" />
+      <Attr Name="_appModuleNames113" Value="oracle.apps.iby.lov.server.PaymentDocumentLovAM" />
+      <Attr Name="_appModuleNames112" Value="oracle.apps.iby.lov.server.FCPaymentMethodLovAM" />
+      <Attr Name="_appModuleNames111" Value="oracle.apps.iby.lov.server.PayeeSetupLOVAM" />
+      <Attr Name="_appModuleNames110" Value="oracle.apps.iby.lov.server.ExternalPayeesLovAM" />
+      <Attr Name="_appModuleNames9" Value="oracle.apps.fnd.framework.toolbox.tutorial.server.MultistepCreateAM" />
+      <Attr Name="_appModuleNames8" Value="oracle.apps.fnd.framework.toolbox.tutorial.server.PurchaseOrderSAM" />
+      <Attr Name="_appModuleNames109" Value="oracle.apps.iby.lov.server.FCPayerLovAM" />
+      <Attr Name="_appModuleNames7" Value="oracle.apps.fnd.framework.toolbox.tutorial.server.CreateAM" />
+      <Attr Name="_appModuleNames108" Value="oracle.apps.iby.lov.server.FCPayeeLovAM" />
+      <Attr Name="_appModuleNames6" Value="oracle.apps.fnd.framework.toolbox.tutorial.server.SearchAM" />
+      <Attr Name="_appModuleNames107" Value="oracle.apps.iby.lov.server.CompleteAssignmentLovAM" />
+      <Attr Name="_appModuleNames5" Value="oracle.apps.fnd.framework.toolbox.lov.server.TutorialLOVAM" />
+      <Attr Name="_appModuleNames106" Value="oracle.apps.iby.lov.server.OrganizationsLovAM" />
+      <Attr Name="_appModuleNames4" Value="oracle.apps.fnd.framework.toolbox.lov.server.LabSolutionsLOVAM" />
+      <Attr Name="_appModuleNames105" Value="oracle.apps.iby.lov.server.DebitCardLovAM" />
+      <Attr Name="_appModuleNames3" Value="oracle.apps.fnd.framework.toolbox.schema.server.EmployeeVAM" />
+      <Attr Name="_appModuleNames104" Value="oracle.apps.iby.lov.server.FCProcessProfileLOVAM" />
+      <Attr Name="_appModuleNames2" Value="oracle.apps.fnd.framework.toolbox.schema.server.SupplierVAM" />
+      <Attr Name="_appModuleNames103" Value="oracle.apps.iby.lov.server.FCFndTerritoriesAM" />
+      <Attr Name="_appModuleNames1" Value="oracle.apps.fnd.framework.toolbox.schema.server.PurchaseOrderVAM" />
+      <Attr Name="_appModuleNames102" Value="oracle.apps.iby.lov.server.PayeeBankAccountsLovAM" />
+      <Attr Name="_appModuleNames0" Value="awcust.oracle.apps.hr.person.server.EmpSearchAM" />
+      <Attr Name="_appModuleNames101" Value="oracle.apps.iby.lov.server.InternalBankAccountsAM" />
+      <Attr Name="_appModuleNames100" Value="oracle.apps.iby.lov.server.PaymentSystemAccountLovAM" />
+      <Attr Name="_version" Value="10.1.3.41.57" />
+      <Attr Name="_appModuleNames257" Value="oracle.apps.pos.wc.server.WcAM" />
+      <Attr Name="_appModuleNames256" Value="oracle.apps.pos.wc.server.WcNotificationAM" />
+      <Attr Name="_appModuleNames255" Value="oracle.apps.pos.wc.server.WcViewAM" />
+      <Attr Name="_appModuleNames254" Value="oracle.apps.pos.spmntf.server.SubscriptionAM" />
+      <Attr Name="_appModuleNames253" Value="oracle.apps.pos.ship.server.PosShipQueryAM" />
+      <Attr Name="_appModuleNames252" Value="oracle.apps.pos.services.server.PosTCSummaryAM" />
+      <Attr Name="_appModuleNames251" Value="oracle.apps.pos.services.server.PosTCDetailsAM" />
+      <Attr Name="_appModuleNames250" Value="oracle.apps.pos.services.lov.server.PosContingentWorkerAM" />
+      <Attr Name="_appModuleNames99" Value="oracle.apps.iby.creditcard.setup.server.CreditCardsAM" />
+      <Attr Name="_appModuleNames98" Value="oracle.apps.iby.creditcard.setup.server.CreditCardIssuersAM" />
+      <Attr Name="_appModuleNames97" Value="oracle.apps.iby.disbursement.setup.component.server.IbyRelationshipSetupAM" />
+      <Attr Name="_appModuleNames96" Value="oracle.apps.iby.disbursement.setup.component.server.PayeeBankAccountSearchAM" />
+      <Attr Name="_appModuleNames199" Value="oracle.apps.pos.supplier.components.server.PosPSMainAM" />
+      <Attr Name="_appModuleNames95" Value="oracle.apps.iby.disbursement.setup.component.server.PayeeSetupAM" />
+      <Attr Name="_appModuleNames198" Value="oracle.apps.pos.supplier.components.server.PosContInfoAM" />
+      <Attr Name="_appModuleNames94" Value="oracle.apps.iby.disbursement.setup.component.server.IbyPayeeSetupAM" />
+      <Attr Name="_appModuleNames197" Value="oracle.apps.pos.supplier.components.server.PosAddrContAM" />
+      <Attr Name="_appModuleNames93" Value="oracle.apps.iby.fundcapture.setup.components.test.server.TestPayerSetupAM" />
+      <Attr Name="_appModuleNames196" Value="oracle.apps.pos.supplier.components.server.PosUserRestAM" />
+      <Attr Name="_appModuleNames92" Value="oracle.apps.iby.fundcapture.setup.components.test.server.TestTrxnExtnAM" />
+      <Attr Name="_appModuleNames195" Value="oracle.apps.pos.supplier.lov.server.PaySitesAM" />
+      <Attr Name="_appModuleNames91" Value="oracle.apps.iby.fundcapture.setup.channel.server.PaymentChannelsViewAM" />
+      <Attr Name="_appModuleNames194" Value="oracle.apps.pos.supplier.lov.server.TermsAM" />
+      <Attr Name="_appModuleNames90" Value="oracle.apps.iby.fundcapture.setup.channel.server.PaymentChannelsAM" />
+      <Attr Name="_appModuleNames193" Value="oracle.apps.pos.supplier.lov.server.BuyerAM" />
+      <Attr Name="_appModuleNames192" Value="oracle.apps.pos.supplier.lov.server.CurrencyAM" />
+      <Attr Name="_appModuleNames249" Value="oracle.apps.pos.sdh.hierarchy.server.PosHierarchyAM" />
+      <Attr Name="_appModuleNames191" Value="oracle.apps.pos.supplier.lov.server.PayGroupAM" />
+      <Attr Name="_appModuleNames248" Value="oracle.apps.pos.sdh.ext.lov.server.ClassLovAM" />
+      <Attr Name="_appModuleNames190" Value="oracle.apps.pos.supplier.lov.server.AllLovAM" />
+      <Attr Name="_appModuleNames247" Value="oracle.apps.pos.sdh.ext.advsearch.server.SuppADIAM" />
+      <Attr Name="_appModuleNames246" Value="oracle.apps.pos.sdh.ext.admin.server.SuppAdminAM" />
+      <Attr Name="_appModuleNames245" Value="oracle.apps.pos.sdh.ext.common.server.SuppContextAM" />
+      <Attr Name="_appModuleNames244" Value="oracle.apps.pos.sdh.ext.common.server.PSSelectAM" />
+      <Attr Name="_ejbPackage" Value="false" />
+      <Attr Name="_appModuleNames243" Value="oracle.apps.pos.rcv.server.PosReceiptsQryAM" />
+      <Attr Name="_jprName" Value="NewPersonProject.jpr" />
+      <Attr Name="_appModuleNames242" Value="oracle.apps.pos.rcv.server.PosReturnsAM" />
+      <Attr Name="_appModuleNames241" Value="oracle.apps.pos.rcv.server.PosRcvRejectItemsAM" />
+      <Attr Name="_appModuleNames240" Value="oracle.apps.pos.product.server.PosOnHandAM" />
+      <Attr Name="_appModuleNames89" Value="oracle.apps.iby.fundcapture.setup.captureprocessprofile.server.FCProcessProfileAM" />
+      <Attr Name="_appModuleNames88" Value="oracle.apps.iby.disbursement.transaction.instruction.server.InstructionVoidAM" />
+      <Attr Name="_appModuleNames87" Value="oracle.apps.iby.disbursement.transaction.instruction.server.InstructionTransmissionAM" />
+      <Attr Name="_appModuleNames86" Value="oracle.apps.iby.disbursement.transaction.instruction.server.PmtInstructionsSearchAM" />
+      <Attr Name="_appModuleNames189" Value="oracle.apps.pos.supplier.lov.server.PosContAddrReqLovAM" />
+      <Attr Name="_appModuleNames85" Value="oracle.apps.iby.disbursement.transaction.instruction.server.PmtInstructionsDetailsAM" />
+      <Attr Name="_appModuleNames188" Value="oracle.apps.pos.supplier.lov.server.ShipViaAM" />
+      <Attr Name="_appModuleNames84" Value="oracle.apps.iby.disbursement.transaction.instruction.server.PrintPaymentDocumentsAM" />
+      <Attr Name="_appModuleNames187" Value="oracle.apps.pos.supplier.lov.server.TaxGroupAM" />
+      <Attr Name="_appModuleNames83" Value="oracle.apps.iby.disbursement.transaction.instruction.server.ReprintPaymentDocumentsAM" />
+      <Attr Name="_appModuleNames186" Value="oracle.apps.pos.notifications.server.NotificationsAM" />
+      <Attr Name="_appModuleNames82" Value="oracle.apps.iby.disbursement.transaction.instruction.server.ReprintPaymentDocumentsBlankAM" />
+      <Attr Name="_appModuleNames185" Value="oracle.apps.pos.imp.server.POSImportBatchMainAM" />
+      <Attr Name="_appModuleNames81" Value="oracle.apps.iby.disbursement.transaction.instruction.server.PaymentCompletionAM" />
+      <Attr Name="_appModuleNames184" Value="oracle.apps.pos.imp.server.POSImportAM" />
+      <Attr Name="_NamedConnection" Value="SIT" />
+      <Attr Name="_appModuleNames80" Value="oracle.apps.iby.disbursement.transaction.instruction.server.ResolvePaymentInstrValidationErrorsAM" />
+      <Attr Name="_appModuleNames183" Value="oracle.apps.pos.asn.server.PosAsnCreateAM" />
+      <Attr Name="_appModuleNames182" Value="oracle.apps.pos.asn.server.PosViewAsnDetailsAM" />
+      <Attr Name="_appModuleNames239" Value="oracle.apps.pos.product.server.PosSuppItemsAM" />
+      <Attr Name="_appModuleNames181" Value="oracle.apps.pos.lov.server.PosLovAM" />
+      <Attr Name="_appModuleNames238" Value="oracle.apps.pos.product.server.PosConsignAM" />
+      <Attr Name="_appModuleNames180" Value="oracle.apps.pos.lov.server.CountriesLovAM" />
+      <Attr Name="_appModuleNames237" Value="oracle.apps.pos.planning.server.HorzSchdCondViewAM" />
+      <Attr Name="_appModuleNames236" Value="oracle.apps.pos.onboard.server.FlexRegAM" />
+      <Attr Name="_appModuleNames235" Value="oracle.apps.pos.onboard.server.ProspSuppRegSearchAM" />
+      <Attr Name="_appModuleNames234" Value="oracle.apps.pos.onboard.server.ProspSuppRegAM" />
+      <Attr Name="_appModuleNames233" Value="oracle.apps.pos.onboard.server.OnboardConfigAM" />
+      <Attr Name="_appModuleNames232" Value="oracle.apps.pos.onboard.server.FlexRegProdSvcAM" />
+      <Attr Name="_appModuleNames231" Value="oracle.apps.pos.survey.server.SurveyAM" />
+      <Attr Name="_appModuleNames230" Value="oracle.apps.pos.survey.server.PosSurveyConfigAM" />
+      <Attr Name="_appModuleNames79" Value="oracle.apps.iby.disbursement.transaction.instruction.server.RecordPrintStatusAM" />
+      <Attr Name="_appModuleNames78" Value="oracle.apps.iby.disbursement.transaction.payment.server.PaymentDetailsAM" />
+      <Attr Name="_appModuleNames77" Value="oracle.apps.iby.disbursement.transaction.payment.server.VoidingPaymentAM" />
+      <Attr Name="_appModuleNames76" Value="oracle.apps.iby.disbursement.transaction.payment.server.ReviewProposedPaymentsAM" />
+      <Attr Name="_appModuleNames179" Value="oracle.apps.pos.lov.server.SBDLovAM" />
+      <Attr Name="_appModuleNames75" Value="oracle.apps.iby.disbursement.transaction.payment.server.ResolvingStopPaymentAM" />
+      <Attr Name="_appModuleNames178" Value="oracle.apps.pos.lov.server.SupplierBankAccountLovAM" />
+      <Attr Name="_appModuleNames74" Value="oracle.apps.iby.disbursement.transaction.payment.server.RecordingStopPaymentAM" />
+      <Attr Name="_appModuleNames177" Value="oracle.apps.pos.lov.server.PosShipSchedLovAM" />
+      <Attr Name="_appModuleNames73" Value="oracle.apps.iby.disbursement.transaction.payment.server.PaymentsSearchAM" />
+      <Attr Name="_appModuleNames176" Value="oracle.apps.pos.lov.server.OperatingUnitsLovAM" />
+      <Attr Name="_appModuleNames72" Value="oracle.apps.iby.disbursement.transaction.payment.server.ResolvePaymentValidationErrorsAM" />
+      <Attr Name="_appModuleNames175" Value="oracle.apps.pos.sbd.server.SuppRegBankAM" />
+      <Attr Name="_appModuleNames71" Value="oracle.apps.iby.disbursement.transaction.request.server.AssignmentCompletionAM" />
+      <Attr Name="_appModuleNames174" Value="oracle.apps.pos.sbd.server.PayPrefAM" />
+      <Attr Name="_appModuleNames70" Value="oracle.apps.iby.disbursement.transaction.request.server.DocsPayableDetailsAM" />
+      <Attr Name="_appModuleNames173" Value="oracle.apps.pos.sbd.server.ByrPayAM" />
+      <Attr Name="_appModuleNames172" Value="oracle.apps.pos.sbd.server.SuppMainAM" />
+      <Attr Name="_appModuleNames229" Value="oracle.apps.pos.request.server.PosAddrChgCompareAM" />
+      <Attr Name="_appModuleNames171" Value="oracle.apps.pos.sbd.server.ByrMainAM" />
+      <Attr Name="_appModuleNames228" Value="oracle.apps.pos.request.server.PosNewAddrReqAM" />
+      <Attr Name="_appModuleNames170" Value="oracle.apps.pos.profile.server.PSSetupAM" />
+      <Attr Name="_appModuleNames227" Value="oracle.apps.pos.request.server.PosContChgCompareAM" />
+      <Attr Name="_appModuleNames226" Value="oracle.apps.pos.request.server.SupplierContactAM" />
+      <Attr Name="_appModuleNames225" Value="oracle.apps.pos.request.server.BusinessClassificationAM" />
+      <Attr Name="_appModuleNames224" Value="oracle.apps.pos.request.server.SupplierRequestSharedRNAM" />
+      <Attr Name="_appModuleNames223" Value="oracle.apps.pos.request.server.PosNewContReqAM" />
+      <Attr Name="_appModuleNames222" Value="oracle.apps.pos.request.server.AddressAM" />
+      <Attr Name="_appModuleNames221" Value="oracle.apps.pos.request.server.PosPrfChgRecToDoAM" />
+      <Attr Name="_appModuleNames220" Value="oracle.apps.pos.request.server.PosPrfChgReqContAM" />
+      <Attr Name="_appModuleNames69" Value="oracle.apps.iby.disbursement.transaction.request.server.RejectedAndRemovalItemsAM" />
+      <Attr Name="_appModuleNames68" Value="oracle.apps.iby.disbursement.transaction.request.server.PmtProcessReqSearchAM" />
+      <Attr Name="_appModuleNames67" Value="oracle.apps.iby.disbursement.transaction.request.server.ResolveDocumentValidationAM" />
+      <Attr Name="_appModuleNames66" Value="oracle.apps.iby.disbursement.transaction.request.server.PmtProcessReqDetailsAM" />
+      <Attr Name="_appModuleNames169" Value="oracle.apps.pos.profile.server.OrgAM" />
+      <Attr Name="_appModuleNames65" Value="oracle.apps.iby.disbursement.transaction.request.server.FDProcessDashboardAM" />
+      <Attr Name="_appModuleNames168" Value="oracle.apps.pos.schema.server.SupplierRegVAM" />
+      <Attr Name="_appModuleNames64" Value="oracle.apps.iby.disbursement.setup.validationsets.server.SearchValidationSetsAM" />
+      <Attr Name="_appModuleNames167" Value="oracle.apps.pos.changeorder.server.PosRevHistoryAM" />
+      <Attr Name="_appModuleNames63" Value="oracle.apps.iby.disbursement.setup.systemoptions.server.PayerSystemOptionsAM" />
+      <Attr Name="_appModuleNames166" Value="oracle.apps.pos.changeorder.server.PosResponseAM" />
+      <Attr Name="_appModuleNames62" Value="oracle.apps.iby.disbursement.setup.server.BankAckCodesSearchAM" />
+      <Attr Name="_appModuleNames165" Value="oracle.apps.pos.changeorder.server.BuyerLovAM" />
+      <Attr Name="_appModuleNames61" Value="oracle.apps.iby.disbursement.setup.server.PaymentReasonsSearchAM" />
+      <Attr Name="_appModuleNames164" Value="oracle.apps.pos.changeorder.server.ChangeOrderAM" />
+      <Attr Name="_appModuleNames60" Value="oracle.apps.iby.disbursement.setup.server.BankInstructionsAM" />
+      <Attr Name="_appModuleNames163" Value="oracle.apps.pos.changeorder.server.ViewOrderAM" />
+      <Attr Name="_appModuleNames162" Value="oracle.apps.pos.changeorder.server.MultChangeOrderAM" />
+      <Attr Name="_appModuleNames219" Value="oracle.apps.pos.request.server.ProdSvcRequestAM" />
+      <Attr Name="_appModuleNames161" Value="oracle.apps.pos.administration.server.UserMainAM" />
+      <Attr Name="_appModuleNames218" Value="oracle.apps.pos.sdh.dqm.server.SuppSmartSearchAM" />
+      <Attr Name="_appModuleNames160" Value="oracle.apps.pos.administration.server.UserProfileAM" />
+      <Attr Name="_appModuleNames217" Value="oracle.apps.pos.sdh.dqm.server.SupplierPartyAM" />
+      <Attr Name="_appModuleNames216" Value="oracle.apps.pos.sdh.dqm.server.EnablePartyAsSuppAM" />
+      <Attr Name="_appModuleNames215" Value="oracle.apps.pos.sdh.dqm.server.SupRegDupPartiesAM" />
+      <Attr Name="_appModuleNames214" Value="oracle.apps.pos.sdh.dqm.server.PosUpdPartyAddrAM" />
+      <Attr Name="_appModuleNames213" Value="oracle.apps.pos.supplier.server.ByrOrgAM" />
+      <Attr Name="_appModuleNames212" Value="oracle.apps.pos.supplier.server.AddrIntvAM" />
+      <Attr Name="_appModuleNames211" Value="oracle.apps.pos.supplier.server.SuppSummAM" />
+      <Attr Name="_appModuleNames210" Value="oracle.apps.pos.supplier.server.SuppEditPersonalInfoSharedAM" />
+      <Attr Name="_appModuleNames59" Value="oracle.apps.iby.disbursement.setup.server.PaymentReasonsAM" />
+      <Attr Name="_appModuleNames58" Value="oracle.apps.iby.disbursement.setup.server.DeliveryChannelsSearchAM" />
+      <Attr Name="_appModuleNames57" Value="oracle.apps.iby.disbursement.setup.server.BankInstructionsSearchAM" />
+      <Attr Name="_appModuleNames56" Value="oracle.apps.iby.disbursement.setup.server.DeliveryChannelsAM" />
+      <Attr Name="_appModuleNames159" Value="oracle.apps.pos.administration.server.UserConfAM" />
+      <Attr Name="_appModuleNames55" Value="oracle.apps.iby.disbursement.setup.server.BankAckCodesAM" />
+      <Attr Name="_appModuleNames158" Value="oracle.apps.pos.account.server.PosPaymentAM" />
+      <Attr Name="_appModuleNames54" Value="oracle.apps.iby.disbursement.setup.paymentprocessprofile.lov.server.PaymentProcessProfileLovAM" />
+      <Attr Name="_appModuleNames157" Value="oracle.apps.pos.account.server.PosInvoiceAM" />
+      <Attr Name="_appModuleNames53" Value="oracle.apps.iby.disbursement.setup.paymentmethod.server.PaymentMethodAM" />
+      <Attr Name="_appModuleNames156" Value="oracle.apps.iby.ispeed.paymentprocessprofile.server.IbySysPmtProfAM" />
+      <Attr Name="_appModuleNames52" Value="oracle.apps.iby.disbursement.setup.paymentmethod.lov.server.PaymentMethodLovAM" />
+      <Attr Name="_appModuleNames155" Value="oracle.apps.iby.highriskinstr.server.HighRiskInstrAM" />
+      <Attr Name="_appModuleNames51" Value="oracle.apps.iby.disbursement.setup.defaultmethod.server.DefaultMethodAM" />
+      <Attr Name="_appModuleNames154" Value="oracle.apps.iby.fundcapture.transaction.request.server.SettlementBatchAM" />
+      <Attr Name="_appModuleNames50" Value="oracle.apps.iby.disbursement.setup.defaultmethod.lov.server.DefaultMethodLovAM" />
+      <Attr Name="_appModuleNames153" Value="oracle.apps.iby.fundcapture.transaction.request.server.FCProcessDashboardAM" />
+      <Attr Name="_appModuleNames152" Value="oracle.apps.iby.fundcapture.transaction.request.server.CreditsAM" />
+      <Attr Name="_appModuleNames209" Value="oracle.apps.pos.supplier.server.SuppAM" />
+      <Attr Name="_appModuleNames151" Value="oracle.apps.iby.fundcapture.transaction.request.server.SettlementsAM" />
+      <Attr Name="_appModuleNames208" Value="oracle.apps.pos.supplier.server.SuppPublicationHstryAM" />
+      <Attr Name="_appModuleNames150" Value="oracle.apps.iby.fundcapture.transaction.request.server.AuthorizationsAM" />
+      <Attr Name="_appModuleNames207" Value="oracle.apps.pos.supplier.server.SuppNotifyAM" />
+      <Attr Name="_appModuleNames206" Value="oracle.apps.pos.supplier.server.AddressListAM" />
+      <Attr Name="_appModuleNames205" Value="oracle.apps.pos.supplier.server.ByrSuppAM" />
+      <Attr Name="_appModuleNames204" Value="oracle.apps.pos.sdh.ext.user.server.SuppAttributesAM" />
+      <Attr Name="_appModuleNames203" Value="oracle.apps.pos.sdh.ext.user.server.ProspAttributesAM" />
+      <Attr Name="_appModuleNames202" Value="oracle.apps.pos.sdh.dqm.lov.server.PosPartyContactsAM" />
+      <Attr Name="_appModuleNames201" Value="oracle.apps.pos.supplier.components.server.ByrAddrAM" />
+      <Attr Name="_appModuleNames200" Value="oracle.apps.pos.supplier.components.server.AddressListAM" />
+      <Attr Name="_appModuleNames49" Value="oracle.apps.iby.disbursement.setup.component.test.server.TestPayeeSetupAM" />
+      <Attr Name="_appModuleNames48" Value="oracle.apps.iby.disbursement.setup.component.test.server.TestPayeeSearchAM" />
+      <Attr Name="_appModuleNames47" Value="oracle.apps.iby.disbursement.server.PaymentReasonsAM" />
+      <Attr Name="_appModuleNames46" Value="oracle.apps.iby.disbursement.server.BankInstructionsSearchAM" />
+      <Attr Name="_appModuleNames149" Value="oracle.apps.iby.fundcapture.transaction.testing.server.TestTransactionsAM" />
+      <Attr Name="_appModuleNames45" Value="oracle.apps.iby.disbursement.server.BankInstructionsAM" />
+      <Attr Name="_appModuleNames148" Value="oracle.apps.iby.fundcapture.setup.components.server.IbyViewCreditCardAM" />
+      <Attr Name="_appModuleNames44" Value="oracle.apps.iby.disbursement.server.PaymentReasonsSearchAM" />
+      <Attr Name="_appModuleNames43" Value="oracle.apps.iby.disbursement.server.DeliveryChannelsSearchAM" />
+      <Attr Name="_appModuleNames147" Value="oracle.apps.iby.fundcapture.setup.components.server.IbyTransactionExtensionAM" />
+      <Attr Name="_appModuleNames42" Value="oracle.apps.iby.disbursement.server.DeliveryChannelsAM" />
+      <Attr Name="_appModuleNames146" Value="oracle.apps.iby.fundcapture.setup.components.server.ExtBankAccountsAM" />
+      <Attr Name="_appModuleNames41" Value="oracle.apps.iby.common.setup.transmission.server.TransConfigDetailsAM" />
+      <Attr Name="_appModuleNames145" Value="oracle.apps.iby.fundcapture.setup.components.server.IbyPayerSetupAM" />
+      <Attr Name="_appModuleNames40" Value="oracle.apps.iby.common.setup.transmission.server.TransConfigAM" />
+      <Attr Name="_appModuleNames144" Value="oracle.apps.iby.lov.server.ValidationSetAssignmentLovAM" />
+      <Attr Name="_appModuleNames143" Value="oracle.apps.iby.lov.server.FndPayeeSetupLovAM" />
+      <Attr Name="_appModuleNames142" Value="oracle.apps.iby.lov.server.CreditCardIssuerLovAM" />
+      <Attr Name="_appModuleNames141" Value="oracle.apps.iby.lov.server.CurrencyLovAM" />
+      <Attr Name="_appModuleNames140" Value="oracle.apps.iby.lov.server.OperatingUnitsAM" />
+      <Attr Name="_appModuleNames39" Value="oracle.apps.iby.common.setup.transmission.server.TransmitProtocolViewAM" />
+      <Attr Name="_appModuleNames38" Value="oracle.apps.iby.common.setup.task.server.TaskListAM" />
+      <Attr Name="_appModuleNames37" Value="oracle.apps.iby.common.setup.server.ValidationSetAssignmentAM" />
+      <Attr Name="_appModuleNames36" Value="oracle.apps.iby.common.setup.server.SysSecurityOptionAM" />
+      <Attr Name="_appModuleNames35" Value="oracle.apps.iby.common.setup.server.SetupTaskAM" />
+      <Attr Name="_appModuleNames139" Value="oracle.apps.iby.lov.server.ActivePmtMthdsLovAM" />
+      <Attr Name="_appModuleNames34" Value="oracle.apps.iby.common.setup.paymentsystem.server.PaymentSystemAM" />
+      <Attr Name="_appModuleNames138" Value="oracle.apps.iby.lov.server.PayerAddressDetailsLovAM" />
+      <Attr Name="_appModuleNames33" Value="oracle.apps.iby.common.setup.payee.server.PayeeAM" />
+      <Attr Name="_appModuleNames137" Value="oracle.apps.iby.lov.server.SourceProductsLovAM" />
+      <Attr Name="_appModuleNames32" Value="oracle.apps.iby.common.setup.payee.server.PayeeSearchAM" />
+      <Attr Name="_appModuleNames136" Value="oracle.apps.iby.lov.server.ValidationSetsLOVAM" />
+      <Attr Name="_appModuleNames31" Value="oracle.apps.iby.common.setup.format.server.FormatAM" />
+      <Attr Name="_appModuleNames135" Value="oracle.apps.iby.lov.server.FormatLovAM" />
+      <Attr Name="_appModuleNames30" Value="oracle.apps.iby.schema.server.PaymentSystemVAM" />
+      <Attr Name="_appModuleNames134" Value="oracle.apps.iby.lov.server.SingleInternalBankAccountLovAM" />
+      <Attr Name="_appModuleNames133" Value="oracle.apps.iby.lov.server.ExtBankAccountsLovAM" />
+      <Attr Name="_appModuleNames132" Value="oracle.apps.iby.lov.server.PmtInstructionsStatusLovAM" />
+      <Attr Name="_appModuleNames131" Value="oracle.apps.iby.lov.server.PaymentMethodLovAM" />
+      <Attr Name="_appModuleNames130" Value="oracle.apps.iby.lov.server.PaymentProfileLovAM" />
+      <Attr Name="_appModuleNames29" Value="oracle.apps.iby.schema.server.PaymentProcessProfileVAM" />
+      <Attr Name="_appModuleNames28" Value="oracle.apps.iby.schema.server.PayeeVAM" />
+      <Attr Name="_appModuleNames27" Value="oracle.apps.iby.disbursement.setup.paymentprocessprofile.server.PaymentProcessProfileAM" />
+      <Attr Name="_appModuleNames26" Value="oracle.apps.iby.poplist.server.ValidationSetsPoplistAM" />
+      <Attr Name="_appModuleNames25" Value="oracle.apps.fnd.framework.toolbox.samplelib.server.SampleBrowserAM" />
+      <Attr Name="_appModuleNames129" Value="oracle.apps.iby.lov.server.SuppliersLovAM" />
+      <Attr Name="_appModuleNames24" Value="oracle.apps.fnd.framework.toolbox.labsolutions.server.DebugALabAM" />
+      <Attr Name="_appModuleNames128" Value="oracle.apps.iby.lov.server.PaymentReasonsLovAM" />
+      <Attr Name="_appModuleNames23" Value="oracle.apps.fnd.framework.toolbox.labsolutions.server.FlexfieldAM" />
+      <Attr Name="_appModuleNames127" Value="oracle.apps.iby.lov.server.FundsCaptureProcessProfilesLovAM" />
+      <Attr Name="_appModuleNames22" Value="oracle.apps.fnd.framework.toolbox.labsolutions.server.EmployeeAM" />
+      <Attr Name="_appModuleNames126" Value="oracle.apps.iby.lov.server.BankAccountLovAM" />
+      <Attr Name="_appModuleNames21" Value="oracle.apps.fnd.framework.toolbox.labsolutions.server.SupplierSAM" />
+      <Attr Name="_appModuleNames125" Value="oracle.apps.iby.lov.server.ReceiptMethodsARLovAM" />
+      <Attr Name="_appModuleNames124" Value="oracle.apps.iby.lov.server.InternalBankAccountsLovAM" />
+      <Attr Name="_appModuleNames20" Value="oracle.apps.fnd.framework.toolbox.labsolutions.server.HomeAM" />
+      <Attr Name="_appModuleNames123" Value="oracle.apps.iby.lov.server.OrganizationLovAM" />
+      <Attr Name="_appModuleNames122" Value="oracle.apps.iby.lov.server.ApplicablePaymentMethodLovAM" />
+      <Attr Name="_appModuleNames121" Value="oracle.apps.iby.lov.server.PaymentSystemLOVAM" />
+      <Attr Name="_appModuleNames120" Value="oracle.apps.iby.lov.server.PayeeLovAM" />
+   </DesignTime>
+   <Containee
+      Name="server"
+      FullName="awcust.oracle.apps.hr.person.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="mycompany.oracle.apps.fnd.framework.toolbox.schema.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="mycompany.oracle.apps.fnd.framework.toolbox.tutorial.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.awcust.reports.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.fnd.framework.toolbox.labsolutions.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.fnd.framework.toolbox.lov.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.fnd.framework.toolbox.poplist.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.fnd.framework.toolbox.samplelib.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.fnd.framework.toolbox.schema.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.fnd.framework.toolbox.tutorial.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.iby.admin.paymentsystem.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.iby.common.setup.format.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.iby.common.setup.payee.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.iby.common.setup.paymentsystem.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.iby.common.setup.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.iby.common.setup.task.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.iby.common.setup.transmission.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.iby.creditcard.setup.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.iby.disbursement.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.iby.disbursement.setup.component.lov.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.iby.disbursement.setup.component.poplist.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.iby.disbursement.setup.component.schema.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.iby.disbursement.setup.component.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.iby.disbursement.setup.component.test.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.iby.disbursement.setup.defaultmethod.lov.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.iby.disbursement.setup.defaultmethod.poplist.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.iby.disbursement.setup.defaultmethod.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.iby.disbursement.setup.paymentmethod.lov.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.iby.disbursement.setup.paymentmethod.poplist.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.iby.disbursement.setup.paymentmethod.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.iby.disbursement.setup.paymentprocessprofile.lov.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.iby.disbursement.setup.paymentprocessprofile.poplist.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.iby.disbursement.setup.paymentprocessprofile.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.iby.disbursement.setup.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.iby.disbursement.setup.systemoptions.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.iby.disbursement.setup.validationsets.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.iby.disbursement.transaction.instruction.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.iby.disbursement.transaction.payment.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.iby.disbursement.transaction.request.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.iby.fundcapture.setup.captureprocessprofile.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.iby.fundcapture.setup.channel.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.iby.fundcapture.setup.components.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.iby.fundcapture.setup.components.test.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.iby.fundcapture.transaction.request.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.iby.fundcapture.transaction.testing.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.iby.highriskinstr.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.iby.ispeed.paymentprocessprofile.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.iby.lov.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.iby.poplist.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.iby.schema.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.pos.account.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.pos.administration.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.pos.asn.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.pos.changeorder.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.pos.datalib.requestmerge.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.pos.imp.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.pos.isp.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.pos.lov.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.pos.notifications.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.pos.onboard.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.pos.planning.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.pos.product.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.pos.profile.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.pos.rcv.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.pos.registration.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.pos.request.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.pos.sbd.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.pos.schema.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.pos.sdh.dqm.lov.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.pos.sdh.dqm.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.pos.sdh.ext.admin.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.pos.sdh.ext.advsearch.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.pos.sdh.ext.common.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.pos.sdh.ext.lov.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.pos.sdh.ext.poplist.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.pos.sdh.ext.user.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.pos.sdh.hierarchy.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.pos.services.lov.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.pos.services.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.pos.ship.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.pos.spmntf.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.pos.supplier.components.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.pos.supplier.lov.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.pos.supplier.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.pos.suppreg.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.pos.survey.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.pos.wc.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="xx.oracle.apps.iby.fundcapture.setup.components.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="xx.oracle.apps.pos.supplier.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+</JboProject>

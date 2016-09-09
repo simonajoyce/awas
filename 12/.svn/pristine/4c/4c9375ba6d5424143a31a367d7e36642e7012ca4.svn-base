@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.6.6_606" xml:lang="en-US" customizes="/oracle/apps/ar/hz/components/party/person/webui/HzPuiPersonDupPrevention" developerMode="false" file-version="$Header: HzPuiPersonDupPrevention.xml 115.1 2004/01/09 07:10:19 mkatraga noship $" package="/oracle/apps/ar/hz/components/party/person/webui/customizations/function/ASN_CTCTWARNINGPG">
+   <modifications>
+      <modify element="header" text="New Contact"/>
+      <modify element="HzPuiPersonCreate" prompt="Use New Contact"/>
+      <modify element="HzPuiPersonDetails" blockSize="10"/>
+      <move element="HzPuiPersonAddress" after="HzPuiPersonName"/>
+      <move element="HzPuiPersonCountry" after="HzPuiPersonAddress"/>
+      <move element="HzPuiPersonPhoneNumber" after="HzPuiPersonCountry"/>
+      <move element="HzPuiPersonEmail" after="HzPuiPersonPhoneNumber"/>
+      <modify element="HzPuiPersonName" prompt="Contact"/>
+   </modifications>
+</customization>

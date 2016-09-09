@@ -1,0 +1,4 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/irc/candidateSelfService/webui/VisJobSchSCRN" developerMode="true" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: VisJobSchSCRN.xml 120.4 2005/11/10 08:47:55 mmillmor noship $" version="9.0.3.6.2_398" xml:lang="en-US" package="/oracle/apps/irc/customizations/function/IRC_VIS_JOB_SEARCH_PAGE/candidateSelfService/webui">
+   <modifications/>
+</customization>

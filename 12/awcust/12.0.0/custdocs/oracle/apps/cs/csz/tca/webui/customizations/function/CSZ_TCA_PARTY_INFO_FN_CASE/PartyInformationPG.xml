@@ -1,0 +1,40 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_19" xml:lang="en-US" customizes="/oracle/apps/cs/csz/tca/webui/PartyInformationPG" file-version="$Header: PartyInformationPG.xml 120.2 2006/05/18 14:25 jedward noship $" package="/oracle/apps/cs/csz/tca/webui/customizations/function/CSZ_TCA_PARTY_INFO_FN_CASE">
+   <modifications>
+      <modify element="AddressxTLRN.TCAAddressTablexRN.HzPuiSelectPrimaryUseButton" rendered="false"/>
+      <modify element="OrgRelataionshipxRN.TCAOrgRelationshipTablexRN.HzPuiContRelTableSelPrimaryEvent" rendered="false"/>
+      <modify element="ProfilexTLRN.TCAPersonProfilexRN.PersonNamePhonetic" rendered="false"/>
+      <modify element="ProfilexTLRN.TCAPersonProfilexRN.PersonLastNamePhonetic" rendered="false"/>
+      <modify element="ProfilexTLRN.TCAPersonProfilexRN.PersonAcademicTitle" rendered="false"/>
+      <modify element="ProfilexTLRN.TCAPersonProfilexRN.PersonFirstNamePhonetic" rendered="false"/>
+      <modify element="ProfilexTLRN.TCAPersonProfilexRN.MiddleNamePhonetic" rendered="false"/>
+      <modify element="ProfilexTLRN.TCAPersonProfileMorexRN.PersonalIncome" rendered="false"/>
+      <modify element="ProfilexTLRN.TCAPersonProfileMorexRN.RentOwnInd" rendered="false"/>
+      <modify element="ProfilexTLRN.TCAPersonProfileMorexRN.HeadOfHouseholdFlag" rendered="false"/>
+      <modify element="ProfilexTLRN.TCAOrgProfilexRN.pronunciation" rendered="false"/>
+      <modify element="ProfilexTLRN.TCAOrgProfileInfoxRN.ceo_name" rendered="false"/>
+      <modify element="ProfilexTLRN.TCAOrgProfileInfoxRN.ceo_title" rendered="false"/>
+      <modify element="ProfilexTLRN.TCAOrgProfileInfoxRN.incorporation_year" rendered="false"/>
+      <modify element="ProfilexTLRN.TCAOrgProfileInfoxRN.control_year" rendered="false"/>
+      <modify element="ProfilexTLRN.TCAOrgProfileInfoxRN.mission_statement" rendered="false"/>
+      <modify element="ProfilexTLRN.TCAContactProfilexRN.FullNamePronunciation" rendered="false"/>
+      <modify element="ProfilexTLRN.TCAContactProfilexRN.AcademicTitle" rendered="false"/>
+      <modify element="ProfilexTLRN.TCAContactProfilexRN.FirstNamePronunciation" rendered="false"/>
+      <modify element="ProfilexTLRN.TCAContactProfilexRN.MiddleNamePronunciation" rendered="false"/>
+      <modify element="ProfilexTLRN.TCAContactProfilexRN.LastNamePronunciation" rendered="false"/>
+      <modify element="ProfilexTLRN.TCAContactProfilexRN.HzPuiShowContact" rendered="false"/>
+      <modify element="ProfilexTLRN.TCAPersonProfileMorexRN.HouseholdSize" rendered="false"/>
+      <modify element="ProfilexTLRN.TCAPersonProfileMorexRN.HouseholdIncome" rendered="false"/>
+      <modify element="ProfilexTLRN.TCAPersonProfileMorexRN.RowLayout3" rendered="false"/>
+      <modify element="ProfilexTLRN.TCAPersonProfileMorexRN.item3" rendered="false"/>
+      <modify element="ProfilexTLRN.TCAPersonProfileMorexRN.RowLayout4" rendered="false"/>
+      <modify element="ProfilexTLRN.TCAPersonProfileMorexRN.item4" rendered="false"/>
+      <modify element="EmailxTLRN.TCAEmailTablexRN.EmailAddress" destination=""/>
+      <modify element="OrgRelataionshipxRN.TCAOrgRelationshipTablexRN.email" destination=""/>
+      <modify element="PerRelataionshipxRN.TCAPerRelationshipTablexRN.phone" rendered="false"/>
+      <modify element="PerRelataionshipxRN.TCAPerRelationshipTablexRN.email" destination="" rendered="false"/>
+      <modify element="PerRelataionshipxRN.TCAPerRelationshipTablexRN.address" rendered="false"/>
+      <modify element="ClassificationTablexRN.TCAClassificationTablexRN" text="Classifications"/>
+      <modify element="ProfilexTLRN.TCAOrgProfileInfoxRN.spacer2" rendered="false"/>
+   </modifications>
+</customization>

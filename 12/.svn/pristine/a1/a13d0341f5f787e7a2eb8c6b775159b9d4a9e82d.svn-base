@@ -1,0 +1,10 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="" xml:lang="en-US" customizes="/oracle/apps/fnd/framework/attachments/webui/FND_ATTACH_TABLE_CONTAINER" developerMode="true" package="/oracle/apps/fnd/customizations/function/CS_KB_AUTH_PREVIEW_FN/framework/attachments/webui" file-version="$Header: FND_ATTACH_TABLE_CONTAINER.xml 115.0 2004/03/11 00:45:12 awwong noship $">
+   <modifications>
+      <modify element="AttachmentTable.AkDataType" rendered="false"/>
+      <modify element="AttachmentTable.AkCategoryName" rendered="false"/>
+      <modify element="AttachmentTable.LastUpdatedBy" rendered="false"/>
+      <modify element="AttachmentTable.LastUpdateDate" rendered="false"/>
+      <modify element="AttachmentTable.UsageTypeColumn" rendered="false"/>
+   </modifications>
+</customization>

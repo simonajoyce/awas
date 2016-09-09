@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_19" xml:lang="en-US" customizes="/oracle/apps/cs/csz/tca/webui/PrsnDupPreventionPG" package="/oracle/apps/cs/csz/tca/webui/customizations/function/CSZ_TCA_PER_DEDUP_FN" file-version="$Header: PrsnDupPreventionPG.xml 120.0 2006/04/24 16:07 jedward noship $">
+   <modifications>
+      <modify element="xDupIdRN.HzPuiPersonEmail" destination=""/>
+      <modify element="xDupRsltRN.header" text="Option 2: Use Existing Person"/>
+      <modify element="xDupRsltRN.Email" destination=""/>
+   </modifications>
+</customization>

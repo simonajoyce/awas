@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.6.6_652" xml:lang="en-US" customizes="/oracle/apps/per/selfservice/newhire/webui/CWKPlacementPG" developerMode="false" file-version="$Header: CWKPlacementPG.xml 120.0 2005/06/03 01:37:56 appldev noship $" package="/oracle/apps/per/customizations/localization/MX/selfservice/newhire/webui">
+   <modifications>
+      <move element="HireLastName" after="HireBusinessGroup"/>
+      <move element="HireFirstName" after="HireLastName"/>
+      <move element="HireDateOfBirth" after="HireFirstName"/>
+      <move element="HireNationalIdentifier" after="HireDateOfBirth"/>
+      <move element="HireHireDate" after="HireNationalIdentifier"/>
+      <move element="HireBusinessGroupId" after="HireHireDate"/>
+      <move element="HireLegislationCode" after="HireBusinessGroupId"/>
+      <move element="HrPersonDevDfFlex" after="HireLegislationCode"/>
+      <modify element="HireLastName" prompt="Paternal Last Name"/>
+      <modify element="HrPersonDevDfFlex" segmentList="MX|Maternal_Last_Name||"/>
+      <modify element="HireDateOfBirth" tipType="dateFormat"/>
+      <modify element="HireNationalIdentifier" prompt="CURP"/>
+      <modify element="HireHireDate" tipType="dateFormat"/>
+   </modifications>
+</customization>

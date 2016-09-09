@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/cs/csz/dashboard/webui/DashboardSDeskPG" package="/oracle/apps/cs/csz/dashboard/webui/customizations/function/CSZ_SDESK_DB_FN_CHERRYPICK" file-version="$Header: DashboardSDeskPG.xml 120.5 2006/05/17 16:58 nazhang noship $">
+   <modifications>
+      <modify element="xSISearchBinRN.SISearchRow3" rendered="false"/>
+      <modify element="xSISearchBinRN.SISearchRow4" rendered="false"/>
+      <modify element="xSISearchBinRN.SISearchRow5" rendered="false"/>
+      <modify element="GetNextWorkFC" rendered="false"/>
+      <modify element="xAgentTaskQueue.CszSumRefreshRow" rendered="false"/>
+      <modify element="xGroupTaskQueue.CszUnSumRefreshRow" rendered="false"/>
+      <modify element="QuickLinksStackIRN.QuickLinkHeader" text="My Links"/>
+      <modify element="xGroupQueueRN.RefreshGroupRow" rendered="false"/>
+      <modify element="xAgentQueueRN.RefreshAgentRow" rendered="false"/>
+      <modify element="xSISearchBinRN.serviceKeySel" defaultValue="CSZSKEMPNUM"/>
+      <modify element="xAvailabilityRN1.AvailabilityHdr" rendered="false"/>
+   </modifications>
+</customization>

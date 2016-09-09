@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/irc/candidateSelfService/webui/EmpVisVacDispPG" developerMode="true" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: EmpVisVacDispPG.xml 120.4 2005/11/10 08:56:13 mmillmor noship $" version="9.0.3.6.2_398" xml:lang="en-US" package="/oracle/apps/irc/customizations/function/IRC_EMP_VIS_VAC_DISPLAY/candidateSelfService/webui">
+   <modifications>
+      <modify element="ApplyDrillDown" prompt="IRC_EMP_VIS_APPLY_LOGIN_PAGE"/>
+      <modify element="JobBasketDrillDown" prompt="IRC_EMP_VIS_JOB_BASKET_PAGE"/>
+      <move element="IrcAction" after="MainHeader"/>
+      <move element="IrcActionType" after="IrcAction"/>
+      <move element="IrcActionValue" after="IrcActionType"/>
+      <move element="JobBasketDrillDown" after="IrcActionValue"/>
+      <move element="ReferDrillDown" after="JobBasketDrillDown"/>
+      <move element="ApplyDrillDown" after="ReferDrillDown"/>
+      <move element="CompetenceElementIdFlexDrill" after="ApplyDrillDown"/>
+   </modifications>
+</customization>

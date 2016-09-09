@@ -1,0 +1,26 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.6.6_557" xml:lang="en-US" customizes="/oracle/apps/per/selfservice/personalinformation/webui/BasicDetNamUpdRN" developerMode="false" package="/oracle/apps/per/customizations/localization/SA/selfservice/personalinformation/webui" file-version="$Header: BasicDetNamUpdRN.xml 120.3 2005/10/03 06:19:49 adevanat noship $">
+   <modifications>
+      <move element="HrTitle" after="HrEffectiveDate"/>
+      <move element="HrFullName" after="HrTitle"/>
+      <move element="HrFirstName" after="HrFullName"/>
+      <move element="HrLastName" after="HrFirstName"/>
+      <move element="HrPreferredName" after="HrLastName"/>
+      <move element="HrPrevLastName" after="HrPreferredName"/>
+      <move element="HrPersonDevDfFlex" after="HrPrevLastName"/>
+      <move element="HrMiddleName" after="HrPersonDevDfFlex"/>
+      <move element="HrPrefix" after="HrMiddleName"/>
+      <move element="HrSuffix" after="HrPrefix"/>
+      <move element="HrHonors" after="HrSuffix"/>
+      <modify element="HrPersonDevDfFlex" segmentList="SA|FATHER_NAME|GRANDFATHER_NAME|ALT_FIRST_NAME|ALT_FATHER_NAME|ALT_GRANDFATHER_NAME|ALT_FAMILY_NAME" rendered="true"/>
+      <modify element="HrMiddleName" rendered="false"/>
+      <modify element="HrPrefix" tipType="longMessage" rendered="false"/>
+      <modify element="HrSuffix" tipType="longMessage" rendered="false"/>
+      <modify element="HrPreferredName" tipType="longMessage" rendered="true"/>
+      <modify element="HrPrevLastName" tipType="longMessage" prompt="Previous Family Name" rendered="true"/>
+      <modify element="HrEffectiveDate" tipType="longMessage"/>
+      <modify element="HrTitle" required="no"/>
+      <modify element="HrFirstName" required="yes"/>
+      <modify element="HrLastName" prompt="Family Name"/>
+   </modifications>
+</customization>

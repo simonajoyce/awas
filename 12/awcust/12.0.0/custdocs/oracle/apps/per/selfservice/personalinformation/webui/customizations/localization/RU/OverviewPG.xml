@@ -1,0 +1,29 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/per/selfservice/personalinformation/webui/OverviewPG" developerMode="false" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" file-version="$Header: OverviewPG.xml 120.0 2005/06/03 02:41:12 appldev noship $" version="9.0.5.4.64_464" xml:lang="en-US" package="/oracle/apps/per/selfservice/personalinformation/webui/customizations/localization/RU">
+   <modifications>
+      <move element="PerFullName" after="TableLayout"/>
+      <move element="PerMaritalStatus" after="PerFullName"/>
+      <move element="PerDateOfBirth" after="PerMaritalStatus"/>
+      <move element="HrSsn" after="PerDateOfBirth"/>
+      <move element="HrEmpNum" after="HrSsn"/>
+      <move element="HrNpwNum" after="HrEmpNum"/>
+      <move element="HrEmailAddress" after="HrNpwNum"/>
+      <move element="PersonId" after="HrEmailAddress"/>
+      <move element="BasicDetailsViewFuture" after="BasicDetailsUpdate"/>
+      <move element="BasicDetailsViewPendingAprv" after="BasicDetailsViewFuture"/>
+      <modify element="PerDateOfBirth" tipType="dateFormat"/>
+      <modify element="HrSsn" prompt="INN" tipMessageAppShortName="Inherit" tipMessageName="" tipType="none"/>
+      <move element="HrMainAddressFlex" after="tableLayout1"/>
+      <move element="HrAddressType" after="HrMainAddressFlex"/>
+      <move element="MainAddressUpdate" after="MainAddressAdd"/>
+      <move element="MainAddressViewFuture" after="MainAddressUpdate"/>
+      <move element="MainAddressViewPendingAprv" after="MainAddressViewFuture"/>
+      <modify element="HrMainAddressFlex" segmentList="RU|Address Category|Zip Code|Place(OKATO)|Region/District|City|Street|House Number|Building|Apartment Number||"/>
+      <move element="HrSecondaryAddressFlex" after="tableLayout2"/>
+      <move element="HrAddressType____1" after="HrSecondaryAddressFlex"/>
+      <move element="SecondaryAddressUpdate" after="SecondaryAddressAdd"/>
+      <move element="SecondaryAddressViewFuture" after="SecondaryAddressUpdate"/>
+      <move element="SecondaryAddressViewPendingApr" after="SecondaryAddressViewFuture"/>
+      <modify element="HrSecondaryAddressFlex" segmentList="RU|Address Category|Zip Code|Place(OKATO)|Region/District|City|Street|House Number|Building|Apartment Number||"/>
+   </modifications>
+</customization>

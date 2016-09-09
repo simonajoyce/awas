@@ -1,0 +1,37 @@
+--------------------------------------------------------
+--  File created - Wednesday-May-13-2015   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Package XX_GL_SALMON_ACCTG_INT
+--------------------------------------------------------
+
+  CREATE OR REPLACE PACKAGE "APPS"."XX_GL_SALMON_ACCTG_INT" as 
+/*******************************************************************************
+PACKAGE NAME : XX_GL_SALMON_ACCTG_INT
+CREATED BY   : Simon Joyce
+DATE CREATED : 21-Jan-2015
+--
+PURPOSE      : Imports Accoutning Transactions from Salmon
+--
+ARGUMENTS
+    ERRBUF                Apps Standard Error Buffer
+    RETCODE               Apps Standard Return Code
+    P_ACCOUNTING_DATE     User Entered Account Date parameter 
+--
+MODIFICATION HISTORY
+--------------------
+--
+DATE       WHO?       DETAILS                              DESCRIPTION
+---------- ---------  -----------------------------------  ---------------------
+21-01-2015 SJOYCE     Initial Version
+*******************************************************************************/
+
+  PROCEDURE main
+     (
+          ERRBUF OUT varchar2,
+          RETCODE OUT number,
+          P_ACCOUNTING_DATE varchar2);
+
+END XX_GL_SALMON_ACCTG_INT;
+
+/

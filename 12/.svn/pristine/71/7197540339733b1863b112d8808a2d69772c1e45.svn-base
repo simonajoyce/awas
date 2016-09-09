@@ -1,0 +1,24 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/per/selfservice/personalinformation/webui/BasicDetNamUpdRN" developerMode="false" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" file-version="$Header: BasicDetNamUpdRN.xml 120.2 2005/09/20 05:40:12 grchandr noship $" version="9.0.3.6.7_727" xml:lang="en-US" package="/oracle/apps/per/customizations/localization/ES/selfservice/personalinformation/webui">
+   <modifications>
+      <move element="HrLastName" after="HrEffectiveDate"/>
+      <move element="HrPersonDevDfFlex" after="HrLastName"/>
+      <move element="HrFirstName" after="HrPersonDevDfFlex"/>
+      <move element="HrTitle" after="HrFirstName"/>
+      <move element="HrMiddleName" after="HrTitle"/>
+      <move element="HrPrevLastName" after="HrMiddleName"/>
+      <move element="HrPreferredName" after="HrPrevLastName"/>
+      <move element="HrPrefix" after="HrPreferredName"/>
+      <move element="HrSuffix" after="HrPrefix"/>
+      <move element="HrFullName" after="HrSuffix"/>
+      <move element="HrHonors" after="HrFullName"/>
+      <modify element="HrEffectiveDate"/>
+      <modify element="HrFirstName" prompt="Name"/>
+      <modify element="HrPersonDevDfFlex" segmentList="ES|Second Last Name||" rendered="true"/>
+      <modify element="HrPrefix" prompt="Prefix"/>
+      <modify element="HrLastName" prompt="First Last Name"/>
+      <modify element="HrSuffix"/>
+      <modify element="HrPreferredName"/>
+      <modify element="HrPrevLastName" prompt="Maiden Name"/>
+   </modifications>
+</customization>

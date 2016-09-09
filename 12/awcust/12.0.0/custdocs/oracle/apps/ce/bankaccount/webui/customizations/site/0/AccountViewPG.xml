@@ -1,0 +1,38 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_50" xml:lang="en-US" customizes="/oracle/apps/ce/bankaccount/webui/AccountViewPG" xmlns:oa="http://xmlns.oracle.com/oa">
+   <modifications>
+      <move element="Separator" after="AccountTopRN"/>
+      <move element="Spacer" after="Separator"/>
+      <move element="AccountOwnerUseRN" after="Spacer"/>
+      <move element="AccountInfoRN" after="AccountOwnerUseRN"/>
+      <move element="AccountCtrlMainRN" after="AccountInfoRN"/>
+      <move element="AccountAccessRN" after="AccountCtrlMainRN"/>
+      <move element="AccountContactRN" after="AccountAccessRN"/>
+      <move element="PageButtonRN" after="AccountContactRN"/>
+      <move element="Spacer2" after="AccountOwnerUseBtnTable"/>
+      <move element="AccountOwnerUseTableRN" after="Spacer2"/>
+      <insert after="AccountOwnerUseTableRN">
+         <oa:attachmentTable id="AWAS_Attachment" adminCustomizable="true" autoCommitEnabled="true" enableDocumentCatalog="false" oracleFilesEnabled="false" postDefault="false" recordHistoryEnabled="false" rendered="true" scope="." searchRegionRendered="false" serverUnvalidated="true" text="Account Documents" unvalidated="true" viewName="BankAccountsVO" virusScanEnabled="false" xmlns:oa="http://xmlns.oracle.com/oa">
+            <oa:entityMappings>
+               <oa:entityMap id="AWAS_ENT_MAP" deleteAllowed="false" entityId="CE_BANK_ACCOUNTS" insertAllowed="false" scope="." showAll="true" updateAllowed="false">
+                  <oa:categoryMappings>
+                     <oa:categoryMap id="AWAS_CAT_MAP1" categoryName="MISC" scope="." secured="false"/>
+                     <oa:categoryMap id="AWAS_CAT_MAP2" categoryName="CUSTOM1000551" scope="." secured="false"/>
+                     <oa:categoryMap id="AWAS_CAT_MAP3" categoryName="CUSTOM1000545" scope="." secured="false"/>
+                     <oa:categoryMap id="AWAS_CAT_MAP4" categoryName="CUSTOM1000546" scope="." secured="false"/>
+                     <oa:categoryMap id="AWAS_CAT_MAP5" categoryName="CUSTOM1000547" scope="." secured="false"/>
+                     <oa:categoryMap id="AWAS_CAT_MAP6" categoryName="CUSTOM1000548" scope="." secured="false"/>
+                     <oa:categoryMap id="AWAS_CAT_MAP7" categoryName="CUSTOM1000549" scope="." secured="false"/>
+                     <oa:categoryMap id="AWAS_CAT_MAP8" categoryName="CUSTOM1000550" scope="." secured="false"/>
+                     <oa:categoryMap id="AWAS_CAT_MAP9" categoryName="CUSTOM1000552" scope="." secured="false"/>
+                     <oa:categoryMap id="AWAS_CAT_MAP10" categoryName="CUSTOM1000553" scope="." secured="false"/>
+                  </oa:categoryMappings>
+                  <oa:primaryKeys>
+                     <oa:primaryKey id="AWAS_PK" scope="." viewAttr="BankAccountId"/>
+                  </oa:primaryKeys>
+               </oa:entityMap>
+            </oa:entityMappings>
+         </oa:attachmentTable>
+      </insert>
+   </modifications>
+</customization>

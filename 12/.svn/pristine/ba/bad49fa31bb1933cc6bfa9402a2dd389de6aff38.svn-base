@@ -1,0 +1,30 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.6.6_606" xml:lang="en-US" customizes="/oracle/apps/ar/hz/components/contact/webui/HzPuiContactDetails" developerMode="false" file-version="$Header: HzPuiContactDetails.xml 115.1 2004/01/09 05:56:54 mkatraga noship $" package="/oracle/apps/ar/hz/components/contact/webui/customizations/function/ASN_CTCTVIEWROPG">
+   <modifications>
+      <move element="KnownAs" after="PersonPartyName"/>
+      <move element="RelatedOrganization" after="KnownAs"/>
+      <move element="JobTitle" after="RelatedOrganization"/>
+      <move element="Department" after="JobTitle"/>
+      <move element="HzPuiPersonPartyId" after="Department"/>
+      <move element="HzPuiOrgPartyId" after="HzPuiPersonPartyId"/>
+      <move element="HzPuiRelParyId" after="HzPuiOrgPartyId"/>
+      <move element="HzPuiPersonPartyName" after="HzPuiRelParyId"/>
+      <move element="HzPuiOrgPartyName" after="HzPuiPersonPartyName"/>
+      <move element="HzPuiContactDetailEvent" after="HzPuiOrgPartyName"/>
+      <move element="RelationshipRole" after="HzPuiContactDetailEvent"/>
+      <move element="FirstName" after="RelationshipRole"/>
+      <move element="LastName" after="FirstName"/>
+      <move element="Prefix" after="LastName"/>
+      <move element="OrgPartyId" after="Prefix"/>
+      <move element="PersonMiddleName" after="OrgPartyId"/>
+      <move element="Suffix" after="PersonMiddleName"/>
+      <move element="PersonPreviousLastName" after="Suffix"/>
+      <move element="JobTitleCode" after="PersonPreviousLastName"/>
+      <move element="DepartmentCode" after="JobTitleCode"/>
+      <move element="RelationshipEndDate" after="DepartmentCode"/>
+      <modify element="PersonPartyName" rendered="false"/>
+      <modify element="KnownAs" prompt="Preferred Name"/>
+      <modify element="RelatedOrganization" prompt="Customer"/>
+      <modify element="RelationshipRole" rendered="false"/>
+   </modifications>
+</customization>

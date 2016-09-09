@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/pos/inquiry/webui/PosViewComparePG" file-version="$Header: PosViewComparePG.xml 120.1.12000000.1 2007/10/24 18:19:09 rallamse noship $" package="/oracle/apps/pos/inquiry/webui/customizations/function/ILS_ISUPP_PERZ">
+   <modifications>
+      <modify element="POSVIEWCOMPAREMAINPAGE" controllerClass="oracle.apps.ja.pos.po.webui.ILCompareMainCO"/>
+      <modify element="CompareHdrInfoRN" controllerClass="oracle.apps.ja.pos.po.webui.ILCompareHeaderInfoCO"/>
+   </modifications>
+</customization>

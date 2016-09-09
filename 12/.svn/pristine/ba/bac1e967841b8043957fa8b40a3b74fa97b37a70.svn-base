@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xapi:requestset xmlns:xapi="http://xmlns.oracle.com/oxp/xapi">
+    <xapi:globalData location="stream"/>
+<!--Serengeti Interface Report Bursting-->
+    <xapi:request select="/XXAP_SERENGETI_IF_REP_DD/LIST_G_EMAIL/G_EMAIL">
+        <xapi:delivery>
+            <xapi:email server="DUBMMA01" server-alias="" proxy=""
+                port="25" from="oracle@awas.com" reply-to="oracle@awas.com">
+                <xapi:message id="555" to="${EMAIL}" cc="" bcc=""
+                    attachment="false" content-type="html/text" subject="Serengeti Interface Report">
+				</xapi:message>
+                <xapi:authentication username="awas" password="awas_175"/>
+            </xapi:email>
+        </xapi:delivery>
+        <xapi:document output-type="html" delivery="555" output="Serengeti Interface Report">
+        <xapi:template type="rtf" location="xdo://AWCUST.XXAP_SERENGETI_IF_REP.en.00/?getSource=true" filter="">
+        </xapi:template>
+    </xapi:document>
+    </xapi:request>
+</xapi:requestset>

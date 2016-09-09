@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.64_464" xml:lang="en-US" customizes="/oracle/apps/pqp/vehiclemileage/webui/VehicleCreatePG" developerMode="true" file-version="$Header: VehicleCreatePG.xml 120.0 2005/05/29 05:37:05 appldev noship $" package="/oracle/apps/pqp/vehiclemileage/webui/customizations/localization/DK">
+   <modifications>
+      <modify element="InitialRegDate" prompt="Licence Registration Date"/>
+      <modify element="LastRegRenewDate" prompt="Buying Date"/>
+      <modify element="ListPrice" prompt="Buying Price"/>
+   </modifications>
+</customization>

@@ -1,0 +1,26 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.6.6_652" xml:lang="en-US" customizes="/oracle/apps/per/selfservice/hrviews/webui/ViewEpiPG" developerMode="false" file-version="$Header: ViewEpiPG.xml 115.2 2004/05/26 03:55 gaugupta noship $" package="/oracle/apps/per/customizations/localization/IN/selfservice/hrviews/webui">
+   <modifications>
+      <move element="LastName" after="FirstName"/>
+      <move element="FullName" after="LastName"/>
+      <move element="HrPreferredName" after="FullName"/>
+      <move element="Gender" after="HrPreferredName"/>
+      <move element="PrevLastName" after="Gender"/>
+      <move element="MaritalStatus" after="PrevLastName"/>
+      <move element="DateOfBirth" after="MaritalStatus"/>
+      <move element="PerPersonType" after="DateOfBirth"/>
+      <move element="PerEmploymentCategory" after="PerPersonType"/>
+      <move element="EmployeeNumber" after="PerEmploymentCategory"/>
+      <move element="Disability" after="EmployeeNumber"/>
+      <move element="NationalIdentifier" after="Disability"/>
+      <modify element="HrPreferredName" prompt="Alias"/>
+      <modify element="PrevLastName" rendered="true"/>
+      <modify element="DateOfBirth" tipType="dateFormat"/>
+      <modify element="NationalIdentifier" rendered="false"/>
+      <move element="HrSecondaryAddressLabel" after="HrPrimaryAddressLabel"/>
+      <move element="HrPrimaryAddressFlex" after="HrSecondaryAddressLabel"/>
+      <move element="HrSecondaryAddressFlex" after="HrPrimaryAddressFlex"/>
+      <modify element="HrPrimaryAddressFlex" segmentList="IN|Address Line 1|Address Line 2|Address Line 3|Address Line 4|TOWN_CITY|State/UT|Pin Code||IN_GLB|Address Line 1|Address Line 2|Address Line 3|Address Line 4|Town/City/District|State/UT|Pin Code"/>
+      <modify element="HrSecondaryAddressFlex" segmentList="IN|Address Line 1|Address Line 2|Address Line 3|Address Line 4|TOWN_CITY|State/UT|Pin Code||IN_GLB|Address Line 1|Address Line 2|Address Line 3|Address Line 4|Town/City/District|State/UT|Pin Code||"/>
+   </modifications>
+</customization>

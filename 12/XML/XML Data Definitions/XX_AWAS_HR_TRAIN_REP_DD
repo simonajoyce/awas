@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- $Header: XX_AWAS_HR_TRAIN_REP_DD.xml 2016/01/30 12:56:20 sjoyce noship $-->
+<!-- dbdrv: exec java oracle/apps/xdo/oa/util XDOLoader.class java &phase=dat checkfile:~PROD:patch/115/publisher/defs:XX_AWAS_HR_TRAIN_REP_DD.xml UPLOAD - DB_USERNAME &un_apps -DB_PASSWORD &pw_apps -JDBC_CONNECTION &jdbc_db_addr -LOB_TYPE DATA_TEMPLATE -APPS_SHORT_NAME ~PROD -LOB_CODE APOBRR -LANGUAGE 00 -XDO_FILE_TYPE XML-DATA-TEMPLATE -FILE_NAME &fullpath:~PROD:patch/115/publisher/defs:XX_AWAS_HR_TRAIN_REP_DD.xml#  -->
+<!-- GSCC_Category="Xdo Data Definition" -->
+<dataTemplate name="XX_AWAS_HR_TRAIN_REP" defaultPackage="XX_AWAS_HR_TRAIN_REP_pkg" version="1.0">
+<properties>
+<property name="debug_mode" value="on" />
+<property name="xml_tag_case" value="upper" />
+</properties>
+<parameters>
+<parameter name="P_PERIOD" dataType = "CHARACTER"></parameter>
+</parameters>
+<dataQuery>
+<sqlStatement name="Q_GL_BALANCES">
+<![CDATA[
+ SELECT decode(actual_flag,'A','Actuals','Budget') Bal_type
+     , decode(b.period_name, p.period_name, 'Current Period','Future Period') BAL_Period_type
+     , b.period_name BAL_PERIOD_NAME
+     , b.period_num BAL_PERIOD_NUM
+     , c.segment1
+       ||'.'
+       ||c.segment2
+       ||'.'
+       ||c.segment3 BAL_GL_Code
+     , begin_balance_dr-begin_balance_cr BAL_Opening_Bal
+     , period_net_Dr- period_net_Cr BAL_PTD
+     , (begin_balance_dr + period_net_Dr )-( begin_balance_cr + period_net_Cr) BAL_YTD
+   FROM gl_balances b
+     , gl_Code_combinations c
+     , gl_periods p
+  WHERE b.code_combination_id = c.code_combination_id
+   AND c.segment2             = '573805'
+   AND b.ledger_id            = 8
+   and b.currency_Code = 'USD'
+   and c.summary_flag = 'N'
+   and p.period_set_name = 'AWAS'
+   and p.period_name = :P_PERIOD
+   AND b.period_year =  p.period_year
+   and b.period_num  >= p.period_num
+   and b.period_name not like 'ADJ%'
+   and abs(begin_balance_dr)+abs(begin_balance_cr)+abs(period_net_Dr)+abs(period_net_Cr) <> 0
+   order by 5,1,2,4
+]]>
+</sqlStatement>
+<sqlStatement name="Q_GL_ACTUALS">
+<![CDATA[
+  SELECT 'Auto' ACTUALS_SOURCE
+       ,c.segment1
+       ||'.'
+       ||c.segment2
+       ||'.'
+       ||c.segment3 ACTUALS_GL_Code
+     , h.je_source ACTUALS_JE_SOURCE
+     , h.je_category ACTUALS_JE_CATEGORY
+     , i.gl_date ACTUALS_GL_DATE
+     , jl.period_name ACTUALS_PERIOD_NAME
+     , s.vendor_name ACTUALS_VENDOR_NAME
+     , ad.merchant_name ACTUALS_MERCHANT_NAME
+     , i.invoice_num AS ACTUALS_TRX_NUM
+     , i.invoice_date ACTUALS_TRX_DATE
+     , initcap(jl.description) ACTUALS_DESCRIPTION
+     , jl.accounted_dr AS ACTUALS_DEBIT
+     , jl.accounted_cr AS ACTUALS_CREDIT
+     , NVL(Jl.Accounted_Dr, 0) - NVL(Jl.Accounted_Cr, 0) ACTUALS_NET
+     , poh.segment1 ACTUALS_PO_Number
+     , rh.segment1 ACTUALS_Req_number
+     , req_prep.full_name ACTUALS_requested_by
+     , req_for.full_name ACTUALS_requested_for
+     , gcc.segment3 ACTUALS_Employee_cost_centre
+     , Xx.Approval_Details ACTUALS_APPROVAL
+     , Xx.Imscan_Doc ACTUALS_IMSCAN
+   FROM Apps.Gl_Je_Headers H
+     , apps.gl_je_lines jl
+     , Apps.Gl_Code_Combinations C
+     , apps.gl_import_references r
+     , xla.xla_ae_lines al
+     , xla.Xla_Ae_headers Ah
+     , xla.xla_distribution_links l
+     , apps.ap_invoices_all i
+     , apps.ap_invoice_distributions_all ad
+     , apps.ap_suppliers s
+     , xla.xla_events e
+     , xla.xla_transaction_entities te
+     , gl_periods p
+     , gl_periods gp
+     , po_distributions_all pda
+     , Po_Requisition_Lines_All rl
+     , Po_Requisition_Headers_All rh
+     , PO.Po_Req_Distributions_All rd
+     , po_headers_all poh
+     , xx_ap_invoice_extras_mv xx
+     , per_all_people_f req_prep
+     , per_all_people_f req_for
+     , gl_code_combinations gcc
+     , per_all_assignments_f a
+  WHERE ad.line_type_lookup_code      = 'ITEM'
+   AND jl.je_header_id                = h.je_header_id
+   AND gp.period_set_name             = 'AWAS'
+   AND gp.period_name                 = :P_PERIOD
+   AND p.period_set_name              = 'AWAS'
+   AND p.period_name                  = jl.period_name
+   AND gp.period_year                 = p.period_year
+   AND gp.period_num                 >= p.period_num
+   AND jl.code_combination_id         = c.code_combination_id
+   AND al.gl_sl_link_id               = r.gl_sl_link_id
+   AND al.ae_header_id                = ah.ae_header_id
+   AND al.application_id              = ah.application_id
+   AND ah.application_id              = e.application_id
+   AND ah.event_id                    = e.event_id
+   AND e.application_id               = te.application_id(+)
+   AND e.entity_id                    = te.entity_id(+)
+   AND r.je_header_id                 = jl.je_header_id
+   AND r.je_line_num                  = jl.je_line_num
+   AND c.segment2                     = '573805'
+   AND l.ae_header_id                 = al.ae_header_id
+   AND l.ae_line_num                  = al.ae_line_num
+   AND l.applied_to_source_id_num_1   = i.invoice_id
+   AND l.source_distribution_id_num_1 = ad.invoice_distribution_id
+   AND ad.invoice_id                  = i.invoice_id
+   AND i.invoice_id                   = xx.invoice_id (+)
+   AND i.vendor_id                    = s.vendor_id
+   AND h.ledger_id                    = 8
+   AND c.code_combination_id          = ad.dist_code_combination_id
+   AND Ad.Po_Distribution_Id          = Pda.Po_Distribution_Id (+)
+   AND Pda.Req_Distribution_Id        = Rd.Distribution_Id (+)
+   AND Rd.Requisition_Line_Id         = Rl.Requisition_Line_Id (+)
+   AND Rl.Requisition_Header_Id       = Rh.Requisition_Header_Id (+)
+   AND pda.po_header_id               = poh.po_header_id (+)
+   AND Rh.Preparer_Id                 = req_prep.person_id (+)
+   AND Rl.To_Person_Id                = req_for.person_id (+)
+   AND A.Person_Id (+)                = req_for.person_id
+   AND gcc.code_combination_id (+)    = a.default_code_comb_id
+union all
+ SELECT 'Manual' source
+       ,c.segment1
+       ||'.'
+       ||c.segment2
+       ||'.'
+       ||c.segment3 GL_Code
+     , h.je_source
+     , h.je_category
+     , jl.effective_date
+     , jl.period_name
+     , null vendor_name
+     , null merchant_name
+     , to_char(h.doc_sequence_value) transaction_number
+     , jl.creation_date
+     , initcap(jl.description) description
+     , jl.accounted_dr AS debit
+     , jl.accounted_cr AS credit
+     , NVL(Jl.Accounted_Dr, 0) - NVL(Jl.Accounted_Cr, 0) Net_Amount
+     , null PO_Number
+     , null Req_number
+     , null requested_by
+     , null requested_for
+     , null Employee_cost_centre
+     , null Approval_Details
+     , null Imscan_Doc
+   FROM Apps.Gl_Je_Headers H
+     , apps.gl_je_lines jl
+     , Apps.Gl_Code_Combinations C
+     , gl_periods p
+     , gl_periods gp
+  WHERE jl.je_header_id                = h.je_header_id
+   AND gp.period_set_name             = 'AWAS'
+   AND gp.period_name                 = :P_PERIOD
+   AND p.period_set_name              = 'AWAS'
+   AND p.period_name                  = jl.period_name
+   AND gp.period_year                 = p.period_year
+   AND gp.period_num                 >= p.period_num
+   AND jl.code_combination_id         = c.code_combination_id
+   AND c.segment2                     = '573805'
+   and h.je_source <> 'Payables'
+   order by 1, 5,2
+]]>
+</sqlStatement>
+<sqlStatement name="Q_REQS_PENDING">
+<![CDATA[
+ SELECT rcc.segment1
+       ||'.'
+       ||rcc.segment2
+       ||'.'
+       ||rcc.segment3 REQ_GL_CODE
+     , rh.segment1 REQ_REQ_NUM
+     , poh.segment1 REQ_PO_NUM
+     , rh.creation_date REQ_CREATION_DATE
+     , rl.suggested_vendor_name REQ_VENDOR
+     , rl.item_description REQ_DESCRIPTION
+     , rh.note_to_authorizer REQ_JUSTIFICATION
+     , round(rl.quantity * rl.unit_price * NVL(rl.rate,1),2) REQ_AMOUNT
+     , nvl(pda.amount_billed,0)*  NVL(rl.rate,1) REQ_BILLED
+     , round(nvl((pda.quantity_ordered - pda.quantity_cancelled - Pda.Quantity_Billed ) * rl.unit_price * NVL(rl.rate,1),0),2) REQ_UNBILLED
+     , req_prep.full_name REQ_REQUESTED_BY
+     , req_for.full_name REQ_REQUESTED_FOR
+     , Ea.Department REQ_DEPT
+     , gcc.segment3 REQ_EMP_CC
+     , XX_POR_TRAIN_INFO(rl.requisition_line_id) REQ_NOTES
+	 , rh.authorization_status REQ_STATUS
+   FROM po_requisition_lines_all rl
+     , po_requisition_headers_all rh
+     , PO.Po_Req_Distributions_All rd
+     , per_all_people_f req_prep
+     , per_all_people_f req_for
+     , per_all_assignments_f a
+     , gl_code_combinations gcc
+     , gl_code_combinations rcc
+     , po_distributions_all pda
+     , po_headers_all poh
+     , Xx_Employee_Assignments ea
+  WHERE rh.requisition_header_id = Rl.Requisition_Header_Id
+   AND rl.to_person_id           = req_for.person_id
+   AND Rh.Preparer_Id            = req_prep.person_id
+   AND A.Person_Id (+)           = req_for.person_id
+   AND Rd.Requisition_Line_Id    = Rl.Requisition_Line_Id
+   AND rcc.code_combination_id   = Rd.Code_Combination_Id
+   and nvl((pda.quantity_ordered - pda.quantity_cancelled - Pda.Quantity_Billed ),99) <> 0
+   AND gcc.code_combination_id   = a.default_code_comb_id
+   and Rd.Distribution_Id        = Pda.Req_Distribution_Id (+)
+   and pda.po_header_id          = poh.po_header_id (+)
+   AND rcc.segment2              = '573805'
+   AND ea.person_id              = req_for.person_id
+   AND rl.creation_date BETWEEN Ea.Start_Date AND NVL(Ea.End_Date,sysdate)
+]]>
+</sqlStatement>
+</dataQuery>
+<dataStructure>
+<group name="G_GL_BALANCES" source="Q_GL_BALANCES">
+<element name="BAL_TYPE"                       value="BAL_TYPE"/>
+<element name="BAL_PERIOD_TYPE"                value="BAL_PERIOD_TYPE"/>
+<element name="BAL_PERIOD_NAME"                value="BAL_PERIOD_NAME"/>
+<element name="BAL_PERIOD_NUM"                 value="BAL_PERIOD_NUM"/>
+<element name="BAL_Opening_Bal"                value="BAL_Opening_Bal"/>
+<element name="BAL_PTD"                        value="BAL_PTD"/>
+<element name="BAL_YTD"                        value="BAL_YTD"/>
+</group>
+<group name="G_GL_ACTUALS" source="Q_GL_ACTUALS">
+<element name="ACTUALS_SOURCE"                 value="ACTUALS_SOURCE"/>
+<element name="ACTUALS_GL_Code"                value="ACTUALS_GL_Code"/>
+<element name="ACTUALS_JE_SOURCE"              value="ACTUALS_JE_SOURCE"/>
+<element name="ACTUALS_JE_CATEGORY"            value="ACTUALS_JE_CATEGORY"/>
+<element name="ACTUALS_GL_DATE"                value="ACTUALS_GL_DATE"/>
+<element name="ACTUALS_PERIOD_NAME"            value="ACTUALS_PERIOD_NAME"/>
+<element name="ACTUALS_VENDOR_NAME"            value="ACTUALS_VENDOR_NAME"/>
+<element name="ACTUALS_MERCHANT_NAME"          value="ACTUALS_MERCHANT_NAME"/>
+<element name="ACTUALS_TRX_NUM"                value="ACTUALS_TRX_NUM"/>
+<element name="ACTUALS_TRX_DATE"               value="ACTUALS_TRX_DATE"/>
+<element name="ACTUALS_DESCRIPTION"            value="ACTUALS_DESCRIPTION"/>
+<element name="ACTUALS_DEBIT"                  value="ACTUALS_DEBIT"/>
+<element name="ACTUALS_CREDIT"                 value="ACTUALS_CREDIT"/>
+<element name="ACTUALS_NET"                    value="ACTUALS_NET"/>
+<element name="ACTUALS_PO_Number"              value="ACTUALS_PO_Number"/>
+<element name="ACTUALS_Req_number"             value="ACTUALS_Req_number"/>
+<element name="ACTUALS_REQUESTED_BY"           value="ACTUALS_REQUESTED_BY"/>
+<element name="ACTUALS_REQUESTED_FOR"          value="ACTUALS_REQUESTED_FOR"/>
+<element name="ACTUALS_EMPLOYEE_COST_CENTRE"   value="ACTUALS_EMPLOYEE_COST_CENTRE"/>
+<element name="ACTUALS_APPROVAL"               value="ACTUALS_APPROVAL"/>
+<element name="ACTUALS_IMSCAN"                 value="ACTUALS_IMSCAN"/>
+</group>
+<group name="G_REQS_PENDING" source="Q_REQS_PENDING">
+<element name="REQ_GL_CODE"        value="REQ_GL_CODE"/>
+<element name="REQ_REQ_NUM"        value="REQ_REQ_NUM"/>
+<element name="REQ_PO_NUM"         value="REQ_PO_NUM"/>
+<element name="REQ_CREATION_DATE"  value="REQ_CREATION_DATE"/>
+<element name="REQ_VENDOR"         value="REQ_VENDOR"/>
+<element name="REQ_DESCRIPTION"    value="REQ_DESCRIPTION"/>
+<element name="REQ_JUSTIFICATION"  value="REQ_JUSTIFICATION"/>
+<element name="REQ_AMOUNT"         value="REQ_AMOUNT"/>
+<element name="REQ_BILLED"         value="REQ_BILLED"/>
+<element name="REQ_UNBILLED"       value="REQ_UNBILLED"/>
+<element name="REQ_REQUESTED_BY"   value="REQ_REQUESTED_BY"/>
+<element name="REQ_REQUESTED_FOR"  value="REQ_REQUESTED_FOR"/>
+<element name="REQ_DEPT"           value="REQ_DEPT"/>
+<element name="REQ_EMP_CC"         value="REQ_EMP_CC"/>
+<element name="REQ_NOTES"          value="REQ_NOTES"/>
+<element name="REQ_STATUS"          value="REQ_STATUS"/>
+</group>
+</dataStructure>
+</dataTemplate>

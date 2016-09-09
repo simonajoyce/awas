@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="" xml:lang="en-US" customizes="/oracle/apps/ar/bpa/printmgmt/pagesetup/webui/PageSetupPG" developerMode="true" file-version="$Header: PageSetupPG.xml 120.0 2004/09/28 10:08:19 verao noship $">
+   <modifications>
+      <modify element="SetupName" readOnly="true" styleClass="OraDataText"/>
+      <modify element="SetupDesc" readOnly="true" styleClass="OraDataText"/>
+      <modify element="PageNumLoc" readOnly="true" styleClass="OraDataText"/>
+      <modify element="PageUOM" readOnly="true" styleClass="OraDataText"/>
+      <modify element="Width" readOnly="true" styleClass="OraDataText"/>
+      <modify element="Height" readOnly="true" styleClass="OraDataText"/>
+      <modify element="TopMargin" readOnly="true" styleClass="OraDataText"/>
+      <modify element="LeftMargin" readOnly="true" styleClass="OraDataText"/>
+      <modify element="RightMargin" readOnly="true" styleClass="OraDataText"/>
+      <modify element="PageButtonBar" rendered="false"/>
+      <modify element="BottomMargin" readOnly="true" styleClass="OraDataText"/>
+      <modify element="FontFamily" readOnly="true" styleClass="OraDataText"/>
+      <modify element="FontSize" readOnly="true" styleClass="OraDataText"/>
+   </modifications>
+</customization>

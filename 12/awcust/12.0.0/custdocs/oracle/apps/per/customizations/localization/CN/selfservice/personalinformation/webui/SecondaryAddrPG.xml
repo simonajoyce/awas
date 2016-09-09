@@ -1,0 +1,4 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.6.4_447" xml:lang="en-US" customizes="/oracle/apps/per/selfservice/personalinformation/webui/SecondaryAddrPG" developerMode="false" file-version="$Header: SecondaryAddrPG.xml 115.2 2003/04/09 14:16:31 bramajey noship $" package="/oracle/apps/per/customizations/localization/CN/selfservice/personalinformation/webui">
+   <modifications/>
+</customization>

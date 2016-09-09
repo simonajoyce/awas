@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_27" xml:lang="en-US" customizes="/oracle/apps/cs/csz/incident/webui/UpdateSDeskROPG" package="/oracle/apps/cs/csz/incident/webui/customizations/function/CSZ_ITIL_UP_RO_FN" file-version="$Header: UpdateSDeskROPG.xml 120.0.12010000.2 2009/09/10 09:51:56 sanjrao noship $">
+   <modifications>
+      <modify element="SRHeaderRORN.SRHeaderIssuexRN.HIssueIncidentType" prompt="Issue Type"/>
+      <modify element="SRHeaderRORN.SRHeaderIssuexRN.HIssueProblemCode" prompt="Issue Code"/>
+      <modify element="CustomerContactBinROxRN.CustomerBinRN" rendered="false"/>
+      <modify element="CustomerContactBinROxRN.ContactsRequests" prompt="Open Tickets"/>
+      <modify element="ProblemIssueRN" text="Ticket Details"/>
+      <modify element="ProblemIssueRN.PIssueIncidentOccurredDate" prompt="Ticket Date"/>
+      <modify element="RelatedSRxRN" text="Related Tickets"/>
+      <modify element="UpdateSRROPLRN" windowTitle="View Ticket"/>
+      <modify element="CustomerContactBinROxRN.CustomerHeader" rendered="false"/>
+      <modify element="CustomerContactBinROxRN.RelCustomer" rendered="false"/>
+      <modify element="CustomerContactBinROxRN.RelCriticalCustomer" rendered="false"/>
+      <modify element="CustomerContactBinROxRN.RelServiceLevel" rendered="false"/>
+      <modify element="SRHeaderRORN.SRHeaderSubjectxRN.CpInstanceNumber" prompt="Configuration Item"/>
+      <modify element="SRHeaderRORN.SRHeaderIssuexRN.HIssueIncidentSeverity" prompt="Priority"/>
+      <modify element="ProblemIssueRN.PIssueIncidentSeverity" prompt="Priority"/>
+   </modifications>
+</customization>

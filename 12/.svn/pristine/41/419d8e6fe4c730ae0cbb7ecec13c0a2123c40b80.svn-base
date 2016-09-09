@@ -1,0 +1,9 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_50" xml:lang="en-US" customizes="/oracle/apps/ar/cusstd/acctoview/webui/AcctOviewPG">
+   <modifications>
+      <modify element="SitesRN.SitePartySiteNameCol" rendered="true"/>
+      <modify element="SitesRN.PartySiteName" prompt="MSN"/>
+      <modify element="OrdMgmtTab" rendered="false"/>
+      <modify element="SitesRN.SiteMialStopCol" rendered="false"/>
+   </modifications>
+</customization>

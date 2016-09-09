@@ -1,0 +1,29 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_50" xml:lang="en-US" customizes="/oracle/apps/icx/por/reqmgmt/webui/ReqDetailsPG" xmlns:oa="http://xmlns.oracle.com/oa">
+   <modifications>
+      <modify element="Attachment" rendered="false"/>
+      <move element="ChangeHistory" after="Status"/>
+      <move element="UrgentFlag" after="ChangeHistory"/>
+      <move element="Attachment" after="UrgentFlag"/>
+      <move element="PCardNumber" after="Attachment"/>
+      <move element="PCardDesc" after="PCardNumber"/>
+      <move element="EmergencyPONum" after="PCardDesc"/>
+      <move element="ReqOrganization" after="EmergencyPONum"/>
+      <move element="NoteToBuyer" after="ReqOrganization"/>
+      <insert after="NoteToBuyer">
+         <oa:attachmentLink id="Attachments" adminCustomizable="true" autoCommitEnabled="true" enableDocumentCatalog="false" rendered="true" scope="." searchRegionRendered="false" serverUnvalidated="true" tipType="none" unvalidated="true" viewName="ReqHeaderVO" virusScanEnabled="false" xmlns:oa="http://xmlns.oracle.com/oa">
+            <oa:entityMappings>
+               <oa:entityMap id="AWAS_EntMap" deleteAllowed="true" entityId="REQ_HEADERS" insertAllowed="true" scope="." showAll="false" updateAllowed="true">
+                  <oa:categoryMappings>
+                     <oa:categoryMap id="To_Buyer" categoryName="Buyer" scope="." secured="false"/>
+                     <oa:categoryMap id="To_Supplier" categoryName="Vendor" scope="." secured="false"/>
+                  </oa:categoryMappings>
+                  <oa:primaryKeys>
+                     <oa:primaryKey id="RequisitionHeaderId" scope="." viewAttr="RequisitionHeaderId"/>
+                  </oa:primaryKeys>
+               </oa:entityMap>
+            </oa:entityMappings>
+         </oa:attachmentLink>
+      </insert>
+   </modifications>
+</customization>

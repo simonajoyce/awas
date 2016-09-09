@@ -1,0 +1,1319 @@
+# $Header$
+
+# dbdrv: exec fnd bin FNDLOAD bin &phase=daa+56 checkfile:~PROD:~PATH:~FILE &ui_apps 0 Y UPLOAD @FND:patch/115/import/afcpprog.lct @~PROD:~PATH/~FILE
+LANGUAGE = "US"
+LDRCONFIG = "afcpprog.lct 120.2.12010000.2"
+
+#Source Database UAT
+
+#RELEASE_NAME 12.1.3
+
+# -- Begin Entity Definitions -- 
+
+DEFINE PROGRAM
+  KEY   CONCURRENT_PROGRAM_NAME         VARCHAR2(30)
+  KEY   APPLICATION_SHORT_NAME          VARCHAR2(50)
+  CTX   OWNER                           VARCHAR2(4000)
+  BASE  LAST_UPDATE_DATE                VARCHAR2(75)
+  TRANS USER_CONCURRENT_PROGRAM_NAME    VARCHAR2(240)
+  BASE  EXEC                            REFERENCES EXECUTABLE
+  BASE  EXECUTION_METHOD_CODE           VARCHAR2(1)
+  BASE  ARGUMENT_METHOD_CODE            VARCHAR2(1)
+  BASE  QUEUE_CONTROL_FLAG              VARCHAR2(1)
+  BASE  QUEUE_METHOD_CODE               VARCHAR2(1)
+  BASE  REQUEST_SET_FLAG                VARCHAR2(1)
+  BASE  ENABLED_FLAG                    VARCHAR2(1)
+  BASE  PRINT_FLAG                      VARCHAR2(1)
+  BASE  RUN_ALONE_FLAG                  VARCHAR2(1)
+  BASE  SRS_FLAG                        VARCHAR2(1)
+  TRANS DESCRIPTION                     VARCHAR2(240)
+  BASE  CLASS_APPLICATION               VARCHAR2(50)
+  BASE  CONCURRENT_CLASS_NAME           VARCHAR2(30)
+  BASE  EXECUTION_OPTIONS               VARCHAR2(250)
+  BASE  SAVE_OUTPUT_FLAG                VARCHAR2(1)
+  BASE  REQUIRED_STYLE                  VARCHAR2(1)
+  BASE  OUTPUT_PRINT_STYLE              VARCHAR2(30)
+  BASE  PRINTER_NAME                    VARCHAR2(30)
+  BASE  MINIMUM_WIDTH                   VARCHAR2(50)
+  BASE  MINIMUM_LENGTH                  VARCHAR2(50)
+  BASE  REQUEST_PRIORITY                VARCHAR2(50)
+  BASE  ATTRIBUTE_CATEGORY              VARCHAR2(30)
+  BASE  ATTRIBUTE1                      VARCHAR2(150)
+  BASE  ATTRIBUTE2                      VARCHAR2(150)
+  BASE  ATTRIBUTE3                      VARCHAR2(150)
+  BASE  ATTRIBUTE4                      VARCHAR2(150)
+  BASE  ATTRIBUTE5                      VARCHAR2(150)
+  BASE  ATTRIBUTE6                      VARCHAR2(150)
+  BASE  ATTRIBUTE7                      VARCHAR2(150)
+  BASE  ATTRIBUTE8                      VARCHAR2(150)
+  BASE  ATTRIBUTE9                      VARCHAR2(150)
+  BASE  ATTRIBUTE10                     VARCHAR2(150)
+  BASE  ATTRIBUTE11                     VARCHAR2(150)
+  BASE  ATTRIBUTE12                     VARCHAR2(150)
+  BASE  ATTRIBUTE13                     VARCHAR2(150)
+  BASE  ATTRIBUTE14                     VARCHAR2(150)
+  BASE  ATTRIBUTE15                     VARCHAR2(150)
+  BASE  OUTPUT_FILE_TYPE                VARCHAR2(4)
+  BASE  RESTART                         VARCHAR2(1)
+  BASE  NLS_COMPLIANT                   VARCHAR2(1)
+  BASE  CD_PARAMETER                    VARCHAR2(240)
+  BASE  INCREMENT_PROC                  VARCHAR2(61)
+  BASE  MLS_EXEC                        REFERENCES EXECUTABLE
+  BASE  ENABLE_TIME_STATISTICS          VARCHAR2(1)
+  BASE  SECURITY_GROUP_NAME             VARCHAR2(30)
+  BASE  RESOURCE_CONSUMER_GROUP         VARCHAR2(30)
+  BASE  ROLLBACK_SEGMENT                VARCHAR2(30)
+  BASE  OPTIMIZER_MODE                  VARCHAR2(30)
+  BASE  REFRESH_PORTLET                 VARCHAR2(1)
+  BASE  ACTIVITY_SUMMARIZER             VARCHAR2(51)
+  BASE  PROGRAM_TYPE                    VARCHAR2(1)
+  BASE  ALLOW_MULTIPLE_PENDING_REQUEST  VARCHAR2(1)
+  BASE  SRS_FLEX                        REFERENCES DESC_FLEX
+  BASE  AUTO_ANNOTATION                 VARCHAR2(32000)
+  BASE  TEMPLATE_APPL_SHORT_NAME        VARCHAR2(50)
+  BASE  TEMPLATE_CODE                   VARCHAR2(80)
+  BASE  MULTI_ORG_CATEGORY              VARCHAR2(1)
+
+  DEFINE ANNOTATION
+    KEY   CONCURRENT_PROGRAM_NAME3        VARCHAR2(30)
+    KEY   APPLICATION_SHORT_NAME3         VARCHAR2(50)
+    CTX   OWNER                           VARCHAR2(4000)
+    BASE  LAST_UPDATE_DATE                VARCHAR2(75)
+    BASE  PROGRAM_ANNOTATION              VARCHAR2(32000)
+  END ANNOTATION
+
+    DEFINE INCOMPATABILITY
+      KEY   CONCURRENT_PROGRAM_NAME2        VARCHAR2(30)
+      KEY   APPLICATION_SHORT_NAME2         VARCHAR2(50)
+      CTX   OWNER                           VARCHAR2(4000)
+      BASE  LAST_UPDATE_DATE                VARCHAR2(75)
+      BASE  RUNNING_TYPE                    VARCHAR2(1)
+      BASE  TO_RUN_TYPE                     VARCHAR2(1)
+      BASE  INCOMPATIBILITY_TYPE            VARCHAR2(1)
+    END INCOMPATABILITY
+END PROGRAM
+
+DEFINE EXECUTABLE
+  KEY   EXECUTABLE_NAME                 VARCHAR2(30)
+  KEY   APPLICATION_SHORT_NAME          VARCHAR2(50)
+  CTX   OWNER                           VARCHAR2(4000)
+  BASE  LAST_UPDATE_DATE                VARCHAR2(75)
+  BASE  EXECUTION_METHOD_CODE           VARCHAR2(1)
+  BASE  EXECUTION_FILE_NAME             VARCHAR2(61)
+  BASE  SUBROUTINE_NAME                 VARCHAR2(30)
+  BASE  EXECUTION_FILE_PATH             VARCHAR2(510)
+  TRANS USER_EXECUTABLE_NAME            VARCHAR2(240)
+  TRANS DESCRIPTION                     VARCHAR2(240)
+END EXECUTABLE
+
+DEFINE DESC_FLEX
+  KEY   APPLICATION_SHORT_NAME          VARCHAR2(50)
+  KEY   DESCRIPTIVE_FLEXFIELD_NAME      VARCHAR2(40)
+  CTX   OWNER                           VARCHAR2(4000)
+  CTX   LAST_UPDATE_DATE                VARCHAR2(50)
+  BASE  TABLE_APPLICATION_SHORT_NAME    VARCHAR2(50)
+  BASE  APPLICATION_TABLE_NAME          VARCHAR2(30)
+  BASE  CONTEXT_COLUMN_NAME             VARCHAR2(30)
+  BASE  CONTEXT_REQUIRED_FLAG           VARCHAR2(1)
+  BASE  CONTEXT_USER_OVERRIDE_FLAG      VARCHAR2(1)
+  BASE  CONCATENATED_SEGMENT_DELIMITER  VARCHAR2(1)
+  BASE  FREEZE_FLEX_DEFINITION_FLAG     VARCHAR2(1)
+  BASE  PROTECTED_FLAG                  VARCHAR2(1)
+  BASE  DEFAULT_CONTEXT_FIELD_NAME      VARCHAR2(200)
+  BASE  DEFAULT_CONTEXT_VALUE           VARCHAR2(30)
+  BASE  CONTEXT_DEFAULT_TYPE            VARCHAR2(1)
+  BASE  CONTEXT_DEFAULT_VALUE           VARCHAR2(2000)
+  BASE  CONTEXT_OVERRIDE_VALUE_SET_NAM  REFERENCES VALUE_SET
+  BASE  CONTEXT_RUNTIME_PROPERTY_FUNCT  VARCHAR2(2000)
+  TRANS TITLE                           VARCHAR2(60)
+  TRANS FORM_CONTEXT_PROMPT             VARCHAR2(45)
+  TRANS DESCRIPTION                     VARCHAR2(240)
+
+  DEFINE DFF_CONTEXT
+    KEY   DESCRIPTIVE_FLEX_CONTEXT_CODE   VARCHAR2(30)
+    CTX   OWNER                           VARCHAR2(4000)
+    CTX   LAST_UPDATE_DATE                VARCHAR2(50)
+    BASE  ENABLED_FLAG                    VARCHAR2(1)
+    BASE  GLOBAL_FLAG                     VARCHAR2(1)
+    TRANS DESCRIPTIVE_FLEX_CONTEXT_NAME   VARCHAR2(80)
+    TRANS DESCRIPTION                     VARCHAR2(240)
+
+    DEFINE DFF_SEGMENT
+      KEY   END_USER_COLUMN_NAME            VARCHAR2(30)
+      KEY   APPLICATION_COLUMN_NAME         VARCHAR2(30)
+      CTX   OWNER                           VARCHAR2(4000)
+      CTX   LAST_UPDATE_DATE                VARCHAR2(50)
+      BASE  COLUMN_SEQ_NUM                  VARCHAR2(50)
+      BASE  ENABLED_FLAG                    VARCHAR2(1)
+      BASE  DISPLAY_FLAG                    VARCHAR2(1)
+      BASE  REQUIRED_FLAG                   VARCHAR2(1)
+      BASE  SECURITY_ENABLED_FLAG           VARCHAR2(1)
+      BASE  FLEX_VALUE_SET_NAME             REFERENCES VALUE_SET
+      BASE  DISPLAY_SIZE                    VARCHAR2(50)
+      BASE  MAXIMUM_DESCRIPTION_LEN         VARCHAR2(50)
+      BASE  CONCATENATION_DESCRIPTION_LEN   VARCHAR2(50)
+      BASE  RANGE_CODE                      VARCHAR2(1)
+      BASE  DEFAULT_TYPE                    VARCHAR2(1)
+      BASE  DEFAULT_VALUE                   VARCHAR2(2000)
+      BASE  RUNTIME_PROPERTY_FUNCTION       VARCHAR2(2000)
+      BASE  SRW_PARAM                       VARCHAR2(30)
+      TRANS FORM_LEFT_PROMPT                VARCHAR2(80)
+      TRANS FORM_ABOVE_PROMPT               VARCHAR2(80)
+      TRANS DESCRIPTION                     VARCHAR2(240)
+    END DFF_SEGMENT
+  END DFF_CONTEXT
+
+    DEFINE DFF_REF_FIELD
+      KEY   DEFAULT_CONTEXT_FIELD_NAME      VARCHAR2(200)
+      CTX   OWNER                           VARCHAR2(4000)
+      CTX   LAST_UPDATE_DATE                VARCHAR2(50)
+      TRANS DESCRIPTION                     VARCHAR2(240)
+    END DFF_REF_FIELD
+
+      DEFINE DFF_COLUMN
+        KEY   COLUMN_NAME                     VARCHAR2(30)
+        CTX   OWNER                           VARCHAR2(4000)
+        CTX   LAST_UPDATE_DATE                VARCHAR2(50)
+        BASE  FLEXFIELD_USAGE_CODE            VARCHAR2(1)
+      END DFF_COLUMN
+END DESC_FLEX
+
+DEFINE VALUE_SET
+  KEY   FLEX_VALUE_SET_NAME             VARCHAR2(60)
+  CTX   OWNER                           VARCHAR2(4000)
+  CTX   LAST_UPDATE_DATE                VARCHAR2(50)
+  BASE  VALIDATION_TYPE                 VARCHAR2(1)
+  BASE  PROTECTED_FLAG                  VARCHAR2(1)
+  BASE  SECURITY_ENABLED_FLAG           VARCHAR2(1)
+  BASE  LONGLIST_FLAG                   VARCHAR2(1)
+  BASE  FORMAT_TYPE                     VARCHAR2(1)
+  BASE  MAXIMUM_SIZE                    VARCHAR2(50)
+  BASE  NUMBER_PRECISION                VARCHAR2(50)
+  BASE  ALPHANUMERIC_ALLOWED_FLAG       VARCHAR2(1)
+  BASE  UPPERCASE_ONLY_FLAG             VARCHAR2(1)
+  BASE  NUMERIC_MODE_ENABLED_FLAG       VARCHAR2(1)
+  BASE  MINIMUM_VALUE                   VARCHAR2(150)
+  BASE  MAXIMUM_VALUE                   VARCHAR2(150)
+  BASE  PARENT_FLEX_VALUE_SET_NAME      VARCHAR2(60)
+  BASE  DEPENDANT_DEFAULT_VALUE         VARCHAR2(60)
+  BASE  DEPENDANT_DEFAULT_MEANING       VARCHAR2(240)
+  TRANS DESCRIPTION                     VARCHAR2(240)
+
+  DEFINE VSET_VALUE
+    KEY   PARENT_FLEX_VALUE_LOW           VARCHAR2(60)
+    KEY   FLEX_VALUE                      VARCHAR2(150)
+    CTX   OWNER                           VARCHAR2(4000)
+    CTX   LAST_UPDATE_DATE                VARCHAR2(50)
+    BASE  ENABLED_FLAG                    VARCHAR2(1)
+    BASE  SUMMARY_FLAG                    VARCHAR2(1)
+    BASE  START_DATE_ACTIVE               VARCHAR2(50)
+    BASE  END_DATE_ACTIVE                 VARCHAR2(50)
+    BASE  PARENT_FLEX_VALUE_HIGH          VARCHAR2(60)
+    BASE  ROLLUP_HIERARCHY_CODE           VARCHAR2(30)
+    BASE  HIERARCHY_LEVEL                 VARCHAR2(50)
+    BASE  COMPILED_VALUE_ATTRIBUTES       VARCHAR2(2000)
+    BASE  VALUE_CATEGORY                  VARCHAR2(30)
+    BASE  ATTRIBUTE1                      VARCHAR2(240)
+    BASE  ATTRIBUTE2                      VARCHAR2(240)
+    BASE  ATTRIBUTE3                      VARCHAR2(240)
+    BASE  ATTRIBUTE4                      VARCHAR2(240)
+    BASE  ATTRIBUTE5                      VARCHAR2(240)
+    BASE  ATTRIBUTE6                      VARCHAR2(240)
+    BASE  ATTRIBUTE7                      VARCHAR2(240)
+    BASE  ATTRIBUTE8                      VARCHAR2(240)
+    BASE  ATTRIBUTE9                      VARCHAR2(240)
+    BASE  ATTRIBUTE10                     VARCHAR2(240)
+    BASE  ATTRIBUTE11                     VARCHAR2(240)
+    BASE  ATTRIBUTE12                     VARCHAR2(240)
+    BASE  ATTRIBUTE13                     VARCHAR2(240)
+    BASE  ATTRIBUTE14                     VARCHAR2(240)
+    BASE  ATTRIBUTE15                     VARCHAR2(240)
+    BASE  ATTRIBUTE16                     VARCHAR2(240)
+    BASE  ATTRIBUTE17                     VARCHAR2(240)
+    BASE  ATTRIBUTE18                     VARCHAR2(240)
+    BASE  ATTRIBUTE19                     VARCHAR2(240)
+    BASE  ATTRIBUTE20                     VARCHAR2(240)
+    BASE  ATTRIBUTE21                     VARCHAR2(240)
+    BASE  ATTRIBUTE22                     VARCHAR2(240)
+    BASE  ATTRIBUTE23                     VARCHAR2(240)
+    BASE  ATTRIBUTE24                     VARCHAR2(240)
+    BASE  ATTRIBUTE25                     VARCHAR2(240)
+    BASE  ATTRIBUTE26                     VARCHAR2(240)
+    BASE  ATTRIBUTE27                     VARCHAR2(240)
+    BASE  ATTRIBUTE28                     VARCHAR2(240)
+    BASE  ATTRIBUTE29                     VARCHAR2(240)
+    BASE  ATTRIBUTE30                     VARCHAR2(240)
+    BASE  ATTRIBUTE31                     VARCHAR2(240)
+    BASE  ATTRIBUTE32                     VARCHAR2(240)
+    BASE  ATTRIBUTE33                     VARCHAR2(240)
+    BASE  ATTRIBUTE34                     VARCHAR2(240)
+    BASE  ATTRIBUTE35                     VARCHAR2(240)
+    BASE  ATTRIBUTE36                     VARCHAR2(240)
+    BASE  ATTRIBUTE37                     VARCHAR2(240)
+    BASE  ATTRIBUTE38                     VARCHAR2(240)
+    BASE  ATTRIBUTE39                     VARCHAR2(240)
+    BASE  ATTRIBUTE40                     VARCHAR2(240)
+    BASE  ATTRIBUTE41                     VARCHAR2(240)
+    BASE  ATTRIBUTE42                     VARCHAR2(240)
+    BASE  ATTRIBUTE43                     VARCHAR2(240)
+    BASE  ATTRIBUTE44                     VARCHAR2(240)
+    BASE  ATTRIBUTE45                     VARCHAR2(240)
+    BASE  ATTRIBUTE46                     VARCHAR2(240)
+    BASE  ATTRIBUTE47                     VARCHAR2(240)
+    BASE  ATTRIBUTE48                     VARCHAR2(240)
+    BASE  ATTRIBUTE49                     VARCHAR2(240)
+    BASE  ATTRIBUTE50                     VARCHAR2(240)
+    TRANS FLEX_VALUE_MEANING              VARCHAR2(150)
+    TRANS DESCRIPTION                     VARCHAR2(240)
+
+    DEFINE VSET_VALUE_QUAL_VALUE
+      KEY   ID_FLEX_APPLICATION_SHORT_NAME  VARCHAR2(50)
+      KEY   ID_FLEX_CODE                    VARCHAR2(4)
+      KEY   SEGMENT_ATTRIBUTE_TYPE          VARCHAR2(30)
+      KEY   VALUE_ATTRIBUTE_TYPE            VARCHAR2(30)
+      CTX   OWNER                           VARCHAR2(4000)
+      CTX   LAST_UPDATE_DATE                VARCHAR2(50)
+      BASE  COMPILED_VALUE_ATTRIBUTE_VALUE  VARCHAR2(2000)
+    END VSET_VALUE_QUAL_VALUE
+
+      DEFINE VSET_VALUE_HIERARCHY
+        KEY   RANGE_ATTRIBUTE                 VARCHAR2(1)
+        KEY   CHILD_FLEX_VALUE_LOW            VARCHAR2(60)
+        KEY   CHILD_FLEX_VALUE_HIGH           VARCHAR2(60)
+        CTX   OWNER                           VARCHAR2(4000)
+        CTX   LAST_UPDATE_DATE                VARCHAR2(50)
+        BASE  START_DATE_ACTIVE               VARCHAR2(50)
+        BASE  END_DATE_ACTIVE                 VARCHAR2(50)
+      END VSET_VALUE_HIERARCHY
+  END VSET_VALUE
+
+    DEFINE VSET_QUALIFIER
+      KEY   ID_FLEX_APPLICATION_SHORT_NAME  VARCHAR2(50)
+      KEY   ID_FLEX_CODE                    VARCHAR2(4)
+      KEY   SEGMENT_ATTRIBUTE_TYPE          VARCHAR2(30)
+      KEY   VALUE_ATTRIBUTE_TYPE            VARCHAR2(30)
+      CTX   OWNER                           VARCHAR2(4000)
+      CTX   LAST_UPDATE_DATE                VARCHAR2(50)
+      BASE  ASSIGNMENT_ORDER                VARCHAR2(50)
+      BASE  ASSIGNMENT_DATE                 VARCHAR2(50)
+    END VSET_QUALIFIER
+
+      DEFINE VSET_ROLLUP_GROUP
+        KEY   HIERARCHY_CODE                  VARCHAR2(30)
+        CTX   OWNER                           VARCHAR2(4000)
+        CTX   LAST_UPDATE_DATE                VARCHAR2(50)
+        TRANS HIERARCHY_NAME                  VARCHAR2(30)
+        TRANS DESCRIPTION                     VARCHAR2(240)
+      END VSET_ROLLUP_GROUP
+
+        DEFINE VSET_SECURITY_RULE
+          KEY   FLEX_VALUE_RULE_NAME            VARCHAR2(30)
+          KEY   PARENT_FLEX_VALUE_LOW           VARCHAR2(60)
+          CTX   OWNER                           VARCHAR2(4000)
+          CTX   LAST_UPDATE_DATE                VARCHAR2(50)
+          BASE  PARENT_FLEX_VALUE_HIGH          VARCHAR2(60)
+          TRANS ERROR_MESSAGE                   VARCHAR2(240)
+          TRANS DESCRIPTION                     VARCHAR2(240)
+
+          DEFINE VSET_SECURITY_USAGE
+            KEY   APPLICATION_SHORT_NAME          VARCHAR2(50)
+            KEY   RESPONSIBILITY_KEY              VARCHAR2(30)
+            CTX   OWNER                           VARCHAR2(4000)
+            CTX   LAST_UPDATE_DATE                VARCHAR2(50)
+            BASE  PARENT_FLEX_VALUE_HIGH          VARCHAR2(60)
+          END VSET_SECURITY_USAGE
+
+            DEFINE VSET_SECURITY_LINE
+              KEY   INCLUDE_EXCLUDE_INDICATOR       VARCHAR2(1)
+              KEY   FLEX_VALUE_LOW                  VARCHAR2(60)
+              KEY   FLEX_VALUE_HIGH                 VARCHAR2(60)
+              CTX   OWNER                           VARCHAR2(4000)
+              CTX   LAST_UPDATE_DATE                VARCHAR2(50)
+              BASE  PARENT_FLEX_VALUE_HIGH          VARCHAR2(60)
+            END VSET_SECURITY_LINE
+        END VSET_SECURITY_RULE
+
+          DEFINE VSET_EVENT
+            KEY   EVENT_CODE                      VARCHAR2(1)
+            CTX   OWNER                           VARCHAR2(4000)
+            CTX   LAST_UPDATE_DATE                VARCHAR2(50)
+            BASE  USER_EXIT                       VARCHAR2(32000)
+          END VSET_EVENT
+
+            DEFINE VSET_TABLE
+              CTX   OWNER                           VARCHAR2(4000)
+              CTX   LAST_UPDATE_DATE                VARCHAR2(50)
+              BASE  TABLE_APPLICATION_SHORT_NAME    VARCHAR2(50)
+              BASE  APPLICATION_TABLE_NAME          VARCHAR2(240)
+              BASE  SUMMARY_ALLOWED_FLAG            VARCHAR2(1)
+              BASE  VALUE_COLUMN_NAME               VARCHAR2(240)
+              BASE  VALUE_COLUMN_TYPE               VARCHAR2(1)
+              BASE  VALUE_COLUMN_SIZE               VARCHAR2(50)
+              BASE  ID_COLUMN_NAME                  VARCHAR2(240)
+              BASE  ID_COLUMN_TYPE                  VARCHAR2(1)
+              BASE  ID_COLUMN_SIZE                  VARCHAR2(50)
+              BASE  MEANING_COLUMN_NAME             VARCHAR2(240)
+              BASE  MEANING_COLUMN_TYPE             VARCHAR2(1)
+              BASE  MEANING_COLUMN_SIZE             VARCHAR2(50)
+              BASE  ENABLED_COLUMN_NAME             VARCHAR2(240)
+              BASE  COMPILED_ATTRIBUTE_COLUMN_NAME  VARCHAR2(240)
+              BASE  HIERARCHY_LEVEL_COLUMN_NAME     VARCHAR2(240)
+              BASE  START_DATE_COLUMN_NAME          VARCHAR2(240)
+              BASE  END_DATE_COLUMN_NAME            VARCHAR2(240)
+              BASE  SUMMARY_COLUMN_NAME             VARCHAR2(240)
+              BASE  ADDITIONAL_WHERE_CLAUSE         VARCHAR2(32000)
+              BASE  ADDITIONAL_QUICKPICK_COLUMNS    VARCHAR2(240)
+            END VSET_TABLE
+
+              DEFINE VSET_DEPENDS_ON
+                KEY   IND_FLEX_VALUE_SET_NAME         VARCHAR2(60)
+                CTX   OWNER                           VARCHAR2(4000)
+                CTX   LAST_UPDATE_DATE                VARCHAR2(50)
+                BASE  IND_VALIDATION_TYPE             VARCHAR2(1)
+                BASE  DEP_VALIDATION_TYPE             VARCHAR2(1)
+              END VSET_DEPENDS_ON
+END VALUE_SET
+
+# -- End Entity Definitions -- 
+
+
+BEGIN EXECUTABLE "APXGLTRN" "SQLAP"
+  OWNER = "ORACLE12.1.3"
+  LAST_UPDATE_DATE = "2005/06/10"
+  EXECUTION_METHOD_CODE = "P"
+  EXECUTION_FILE_NAME = "APXGLTRN"
+  USER_EXECUTABLE_NAME = "APXGLTRN"
+  DESCRIPTION = "Payables Transfer to General Ledger"
+END EXECUTABLE
+
+BEGIN VALUE_SET "FND_NUMBER"
+  OWNER = "ORACLE12.1.3"
+  LAST_UPDATE_DATE = "2012/02/03 00:00:00"
+  VALIDATION_TYPE = "N"
+  PROTECTED_FLAG = "N"
+  SECURITY_ENABLED_FLAG = "N"
+  LONGLIST_FLAG = "N"
+  FORMAT_TYPE = "N"
+  MAXIMUM_SIZE = "15"
+  NUMBER_PRECISION = "0"
+  ALPHANUMERIC_ALLOWED_FLAG = "N"
+  UPPERCASE_ONLY_FLAG = "N"
+  NUMERIC_MODE_ENABLED_FLAG = "N"
+  MINIMUM_VALUE = "0"
+  DESCRIPTION = "Positive Integer Number"
+
+
+
+
+
+
+
+END VALUE_SET
+
+BEGIN VALUE_SET "AP_SRS_SOB_INFO"
+  OWNER = "ORACLE12.1.3"
+  LAST_UPDATE_DATE = "2005/06/10 00:00:00"
+  VALIDATION_TYPE = "F"
+  PROTECTED_FLAG = "N"
+  SECURITY_ENABLED_FLAG = "N"
+  LONGLIST_FLAG = "N"
+  FORMAT_TYPE = "C"
+  MAXIMUM_SIZE = "80"
+  ALPHANUMERIC_ALLOWED_FLAG = "Y"
+  UPPERCASE_ONLY_FLAG = "N"
+  NUMERIC_MODE_ENABLED_FLAG = "N"
+  DESCRIPTION = "Ledger Name, Ledger Id"
+
+
+  BEGIN VSET_TABLE
+    OWNER = "ORACLE12.1.3"
+    LAST_UPDATE_DATE = "2005/06/10 00:00:00"
+    TABLE_APPLICATION_SHORT_NAME = "SQLAP"
+    APPLICATION_TABLE_NAME = "ap_sob_info_v"
+    SUMMARY_ALLOWED_FLAG = "N"
+    VALUE_COLUMN_NAME = "name"
+    VALUE_COLUMN_TYPE = "V"
+    VALUE_COLUMN_SIZE = "80"
+    ID_COLUMN_NAME = "set_of_books_id"
+    ID_COLUMN_TYPE = "N"
+    ID_COLUMN_SIZE = "15"
+    ENABLED_COLUMN_NAME = "'Y'"
+    COMPILED_ATTRIBUTE_COLUMN_NAME = "NULL"
+    HIERARCHY_LEVEL_COLUMN_NAME = "NULL"
+    START_DATE_COLUMN_NAME = "to_date(null)"
+    END_DATE_COLUMN_NAME = "to_date(null)"
+    SUMMARY_COLUMN_NAME = "'N'"
+    ADDITIONAL_WHERE_CLAUSE =
+ "where (sob_type = 'Reporting'\n\
+  AND set_of_books_id = :$PROFILES$.gl_set_of_bks_id)\n\
+  OR    ((SELECT mrc_sob_type_code FROM gl_sets_of_books\n\
+  WHERE  set_of_books_id = :$PROFILES$.gl_set_of_bks_id) <> 'R' \n\
+  AND sob_type <> 'Reporting' )\n\
+  "
+  END VSET_TABLE
+  
+
+
+
+
+
+END VALUE_SET
+
+BEGIN VALUE_SET "AP_SRS_MRC_INFO"
+  OWNER = "ORACLE12.1.3"
+  LAST_UPDATE_DATE = "2005/06/10 00:00:00"
+  VALIDATION_TYPE = "F"
+  PROTECTED_FLAG = "N"
+  SECURITY_ENABLED_FLAG = "N"
+  LONGLIST_FLAG = "N"
+  FORMAT_TYPE = "C"
+  MAXIMUM_SIZE = "80"
+  ALPHANUMERIC_ALLOWED_FLAG = "Y"
+  UPPERCASE_ONLY_FLAG = "N"
+  NUMERIC_MODE_ENABLED_FLAG = "N"
+  DESCRIPTION = "Provides Yes/No option to transfer reporting Ledger"
+
+
+  BEGIN VSET_TABLE
+    OWNER = "ORACLE12.1.3"
+    LAST_UPDATE_DATE = "2005/06/10 00:00:00"
+    TABLE_APPLICATION_SHORT_NAME = "SQLAP"
+    APPLICATION_TABLE_NAME = "fnd_lookups FL"
+    SUMMARY_ALLOWED_FLAG = "N"
+    VALUE_COLUMN_NAME = "Meaning"
+    VALUE_COLUMN_TYPE = "V"
+    VALUE_COLUMN_SIZE = "80"
+    ID_COLUMN_NAME = "Lookup_code"
+    ID_COLUMN_TYPE = "V"
+    ID_COLUMN_SIZE = "30"
+    ENABLED_COLUMN_NAME = "'Y'"
+    COMPILED_ATTRIBUTE_COLUMN_NAME = "NULL"
+    HIERARCHY_LEVEL_COLUMN_NAME = "NULL"
+    START_DATE_COLUMN_NAME = "to_date(null)"
+    END_DATE_COLUMN_NAME = "to_date(null)"
+    SUMMARY_COLUMN_NAME = "'N'"
+    ADDITIONAL_WHERE_CLAUSE =
+ "WHERE FL.lookup_type = 'YES_NO'\n\
+  AND (\n\
+  (\n\
+  (FL.lookup_code = 'Y'\n\
+  and 'Y' = (select nvl(asp.include_reporting_sob,'N') from ap_system_parameters asp)\n\
+  and 'N' = (select nvl(asp.gl_transfer_allow_override,'N') from ap_system_parameters asp )\n\
+  and ap_gl_transfer_pkg.ap_mc_check(:$FLEX$.set_of_books_id) <> 'R'\n\
+  )\n\
+  or \n\
+  ((FL.lookup_code = 'N' or FL.lookup_code = 'Y')\n\
+  and 'Y' = (select nvl(asp.gl_transfer_allow_override,'N') from ap_system_parameters asp)\n\
+  and ap_gl_transfer_pkg.ap_mc_check(:$FLEX$.set_of_books_id) <> 'R'\n\
+  )  \n\
+  or \n\
+  (FL.lookup_code = 'N' \n\
+  and 'N' = (select nvl(asp.include_reporting_sob,'N') from ap_system_parameters asp)\n\
+  and 'N' = (select nvl(asp.gl_transfer_allow_override,'N') from ap_system_parameters asp)\n\
+  )\n\
+  )\n\
+  OR \n\
+  (FL.lookup_code = 'N' \n\
+  and ap_gl_transfer_pkg.ap_mc_check(:$FLEX$.set_of_books_id) = 'R'\n\
+  )\n\
+  )"
+  END VSET_TABLE
+  
+
+
+
+
+
+END VALUE_SET
+
+BEGIN VALUE_SET "XLA_CHAR15"
+  OWNER = "ORACLE12.1.3"
+  LAST_UPDATE_DATE = "2006/04/28 00:00:00"
+  VALIDATION_TYPE = "N"
+  PROTECTED_FLAG = "N"
+  SECURITY_ENABLED_FLAG = "N"
+  LONGLIST_FLAG = "N"
+  FORMAT_TYPE = "C"
+  MAXIMUM_SIZE = "15"
+  ALPHANUMERIC_ALLOWED_FLAG = "Y"
+  UPPERCASE_ONLY_FLAG = "N"
+  NUMERIC_MODE_ENABLED_FLAG = "N"
+  DESCRIPTION = "Values allows maximum 15 characters to be entered"
+
+
+
+
+
+
+
+END VALUE_SET
+
+BEGIN VALUE_SET "FND_STANDARD_DATE"
+  OWNER = "ORACLE12.1.3"
+  LAST_UPDATE_DATE = "2012/03/22 00:00:00"
+  VALIDATION_TYPE = "N"
+  PROTECTED_FLAG = "N"
+  SECURITY_ENABLED_FLAG = "Y"
+  LONGLIST_FLAG = "N"
+  FORMAT_TYPE = "X"
+  MAXIMUM_SIZE = "11"
+  ALPHANUMERIC_ALLOWED_FLAG = "Y"
+  UPPERCASE_ONLY_FLAG = "Y"
+  NUMERIC_MODE_ENABLED_FLAG = "N"
+  DESCRIPTION = "Date value set"
+
+
+
+
+
+
+
+END VALUE_SET
+
+BEGIN VALUE_SET "FND_STANDARD_DATE_REQUIRED"
+  OWNER = "ORACLE12.1.3"
+  LAST_UPDATE_DATE = "2012/02/12 00:00:00"
+  VALIDATION_TYPE = "N"
+  PROTECTED_FLAG = "N"
+  SECURITY_ENABLED_FLAG = "Y"
+  LONGLIST_FLAG = "N"
+  FORMAT_TYPE = "X"
+  MAXIMUM_SIZE = "11"
+  ALPHANUMERIC_ALLOWED_FLAG = "Y"
+  UPPERCASE_ONLY_FLAG = "Y"
+  NUMERIC_MODE_ENABLED_FLAG = "N"
+  DESCRIPTION = "Required Standard Date"
+
+
+
+
+
+
+
+END VALUE_SET
+
+BEGIN VALUE_SET "AP_SRS_ACCT_METHOD"
+  OWNER = "ORACLE12.1.3"
+  LAST_UPDATE_DATE = "2005/06/10 00:00:00"
+  VALIDATION_TYPE = "N"
+  PROTECTED_FLAG = "N"
+  SECURITY_ENABLED_FLAG = "N"
+  LONGLIST_FLAG = "N"
+  FORMAT_TYPE = "C"
+  MAXIMUM_SIZE = "25"
+  ALPHANUMERIC_ALLOWED_FLAG = "Y"
+  UPPERCASE_ONLY_FLAG = "N"
+  NUMERIC_MODE_ENABLED_FLAG = "N"
+  DESCRIPTION = "Accounting method for GL Post"
+
+
+
+
+
+
+
+END VALUE_SET
+
+BEGIN VALUE_SET "FND_CHAR240"
+  OWNER = "ORACLE12.1.3"
+  LAST_UPDATE_DATE = "2011/11/15 00:00:00"
+  VALIDATION_TYPE = "N"
+  PROTECTED_FLAG = "N"
+  SECURITY_ENABLED_FLAG = "N"
+  LONGLIST_FLAG = "N"
+  FORMAT_TYPE = "C"
+  MAXIMUM_SIZE = "240"
+  NUMBER_PRECISION = "0"
+  ALPHANUMERIC_ALLOWED_FLAG = "Y"
+  UPPERCASE_ONLY_FLAG = "N"
+  NUMERIC_MODE_ENABLED_FLAG = "N"
+  DESCRIPTION = "240 characters, unvalidated"
+
+
+
+
+
+
+
+END VALUE_SET
+
+BEGIN VALUE_SET "AP_JE_CATEGORIES"
+  OWNER = "ORACLE12.1.3"
+  LAST_UPDATE_DATE = "2005/06/10 00:00:00"
+  VALIDATION_TYPE = "F"
+  PROTECTED_FLAG = "N"
+  SECURITY_ENABLED_FLAG = "N"
+  LONGLIST_FLAG = "N"
+  FORMAT_TYPE = "C"
+  MAXIMUM_SIZE = "80"
+  ALPHANUMERIC_ALLOWED_FLAG = "Y"
+  UPPERCASE_ONLY_FLAG = "N"
+  NUMERIC_MODE_ENABLED_FLAG = "N"
+  DESCRIPTION = "Payables Document Categories (Invoice, Payments)"
+
+
+  BEGIN VSET_TABLE
+    OWNER = "ORACLE12.1.3"
+    LAST_UPDATE_DATE = "2005/06/10 00:00:00"
+    TABLE_APPLICATION_SHORT_NAME = "SQLAP"
+    APPLICATION_TABLE_NAME = "ap_je_categories_v"
+    SUMMARY_ALLOWED_FLAG = "N"
+    VALUE_COLUMN_NAME = "user_je_category_name"
+    VALUE_COLUMN_TYPE = "V"
+    VALUE_COLUMN_SIZE = "80"
+    ID_COLUMN_NAME = "je_category_name"
+    ID_COLUMN_TYPE = "V"
+    ID_COLUMN_SIZE = "25"
+    ENABLED_COLUMN_NAME = "'Y'"
+    COMPILED_ATTRIBUTE_COLUMN_NAME = "NULL"
+    HIERARCHY_LEVEL_COLUMN_NAME = "NULL"
+    START_DATE_COLUMN_NAME = "to_date(null)"
+    END_DATE_COLUMN_NAME = "to_date(null)"
+    SUMMARY_COLUMN_NAME = "'N'"
+    ADDITIONAL_WHERE_CLAUSE =
+ "where  (nvl(:$FLEX$.AP_SRS_ACCT_METHOD, 'All' )= 'All'                        \n\
+  and je_category_name = 'A')                          \n\
+  or (:$FLEX$.AP_SRS_ACCT_METHOD = 'Cash' \n\
+  and je_category_name = 'Payments')      \n\
+  or (:$FLEX$.AP_SRS_ACCT_METHOD = 'Cash' \n\
+  and je_category_name = 'Reconciled Payments')  \n\
+  or (:$FLEX$.AP_SRS_ACCT_METHOD = 'Cash' \n\
+  and je_category_name = 'A')                            \n\
+  or (:$FLEX$.AP_SRS_ACCT_METHOD = 'Accrual') \n\
+  order by decode(je_category_name, \n\
+  'A', 1, \n\
+  'Payments', 3, \n\
+  'Purchase Invoices', 2, \n\
+  'Reconciled Payments',4,0)"
+  END VSET_TABLE
+  
+
+
+
+
+
+END VALUE_SET
+
+BEGIN VALUE_SET "AP_SRS_YES_NO_MAND"
+  OWNER = "ORACLE12.1.3"
+  LAST_UPDATE_DATE = "2012/02/12 00:00:00"
+  VALIDATION_TYPE = "F"
+  PROTECTED_FLAG = "N"
+  SECURITY_ENABLED_FLAG = "N"
+  LONGLIST_FLAG = "N"
+  FORMAT_TYPE = "C"
+  MAXIMUM_SIZE = "80"
+  ALPHANUMERIC_ALLOWED_FLAG = "Y"
+  UPPERCASE_ONLY_FLAG = "N"
+  NUMERIC_MODE_ENABLED_FLAG = "N"
+  DESCRIPTION = "Yes/No Mandatory"
+
+
+  BEGIN VSET_TABLE
+    OWNER = "ORACLE12.1.3"
+    LAST_UPDATE_DATE = "2012/02/12 00:00:00"
+    TABLE_APPLICATION_SHORT_NAME = "FND"
+    APPLICATION_TABLE_NAME = "FND_LOOKUPS"
+    SUMMARY_ALLOWED_FLAG = "N"
+    VALUE_COLUMN_NAME = "MEANING"
+    VALUE_COLUMN_TYPE = "V"
+    VALUE_COLUMN_SIZE = "80"
+    ID_COLUMN_NAME = "LOOKUP_CODE"
+    ID_COLUMN_TYPE = "V"
+    ID_COLUMN_SIZE = "30"
+    ENABLED_COLUMN_NAME = "ENABLED_FLAG"
+    COMPILED_ATTRIBUTE_COLUMN_NAME = "NULL"
+    HIERARCHY_LEVEL_COLUMN_NAME = "NULL"
+    START_DATE_COLUMN_NAME = "START_DATE_ACTIVE"
+    END_DATE_COLUMN_NAME = "END_DATE_ACTIVE"
+    SUMMARY_COLUMN_NAME = "'N'"
+    ADDITIONAL_WHERE_CLAUSE = "where lookup_type = 'YES_NO'"
+  END VSET_TABLE
+  
+
+
+
+
+
+END VALUE_SET
+
+BEGIN VALUE_SET "AP_GL_TRANSFER_MODE"
+  OWNER = "ORACLE12.1.3"
+  LAST_UPDATE_DATE = "2006/06/16 00:00:00"
+  VALIDATION_TYPE = "F"
+  PROTECTED_FLAG = "N"
+  SECURITY_ENABLED_FLAG = "N"
+  LONGLIST_FLAG = "N"
+  FORMAT_TYPE = "C"
+  MAXIMUM_SIZE = "80"
+  ALPHANUMERIC_ALLOWED_FLAG = "Y"
+  UPPERCASE_ONLY_FLAG = "N"
+  NUMERIC_MODE_ENABLED_FLAG = "N"
+  DESCRIPTION = "Transfer To GL Interface Mode"
+
+
+  BEGIN VSET_TABLE
+    OWNER = "ORACLE12.1.3"
+    LAST_UPDATE_DATE = "2006/06/16 00:00:00"
+    TABLE_APPLICATION_SHORT_NAME = "SQLAP"
+    APPLICATION_TABLE_NAME = "fnd_lookups lc, ap_system_parameters sp"
+    SUMMARY_ALLOWED_FLAG = "N"
+    VALUE_COLUMN_NAME = "lc.meaning"
+    VALUE_COLUMN_TYPE = "V"
+    VALUE_COLUMN_SIZE = "80"
+    ID_COLUMN_NAME = "lc.lookup_code"
+    ID_COLUMN_TYPE = "V"
+    ID_COLUMN_SIZE = "30"
+    ENABLED_COLUMN_NAME = "'Y'"
+    COMPILED_ATTRIBUTE_COLUMN_NAME = "NULL"
+    HIERARCHY_LEVEL_COLUMN_NAME = "NULL"
+    START_DATE_COLUMN_NAME = "to_date(null)"
+    END_DATE_COLUMN_NAME = "to_date(null)"
+    SUMMARY_COLUMN_NAME = "'N'"
+    ADDITIONAL_WHERE_CLAUSE =
+ "where lc.lookup_type = 'XLA_GL_TRANSFER_MODE'\n\
+  and (( lc.lookup_code = nvl(sp.gl_transfer_mode, 'D')\n\
+  and nvl(sp.gl_transfer_allow_override, 'N') = 'N')\n\
+  or nvl(sp.gl_transfer_allow_override, 'N') = 'Y')"
+  END VSET_TABLE
+  
+
+
+
+
+
+END VALUE_SET
+
+BEGIN VALUE_SET "AP_SRS_SUBMIT_JOURNAL_IMP"
+  OWNER = "ORACLE12.1.3"
+  LAST_UPDATE_DATE = "2005/06/10 00:00:00"
+  VALIDATION_TYPE = "F"
+  PROTECTED_FLAG = "N"
+  SECURITY_ENABLED_FLAG = "N"
+  LONGLIST_FLAG = "N"
+  FORMAT_TYPE = "C"
+  MAXIMUM_SIZE = "80"
+  ALPHANUMERIC_ALLOWED_FLAG = "Y"
+  UPPERCASE_ONLY_FLAG = "N"
+  NUMERIC_MODE_ENABLED_FLAG = "N"
+  DESCRIPTION = "Submit Journal Import (Y/N)"
+
+
+  BEGIN VSET_TABLE
+    OWNER = "ORACLE12.1.3"
+    LAST_UPDATE_DATE = "2005/06/10 00:00:00"
+    TABLE_APPLICATION_SHORT_NAME = "SQLAP"
+    APPLICATION_TABLE_NAME =
+ "fnd_lookups l, fnd_product_installations PI, ap_system_parameters SP"
+    SUMMARY_ALLOWED_FLAG = "N"
+    VALUE_COLUMN_NAME = "l.meaning"
+    VALUE_COLUMN_TYPE = "V"
+    VALUE_COLUMN_SIZE = "80"
+    ID_COLUMN_NAME = "l.lookup_code"
+    ID_COLUMN_TYPE = "V"
+    ID_COLUMN_SIZE = "30"
+    ENABLED_COLUMN_NAME = "'Y'"
+    COMPILED_ATTRIBUTE_COLUMN_NAME = "NULL"
+    HIERARCHY_LEVEL_COLUMN_NAME = "NULL"
+    START_DATE_COLUMN_NAME = "to_date(null)"
+    END_DATE_COLUMN_NAME = "to_date(null)"
+    SUMMARY_COLUMN_NAME = "'N'"
+    ADDITIONAL_WHERE_CLAUSE =
+ "where l.lookup_type = 'YES_NO'\n\
+  and PI.application_id = 101\n\
+  and ( PI.status = 'S' and l.lookup_code = 'N'\n\
+  or (PI.status = 'I'\n\
+  and (:$FLEX$.AP_SRS_YES_NO_MAND = 'N' and l.lookup_code = 'N')\n\
+  or (:$FLEX$.AP_SRS_YES_NO_MAND = 'Y' \n\
+  and (    (nvl(SP.gl_transfer_allow_override,'N') = 'N'\n\
+  and nvl(SP.gl_transfer_submit_journal_imp,'N') = l.lookup_code )\n\
+  or nvl(SP.gl_transfer_allow_override,'N') = 'Y'\n\
+  )\n\
+  )\n\
+  )\n\
+  )"
+  END VSET_TABLE
+  
+
+
+
+
+
+END VALUE_SET
+
+BEGIN VALUE_SET "AP_SRS_JE_SUMMARY"
+  OWNER = "ORACLE12.1.3"
+  LAST_UPDATE_DATE = "2005/06/10 00:00:00"
+  VALIDATION_TYPE = "F"
+  PROTECTED_FLAG = "N"
+  SECURITY_ENABLED_FLAG = "N"
+  LONGLIST_FLAG = "N"
+  FORMAT_TYPE = "C"
+  MAXIMUM_SIZE = "80"
+  ALPHANUMERIC_ALLOWED_FLAG = "Y"
+  UPPERCASE_ONLY_FLAG = "N"
+  NUMERIC_MODE_ENABLED_FLAG = "N"
+  DESCRIPTION = "Create Summarized Journals for Transfer to GL"
+
+
+  BEGIN VSET_TABLE
+    OWNER = "ORACLE12.1.3"
+    LAST_UPDATE_DATE = "2005/06/10 00:00:00"
+    TABLE_APPLICATION_SHORT_NAME = "FND"
+    APPLICATION_TABLE_NAME = "FND_LOOKUPS L, FND_PRODUCT_INSTALLATIONS PI"
+    SUMMARY_ALLOWED_FLAG = "N"
+    VALUE_COLUMN_NAME = "L.meaning"
+    VALUE_COLUMN_TYPE = "V"
+    VALUE_COLUMN_SIZE = "80"
+    ID_COLUMN_NAME = "L.Lookup_Code"
+    ID_COLUMN_TYPE = "V"
+    ID_COLUMN_SIZE = "30"
+    ENABLED_COLUMN_NAME = "'Y'"
+    COMPILED_ATTRIBUTE_COLUMN_NAME = "NULL"
+    HIERARCHY_LEVEL_COLUMN_NAME = "NULL"
+    START_DATE_COLUMN_NAME = "to_date(null)"
+    END_DATE_COLUMN_NAME = "to_date(null)"
+    SUMMARY_COLUMN_NAME = "'N'"
+    ADDITIONAL_WHERE_CLAUSE =
+ "where L.lookup_type = 'YES_NO'\n\
+  and PI.application_ID = 101\n\
+  and PI.status != 'S'"
+  END VSET_TABLE
+  
+
+
+
+
+
+END VALUE_SET
+
+BEGIN DESC_FLEX "SQLAP" "$SRS$.APGLTRANS"
+  OWNER = "LWOOD"
+  LAST_UPDATE_DATE = "2013/08/19 00:00:00"
+  TABLE_APPLICATION_SHORT_NAME = "FND"
+  APPLICATION_TABLE_NAME = "FND_SRS_MASTER"
+  CONTEXT_COLUMN_NAME = "STRUCTURE_COLUMN"
+  CONTEXT_REQUIRED_FLAG = "N"
+  CONTEXT_USER_OVERRIDE_FLAG = "N"
+  CONCATENATED_SEGMENT_DELIMITER = ":"
+  FREEZE_FLEX_DEFINITION_FLAG = "N"
+  PROTECTED_FLAG = "S"
+  CONTEXT_OVERRIDE_VALUE_SET_NAM = ""
+  TITLE = "$SRS$.APGLTRANS"
+  FORM_CONTEXT_PROMPT = "Context Value"
+  DESCRIPTION = "Payables Transfer To General Ledger"
+
+
+
+  BEGIN DFF_CONTEXT "Global Data Elements"
+    OWNER = "ORACLE12.1.3"
+    LAST_UPDATE_DATE = "2005/06/10 00:00:00"
+    ENABLED_FLAG = "Y"
+    GLOBAL_FLAG = "Y"
+    DESCRIPTIVE_FLEX_CONTEXT_NAME = "Global Data Elements"
+  
+    BEGIN DFF_SEGMENT "selection_type" "ATTRIBUTE3"
+      OWNER = "ORACLE12.1.3"
+      LAST_UPDATE_DATE = "2005/06/10 00:00:00"
+      COLUMN_SEQ_NUM = "30"
+      ENABLED_FLAG = "Y"
+      DISPLAY_FLAG = "N"
+      REQUIRED_FLAG = "Y"
+      SECURITY_ENABLED_FLAG = "N"
+      FLEX_VALUE_SET_NAME = "FND_NUMBER"
+      DISPLAY_SIZE = "15"
+      MAXIMUM_DESCRIPTION_LEN = "50"
+      CONCATENATION_DESCRIPTION_LEN = "25"
+      DEFAULT_TYPE = "C"
+      DEFAULT_VALUE = "1"
+      SRW_PARAM = "p_selection_type"
+      FORM_LEFT_PROMPT = "selection_type"
+      FORM_ABOVE_PROMPT = "selection_type"
+      DESCRIPTION = "Transfer Selection Type (1-Batch Transfer)"
+    END DFF_SEGMENT
+    
+    BEGIN DFF_SEGMENT "set_of_books_id" "ATTRIBUTE4"
+      OWNER = "ORACLE12.1.3"
+      LAST_UPDATE_DATE = "2005/06/10 00:00:00"
+      COLUMN_SEQ_NUM = "40"
+      ENABLED_FLAG = "Y"
+      DISPLAY_FLAG = "Y"
+      REQUIRED_FLAG = "Y"
+      SECURITY_ENABLED_FLAG = "N"
+      FLEX_VALUE_SET_NAME = "AP_SRS_SOB_INFO"
+      DISPLAY_SIZE = "30"
+      MAXIMUM_DESCRIPTION_LEN = "50"
+      CONCATENATION_DESCRIPTION_LEN = "25"
+      DEFAULT_TYPE = "S"
+      DEFAULT_VALUE =
+ "select name from ap_sob_info_v where (sob_type = 'Reporting' AND set_of_books_id = :$PROFILES$.gl_set_of_bks_id) OR ((SELECT mrc_sob_type_code FROM gl_sets_of_books WHERE  set_of_books_id = :$PROFILES$.gl_set_of_bks_id) in ('P', 'N') AND sob_type = 'Primary' )"
+      SRW_PARAM = "p_set_of_books_id"
+      FORM_LEFT_PROMPT = "Ledger Name"
+      FORM_ABOVE_PROMPT = "Ledger Name"
+      DESCRIPTION = "Ledger Id"
+    END DFF_SEGMENT
+    
+    BEGIN DFF_SEGMENT "include_reporting_sob" "ATTRIBUTE5"
+      OWNER = "ORACLE12.1.3"
+      LAST_UPDATE_DATE = "2005/06/10 00:00:00"
+      COLUMN_SEQ_NUM = "50"
+      ENABLED_FLAG = "Y"
+      DISPLAY_FLAG = "Y"
+      REQUIRED_FLAG = "Y"
+      SECURITY_ENABLED_FLAG = "N"
+      FLEX_VALUE_SET_NAME = "AP_SRS_MRC_INFO"
+      DISPLAY_SIZE = "15"
+      MAXIMUM_DESCRIPTION_LEN = "50"
+      CONCATENATION_DESCRIPTION_LEN = "25"
+      DEFAULT_TYPE = "S"
+      DEFAULT_VALUE =
+ "select l.meaning from fnd_lookups l,ap_system_parameters asp where l.lookup_type = 'YES_NO' and (( l.lookup_code = 'N' and 'N' = (select asp.include_reporting_sob from ap_system_parameters asp)) OR ( l.lookup_code = 'Y' and 'Y' = (select asp.include_reporting_sob from ap_system_parameters asp ) and ap_gl_transfer_pkg.ap_mc_check(:$FLEX$.set_of_books_id) <> 'R') OR ( l.lookup_code = 'N' and ap_gl_transfer_pkg.ap_mc_check(:$FLEX$.set_of_books_id) = 'R'))"
+      SRW_PARAM = "p_include_reporting_sob"
+      FORM_LEFT_PROMPT = "Transfer Reporting Book(s)"
+      FORM_ABOVE_PROMPT = "Transfer Reporting Book(s)"
+      DESCRIPTION = "Transfer Reporting SOB(Yes/No)"
+    END DFF_SEGMENT
+    
+    BEGIN DFF_SEGMENT "batch_name" "ATTRIBUTE6"
+      OWNER = "ORACLE12.1.3"
+      LAST_UPDATE_DATE = "2005/06/10 00:00:00"
+      COLUMN_SEQ_NUM = "60"
+      ENABLED_FLAG = "Y"
+      DISPLAY_FLAG = "Y"
+      REQUIRED_FLAG = "N"
+      SECURITY_ENABLED_FLAG = "N"
+      FLEX_VALUE_SET_NAME = "XLA_CHAR15"
+      DISPLAY_SIZE = "15"
+      MAXIMUM_DESCRIPTION_LEN = "50"
+      CONCATENATION_DESCRIPTION_LEN = "25"
+      SRW_PARAM = "p_batch_name"
+      FORM_LEFT_PROMPT = "Batch Name"
+      FORM_ABOVE_PROMPT = "Batch Name"
+      DESCRIPTION = "Transfer Batch Name"
+    END DFF_SEGMENT
+    
+    BEGIN DFF_SEGMENT "from_date" "ATTRIBUTE7"
+      OWNER = "ORACLE12.1.3"
+      LAST_UPDATE_DATE = "2005/06/10 00:00:00"
+      COLUMN_SEQ_NUM = "70"
+      ENABLED_FLAG = "Y"
+      DISPLAY_FLAG = "Y"
+      REQUIRED_FLAG = "N"
+      SECURITY_ENABLED_FLAG = "N"
+      FLEX_VALUE_SET_NAME = "FND_STANDARD_DATE"
+      DISPLAY_SIZE = "11"
+      MAXIMUM_DESCRIPTION_LEN = "50"
+      CONCATENATION_DESCRIPTION_LEN = "25"
+      RANGE_CODE = "L"
+      SRW_PARAM = "p_from_date"
+      FORM_LEFT_PROMPT = "From Date"
+      FORM_ABOVE_PROMPT = "From Date"
+      DESCRIPTION = "Transfer Date From"
+    END DFF_SEGMENT
+    
+    BEGIN DFF_SEGMENT "to_date" "ATTRIBUTE8"
+      OWNER = "ORACLE12.1.3"
+      LAST_UPDATE_DATE = "2005/06/10 00:00:00"
+      COLUMN_SEQ_NUM = "80"
+      ENABLED_FLAG = "Y"
+      DISPLAY_FLAG = "Y"
+      REQUIRED_FLAG = "Y"
+      SECURITY_ENABLED_FLAG = "N"
+      FLEX_VALUE_SET_NAME = "FND_STANDARD_DATE_REQUIRED"
+      DISPLAY_SIZE = "11"
+      MAXIMUM_DESCRIPTION_LEN = "50"
+      CONCATENATION_DESCRIPTION_LEN = "25"
+      RANGE_CODE = "H"
+      SRW_PARAM = "p_to_date"
+      FORM_LEFT_PROMPT = "To Date"
+      FORM_ABOVE_PROMPT = "To Date"
+      DESCRIPTION = "Transfer Date To"
+    END DFF_SEGMENT
+    
+    BEGIN DFF_SEGMENT "accounting_method" "ATTRIBUTE9"
+      OWNER = "ORACLE12.1.3"
+      LAST_UPDATE_DATE = "2005/06/10 00:00:00"
+      COLUMN_SEQ_NUM = "90"
+      ENABLED_FLAG = "Y"
+      DISPLAY_FLAG = "N"
+      REQUIRED_FLAG = "N"
+      SECURITY_ENABLED_FLAG = "N"
+      FLEX_VALUE_SET_NAME = "AP_SRS_ACCT_METHOD"
+      DISPLAY_SIZE = "25"
+      MAXIMUM_DESCRIPTION_LEN = "50"
+      CONCATENATION_DESCRIPTION_LEN = "25"
+      DEFAULT_TYPE = "S"
+      DEFAULT_VALUE =
+ "select accounting_method from ap_sob_info_v where :$FLEX$.set_of_books_id = set_of_books_id"
+      SRW_PARAM = "p_accounting_method"
+      FORM_LEFT_PROMPT = "accounting_method"
+      FORM_ABOVE_PROMPT = "accounting_method"
+      DESCRIPTION = "Accounting Method associated with a Ledger"
+    END DFF_SEGMENT
+    
+    BEGIN DFF_SEGMENT "document_class" "ATTRIBUTE1"
+      OWNER = "ORACLE12.1.3"
+      LAST_UPDATE_DATE = "2005/06/10 00:00:00"
+      COLUMN_SEQ_NUM = "91"
+      ENABLED_FLAG = "Y"
+      DISPLAY_FLAG = "N"
+      REQUIRED_FLAG = "N"
+      SECURITY_ENABLED_FLAG = "N"
+      FLEX_VALUE_SET_NAME = "FND_CHAR240"
+      DISPLAY_SIZE = "50"
+      MAXIMUM_DESCRIPTION_LEN = "50"
+      CONCATENATION_DESCRIPTION_LEN = "25"
+      SRW_PARAM = "p_document_class"
+      FORM_LEFT_PROMPT = "Document Class"
+      FORM_ABOVE_PROMPT = "Document Class"
+      DESCRIPTION = "Document Class"
+    END DFF_SEGMENT
+    
+    BEGIN DFF_SEGMENT "journal_category" "ATTRIBUTE10"
+      OWNER = "ORACLE12.1.3"
+      LAST_UPDATE_DATE = "2005/06/10 00:00:00"
+      COLUMN_SEQ_NUM = "100"
+      ENABLED_FLAG = "Y"
+      DISPLAY_FLAG = "Y"
+      REQUIRED_FLAG = "Y"
+      SECURITY_ENABLED_FLAG = "N"
+      FLEX_VALUE_SET_NAME = "AP_JE_CATEGORIES"
+      DISPLAY_SIZE = "25"
+      MAXIMUM_DESCRIPTION_LEN = "50"
+      CONCATENATION_DESCRIPTION_LEN = "25"
+      DEFAULT_TYPE = "S"
+      DEFAULT_VALUE =
+ "select user_je_category_name from ap_je_categories_v  where ((:$FLEX$.AP_SRS_ACCT_METHOD = 'Cash' and je_category_name = 'Payments') or (:$FLEX$.AP_SRS_ACCT_METHOD != 'Cash' and je_category_name = 'A'))"
+      SRW_PARAM = "p_journal_category"
+      FORM_LEFT_PROMPT = "Journal Category"
+      FORM_ABOVE_PROMPT = "Journal Category"
+      DESCRIPTION = "Sub Ledger Category"
+    END DFF_SEGMENT
+    
+    BEGIN DFF_SEGMENT "Validate_Account" "ATTRIBUTE16"
+      OWNER = "ORACLE12.1.3"
+      LAST_UPDATE_DATE = "2005/06/10 00:00:00"
+      COLUMN_SEQ_NUM = "105"
+      ENABLED_FLAG = "Y"
+      DISPLAY_FLAG = "Y"
+      REQUIRED_FLAG = "Y"
+      SECURITY_ENABLED_FLAG = "N"
+      FLEX_VALUE_SET_NAME = "AP_SRS_YES_NO_MAND"
+      DISPLAY_SIZE = "15"
+      MAXIMUM_DESCRIPTION_LEN = "50"
+      CONCATENATION_DESCRIPTION_LEN = "25"
+      DEFAULT_TYPE = "S"
+      DEFAULT_VALUE =
+ "select meaning from fnd_lookups where lookup_code = 'Y' and lookup_type = 'YES_NO'"
+      SRW_PARAM = "p_validate_account"
+      FORM_LEFT_PROMPT = "Validate Accounts"
+      FORM_ABOVE_PROMPT = "Validate Accounts"
+      DESCRIPTION = "Validate Accounts"
+    END DFF_SEGMENT
+    
+    BEGIN DFF_SEGMENT "gl_transfer_mode" "ATTRIBUTE11"
+      OWNER = "ORACLE12.1.3"
+      LAST_UPDATE_DATE = "2005/06/10 00:00:00"
+      COLUMN_SEQ_NUM = "110"
+      ENABLED_FLAG = "Y"
+      DISPLAY_FLAG = "Y"
+      REQUIRED_FLAG = "Y"
+      SECURITY_ENABLED_FLAG = "N"
+      FLEX_VALUE_SET_NAME = "AP_GL_TRANSFER_MODE"
+      DISPLAY_SIZE = "25"
+      MAXIMUM_DESCRIPTION_LEN = "50"
+      CONCATENATION_DESCRIPTION_LEN = "25"
+      DEFAULT_TYPE = "S"
+      DEFAULT_VALUE =
+ "select meaning from fnd_lookups lc, ap_system_parameters asp where lc.lookup_code = asp.gl_transfer_mode and lc.lookup_type = 'XLA_GL_TRANSFER_MODE'"
+      SRW_PARAM = "p_gl_transfer_mode"
+      FORM_LEFT_PROMPT = "Transfer to GL Interface"
+      FORM_ABOVE_PROMPT = "Transfer to GL Interface"
+      DESCRIPTION = "Transfer To GL Interface"
+    END DFF_SEGMENT
+    
+    BEGIN DFF_SEGMENT "submit_journal_import" "ATTRIBUTE12"
+      OWNER = "ORACLE12.1.3"
+      LAST_UPDATE_DATE = "2005/06/10 00:00:00"
+      COLUMN_SEQ_NUM = "120"
+      ENABLED_FLAG = "Y"
+      DISPLAY_FLAG = "Y"
+      REQUIRED_FLAG = "Y"
+      SECURITY_ENABLED_FLAG = "N"
+      FLEX_VALUE_SET_NAME = "AP_SRS_SUBMIT_JOURNAL_IMP"
+      DISPLAY_SIZE = "15"
+      MAXIMUM_DESCRIPTION_LEN = "50"
+      CONCATENATION_DESCRIPTION_LEN = "25"
+      DEFAULT_TYPE = "S"
+      DEFAULT_VALUE =
+ "select l.meaning from fnd_lookups l, fnd_product_installations i, ap_system_parameters asp where l.lookup_type = 'YES_NO' and i.application_id = 101 and ((i.status = 'I' and l.lookup_code = asp.gl_transfer_submit_journal_imp) or (i.status = 'S' and l.lookup_code = 'N'))"
+      SRW_PARAM = "p_submit_journal_import"
+      FORM_LEFT_PROMPT = "Submit Journal Import"
+      FORM_ABOVE_PROMPT = "Submit Journal Import"
+      DESCRIPTION = "Submit Journal Import"
+    END DFF_SEGMENT
+    
+    BEGIN DFF_SEGMENT "summary_journal_entry" "ATTRIBUTE13"
+      OWNER = "ORACLE12.1.3"
+      LAST_UPDATE_DATE = "2005/06/10 00:00:00"
+      COLUMN_SEQ_NUM = "130"
+      ENABLED_FLAG = "Y"
+      DISPLAY_FLAG = "N"
+      REQUIRED_FLAG = "N"
+      SECURITY_ENABLED_FLAG = "N"
+      FLEX_VALUE_SET_NAME = "AP_SRS_JE_SUMMARY"
+      DISPLAY_SIZE = "50"
+      MAXIMUM_DESCRIPTION_LEN = "50"
+      CONCATENATION_DESCRIPTION_LEN = "25"
+      DEFAULT_TYPE = "S"
+      DEFAULT_VALUE =
+ "select meaning from fnd_lookups where lookup_type = 'YES_NO' and lookup_code = 'N'"
+      SRW_PARAM = "p_summary_journal_entry"
+      FORM_LEFT_PROMPT = "Create Summarized Journal Entries"
+      FORM_ABOVE_PROMPT = "Create Summarized Journal Entries"
+      DESCRIPTION = "Summarize Journal Entires"
+    END DFF_SEGMENT
+    
+    BEGIN DFF_SEGMENT "process_days" "ATTRIBUTE14"
+      OWNER = "ORACLE12.1.3"
+      LAST_UPDATE_DATE = "2005/06/10 00:00:00"
+      COLUMN_SEQ_NUM = "140"
+      ENABLED_FLAG = "Y"
+      DISPLAY_FLAG = "N"
+      REQUIRED_FLAG = "N"
+      SECURITY_ENABLED_FLAG = "N"
+      FLEX_VALUE_SET_NAME = "FND_NUMBER"
+      DISPLAY_SIZE = "15"
+      MAXIMUM_DESCRIPTION_LEN = "50"
+      CONCATENATION_DESCRIPTION_LEN = "25"
+      SRW_PARAM = "p_process_days"
+      FORM_LEFT_PROMPT = "Process Days"
+      FORM_ABOVE_PROMPT = "Process Days"
+      DESCRIPTION = "Process days per commit cycle"
+    END DFF_SEGMENT
+    
+    BEGIN DFF_SEGMENT "debug_flag" "ATTRIBUTE15"
+      OWNER = "ORACLE12.1.3"
+      LAST_UPDATE_DATE = "2005/06/10 00:00:00"
+      COLUMN_SEQ_NUM = "150"
+      ENABLED_FLAG = "Y"
+      DISPLAY_FLAG = "N"
+      REQUIRED_FLAG = "N"
+      SECURITY_ENABLED_FLAG = "N"
+      FLEX_VALUE_SET_NAME = "XLA_CHAR15"
+      DISPLAY_SIZE = "15"
+      MAXIMUM_DESCRIPTION_LEN = "50"
+      CONCATENATION_DESCRIPTION_LEN = "25"
+      DEFAULT_TYPE = "C"
+      DEFAULT_VALUE = "N"
+      SRW_PARAM = "p_debug_flag"
+      FORM_LEFT_PROMPT = "debug_flag"
+      FORM_ABOVE_PROMPT = "debug_flag"
+      DESCRIPTION = "Debug Flag"
+    END DFF_SEGMENT
+    
+    BEGIN DFF_SEGMENT "Trace Option" "ATTRIBUTE2"
+      OWNER = "ORACLE12.1.3"
+      LAST_UPDATE_DATE = "2005/06/10 00:00:00"
+      COLUMN_SEQ_NUM = "160"
+      ENABLED_FLAG = "Y"
+      DISPLAY_FLAG = "N"
+      REQUIRED_FLAG = "Y"
+      SECURITY_ENABLED_FLAG = "N"
+      FLEX_VALUE_SET_NAME = "AP_SRS_YES_NO_MAND"
+      DISPLAY_SIZE = "50"
+      MAXIMUM_DESCRIPTION_LEN = "50"
+      CONCATENATION_DESCRIPTION_LEN = "25"
+      DEFAULT_TYPE = "S"
+      DEFAULT_VALUE =
+ "Select meaning from fnd_lookups where lookup_type = 'YES_NO' and lookup_code = 'N'"
+      SRW_PARAM = "p_trace_flag"
+      FORM_LEFT_PROMPT = "Trace Option"
+      FORM_ABOVE_PROMPT = "Trace Option"
+      DESCRIPTION = "Trace Option"
+    END DFF_SEGMENT
+    
+  END DFF_CONTEXT
+  
+END DESC_FLEX
+
+BEGIN PROGRAM "APGLTRANS" "SQLAP"
+  OWNER = "LWOOD"
+  LAST_UPDATE_DATE = "2013/08/19"
+  USER_CONCURRENT_PROGRAM_NAME = "Payables Transfer to General Ledger"
+  EXEC = "APXGLTRN" "SQLAP"
+  EXECUTION_METHOD_CODE = "P"
+  ARGUMENT_METHOD_CODE = "4"
+  QUEUE_CONTROL_FLAG = "N"
+  QUEUE_METHOD_CODE = "I"
+  REQUEST_SET_FLAG = "N"
+  ENABLED_FLAG = "N"
+  PRINT_FLAG = "N"
+  RUN_ALONE_FLAG = "N"
+  SRS_FLAG = "Y"
+  DESCRIPTION = "Payables Transfer To General Ledger"
+  SAVE_OUTPUT_FLAG = "Y"
+  REQUIRED_STYLE = "N"
+  OUTPUT_PRINT_STYLE = "LANDSCAPE"
+  MINIMUM_WIDTH = "132"
+  MINIMUM_LENGTH = "45"
+  OUTPUT_FILE_TYPE = "TEXT"
+  RESTART = "Y"
+  NLS_COMPLIANT = "Y"
+  MLS_EXEC = "" ""
+  ENABLE_TIME_STATISTICS = "N"
+  SRS_FLEX = "SQLAP" "$SRS$.APGLTRANS"
+  AUTO_ANNOTATION =
+ "/**\n\
+  * @param selection_type Transfer Selection Type (1-Batch Transfer)\n\
+  * @rep:paraminfo {@rep:type FND_NUMBER} {@rep:displayed N} {@rep:required}\n\
+  * @param set_of_books_id Ledger Id\n\
+  * @rep:paraminfo {@rep:type AP_SRS_SOB_INFO} {@rep:displayed Y} {@rep:required}\n\
+  * @param include_reporting_sob Transfer Reporting SOB(Yes/No)\n\
+  * @rep:paraminfo {@rep:type AP_SRS_MRC_INFO} {@rep:displayed Y} {@rep:required}\n\
+  * @param batch_name Transfer Batch Name\n\
+  * @rep:paraminfo {@rep:type XLA_CHAR15} {@rep:displayed Y}\n\
+  * @param from_date Transfer Date From\n\
+  * @rep:paraminfo {@rep:type FND_STANDARD_DATE} {@rep:displayed Y}\n\
+  * @param to_date Transfer Date To\n\
+  * @rep:paraminfo {@rep:type FND_STANDARD_DATE_REQUIRED} {@rep:displayed Y} {@rep:required}\n\
+  * @param accounting_method Accounting Method associated with a Ledger\n\
+  * @rep:paraminfo {@rep:type AP_SRS_ACCT_METHOD} {@rep:displayed N}\n\
+  * @param document_class Document Class\n\
+  * @rep:paraminfo {@rep:type FND_CHAR240} {@rep:displayed N}\n\
+  * @param journal_category Sub Ledger Category\n\
+  * @rep:paraminfo {@rep:type AP_JE_CATEGORIES} {@rep:displayed Y} {@rep:required}\n\
+  * @param Validate_Account Validate Accounts\n\
+  * @rep:paraminfo {@rep:type AP_SRS_YES_NO_MAND} {@rep:displayed Y} {@rep:required}\n\
+  * @param gl_transfer_mode Transfer To GL Interface\n\
+  * @rep:paraminfo {@rep:type AP_GL_TRANSFER_MODE} {@rep:displayed Y} {@rep:required}\n\
+  * @param submit_journal_import Submit Journal Import\n\
+  * @rep:paraminfo {@rep:type AP_SRS_SUBMIT_JOURNAL_IMP} {@rep:displayed Y} {@rep:required}\n\
+  * @param summary_journal_entry Summarize Journal Entires\n\
+  * @rep:paraminfo {@rep:type AP_SRS_JE_SUMMARY} {@rep:displayed N}\n\
+  * @param process_days Process days per commit cycle\n\
+  * @rep:paraminfo {@rep:type FND_NUMBER} {@rep:displayed N}\n\
+  * @param debug_flag Debug Flag\n\
+  * @rep:paraminfo {@rep:type XLA_CHAR15} {@rep:displayed N}\n\
+  * @param Trace%_Option Trace Option\n\
+  * @rep:paraminfo {@rep:type AP_SRS_YES_NO_MAND} {@rep:displayed N} {@rep:required}\n\
+  */"
+
+
+  BEGIN ANNOTATION "APGLTRANS" "SQLAP"
+    OWNER = "ORACLE12.1.3"
+    LAST_UPDATE_DATE = "2005/01/09"
+    PROGRAM_ANNOTATION =
+ "Executes the concurrent program to transfer data from Payables to General Ledger's GL_INTERFACE table.\n\
+  @rep:scope public\n\
+  @rep:ihelp AP/@n_je#n_je Transferring Accounting Entries to Your General Ledger\n\
+  @rep:product AP\n\
+  @rep:lifecycle active\n\
+  @rep:category OPEN_INTERFACE AP_GL_TRANSFER 1\n\
+  @rep:usestable GL_INTERFACE 2 OUT\n\
+  @rep:category BUSINESS_ENTITY GL_JOURNAL\n\
+  "
+  END ANNOTATION
+  
+END PROGRAM
+

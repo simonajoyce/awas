@@ -1,0 +1,79 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.6.6_606" xml:lang="en-US" customizes="/oracle/apps/pn/recovery/agreement/webui/ReviewTermDetailPG" developerMode="false" file-version="$Header: ReviewTermDetailPG.xml 115.0 2003/08/24 12:07:24 kkhegde noship $">
+   <modifications>
+      <modify element="CancelBtn" rendered="false"/>
+      <modify element="ApplyBtn" rendered="false"/>
+      <modify element="ReviewTermDetailPG" controllerClass="oracle.apps.pn.recovery.agreement.webui.ReviewTermDetailViewCO"/>
+      <move element="corporateBrandingImage" after="ProdBrand"/>
+      <move element="PageButtonBar" after="corporateBrandingImage"/>
+      <move element="RecoveryTermRN" after="PageButtonBar"/>
+      <move element="BillingTermRN" after="RecoveryTermRN"/>
+      <move element="AccDistributionRN" after="BillingTermRN"/>
+      <move element="FrequencyType" after="PaymentTermType"/>
+      <move element="PaymentPurpose" after="FrequencyType"/>
+      <move element="StartDate" after="PaymentPurpose"/>
+      <move element="ActualAmount" after="StartDate"/>
+      <move element="EndDate" after="ActualAmount"/>
+      <move element="CurrencyCode" after="EndDate"/>
+      <move element="ScheduleDay" after="CurrencyCode"/>
+      <move element="LocCode" after="ScheduleDay"/>
+      <move element="Status" after="LocCode"/>
+      <move element="PaymentTermId" after="Status"/>
+      <move element="LocationId" after="PaymentTermId"/>
+      <move element="PaymentTermTypeCode" after="LocationId"/>
+      <move element="FrequencyCode" after="PaymentTermTypeCode"/>
+      <move element="LeaseId" after="FrequencyCode"/>
+      <move element="PaymentPurposeCode" after="LeaseId"/>
+      <modify element="StartDate" styleClass="OraDataText" readOnly="true"/>
+      <modify element="ActualAmount" styleClass="OraDataText" readOnly="true"/>
+      <modify element="EndDate" styleClass="OraDataText" readOnly="true"/>
+      <modify element="ScheduleDay" styleClass="OraDataText" readOnly="true"/>
+      <modify element="Status" styleClass="OraDataText" readOnly="true"/>
+      <move element="TaxIncluded" after="CustomerName"/>
+      <move element="CustomerNumber" after="TaxIncluded"/>
+      <move element="TaxCode" after="CustomerNumber"/>
+      <move element="CustomerSiteUse" after="TaxCode"/>
+      <move element="TransactionType" after="CustomerSiteUse"/>
+      <move element="CustShipSiteUse" after="TransactionType"/>
+      <move element="InvoiceRule" after="CustShipSiteUse"/>
+      <move element="PaymentTermBill" after="InvoiceRule"/>
+      <move element="AccountingRule" after="PaymentTermBill"/>
+      <move element="ReceiptMethod" after="AccountingRule"/>
+      <move element="SalesrepName" after="ReceiptMethod"/>
+      <move element="CustPoNumber" after="SalesrepName"/>
+      <move element="CustShipSiteId" after="CustPoNumber"/>
+      <move element="CustTrxTypeId" after="CustShipSiteId"/>
+      <move element="ApArTermId" after="CustTrxTypeId"/>
+      <move element="CustomerSiteUseId" after="ApArTermId"/>
+      <move element="TaxCodeId" after="CustomerSiteUseId"/>
+      <move element="InvRuleId" after="TaxCodeId"/>
+      <move element="AccountRuleId" after="InvRuleId"/>
+      <move element="SalesrepId" after="AccountRuleId"/>
+      <move element="PoHeaderId" after="SalesrepId"/>
+      <move element="ReceiptMethodId" after="PoHeaderId"/>
+      <move element="CustomerId" after="ReceiptMethodId"/>
+      <modify element="TaxIncluded" styleClass="OraDataText" readOnly="true"/>
+      <modify element="TaxCode" styleClass="OraDataText" readOnly="true"/>
+      <modify element="CustomerSiteUse" styleClass="OraDataText" readOnly="true"/>
+      <modify element="TransactionType" styleClass="OraDataText" readOnly="true"/>
+      <modify element="CustShipSiteUse" styleClass="OraDataText" readOnly="true"/>
+      <modify element="InvoiceRule" styleClass="OraDataText" readOnly="true"/>
+      <modify element="PaymentTermBill" styleClass="OraDataText" readOnly="true"/>
+      <modify element="AccountingRule" styleClass="OraDataText" readOnly="true"/>
+      <modify element="ReceiptMethod" styleClass="OraDataText" readOnly="true"/>
+      <modify element="SalesrepName" styleClass="OraDataText" readOnly="true"/>
+      <modify element="CustPoNumber" styleClass="OraDataText" readOnly="true"/>
+      <modify element="DistributionTblRN" blockSize="10"/>
+      <move element="LineNumber" after="DistributionId"/>
+      <move element="AccountClassDesc" after="LineNumber"/>
+      <move element="Account" after="AccountClassDesc"/>
+      <move element="Percentage" after="Account"/>
+      <move element="Amount" after="Percentage"/>
+      <move element="DistPaymentTermId" after="Amount"/>
+      <move element="AccountClass" after="DistPaymentTermId"/>
+      <move element="AccountId" after="AccountClass"/>
+      <modify element="AccountClassDesc" readOnly="true"/>
+      <modify element="Account" readOnly="true"/>
+      <modify element="Percentage" readOnly="true"/>
+   </modifications>
+</customization>

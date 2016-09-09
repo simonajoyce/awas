@@ -1,0 +1,25 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.6.7_727" xml:lang="en-US" customizes="/oracle/apps/per/selfservice/personalinformation/webui/BasicDetNamUpdRN" developerMode="false" package="/oracle/apps/per/customizations/localization/KW/selfservice/personalinformation/webui" file-version="$Header: BasicDetNamUpdRN.xml 120.0 2005/06/03 03:52:39 appldev noship $">
+   <modifications>
+      <move element="HrTitle" after="HrEffectiveDate"/>
+      <move element="HrFullName" after="HrTitle"/>
+      <move element="HrFirstName" after="HrFullName"/>
+      <move element="HrLastName" after="HrFirstName"/>
+      <move element="HrPersonDevDfFlex" after="HrLastName"/>
+      <move element="HrPreferredName" after="HrPersonDevDfFlex"/>
+      <move element="HrPrevLastName" after="HrPreferredName"/>
+      <move element="HrPrefix" after="HrPrevLastName"/>
+      <move element="HrSuffix" after="HrPrefix"/>
+      <move element="HrMiddleName" after="HrSuffix"/>
+      <move element="HrHonors" after="HrMiddleName"/>
+      <modify element="HrEffectiveDate" tipType="longMessage"/>
+      <modify element="HrFirstName" required="yes"/>
+      <modify element="HrPersonDevDfFlex" rendered="true" segmentList="KW|Father's Name|Grandfather's Name|Alternate First Name|Father's Alternate Name|Grandfather's Alternate Name|Alternate Family Name"/>
+      <modify element="HrMiddleName" rendered="true"/>
+      <modify element="HrPrefix" rendered="true" tipType="longMessage"/>
+      <modify element="HrLastName" prompt="Family Name"/>
+      <modify element="HrSuffix" rendered="true" tipType="longMessage"/>
+      <modify element="HrPreferredName" tipType="longMessage"/>
+      <modify element="HrPrevLastName" tipType="longMessage"/>
+   </modifications>
+</customization>

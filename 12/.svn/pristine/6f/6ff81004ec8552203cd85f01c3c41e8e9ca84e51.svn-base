@@ -1,0 +1,41 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_21" xml:lang="en-US" customizes="/oracle/apps/ar/hz/components/party/person/webui/HzPuiQuickCreatePersonSpecial" file-version="$Header: HzPuiQuickCreatePersonSpecial.xml 120.1 2006/09/22 02:34:30 rramacha noship $" package="/oracle/apps/ar/hz/components/party/person/webui/customizations/function/ASN_CTCTCREATEPG">
+   <modifications>
+      <modify element="HzPuiPerQuickCreateProfileLayout" text="Contact Information"/>
+      <move element="Spacer1" after="TableLayout"/>
+      <move element="LastNameTip" after="Spacer1"/>
+      <move element="ObjectId" after="LastNameTip"/>
+      <move element="TestParam" after="ObjectId"/>
+      <move element="PersonQuickCreateMessageComp" after="TestParam"/>
+      <move element="PersonFirstName" after="PersonPreNameAdjunct"/>
+      <move element="PersonMiddleName" after="PersonFirstName"/>
+      <move element="PersonLastName" after="PersonMiddleName"/>
+      <move element="PersonNameSuffix" after="PersonLastName"/>
+      <move element="PartyNumber" after="PersonNameSuffix"/>
+      <move element="EmailAddress" after="PartyNumber"/>
+      <move element="KnownAs" after="EmailAddress"/>
+      <move element="PersonNamePhonetic" after="KnownAs"/>
+      <move element="JgzzFiscalCode" after="PersonNamePhonetic"/>
+      <move element="TaxReference" after="JgzzFiscalCode"/>
+      <move element="PreferredContactMethod" after="TaxReference"/>
+      <move element="EmailFormat" after="PreferredContactMethod"/>
+      <move element="PhoneContactPointPurpose" after="EmailFormat"/>
+      <move element="PhoneMessageLayout" after="PhoneContactPointPurpose"/>
+      <move element="PhoneExtension" after="PhoneMessageLayout"/>
+      <move element="MobileContactPointPurpose" after="PhoneExtension"/>
+      <move element="MobileMessageLayout" after="MobileContactPointPurpose"/>
+      <move element="FaxContactPointPurpose" after="MobileMessageLayout"/>
+      <move element="FaxMessageLayout" after="FaxContactPointPurpose"/>
+      <move element="Organization" after="FaxMessageLayout"/>
+      <move element="JobTitle" after="Organization"/>
+      <move element="OrgPartyNumber" after="JobTitle"/>
+      <move element="ContactNumber" after="OrgPartyNumber"/>
+      <move element="JobTitleCode" after="ContactNumber"/>
+      <move element="perCustCatSp" after="JobTitleCode"/>
+      <move element="flexMessageLayout" after="perCustCatSp"/>
+      <modify element="Spacer1" rendered="false"/>
+      <modify element="PersonNameSuffix" rendered="false"/>
+      <modify element="TableLayout" rendered="false"/>
+      <modify element="ContactNumber" rendered="false"/>
+   </modifications>
+</customization>

@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/fnd/wf/worklist/webui/AdvancWorklistRG" developerMode="true" file-version="$Header: AdvancWorklistRG.xml 120.1 2006/01/11 17:57:18 andixit noship $" package="/oracle/apps/fnd/wf/worklist/webui/customizations/function/OKC_REP_HM_NOTIF_PERSONAL">
+   <modifications>
+      <modify element="NtfWorklist">
+         <queryCriteria>
+            <criterion element="NtfMessageType" operator="is" operand="OKCREPAP"/>
+            <criterion element="NtfMessageType" operator="is" operand="OKCREPMA"/>
+            <criterion element="NtfMessageType" operator="is" operand="OKCREPXN"/>
+            <criterion element="NtfMessageType" operator="is" operand="OKCDELWF"/>
+            <criterion element="NtfMessageType" operator="is" operand="POAPPRV"/>
+            <criterion element="NtfMessageType" operator="is" operand="POERROR"/>
+            <criterion element="NtfMessageType" operator="is" operand="OENH"/>
+            <criterion element="NtfMessageType" operator="is" operand="OMERROR"/>
+            <criterion element="NtfMessageType" operator="is" operand="OEBH"/>
+            <criterion element="NtfMessageType" operator="is" operand="OEOH"/>
+            <criterion element="NtfMessageType" operator="is" operand="OESTD" joinCondition="or"/>
+         </queryCriteria>
+      </modify>
+      <modify element="NtfType" rendered="false"/>
+   </modifications>
+</customization>

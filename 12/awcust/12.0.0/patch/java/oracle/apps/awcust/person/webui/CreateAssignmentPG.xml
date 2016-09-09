@@ -1,0 +1,115 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<page xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui" version="10.1.3_1312" xml:lang="en-US" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$">
+   <content>
+      <oa:pageLayout id="PageLayoutRN" amDefName="oracle.apps.awcust.person.server.EmployeeAssignmentsAM" windowTitle="Employee Assignments" title="Create \ Update Assignments" controllerClass="oracle.apps.awcust.person.webui.CreateAssignmentCO">
+         <ui:corporateBranding>
+            <oa:image id="corporateBrandingImage" source="/OA_MEDIA/FNDSSCORP.gif"/>
+         </ui:corporateBranding>
+         <ui:contents>
+            <oa:defaultDoubleColumn id="EmpAssignmentsCreateRN">
+               <ui:contents>
+                  <oa:messageStyledText id="PersonId" dataType="NUMBER" prompt="PersonId" viewName="EmpAssignmentsCreateVO1" viewAttr="PersonId" required="yes" rendered="false"/>
+                  <oa:messageStyledText id="EmployeeName" viewName="EmpAssignmentsCreateVO1" viewAttr="EmployeeName" prompt="Employee"/>
+                  <oa:defaultDoubleColumn id="AssignmentDetailsRN" text="Assignment Details">
+                     <ui:contents>
+                        <oa:messageStyledText id="AssignmentId" dataType="NUMBER" prompt="Assignment Number" viewName="EmpAssignmentsCreateVO1" viewAttr="AssignmentId" maximumLength="38" required="yes" rendered="false"/>
+                        <oa:messageTextInput id="StartDate" dataType="DATE" prompt="Start Date" viewName="EmpAssignmentsCreateVO1" viewAttr="StartDate" required="uiOnly"/>
+                        <oa:messageTextInput id="EndDate" dataType="DATE" prompt="End Date" viewName="EmpAssignmentsCreateVO1" viewAttr="EndDate"/>
+                        <oa:messageLovInput id="EmployeeType" dataType="VARCHAR2" prompt="Employee Type" viewName="EmpAssignmentsCreateVO1" viewAttr="EmployeeType" externalListOfValues="/oracle/apps/awcust/person/lov/webui/EmployeeTypeLovRN" required="yes" queryable="true" lookAheadEnabled="true" lookAheadMinChars="3">
+                           <lovMappings>
+                              <lovMap id="EmployeeTypelovMap" lovItem="EmployeeType" resultTo="EmployeeType" criteriaFrom="EmployeeType" requiredForLOV="false" useForValidation="default"/>
+                           </lovMappings>
+                        </oa:messageLovInput>
+                        <oa:messageLovInput id="Office" dataType="VARCHAR2" prompt="Office" viewName="EmpAssignmentsCreateVO1" viewAttr="Office" maximumLength="20" externalListOfValues="/oracle/apps/awcust/person/lov/webui/OfficeLovRN" queryable="true" required="yes" shortDesc="Select the AWAS Location where the employee will be based or enter 3rd Party Location for non-office based staff">
+                           <lovMappings>
+                              <lovMap id="officelovMap" lovItem="Office" resultTo="Office" criteriaFrom="Office" requiredForLOV="false"/>
+                           </lovMappings>
+                        </oa:messageLovInput>
+                        <oa:messageLovInput id="CostCentre" dataType="NUMBER" prompt="Cost Centre" viewName="EmpAssignmentsCreateVO1" viewAttr="CostCentre" externalListOfValues="/oracle/apps/awcust/person/lov/webui/CostCentreLovRN" required="yes" shortDesc="This is the 4 digit accounting value assigned to the employees department">
+                           <lovMappings>
+                              <lovMap id="CostCentrelovMap" lovItem="CostCentre" resultTo="CostCentre" criteriaFrom="CostCentre" requiredForLOV="false"/>
+                           </lovMappings>
+                        </oa:messageLovInput>
+                        <oa:messageLovInput id="Department" dataType="VARCHAR2" prompt="Department" viewName="EmpAssignmentsCreateVO1" viewAttr="Department" maximumLength="40" required="yes" externalListOfValues="/oracle/apps/awcust/person/lov/webui/DepartmentLovRN">
+                           <lovMappings>
+                              <lovMap id="DepartmentlovMap" lovItem="Department" resultTo="Department" criteriaFrom="Department"/>
+                           </lovMappings>
+                        </oa:messageLovInput>
+                        <oa:messageLovInput id="LineManager" dataType="VARCHAR2" prompt="Line Manager" viewName="EmpAssignmentsCreateVO1" viewAttr="LineManager" maximumLength="100" externalListOfValues="/oracle/apps/awcust/person/lov/webui/LineManagerLovRN" required="yes">
+                           <lovMappings>
+                              <lovMap id="lineManagerlovMap" lovItem="LineManager" resultTo="LineManager" criteriaFrom="LineManager"/>
+                           </lovMappings>
+                        </oa:messageLovInput>
+                        <oa:messageTextInput id="JobTitle" dataType="VARCHAR2" prompt="Job Title" viewName="EmpAssignmentsCreateVO1" viewAttr="JobTitle" maximumLength="50" required="yes"/>
+                        <oa:messageTextInput id="DeskLocation" dataType="VARCHAR2" prompt="Desk Location" viewName="EmpAssignmentsCreateVO1" viewAttr="DeskLocation" maximumLength="100" rows="2"/>
+                        <oa:messageTextInput id="OtherComments" dataType="VARCHAR2" prompt="Other Comments" viewName="EmpAssignmentsCreateVO1" viewAttr="OtherComments" maximumLength="250" rows="4" longTipRegion="Please enter any comments relevant to the creation of this assignment" shortDesc="Comments in this field are public and will be communicated in emails."/>
+                        <oa:messageCheckBox id="BusinessCards" dataType="VARCHAR2" text="Order Business Cards?" prompt="Order Business Cards?" viewName="EmpAssignmentsCreateVO1" viewAttr="BusinessCards" checkedValue="Y" unCheckedValue="N"/>
+                     </ui:contents>
+                  </oa:defaultDoubleColumn>
+                  <oa:header id="JobLevelRN" text="Approval Limits">
+                     <ui:contents>
+                        <oa:formattedText id="ApprovalText" text="The employees job level dictates what type of transaction they can approve and by how much. Please select the appropriate job level for the employee"/>
+                        <oa:messageLovInput id="JobLevel" dataType="NUMBER" prompt="JobLevel" viewName="EmpAssignmentsCreateVO1" viewAttr="JobLevel" required="yes" externalListOfValues="/oracle/apps/awcust/person/lov/webui/ApprovalLevelLovRN">
+                           <lovMappings>
+                              <lovMap id="JobLevellovMap" lovItem="JobLevel" resultTo="JobLevel" criteriaFrom="JobLevel"/>
+                           </lovMappings>
+                        </oa:messageLovInput>
+                     </ui:contents>
+                  </oa:header>
+                  <oa:header id="UserProfileRN" text="User Profile">
+                     <ui:contents>
+                        <oa:messageLovInput id="UserProfile" viewName="EmpAssignmentsCreateVO1" viewAttr="UserProfile" prompt="User Profile" required="yes" queryable="false" externalListOfValues="/oracle/apps/awcust/person/lov/webui/UserProfileLovRN" lookAheadMinChars="1" maximumLength="40">
+                           <lovMappings>
+                              <lovMap id="userProfileLovMap" lovItem="UserProfile" resultTo="UserProfile" criteriaFrom="UserProfile"/>
+                           </lovMappings>
+                        </oa:messageLovInput>
+                        <oa:header id="MobileRN" text="Mobile Phone">
+                           <ui:contents>
+                              <oa:formattedText id="MobilePhoneTxt" text="If the employee is to be issued with a mobile device, then please enter their existing mobile phone number or check the Issue new mobile number checkbox."/>
+                              <oa:messageCheckBox id="PortMobile" dataType="VARCHAR2" prompt="Issue new mobile number?" viewName="EmpAssignmentsCreateVO1" viewAttr="MobileDevice" text="Issue new mobile number?" shortDesc="If User Profile is not equal to Task Worker and this field is unchecked then the Mobile NUmber field must be entered." checkedValue="Y" unCheckedValue="N"/>
+                              <oa:messageTextInput id="MobileNumber" dataType="VARCHAR2" prompt="Mobile Number" viewName="EmpAssignmentsCreateVO1" viewAttr="MobileNumber" maximumLength="20"/>
+                           </ui:contents>
+                        </oa:header>
+                     </ui:contents>
+                  </oa:header>
+                  <oa:header id="RemoteAccessRN" text="Remote Access">
+                     <ui:contents>
+                        <oa:messageCheckBox id="RemoteAccess" dataType="VARCHAR2" text="Remote Access Required?" prompt="Remote Access Required?" viewName="EmpAssignmentsCreateVO1" viewAttr="RemoteAccess" checkedValue="Y" unCheckedValue="N"/>
+                        <oa:tip id="RemoteAccessTip" text="Check this box if the user is to be issued with a remote access keyfob"/>
+                     </ui:contents>
+                  </oa:header>
+                  <oa:header id="FyiEmailRN" text="FYI Email">
+                     <ui:contents>
+                        <oa:messageCheckBox id="RestrictFYI" checkedValue="Y" unCheckedValue="N" viewName="EmpAssignmentsCreateVO1" viewAttr="RestrictFyi" text="Restrict FYI emails?" prompt="Restrict FYI emails?" shortDesc="Checking this field will restrict the New Employee created emails to just the Line Manager"/>
+                        <oa:tip id="RestrictFyiTip" text="Checking this field will restrict the New Employee created emails to just the Line Manager"/>
+                     </ui:contents>
+                  </oa:header>
+                  <oa:header id="PortalRN" text="AWAS Portal">
+                     <ui:contents>
+                        <oa:messageCheckBox id="Portal" text="Display this employee on the Portal?" prompt="Display this employee on the Portal?" checkedValue="Y" unCheckedValue="N" checked="true" defaultValue="Y" viewName="EmpAssignmentsCreateVO1" viewAttr="Portal"/>
+                        <oa:tip id="item1" text="Uncheck the box above if you do not wish this employee to be setup on the AWAS portal"/>
+                     </ui:contents>
+                  </oa:header>
+               </ui:contents>
+            </oa:defaultDoubleColumn>
+            <oa:pageButtonBar id="PageButtonRN">
+               <ui:contents>
+                  <oa:submitButton id="Apply" use="/oracle/apps/fnd/attributesets/Buttons/Apply">
+                     <ui:primaryClientAction>
+                        <ui:fireAction event="Apply"/>
+                     </ui:primaryClientAction>
+                  </oa:submitButton>
+                  <oa:submitButton id="Cancel" use="/oracle/apps/fnd/attributesets/Buttons/Cancel">
+                     <ui:primaryClientAction>
+                        <ui:fireAction event="Cancel"/>
+                     </ui:primaryClientAction>
+                  </oa:submitButton>
+               </ui:contents>
+            </oa:pageButtonBar>
+         </ui:contents>
+         <ui:pageStatus>
+            <oa:tableLayout id="PageStatusRN" extends="/oracle/apps/fnd/framework/webui/OAReqFieldDescRG" hAlign="center"/>
+         </ui:pageStatus>
+      </oa:pageLayout>
+   </content>
+</page>

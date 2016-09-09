@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/ar/hz/components/contactpoints/webui/HzPuiContactPointPhoneTable" file-version="$Header: HzPuiContactPointPhoneTable.xml 120.0 2005/09/04 03:11 rramacha noship $" package="/oracle/apps/ar/hz/components/contactpoints/webui/customizations/function/ASN_PERSONROPG">
+   <modifications>
+      <modify element="Usage" rendered="false"/>
+      <modify element="RestrictionSwitcher" rendered="true"/>
+      <modify element="FormattedPhoneNumber" prompt="Phone Number"/>
+   </modifications>
+</customization>

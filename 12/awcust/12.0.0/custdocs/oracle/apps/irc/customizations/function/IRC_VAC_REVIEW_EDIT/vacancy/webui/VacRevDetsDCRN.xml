@@ -1,0 +1,25 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/irc/vacancy/webui/VacRevDetsDCRN" developerMode="true" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: VacRevDetsDCRN.xml 120.4 2005/11/10 09:05:30 mmillmor noship $" version="9.0.3.6.2_398" xml:lang="en-US" package="/oracle/apps/irc/customizations/function/IRC_VAC_REVIEW_EDIT/vacancy/webui">
+   <modifications>
+      <modify element="FndEmployee" rendered="true"/>
+      <modify element="FndContractor" rendered="true"/>
+      <move element="FndStatus" after="FndVacancyName"/>
+      <move element="FndStartDate" after="FndStatus"/>
+      <move element="FndEndDate" after="FndStartDate"/>
+      <move element="FndManager" after="FndEndDate"/>
+      <move element="FndTotalOpenings" after="FndManager"/>
+      <move element="FndOrganization" after="FndTotalOpenings"/>
+      <move element="FndLocation" after="FndOrganization"/>
+      <move element="FndProfessionalArea" after="FndLocation"/>
+      <move element="FndJobTitle" after="FndProfessionalArea"/>
+      <move element="FndGrade" after="FndJobTitle"/>
+      <move element="FndPositionName" after="FndGrade"/>
+      <move element="FndEmployee" after="FndPositionName"/>
+      <move element="FndEmploymentStatus" after="FndEmployee"/>
+      <move element="FndContractor" after="FndEmploymentStatus"/>
+      <move element="FndCreationDate" after="FndContractor"/>
+      <move element="FndRecruiter" after="FndCreationDate"/>
+      <move element="FndSecurity" after="FndRecruiter"/>
+      <move element="FndBusinessGroup" after="FndSecurity"/>
+   </modifications>
+</customization>

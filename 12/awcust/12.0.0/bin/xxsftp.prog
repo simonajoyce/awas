@@ -1,0 +1,70 @@
+# # Files will be downloaded to the $AWCUST_TOP/AMEX/NEW directory
+# and renamed with a date and sequential number.
+# =========================================================
+# Parameters from 1 to 4 i.e $1 $2 $3 $4 are standard parameters
+# $1 : USERNAME/PASSWORD OF THE DATABASE
+# $2 : USERID
+# $3 : USERNAME
+# $4 : CONCURRENT REQUEST ID
+# $5 : FTP Username
+# $6 : FTP Password
+echo ___________________________________________________
+echo Parameters received from concurrent program ..
+echo Time : `date +"%Y%m%d_%H%M%S"`
+echo ___________________________________________________
+echo Arguments : 
+echo none
+echo ___________________________________________________
+echo Connecting to American Express...........
+
+export  APPS_UNAME=$1
+export  APPS_REQ=$4
+export  FTPUSERNAME=$5
+export  FTPPW=$6
+export  TARGET="fsgateway.aexp.com"
+#Test Target =# export TARGET="fsgatewaytest.aexp.com"
+
+export AMEX="/u01/app/oracle/apps/apps_st/appl/awcust/12.0.0/AMEX"
+#export AMEX="/home/applmgr/scripts/ftp"
+
+echo "Parameter Used List"
+echo "APPS_UNAME=$APPS_UNAME"
+echo "FTPUSERNAME=$FTPUSERNAME"
+echo "FTPPW=$FTPPW"
+echo "APPS_REQ=$APPS_REQ"
+echo "TARGET=$TARGET"
+
+
+cd $AMEX/NEW
+
+/usr/bin/expect -- << EOF
+
+echo "Starting SFTP Transfer"
+
+spawn /usr/bin/sftp $FTPUSERNAME@$TARGET
+expect "Password:"
+send "$FTPPW\r"
+expect "sftp> "
+send "cd outbox\r"
+expect "sftp> "
+send "get *\r"
+expect "sftp> "
+send "bye\r"
+EOF
+
+echo "SFTP Complete"
+
+echo "Renaming files"
+set i=1;
+for file in $AMEX/NEW/* ;
+do mv $file $AMEX/NEW/`date +"%Y%m%d_%H%M%S"`_$((i++)).dat;
+done
+
+echo "Inserting Data into Tables"
+for file in *;
+do sqlplus $APPS_UNAME@UAT @/u01/app/oracle/apps/apps_st/appl/awcust/12.0.0/sql/stmt.sql $file N N $APPS_REQ
+done
+
+echo "Process Complete"
+
+exit 0

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- $Header: XX_AR_DIAMONDHEAD_REP.xml 2014/02/06 12:56:20 sjoyce noship $-->
+<!-- dbdrv: exec java oracle/apps/xdo/oa/util XDOLoader.class java &phase=dat checkfile:~PROD:patch/115/publisher/defs:XX_AR_DIAMONDHEAD_REP.xml UPLOAD - DB_USERNAME &un_apps -DB_PASSWORD &pw_apps -JDBC_CONNECTION &jdbc_db_addr -LOB_TYPE DATA_TEMPLATE -APPS_SHORT_NAME ~PROD -LOB_CODE APOBRR -LANGUAGE 00 -XDO_FILE_TYPE XML-DATA-TEMPLATE -FILE_NAME &fullpath:~PROD:patch/115/publisher/defs:XX_GIFT_REGISTERxml#  -->
+<!-- GSCC_Category="Xdo Data Definition" -->
+<dataTemplate name="XX_SJ_BLOB_TEST_REP" defaultPackage="XX_SJ_BLOB_TEST_REP_pkg" version="1.0">
+<properties>
+<property name="debug_mode" value="on" />
+<property name="xml_tag_case" value="upper" />
+</properties>
+<parameters>
+</parameters>
+<dataQuery>
+<sqlStatement name="Q_REPORT">
+<![CDATA[
+select id ID, url URL, data DATA from http_blob_test
+]]>
+</sqlStatement>
+</dataQuery>
+<!--<dataTrigger name="beforeReportTrigger" source="XX_AR_DIAMONDHEAD_REP_pkg.before_report"/> -->
+<dataStructure>
+<group name="G_REPORT" source="Q_REPORT">
+<element name="ID"              value="ID"/>
+<element name="URL"             value="URL"/>
+<element name="DATA"           	value="DATA"/>
+</group>
+</dataStructure>
+</dataTemplate>

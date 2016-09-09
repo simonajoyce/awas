@@ -1,0 +1,24 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.6.6_652" xml:lang="en-US" customizes="/oracle/apps/per/selfservice/personalinformation/webui/BasicDetNamUpdRN" developerMode="false" package="/oracle/apps/per/customizations/localization/SG/selfservice/personalinformation/webui" file-version="$Header: BasicDetNamUpdRN.xml 115.3 2003/12/09 04:06:21 srrajago noship $">
+   <modifications>
+      <move element="HrTitle" after="HrEffectiveDate"/>
+      <move element="HrFullName" after="HrTitle"/>
+      <move element="HrLastName" after="HrFullName"/>
+      <move element="HrFirstName" after="HrLastName"/>
+      <move element="HrMiddleName" after="HrFirstName"/>
+      <move element="HrPrefix" after="HrMiddleName"/>
+      <move element="HrSuffix" after="HrPrefix"/>
+      <move element="HrPreferredName" after="HrSuffix"/>
+      <move element="HrPrevLastName" after="HrPreferredName"/>
+      <move element="HrPersonDevDfFlex" after="HrPrevLastName"/>
+      <move element="HrHonors" after="HrPersonDevDfFlex"/>
+      <modify element="HrEffectiveDate" required="no"/>
+      <modify element="HrTitle" tipMessageName=""/>
+      <modify element="HrFullName" tipMessageName=""/>
+      <modify element="HrFirstName" tipMessageName=""/>
+      <modify element="HrPersonDevDfFlex" rendered="true" segmentList="SG|SG_PERMIT_TYPE|SG_PERMIT_NUMBER|SG_PERMIT_CATEGORY|SG_PERMIT_ISSUE_DATE|SG_PERMIT_EXPIRY_DATE|SG_PERMIT_CANCEL_DATE|SG_NRIC_COLOUR|SG_CPF_CATEGORY|SG_COMMUNITY_FUND" readOnly="true"/>
+      <modify element="HrMiddleName" tipMessageName=""/>
+      <modify element="HrLastName" required="no" tipMessageName=""/>
+      <modify element="HrHonors" tipMessageName=""/>
+   </modifications>
+</customization>

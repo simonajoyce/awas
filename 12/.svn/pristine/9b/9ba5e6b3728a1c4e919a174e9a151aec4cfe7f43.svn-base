@@ -1,0 +1,12 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.5.4.64_464" xml:lang="en-US" customizes="/oracle/apps/pqp/vehiclemileage/webui/VehicleRepositoryPG" developerMode="false" file-version="$Header: VehicleRepositoryPG.xml 120.0 2005/10/16 23:15 ssekhar noship $" package="/oracle/apps/pqp/vehiclemileage/webui/customizations/localization/PL">
+   <modifications>
+      <modify element="InsuranceNum" rendered="false"/>
+      <modify element="InsuranceExpDate" rendered="false"/>
+      <modify element="Color" prompt="Color"/>
+      <modify element="RegistrationNumber" prompt="Vehicle Registration Number"/>
+      <modify element="RegNumber" prompt="Vehicle Registration Number"/>
+      <modify element="SHIdenNumber" prompt="Vehicle Identification Number (VIN)"/>
+      <modify element="ModelYear" prompt="Year of Manufacture"/>
+   </modifications>
+</customization>

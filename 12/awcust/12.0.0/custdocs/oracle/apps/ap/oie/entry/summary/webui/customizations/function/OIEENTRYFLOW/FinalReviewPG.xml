@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: FinalReviewPG.xml 120.1 2006/09/21 21:54:56 skoukunt noship $" version="9.0.6.0.0_21" xml:lang="en-US" customizes="/oracle/apps/ap/oie/entry/summary/webui/FinalReviewPG" package="/oracle/apps/ap/oie/entry/summary/webui/customizations/function/OIEENTRYFLOW">
+   <modifications>
+      <modify element="ReviewSubTabsRN.ApproversRN.AdhocApproversShowHideRN" rendered="false"/>
+      <move element="ReviewSubTabsRN.ApproversRN.AMEOrderNumCol" after="ReviewSubTabsRN.ApproversRN.AMELineNoCol"/>
+      <move element="ReviewSubTabsRN.ApproversRN.AMEApproverCol" after="ReviewSubTabsRN.ApproversRN.AMEOrderNumCol"/>
+      <move element="ReviewSubTabsRN.ApproversRN.AMEApproverTypeCol" after="ReviewSubTabsRN.ApproversRN.AMEApproverCol"/>
+      <move element="ReviewSubTabsRN.ApproversRN.AMECategoryCol" after="ReviewSubTabsRN.ApproversRN.AMEApproverTypeCol"/>
+      <move element="ReviewSubTabsRN.ApproversRN.AMEStatusCol" after="ReviewSubTabsRN.ApproversRN.AMECategoryCol"/>
+      <move element="ReviewSubTabsRN.ApproversRN.AMEDeleteCol" after="ReviewSubTabsRN.ApproversRN.AMEStatusCol"/>
+      <modify element="ReviewSubTabsRN.ApproversRN.AMELineNoCol" rendered="false"/>
+      <modify element="ReviewSubTabsRN.ApproversRN.AMEApproverTypeCol" rendered="false"/>
+      <modify element="ReviewSubTabsRN.ApproversRN.AMEDeleteCol" rendered="false"/>
+      <modify element="ReviewSubTabsRN.ApproversRN.AMEApproversViewRN" rendered="false"/>
+      <modify element="ReviewSubTabsRN.ApproversRN.ExtraDetails" rendered="false"/>
+   </modifications>
+</customization>

@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.89_554" xml:lang="en-US" customizes="/oracle/apps/per/selfservice/newhire/webui/SearchHireApplPG" package="/oracle/apps/per/selfservice/newhire/webui/customizations/localization/CN" file-version="$Header: SearchHireApplPG.xml 120.0 2006/07/14 11:14:19 aaagarwa noship $">
+   <modifications>
+      <modify element="SearchLastName" prompt="Family/Last Name"/>
+      <modify element="SearchFirstName" prompt="Given/First Name"/>
+   </modifications>
+</customization>

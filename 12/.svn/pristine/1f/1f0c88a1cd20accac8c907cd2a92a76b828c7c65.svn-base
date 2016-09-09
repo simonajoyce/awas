@@ -1,0 +1,6 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/pos/asn/webui/PosAsnCanConfPG" file-version="$Header: PosAsnCanConfPG.xml 120.1.12000000.1 2007/10/24 18:17:59 rallamse noship $" package="/oracle/apps/pos/asn/webui/customizations/function/ILS_ISUPP_PERZ">
+   <modifications>
+      <modify element="PosAsnReturn" destination="OA.jsp?akRegionCode=POSASNVIEWPAGE&amp;akRegionApplicationId=177&amp;SearchType=Simple&amp;InitSearch=DUE_THIS_WEEK&amp;OAFunc=ILS_ISUPP_PERZ"/>
+   </modifications>
+</customization>

@@ -1,0 +1,38 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/pos/asn/webui/PosAsnCreatePG" xmlns:oa="http://xmlns.oracle.com/oa" file-version="$Header: PosAsnCreatePG.xml 120.1.12000000.1 2007/10/24 18:18:01 rallamse noship $" package="/oracle/apps/pos/asn/webui/customizations/function/ILS_ISUPP_PERZ">
+   <modifications>
+      <modify element="AsnCreatePG" controllerClass="oracle.apps.ja.asn.webui.ILPosAsnCreateCO"/>
+      <move element="ShipDateEntry" after="ShipNumEntry"/>
+      <move element="ExpRcptDateEntry" after="ShipDateEntry"/>
+      <move element="ShipDateText2" after="ExpRcptDateEntry"/>
+      <move element="ExpRcptDateText1" after="ShipDateText2"/>
+      <insert after="ExpRcptDateText1">
+         <oa:messageTextInput id="ExInvDateHdr" adminCustomizable="true" cellNoWrapFormat="false" columns="20" dataType="DATE" disabled="false" initSortSeq="none" prompt="Excise Invoice Date" queryable="false" readOnly="false" rendered="false" required="no" rows="1" scope="." secret="false" selectiveSearchCriteria="false" serverUnvalidated="false" sortState="no" tipType="none" totalValue="false" userCustomizable="false" vAlign="middle" warnAboutChanges="true"/>
+      </insert>
+      <insert after="ExpRcptDateText1">
+         <oa:messageTextInput id="ExInvNumHdr" adminCustomizable="true" cellNoWrapFormat="false" columns="25" dataType="VARCHAR2" disabled="false" initSortSeq="none" prompt="Excise Invoice Number" queryable="false" readOnly="false" rendered="false" required="no" rows="1" scope="." secret="false" selectiveSearchCriteria="false" serverUnvalidated="false" sortState="no" tipType="none" totalValue="false" userCustomizable="false" vAlign="middle" warnAboutChanges="true"/>
+      </insert>
+      <move element="CountryDescDef" after="PackingSlipDef"/>
+      <move element="BarCodeDef" after="CountryDescDef"/>
+      <move element="ApplyAllBtn" after="BarCodeDef"/>
+      <insert before="ApplyAllBtn">
+         <oa:messageTextInput id="ExInvNumMain" adminCustomizable="true" cellNoWrapFormat="false" columns="25" dataType="VARCHAR2" disabled="false" initSortSeq="none" prompt="Excise Invoice Number" queryable="false" readOnly="false" rendered="false" required="no" rows="1" scope="." secret="false" selectiveSearchCriteria="false" serverUnvalidated="false" sortState="no" tipType="none" totalValue="false" userCustomizable="false" vAlign="middle" warnAboutChanges="true"/>
+      </insert>
+      <move element="CountryCodeDef" after="ApplyAllBtn"/>
+      <move element="TruckNoDef" after="ContainerNoDef"/>
+      <move element="CommentsDef" after="TruckNoDef"/>
+      <insert after="CommentsDef">
+         <oa:messageTextInput id="ExInvDateMain" adminCustomizable="true" cellNoWrapFormat="false" dataType="DATE" disabled="false" initSortSeq="none" prompt="Excise Invoice Date" queryable="false" readOnly="false" rendered="false" required="no" rows="1" scope="." secret="false" selectiveSearchCriteria="false" serverUnvalidated="false" sortState="no" tipType="none" totalValue="false" userCustomizable="false" vAlign="middle" warnAboutChanges="true"/>
+      </insert>
+      <move element="BarCodeLine" after="PackingSlipLine"/>
+      <insert after="BarCodeLine">
+         <oa:messageTextInput id="ExInvNumRow" adminCustomizable="true" cellNoWrapFormat="false" columns="25" dataType="VARCHAR2" disabled="false" initSortSeq="none" prompt="Excise Invoice Number" queryable="false" readOnly="false" rendered="false" required="no" rows="1" scope="." secret="false" selectiveSearchCriteria="false" serverUnvalidated="false" sortState="no" tipType="none" totalValue="false" userCustomizable="false" vAlign="middle" viewAttr="BarcodeLabel" viewName="PosAsnLineIntfVO" warnAboutChanges="true"/>
+      </insert>
+      <move element="TruckNoLine" after="ContainerNoLine"/>
+      <insert after="TruckNoLine">
+         <oa:messageTextInput id="ExInvDateRow" adminCustomizable="true" cellNoWrapFormat="false" dataType="DATE" disabled="false" initSortSeq="none" prompt="Excise Invoice Date" queryable="false" readOnly="false" rendered="false" required="no" rows="1" scope="." secret="false" selectiveSearchCriteria="false" serverUnvalidated="false" sortState="no" tipType="none" totalValue="false" userCustomizable="false" vAlign="middle" viewAttr="DueDate" viewName="PosAsnLineIntfVO" warnAboutChanges="true"/>
+      </insert>
+      <modify element="PoNumber" destination="OA.jsp?OAFunc=ILS_POS_VIEW_ORDER&amp;PoHeaderId={!PoHeaderId}&amp;PoReleaseId={!PoReleaseId}&amp;retainAM=Y&amp;addBreadCrumb=Y"/>
+      <modify element="AsnLineEntryRN" controllerClass="oracle.apps.ja.asn.webui.ILPosAsnLineEntryCO"/>
+   </modifications>
+</customization>

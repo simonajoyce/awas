@@ -1,0 +1,10 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_50" xml:lang="en-US" customizes="/oracle/apps/icx/icatalog/shopping/webui/NonCatalogRequestPG" xmlns:user="http://xmlns.oracle.com/jrad/user" user:responsibilityKey="self_service_purchasing_5" user:responsibilityAppShortName="ICX">
+   <modifications>
+      <modify element="SupplierText" required="yes"/>
+      <modify element="SupplierOnNonCat" required="yes"/>
+      <modify element="SupplierSiteText" required="yes"/>
+      <modify element="SupplierSiteOnNonCat" required="yes"/>
+      <modify element="SupplierContact" required="yes"/>
+   </modifications>
+</customization>

@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_50" xml:lang="en-US" customizes="/oracle/apps/icx/por/req/webui/CheckoutSummaryPG">
+   <modifications>
+      <modify element="ProjectMultiple" rendered="false"/>
+      <modify element="ReqHeaderDFF" rendered="true"/>
+      <modify element="TaskMultiple" rendered="false"/>
+      <modify element="ExpenditureTypeMultiple" rendered="false"/>
+      <modify element="ExpenditureOrg" rendered="false"/>
+      <modify element="ExpenditureOrgMultiple" rendered="false"/>
+      <modify element="ExpenditureItemDate" rendered="false"/>
+      <modify element="ExpenditureItemDateMultiple" rendered="false"/>
+      <modify element="TaxClass" rendered="true"/>
+   </modifications>
+</customization>

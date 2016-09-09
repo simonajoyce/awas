@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/ar/hz/components/party/person/webui/HzPuiPersonContactInfo" file-version="$Header: HzPuiPersonContactInfo.xml 120.0 2005/09/04 02:50 rramacha noship $" package="/oracle/apps/ar/hz/components/party/person/webui/customizations/function/ASN_PERSONROPG">
+   <modifications>
+      <modify element="PrimaryPhone" rendered="false"/>
+      <modify element="PrimaryPhoneMessageLayout" rendered="true"/>
+      <modify element="MapMessageLayout" rendered="false"/>
+   </modifications>
+</customization>

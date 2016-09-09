@@ -1,0 +1,9 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_22" xml:lang="en-US" customizes="/oracle/apps/pos/ship/webui/PosDelivSchedPG" file-version="$Header: PosDelivSchedPG.xml 120.1.12000000.1 2007/10/24 18:19:32 rallamse noship $" package="/oracle/apps/pos/ship/webui/customizations/function/ILS_ISUPP_PERZ">
+   <modifications>
+      <modify element="PoNum" destination="OA.jsp?OAFunc=ILS_POS_VIEW_ORDER&amp;PoHeaderId={@PoHeaderId}&amp;PoReleaseId={@PoReleaseId}&amp;retainAM=Y&amp;addBreadCrumb=Y"/>
+      <modify element="QuantityReceived" destination="OA.jsp?page=/oracle/apps/pos/rcv/webui/PosRcvSumTxnsPG&amp;akRegionApplicationId=177&amp;LineLocationID={@LineLocationId}&amp;retainAM=Y&amp;addBreadCrumb=Y&amp;OAFunc=ILS_ISUPP_PERZ"/>
+      <modify element="ShipToLocation" destination="OA.jsp?akRegionCode=POS_ADDRESS_PAGE&amp;akRegionApplicationId=177&amp;LPARAMSHEADER_ID={@PoHeaderId}&amp;LPARAMSRELEASE_ID={@PoReleaseId}&amp;LPARAMSLINE_ID={@PoLineId}&amp;LPARAMSLINE_LOCATION_ID={@LineLocationId}&amp;LPARAMSLOCATION_ID={@ShipToLocationId}&amp;LPARAMSADDR_TYPE=ShipTo&amp;retainAM=Y&amp;OAFunc=ILS_ISUPP_PERZ"/>
+      <modify element="SupplierLocation" destination="OA.jsp?callType=L&amp;akRegionCode=POSINQUIRIESPL&amp;akRegionApplicationId=177&amp;flowApplicationId=177&amp;flowCode=POS_SUPPLIER_INQUIRIES&amp;pageApplicationId=177&amp;pageCode=POS_PO_SUPP_ADDR_D&amp;whereRegionCode=POS_PO_SUPP_ADDR_D&amp;retainAM=Y&amp;addBreadCrumb=Y&amp;LPARAMSVENDOR_SITE_ID={@VendorSiteId}&amp;OAFunc=ILS_ISUPP_PERZ"/>
+   </modifications>
+</customization>

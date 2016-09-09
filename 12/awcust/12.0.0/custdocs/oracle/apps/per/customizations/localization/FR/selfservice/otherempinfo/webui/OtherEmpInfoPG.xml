@@ -1,0 +1,32 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/per/selfservice/otherempinfo/webui/OtherEmpInfoPG" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: OtherEmpInfoPG.xml 115.2 2003/02/13 12:20:26 jcolman noship $" version="9.0.3.6.2_398" xml:lang="en-US" package="/oracle/apps/per/customizations/localization/FR/selfservice/otherempinfo/webui">
+   <modifications>
+      <modify element="HrConfigurablePayInfoSs" text="Salary Information"/>
+      <modify element="HrCollectiveAgreementsSs" text="Employment Terms"/>
+      <modify element="HrCagrSs" text="Grade and Establishment"/>
+      <modify element="HrAssignmentInfoSs" text="Statutory Information"/>
+      <move element="HrCollectiveAgreementsSs" after="HrInstruction"/>
+      <move element="HrCagrSs" after="HrCollectiveAgreementsSs"/>
+      <move element="HrAssignmentInfoSs" after="HrCagrSs"/>
+      <move element="HrConfigurablePayInfoSs" after="HrAssignmentInfoSs"/>
+      <move element="_SSHRFORMEVENT" after="HrAssignmentInfoSs"/>
+      <modify element="HrLabourUnionMemberFlag" rendered="false"/>
+      <modify element="HrCollectiveAgreementName" prompt="Collective Agreement"/>
+      <modify element="HrBargainingUnitCode" rendered="false"/>
+      <move element="HrContractReference" after="HrCollectiveAgreementName"/>
+      <move element="HrCtrMoreInfoButton" after="HrContractReference"/>
+      <move element="HrLabourUnionMemberFlag" after="HrCtrMoreInfoButton"/>
+      <move element="HrBargainingUnitCode" after="HrLabourUnionMemberFlag"/>
+      <move element="HrContractId____1" after="HrBargainingUnitCode"/>
+      <modify element="HrEstablishmentName" required="yes" tipMessageName="" rendered="true"/>
+      <modify element="HrDGradeTypeName" prompt="Agreement Grade" tipMessageName=""/>
+      <move element="HrCagrKeyFlex" after="HrDGradeTypeName"/>
+      <move element="HrCollectiveAgreementId____3" after="HrCagrKeyFlex"/>
+      <move element="HrEstablishmentId" after="HrCollectiveAgreementId____3"/>
+      <move element="HrEstablishmentName" after="HrEstablishmentId"/>
+      <move element="HrCagrGradeId" after="HrEstablishmentName"/>
+      <modify element="HrWorkSchedKeyFlex" segmentList="FR_STATUTORY_INFO.|Employee Category|Starting Reason|Ending Reason" rendered="true"/>
+      <modify element="HrAssignmentFlexField" rendered="false"/>
+      <move element="HrAssignmentFlexField" after="HrWorkSchedKeyFlex"/>
+   </modifications>
+</customization>

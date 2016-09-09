@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- $Header: XX_GIFT_REGISTER.xml 2014/02/06 12:56:20 sjoyce noship $-->
+<!-- dbdrv: exec java oracle/apps/xdo/oa/util XDOLoader.class java &phase=dat checkfile:~PROD:patch/115/publisher/defs:XX_TAM_DAILY_REPORT.xml UPLOAD - DB_USERNAME &un_apps -DB_PASSWORD &pw_apps -JDBC_CONNECTION &jdbc_db_addr -LOB_TYPE DATA_TEMPLATE -APPS_SHORT_NAME ~PROD -LOB_CODE APOBRR -LANGUAGE 00 -XDO_FILE_TYPE XML-DATA-TEMPLATE -FILE_NAME &fullpath:~PROD:patch/115/publisher/defs:XX_GIFT_REGISTERxml#  -->
+<!-- GSCC_Category="Xdo Data Definition" -->
+<dataTemplate name="XX_GIFT_REGISTER" defaultPackage="XX_GIFT_REGISTER_pkg" version="1.0">
+<properties>
+<property name="debug_mode" value="on" />
+<property name="xml_tag_case" value="upper" />
+</properties>
+<parameters>
+<parameter name="P_START_DATE" dataType = "DATE"></parameter>
+</parameters>
+<dataQuery>
+<sqlStatement name="Q_REPORT">
+<![CDATA[
+SELECT E.FULL_NAME,
+H.INVOICE_NUM,
+L.ITEM_DESCRIPTION,
+L.AMOUNT,
+L.CURRENCY_CODE,
+l.amount*H.DEFAULT_EXCHANGE_RATE USD_AMOUNT,
+L.JUSTIFICATION,
+L.START_EXPENSE_DATE,
+L.MERCHANT_NAME,
+L.NUMBER_ATTENDEES,
+L.LOCATION,
+H.DESCRIPTION EXPENSE_REPORT_DESC,
+:P_START_DATE START_DATE,
+L.REPORT_LINE_ID
+FROM AP_EXPENSE_REPORT_VIOLATIONS_V V,
+AP_EXPENSE_REPORT_LINES_ALL L,
+AP_EXPENSE_REPORT_HEADERS_ALL H,
+PER_ALL_PEOPLE_F E
+WHERE V.VIOLATION_TYPE = 'DAILY_LIMIT'
+AND V.CATEGORY_CODE <> 'ACCOMMODATIONS'
+AND V.REPORT_LINE_ID = L.REPORT_LINE_ID
+AND H.REPORT_HEADER_ID = L.REPORT_HEADER_ID
+AND E.PERSON_ID = H.EMPLOYEE_ID
+AND H.REPORT_SUBMITTED_DATE > :P_START_DATE
+order by 1,2
+]]>
+</sqlStatement>
+<sqlStatement name="Q_ATTENDEE">
+<![CDATA[
+SELECT
+A.REPORT_LINE_ID ATTENDEE_LINE_ID,
+A.NAME ATTENDEE_NAME,
+A.EMPLOYER ATTENDEE_EMPLOYER
+FROM OIE_ATTENDEES_ALL A
+]]>
+</sqlStatement>
+<link name="EXP_ATTENDEE_LK" parentQuery="Q_REPORT" parentColumn="REPORT_LINE_ID" childQuery="Q_ATTENDEE" childColumn="ATTENDEE_LINE_ID" condition="="/>
+</dataQuery>
+<!--<dataTrigger name="beforeReportTrigger" source="XX_GIFT_REGISTER_pkg.before_report"/>-->
+<dataStructure>
+<group name="G_REPORT" source="Q_REPORT">
+<element name="FULL_NAME"                 value="full_name"/>
+<element name="INVOICE_NUM"                          value="invoice_num"/>
+<element name="ITEM_DESCRIPTION"                   value="item_description"/>
+<element name="AMOUNT"                   value="amount"/>
+<element name="CURRENCY_CODE"                   value="currency_code"/>
+<element name="USD_AMOUNT"                   value="usd_amount"/>
+<element name="JUSTIFICATION"                          value="justification"/>
+<element name="START_EXPENSE_DATE"                           value="start_expense_date"/>
+<element name="MERCHANT_NAME"                    value="merchant_name"/>
+<element name="NUMBER_ATTENDEES"                     value="number_attendees"/>
+<element name="LOCATION"                     value="location"/>
+<element name="EXPENSE_REPORT_DESC"                     value="expense_report_desc"/>
+<element name="START_DATE"                     value="start_date"/>
+<element name="REPORT_LINE_ID"                     value="report_line_id"/>
+<group name="G_ATTENDEE" source="Q_ATTENDEE">
+<element name="ATTENDEE_LINE_ID"                     value="attendee_line_id"/>
+<element name="ATTENDEE_NAME"                     value="attendee_name"/>
+<element name="ATTENDEE_EMPLOYER"                     value="attendee_employer"/>
+</group>
+</group>
+</dataStructure>
+</dataTemplate>

@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/per/selfservice/otherempinfo/webui/OtherEmpInfoPG" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: OtherEmpInfoPG.xml 120.0 2005/06/03 01:51:50 appldev noship $" version="9.0.3.6.2_398" xml:lang="en-US" package="/oracle/apps/per/customizations/localization/BE/selfservice/otherempinfo/webui">
+   <modifications>
+      <modify element="HrConfigurablePayInfoSs" text="Salary Information"/>
+      <modify element="HrCollectiveAgreementsSs" text="Employment Terms"/>
+      <modify element="HrCagrSs" text="Collective Agreement Grade Information"/>
+      <modify element="HrAssignmentInfoSs" text="Statutory Information"/>
+      <move element="HrCollectiveAgreementsSs" after="HrInstruction"/>
+      <move element="HrCagrSs" after="HrCollectiveAgreementsSs"/>
+      <move element="HrConfigurablePayInfoSs" after="HrCagrSs"/>
+      <move element="HrAssignmentInfoSs" after="HrConfigurablePayInfoSs"/>
+      <move element="_SSHRFORMEVENT" after="HrAssignmentInfoSs"/>
+      <modify element="HrWorkSchedKeyFlex" segmentList="BE_STATUTORY_INFO.|Employee Coding|Work Schedule|Start Reason|End Reason" rendered="true"/>
+      <move element="HrAssignmentFlexField" after="HrWorkSchedKeyFlex"/>
+   </modifications>
+</customization>

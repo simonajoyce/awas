@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/per/selfservice/personalinformation/webui/NewhirePersonPG" developerMode="false" file-version="$Header: NewhirePersonPG.xml 120.4 2006/07/12 14:38:23 spendhar noship $" package="/oracle/apps/per/customizations/localization/AE/selfservice/personalinformation/webui">
+   <modifications>
+      <modify element="HrOtherSection.HrDateOfBirth" required="no"/>
+      <modify element="HrOtherSection.HrSsn" required="no"/>
+      <modify element="HrAdditionalAddress" segmentList=""/>
+      <modify element="HrOtherSection.HrEmailAddress" required="no"/>
+      <modify element="HrAddressFlex" segmentList="AE|Address Line 1|Address Line 2|Emirate|City / Village|Region / Area|Street|Building|Flat Number|PO Box"/>
+      <modify element="HrOtherSection.HrPersonDevDfFlexOther" segmentList="AE|Alternate Place of Birth|Country of Birth|Previous Nationality|Religion|Education Level|Date of Change|Reason for Change|Nationality"/>
+   </modifications>
+</customization>

@@ -1,0 +1,6 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.64_464" xml:lang="en-US" customizes="/oracle/apps/irc/candidateManagement/webui/MgrAplDocTblRN" file-version="$Header: MgrAplDocTblRN.xml 120.0.12010000.1 2009/12/31 07:42:37 amikukum noship $" developerMode="true" package="/oracle/apps/irc/candidateManagement/webui/customizations/function/IRC_APPLY_REVIEW_PAGE">
+   <modifications>
+      <modify element="DocTabcolumn5" rendered="false"/>
+   </modifications>
+</customization>

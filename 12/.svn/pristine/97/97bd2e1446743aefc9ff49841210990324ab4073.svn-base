@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.89_554" xml:lang="en-US" customizes="/oracle/apps/per/dor/webui/DocsOfRecordUpdatePG" developerMode="false" file-version="$Header: DocsOfRecordUpdatePG.xml 120.0.12000000.1 2007/05/22 12:26:52 rajesrin noship $" package="/oracle/apps/per/customizations/localization/NO/dor/webui">
+   <modifications>
+      <modify element="IssuedAt" rendered="false"/>
+      <modify element="IssuedDate" required="yes"/>
+      <modify element="IssuingAuthority" rendered="false"/>
+   </modifications>
+</customization>

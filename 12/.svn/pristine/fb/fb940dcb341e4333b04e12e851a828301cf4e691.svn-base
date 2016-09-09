@@ -1,0 +1,12 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="" xml:lang="en-US" customizes="/oracle/apps/prp/common/email/webui/EmailDtlPG" file-version="$Header: EmailDtlPG.xml 120.0 2006/04/18 02:40:16 annnatar noship $" package="/oracle/apps/prp/common/email/webui/customizations/function/ASN_EM_EMAIL_DETAILS">
+   <modifications>
+      <modify element="CopySelfFlag" rendered="false"/>
+      <modify element="ToAddress" rendered="false"/>
+      <modify element="ToStandard" rendered="true"/>
+      <modify element="CcAddress" rendered="false"/>
+      <modify element="CcStandard" rendered="true"/>
+      <modify element="AddCcAddress" rendered="false"/>
+      <modify element="BccAddress" rendered="false"/>
+   </modifications>
+</customization>

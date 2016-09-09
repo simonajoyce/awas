@@ -1,0 +1,15 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_27" xml:lang="en-US" customizes="/oracle/apps/csi/instance/general/webui/InstanceDetailsPG" developerMode="true" file-version="$Header: InstanceDetailsPG.xml 120.0.12010000.2 2009/09/10 09:21:28 sanjrao noship $" package="/oracle/apps/csi/instance/general/webui/customizations/function/CSZ_CSI_OA_INST_DETAILS_ITIL">
+   <modifications>
+      <modify element="PageLayoutRN" title="Update: Configuration Item :" windowTitle="Configuration Item Details"/>
+      <modify element="GeneralAttributeRN.InstanceName" prompt="Name"/>
+      <modify element="GeneralAttributeRN.ProductType" prompt="Type"/>
+      <modify element="FlexFieldRN.InstDff" shortDesc="Flex Field"/>
+      <modify element="FlexFieldHideShowRN" disclosedText="Hide Flex Fields" undisclosedText="Show Flex Fields"/>
+      <modify element="ShortCutsRN" rendered="false"/>
+      <modify element="OtherProdDetails" rendered="false" text="Other Configuration Item Details"/>
+      <modify element="ProductHistoryLink" rendered="false"/>
+      <modify element="ServiceRequestLink" rendered="false"/>
+      <modify element="FilterAndConfigRN.hierarchy" text="Configuration Item"/>
+   </modifications>
+</customization>

@@ -1,0 +1,41 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/irc/vacancy/webui/ReqOverviewDCRN" developerMode="true" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: ReqOverviewDCRN.xml 120.4 2005/11/10 09:04:39 mmillmor noship $" version="9.0.3.6.2_398" xml:lang="en-US" package="/oracle/apps/irc/customizations/function/IRC_VAC_DETS_EDIT/vacancy/webui">
+   <modifications>
+      <modify element="IrcBudgetMeasurementType" rendered="false"/>
+      <modify element="FndTotalOpenings" rendered="false"/>
+      <modify element="FndStatus" rendered="false"/>
+      <modify element="FndCreationDate" rendered="false"/>
+      <move element="FndCurrentStatus" after="IrcVacancyName"/>
+      <move element="FndStartDate" after="FndCurrentStatus"/>
+      <move element="FndEndDate" after="FndStartDate"/>
+      <move element="FndManager" after="FndEndDate"/>
+      <move element="IrcBudgetMeasurementValue" after="FndManager"/>
+      <move element="FndOrganization" after="IrcBudgetMeasurementValue"/>
+      <move element="FndLocation" after="FndOrganization"/>
+      <move element="FndProfessionalArea" after="FndLocation"/>
+      <move element="FndJobTitle" after="FndProfessionalArea"/>
+      <move element="FndGrade" after="FndJobTitle"/>
+      <move element="FndPositionName" after="FndGrade"/>
+      <move element="FndEmployee" after="FndPositionName"/>
+      <move element="FndEmploymentStatus" after="FndEmployee"/>
+      <move element="FndContractor" after="FndEmploymentStatus"/>
+      <move element="IrcBudgetMeasurementType" after="FndContractor"/>
+      <move element="FndTotalOpenings" after="IrcBudgetMeasurementType"/>
+      <move element="FndCreationDate" after="FndTotalOpenings"/>
+      <move element="FndFlexField" after="FndCreationDate"/>
+      <move element="FndStatus" after="FndFlexField"/>
+      <move element="FndVacancyId" after="FndStatus"/>
+      <move element="FndManagerId" after="FndVacancyId"/>
+      <move element="FndBusinessGroupId____1" after="FndManagerId"/>
+      <move element="FndOrganizationId____3" after="FndBusinessGroupId____1"/>
+      <move element="FndLocationId____2" after="FndOrganizationId____3"/>
+      <move element="FndJobId____2" after="FndLocationId____2"/>
+      <move element="FndGradeId" after="FndJobId____2"/>
+      <move element="FndPositionId" after="FndGradeId"/>
+      <move element="FndActionName" after="FndPositionId"/>
+      <move element="FndManagerLocation" after="FndActionName"/>
+      <move element="FndManagerLocationId" after="FndManagerLocation"/>
+      <move element="FndPositionLocation" after="FndManagerLocationId"/>
+      <move element="FndPositionLocationId" after="FndPositionLocation"/>
+   </modifications>
+</customization>

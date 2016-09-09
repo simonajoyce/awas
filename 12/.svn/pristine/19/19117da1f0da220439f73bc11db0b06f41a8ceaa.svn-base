@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.6.6_606" xml:lang="en-US" customizes="/oracle/apps/ben/selfservice/enrollment/webui/OvervwSelectnsRN" developerMode="true" file-version="$Header: OvervwSelectnsRN.xml 115.8 2003/09/22 14:26:36 bgarg noship $" package="/oracle/apps/ben/customizations/function/GHR_SS_BNFT_ENRT/selfservice/enrollment/webui">
+   <modifications>
+      <modify element="SelectionsOverviewTable" blockSize="5"/>
+      <move element="BenOption" after="BenPlan"/>
+      <move element="BenPreTaxCost" after="BenOption"/>
+      <move element="BenEnrtCvgStrtDt" after="BenPreTaxCost"/>
+      <move element="BenEnrtCvgThruDate" after="BenEnrtCvgStrtDt"/>
+      <move element="BenCoverage" after="BenEnrtCvgThruDate"/>
+      <move element="BenAfterTaxCost" after="BenCoverage"/>
+      <move element="BenTaxableCost" after="BenAfterTaxCost"/>
+      <move element="BenCost4" after="BenTaxableCost"/>
+      <move element="BenLifeEventName" after="BenCost4"/>
+      <modify element="BenEnrtCvgThruDate" tipType="dateFormat" rendered="true"/>
+      <modify element="BenCoverage" rendered="false"/>
+      <modify element="BenPreTaxCost" rendered="true" prompt="Contribution"/>
+      <modify element="BenAfterTaxCost" rendered="false"/>
+      <modify element="BenTaxableCost" rendered="false"/>
+      <modify element="BenPlan" styleClass=""/>
+      <modify element="BenEnrtCvgStrtDt" tipType="dateFormat"/>
+   </modifications>
+</customization>

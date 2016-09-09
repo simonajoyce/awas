@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.64_464" xml:lang="en-US" customizes="/oracle/apps/per/selfservice/search/webui/AdvancedSearchPG" developerMode="true" file-version="$Header: AdvancedSearchPG.xml 120.0 2005/06/03 01:25:37 appldev noship $" package="/oracle/apps/per/selfservice/search/webui/customizations/localization/SG">
+   <modifications>
+      <modify element="NationalIdentifierNo" prompt="NRIC/FIN"/>
+      <modify element="item18" prompt="NRIC/FIN"/>
+   </modifications>
+</customization>

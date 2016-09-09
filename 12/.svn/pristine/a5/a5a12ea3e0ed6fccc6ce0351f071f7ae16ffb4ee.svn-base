@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.89_554" xml:lang="en-US" customizes="/oracle/apps/per/selfservice/review/webui/ReviewPG" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: ReviewPG.xml 120.1 2007/08/28 11:28:53 pdavidra noship $" package="/oracle/apps/per/selfservice/review/webui/customizations/localization/NO">
+   <modifications>
+      <modify element="ReviewRN.HrLoa.PerLoaDDF____1" rendered="true"/>
+      <modify element="ReviewRN.HrLoaReturn.PerLoaDDF____2" rendered="true"/>
+      <modify element="ReviewRN.HrLoaUpdate.PerLoaDDF" rendered="true"/>
+   </modifications>
+</customization>

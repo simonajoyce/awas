@@ -1,0 +1,133 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.64_464" xml:lang="en-US" customizes="/oracle/apps/pay/selfservice/soe/webui/SoePG" developerMode="true" file-version="$Header: SoePG.xml 120.0 2005/05/30 05:55:45 appldev noship $" package="/oracle/apps/pay/selfservice/soe/webui/customizations/localization/SE">
+   <modifications>
+      <move element="Soe4RNHeader" after="Soe1RNHeader"/>
+      <move element="SoeSumPayLayout" after="Soe4RNHeader"/>
+      <move element="Soe5Layout" after="SoeSumPayLayout"/>
+      <move element="Soe6Layout" after="Soe5Layout"/>
+      <move element="Soe7Layout" after="Soe6Layout"/>
+      <move element="Soe8Layout" after="Soe7Layout"/>
+      <move element="Soe9Layout" after="Soe8Layout"/>
+      <move element="Soe10Layout" after="Soe9Layout"/>
+      <move element="Soe2Layout" after="Soe10Layout"/>
+      <move element="Soe3Layout" after="Soe2Layout"/>
+      <move element="Soe11Layout" after="Soe3Layout"/>
+      <move element="Soe12Layout" after="Soe11Layout"/>
+      <move element="Soe13Layout" after="Soe12Layout"/>
+      <move element="Soe14Layout" after="Soe13Layout"/>
+      <move element="Soe15Layout" after="Soe14Layout"/>
+      <move element="Soe16Header" after="Soe15Layout"/>
+      <move element="Soe17Header" after="Soe16Header"/>
+      <move element="Soe18Header" after="Soe17Header"/>
+      <move element="Soe19Header" after="Soe18Header"/>
+      <move element="SoeSumPayCols" after="Soe19Header"/>
+      <move element="SoeSQLRN" after="SoeSumPayCols"/>
+      <move element="SoeDrilldownRN" after="SoeSQLRN"/>
+      <modify element="SoeSumPayCol1" prompt="Total Earnings"/>
+      <modify element="SoeSumPayCol2" prompt="Total Deductions"/>
+      <modify element="SoeSumPayCol3" rendered="false"/>
+      <modify element="SoeSumPayCol4" rendered="false"/>
+      <modify element="SoeSumPayCol5" rendered="false"/>
+      <modify element="SoeSumPayFCol1" prompt="Total Pay"/>
+      <modify element="SoeSumPayCol6" rendered="false"/>
+      <modify element="SoeSumPayFCol2" rendered="false"/>
+      <modify element="SoeSumPayFCol3" rendered="false"/>
+      <modify element="SoeSumPayFCol4" rendered="false"/>
+      <modify element="SoeSumPayCols1" destination="SOE5RN.COL16" prompt="Total Earnings"/>
+      <modify element="SoeSumPayCols2" destination="SOE6RN.COL16" prompt="Total Deductions"/>
+      <modify element="SoeSumPayCols3" rendered="false"/>
+      <modify element="SoeSumPayCols4" rendered="false"/>
+      <modify element="SoeSumPayCols5" rendered="false"/>
+      <modify element="SoeSumPayCols6" rendered="false"/>
+      <modify element="SoeSumPayFCols1" destination="COL01 - COL02" prompt="Total Pay"/>
+      <modify element="SoeSumPayFCols2" rendered="false"/>
+      <modify element="SoeSumPayFCols3" rendered="false"/>
+      <modify element="SoeSumPayFCols4" rendered="false"/>
+      <modify element="Soe1Col9" prompt="Person Number"/>
+      <modify element="Soe1Col12" prompt="Assignment Number" rendered="true"/>
+      <modify element="Soe4Col5" rendered="false"/>
+      <modify element="Soe5Col3" prompt="Code" rendered="true"/>
+      <move element="Soe5Col3" after="Soe5Col1"/>
+      <move element="Soe5Col2" after="Soe5Col3"/>
+      <move element="Soe5Col4" after="Soe5Col2"/>
+      <move element="Soe5Col5" after="Soe5Col4"/>
+      <move element="Soe5Col6" after="Soe5Col5"/>
+      <move element="Soe5Col7" after="Soe5Col6"/>
+      <move element="Soe5Col8" after="Soe5Col7"/>
+      <move element="Soe5Col9" after="Soe5Col8"/>
+      <move element="Soe5Col10" after="Soe5Col9"/>
+      <move element="Soe5Col11" after="Soe5Col10"/>
+      <move element="Soe5Col12" after="Soe5Col11"/>
+      <move element="Soe5Col13" after="Soe5Col12"/>
+      <move element="Soe5Col14" after="Soe5Col13"/>
+      <move element="Soe5Col15" after="Soe5Col14"/>
+      <move element="Soe5Col16" after="Soe5Col15"/>
+      <move element="Soe5Col17" after="Soe5Col16"/>
+      <move element="Soe5Col18" after="Soe5Col17"/>
+      <move element="Soe5Col19" after="Soe5Col18"/>
+      <move element="Soe5Col20" after="Soe5Col19"/>
+      <move element="Soe5Col21" after="Soe5Col20"/>
+      <move element="Soe5Col22" after="Soe5Col21"/>
+      <move element="Soe5Col23" after="Soe5Col22"/>
+      <move element="Soe5Col24" after="Soe5Col23"/>
+      <move element="Soe5Col25" after="Soe5Col24"/>
+      <move element="Soe5DrillDown" after="Soe5Col25"/>
+      <modify element="Soe6Col3" prompt="Code" rendered="true"/>
+      <move element="Soe6Col3" after="Soe6Col1"/>
+      <move element="Soe6Col2" after="Soe6Col3"/>
+      <move element="Soe6Col4" after="Soe6Col2"/>
+      <move element="Soe6Col5" after="Soe6Col4"/>
+      <move element="Soe6Col6" after="Soe6Col5"/>
+      <move element="Soe6Col7" after="Soe6Col6"/>
+      <move element="Soe6Col8" after="Soe6Col7"/>
+      <move element="Soe6Col9" after="Soe6Col8"/>
+      <move element="Soe6Col10" after="Soe6Col9"/>
+      <move element="Soe6Col11" after="Soe6Col10"/>
+      <move element="Soe6Col12" after="Soe6Col11"/>
+      <move element="Soe6Col13" after="Soe6Col12"/>
+      <move element="Soe6Col14" after="Soe6Col13"/>
+      <move element="Soe6Col15" after="Soe6Col14"/>
+      <move element="Soe6Col16" after="Soe6Col15"/>
+      <move element="Soe6Col17" after="Soe6Col16"/>
+      <move element="Soe6Col18" after="Soe6Col17"/>
+      <move element="Soe6Col19" after="Soe6Col18"/>
+      <move element="Soe6Col20" after="Soe6Col19"/>
+      <move element="Soe6Col21" after="Soe6Col20"/>
+      <move element="Soe6Col22" after="Soe6Col21"/>
+      <move element="Soe6Col23" after="Soe6Col22"/>
+      <move element="Soe6Col24" after="Soe6Col23"/>
+      <move element="Soe6Col25" after="Soe6Col24"/>
+      <move element="Soe6DrillDown" after="Soe6Col25"/>
+      <modify element="Soe7Col3" rendered="true"/>
+      <modify element="Soe7Col6" prompt="Code" rendered="true"/>
+      <move element="Soe7Col6" after="Soe7Col1"/>
+      <move element="Soe7Col2" after="Soe7Col6"/>
+      <move element="Soe7Col3" after="Soe7Col2"/>
+      <move element="Soe7Col4" after="Soe7Col3"/>
+      <move element="Soe7Col5" after="Soe7Col4"/>
+      <move element="Soe7Col7" after="Soe7Col5"/>
+      <move element="Soe7Col8" after="Soe7Col7"/>
+      <move element="Soe7Col9" after="Soe7Col8"/>
+      <move element="Soe7Col10" after="Soe7Col9"/>
+      <move element="Soe7Col11" after="Soe7Col10"/>
+      <move element="Soe7Col12" after="Soe7Col11"/>
+      <move element="Soe7Col13" after="Soe7Col12"/>
+      <move element="Soe7Col14" after="Soe7Col13"/>
+      <move element="Soe7Col15" after="Soe7Col14"/>
+      <move element="Soe7Col16" after="Soe7Col15"/>
+      <move element="Soe7Col17" after="Soe7Col16"/>
+      <move element="Soe7Col18" after="Soe7Col17"/>
+      <move element="Soe7Col19" after="Soe7Col18"/>
+      <move element="Soe7Col20" after="Soe7Col19"/>
+      <move element="Soe7Col21" after="Soe7Col20"/>
+      <move element="Soe7Col22" after="Soe7Col21"/>
+      <move element="Soe7Col23" after="Soe7Col22"/>
+      <move element="Soe7Col24" after="Soe7Col23"/>
+      <move element="Soe7Col25" after="Soe7Col24"/>
+      <move element="Soe7DrillDown" after="Soe7Col25"/>
+      <modify element="Region5Func" destination="pay_se_soe.elements1"/>
+      <modify element="Region6Func" destination="pay_se_soe.elements2"/>
+      <modify element="Region7Func" destination="pay_se_soe.information1"/>
+      <modify element="Soe1Col7" prompt="Legal Employer"/>
+   </modifications>
+</customization>

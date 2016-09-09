@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" file-version="$Header: MatchingPersonPG.xml 115.1 2003/02/17 13:00:10 mkandasa noship $" version="9.0.3.6.4_447" xml:lang="en-US" customizes="/oracle/apps/per/selfservice/common/webui/MatchingPersonPG" developerMode="false" package="/oracle/apps/per/customizations/localization/CN/selfservice/common/webui">
+   <modifications>
+      <modify element="MatPersonTable" blockSize="10"/>
+      <move element="MatBusinessGroup" after="MatPersonName"/>
+      <move element="MatLocation" after="MatBusinessGroup"/>
+      <move element="MatOrganization" after="MatLocation"/>
+      <move element="MatPostalCode" after="MatOrganization"/>
+      <move element="MatNationalIdentifier" after="MatPostalCode"/>
+      <move element="MatSecurityStatus" after="MatNationalIdentifier"/>
+      <modify element="MatPersonName" userCustomizable="false"/>
+      <modify element="MatBusinessGroup" userCustomizable="false"/>
+      <modify element="MatLocation" userCustomizable="false"/>
+      <modify element="MatOrganization" userCustomizable="false"/>
+      <modify element="MatPostalCode" userCustomizable="false"/>
+      <modify element="MatNationalIdentifier" userCustomizable="false" prompt="Citizen Identification Number"/>
+      <modify element="MatSecurityStatus" userCustomizable="false"/>
+   </modifications>
+</customization>

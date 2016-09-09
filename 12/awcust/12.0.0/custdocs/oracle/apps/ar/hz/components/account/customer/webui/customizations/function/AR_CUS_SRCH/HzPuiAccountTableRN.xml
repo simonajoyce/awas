@@ -1,0 +1,6 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.89_502" xml:lang="en-US" customizes="/oracle/apps/ar/hz/components/account/customer/webui/HzPuiAccountTableRN" developerMode="true" file-version="$Header: HzPuiAccountTableRN.xml 120.2 2006/03/29 04:50:03 sshi noship $" package="/oracle/apps/ar/hz/components/account/customer/webui/customizations/function/AR_CUS_SRCH">
+   <modifications>
+      <modify element="CreateButton" rendered="true"/>
+   </modifications>
+</customization>

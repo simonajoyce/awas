@@ -1,0 +1,86 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_22" xml:lang="en-US" customizes="/oracle/apps/pos/account/webui/PosInvoiceViewPG" xmlns:oa="http://xmlns.oracle.com/oa" file-version="$Header: PosInvoiceViewPG.xml 120.1.12000000.1 2007/10/24 18:17:53 rallamse noship $" package="/oracle/apps/pos/account/webui/customizations/function/ILS_ISUPP_PERZ">
+   <modifications>
+      <move element="InvoiceId" after="OrgId"/>
+      <move element="InvoiceNum" after="InvoiceId"/>
+      <move element="Description" after="InvoiceNum"/>
+      <move element="InvoiceDate" after="Description"/>
+      <move element="InvoiceTypeDisplayed" after="InvoiceDate"/>
+      <move element="InvoiceCurrencyCode" after="InvoiceTypeDisplayed"/>
+      <move element="InvoiceAmount" after="InvoiceCurrencyCode"/>
+      <move element="AmountDue" after="InvoiceAmount"/>
+      <insert before="AmountDue">
+         <oa:messageStyledText id="Tax" adminCustomizable="true" cellNoWrapFormat="false" dataType="NUMBER" destination="OA.jsp?page=/oracle/apps/ja/isp/webui/InvTaxDetailsPG&amp;retainAM=Y&amp;JaInvoiceId={!INVOICE_ID}&amp;OAFunc=ILS_ISUPP_PERZ" initSortSeq="none" prompt="Tax Amount" queryable="false" rendered="true" required="no" scope="." selectiveSearchCriteria="false" serverUnvalidated="false" sortState="no" tipType="none" totalValue="false" userCustomizable="false" vAlign="middle" viewAttr="JATaxAmount" warnAboutChanges="true" xmlns:oa="http://xmlns.oracle.com/oa"/>
+      </insert>
+      <move element="DiscountAmountTaken" after="AmountDue"/>
+      <move element="Status" after="DiscountAmountTaken"/>
+      <move element="HoldStatus" after="Status"/>
+      <move element="PaymentStatusDisplayed" after="HoldStatus"/>
+      <move element="DueDate" after="PaymentStatusDisplayed"/>
+      <move element="Pay_Date" after="DueDate"/>
+      <move element="PaySwitch" after="Pay_Date"/>
+      <move element="PoSwitch" after="PaySwitch"/>
+      <move element="VendorId" after="PoSwitch"/>
+      <move element="ReceiptSwitch" after="VendorId"/>
+      <move element="PosSupAttach" after="ReceiptSwitch"/>
+      <move element="VendorSiteId" after="PosSupAttach"/>
+      <move element="OrgName" after="VendorSiteId"/>
+      <move element="VendorSiteCode" after="OrgName"/>
+      <move element="PackingSlip" after="VendorSiteCode"/>
+      <move element="TaxAmount" after="PackingSlip"/>
+      <move element="VendorName" after="TaxAmount"/>
+      <move element="VendorNumber" after="VendorName"/>
+      <move element="VoucherNumber" after="VendorNumber"/>
+      <move element="InvoiceFlex" after="VoucherNumber"/>
+      <modify element="InvoiceViewLayoutRN" controllerClass="oracle.apps.ja.pos.account.webui.ILPosInvoiceViewCO"/>
+      <move element="BVInvoiceId" after="BVOrgId"/>
+      <move element="BVInvoiceNum" after="BVInvoiceId"/>
+      <move element="BVDescription" after="BVInvoiceNum"/>
+      <move element="BVInvoiceDate" after="BVDescription"/>
+      <move element="BVInvoiceTypeDisplayed" after="BVInvoiceDate"/>
+      <move element="BVVendorName" after="BVInvoiceTypeDisplayed"/>
+      <move element="BVVendorSiteCode" after="BVVendorName"/>
+      <move element="BVVendorSiteId" after="BVVendorSiteCode"/>
+      <move element="BVInvoiceCurrencyCode" after="BVVendorSiteId"/>
+      <move element="BVInvoiceAmount" after="BVInvoiceCurrencyCode"/>
+      <move element="BVAmountDue" after="BVInvoiceAmount"/>
+      <insert before="BVAmountDue">
+         <oa:messageStyledText id="BVTax" adminCustomizable="true" cellNoWrapFormat="false" dataType="NUMBER" destination="OA.jsp?page=/oracle/apps/ja/isp/webui/InvTaxDetailsPG&amp;retainAM=Y&amp;JaInvoiceId={!INVOICE_ID}&amp;OAFunc=ILS_ISUPP_PERZ" initSortSeq="none" prompt="Tax Amount" queryable="false" rendered="true" required="no" scope="." selectiveSearchCriteria="false" serverUnvalidated="false" sortState="no" tipType="none" totalValue="false" userCustomizable="false" vAlign="middle" viewAttr="JATaxAmount" warnAboutChanges="true" xmlns:oa="http://xmlns.oracle.com/oa"/>
+      </insert>
+      <move element="BVDiscountAmountTaken" after="BVAmountDue"/>
+      <move element="BVStatus" after="BVDiscountAmountTaken"/>
+      <move element="BVHoldStatus" after="BVStatus"/>
+      <move element="BVPaymentStatusDisplayed" after="BVHoldStatus"/>
+      <move element="BVVendorNumber" after="BVPaymentStatusDisplayed"/>
+      <move element="BVDueDate" after="BVVendorNumber"/>
+      <move element="BVPay_Date" after="BVDueDate"/>
+      <move element="BVPaySwitch" after="BVPay_Date"/>
+      <move element="BVPoSwitch" after="BVPaySwitch"/>
+      <move element="BVVendorId" after="BVPoSwitch"/>
+      <move element="BVReceiptSwitch" after="BVVendorId"/>
+      <move element="PosBuyAttach" after="BVReceiptSwitch"/>
+      <move element="BVOrgName" after="PosBuyAttach"/>
+      <move element="BVPackingSlip" after="BVOrgName"/>
+      <move element="BVTaxAmount" after="BVPackingSlip"/>
+      <move element="BVVoucherNumber" after="BVTaxAmount"/>
+      <move element="BVInvoiceFlex" after="BVVoucherNumber"/>
+      <modify element="BVInvoiceNum" destination="OA.jsp?OAFunc=ILS_POS_INVOICE_DETAIL&amp;InvoiceId={!INVOICE_ID}&amp;SrcApp=POS&amp;SrcPg=InvView&amp;retainAM=Y&amp;addBreadCrumb=Y"/>
+      <modify element="BVHoldStatus" destination="OA.jsp?OAFunc=ILS_POS_INVOICE_DETAIL&amp;InvoiceId={!INVOICE_ID}&amp;SrcApp=POS&amp;SrcPg=InvView&amp;ShowTab=Holds&amp;retainAM=Y&amp;addBreadCrumb=Y"/>
+      <modify element="BVDueDate" destination="OA.jsp?OAFunc=ILS_POS_INVOICE_DETAIL&amp;InvoiceId={!INVOICE_ID}&amp;SrcApp=POS&amp;SrcPg=InvView&amp;ShowTab=SchedPay&amp;retainAM=Y&amp;addBreadCrumb=Y"/>
+      <modify element="BVPay_M" destination="OA.jsp?OAFunc=ILS_POS_PAYMENT_VIEW&amp;InvoiceId={!INVOICE_ID}&amp;InvoiceNum={@Invoice_Num}&amp;SrcApp=POS&amp;SrcPg=InvView&amp;retainAM=Y&amp;addBreadCrumb=Y"/>
+      <modify element="BVPay_S" destination="OA.jsp?OAFunc=ILS_POS_PAYMENT_DETAIL&amp;PaymentId={!Check_Id}&amp;SrcApp=POS&amp;SrcPg=InvView&amp;retainAM=Y&amp;addBreadCrumb=Y"/>
+      <modify element="BVPo_S" destination="OA.jsp?OAFunc=ILS_POS_VIEW_ORDER&amp;PoHeaderId={!Po_Header_Id}&amp;PoReleaseId={!Po_Release_Id}&amp;PoNum={@Po_Number}&amp;retainAM=Y&amp;addBreadCrumb=Y"/>
+      <modify element="BVPo_M" destination="OA.jsp?OAFunc=ILS_POS_PO_VIEW&amp;InvoiceId={!INVOICE_ID}&amp;InvoiceNum={@Invoice_Num}&amp;SrcApp=POS&amp;SrcPg=InvView&amp;retainAM=Y&amp;addBreadCrumb=Y"/>
+      <modify element="BVRcv_M" destination="OA.jsp?OAFunc=ILS_POS_RECEIPT_VIEW&amp;InvoiceID={!INVOICE_ID}&amp;InvoiceNum={@Invoice_Num}&amp;SrcApp=POS&amp;SrcPg=InvSumm&amp;retainAM=Y&amp;addBreadCrumb=Y"/>
+      <modify element="BVRcv_S" destination="OA.jsp?page=/oracle/apps/pos/rcv/webui/PosRcvRcptsDtlsPG&amp;ShipmentHeaderID={!Receipt_Id}&amp;retainAM=Y&amp;addBreadCrumb=Y&amp;OAFunc=ILS_ISUPP_PERZ"/>
+      <modify element="InvoiceNum" destination="OA.jsp?OAFunc=ILS_POS_INVOICE_DETAIL&amp;InvoiceId={!INVOICE_ID}&amp;SrcApp=POS&amp;SrcPg=InvView&amp;retainAM=Y&amp;addBreadCrumb=Y"/>
+      <modify element="Pay_S" destination="OA.jsp?OAFunc=ILS_POS_PAYMENT_DETAIL&amp;PaymentId={!Check_Id}&amp;SrcApp=POS&amp;SrcPg=InvView&amp;retainAM=Y&amp;addBreadCrumb=Y"/>
+      <modify element="Pay_M" destination="OA.jsp?OAFunc=ILS_POS_PAYMENT_VIEW&amp;InvoiceId={!INVOICE_ID}&amp;InvoiceNum={@Invoice_Num}&amp;SrcApp=POS&amp;SrcPg=InvView&amp;retainAM=Y&amp;addBreadCrumb=Y"/>
+      <modify element="Po_M" destination="OA.jsp?OAFunc=ILS_POS_PO_VIEW&amp;InvoiceId={!INVOICE_ID}&amp;InvoiceNum={@Invoice_Num}&amp;SrcApp=POS&amp;SrcPg=InvView&amp;retainAM=Y&amp;addBreadCrumb=Y"/>
+      <modify element="Po_S" destination="OA.jsp?OAFunc=ILS_POS_VIEW_ORDER&amp;PoHeaderId={!Po_Header_Id}&amp;PoReleaseId={!Po_Release_Id}&amp;PoNum={@Po_Number}&amp;retainAM=Y&amp;addBreadCrumb=Y"/>
+      <modify element="Rcv_S" destination="page=/oracle/apps/pos/rcv/webui/PosRcvRcptsDtlsPG&amp;ShipmentHeaderID={!Receipt_Id}&amp;retainAM=Y&amp;addBreadCrumb=Y&amp;OAFunc=ILS_ISUPP_PERZ"/>
+      <modify element="Rcv_M" destination="OA.jsp?OAFunc=ILS_POS_RECEIPT_VIEW&amp;InvoiceID={!INVOICE_ID}&amp;InvoiceNum={@Invoice_Num}&amp;SrcApp=POS&amp;SrcPg=InvSumm&amp;retainAM=Y&amp;addBreadCrumb=Y"/>
+      <modify element="DueDate" destination="OA.jsp?OAFunc=ILS_POS_INVOICE_DETAIL&amp;InvoiceId={!INVOICE_ID}&amp;SrcApp=POS&amp;SrcPg=InvView&amp;ShowTab=SchedPay&amp;retainAM=Y&amp;addBreadCrumb=Y"/>
+      <modify element="HoldStatus" destination="OA.jsp?OAFunc=ILS_POS_INVOICE_DETAIL&amp;InvoiceId={!INVOICE_ID}&amp;SrcApp=POS&amp;SrcPg=InvView&amp;ShowTab=Holds&amp;retainAM=Y&amp;addBreadCrumb=Y"/>
+   </modifications>
+</customization>

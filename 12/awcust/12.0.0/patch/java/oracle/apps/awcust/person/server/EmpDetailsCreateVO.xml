@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='windows-1252' ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+
+<ViewObject
+   Name="EmpDetailsCreateVO"
+   SelectList="EmployeeDetailsEO.PERSON_ID, 
+       EmployeeDetailsEO.FIRST_NAME, 
+       EmployeeDetailsEO.LAST_NAME, 
+       EmployeeDetailsEO.COPY_USER_FROM, 
+       EmployeeDetailsEO.STATUS, 
+       EmployeeDetailsEO.EMAIL, 
+       EmployeeDetailsEO.USER_ID, 
+       EmployeeDetailsEO.PAP_PERSON_ID, 
+       EmployeeDetailsEO.EXTERNAL_PERSON_ID, 
+       EmployeeDetailsEO.LAST_UPDATE_DATE, 
+       EmployeeDetailsEO.LAST_UPDATE_LOGIN, 
+       EmployeeDetailsEO.LAST_UPDATED_BY, 
+       EmployeeDetailsEO.CREATION_DATE, 
+       EmployeeDetailsEO.CREATED_BY, 
+       EmployeeDetailsEO.CREDIT_CARD"
+   FromList="XX_EMPLOYEE_DETAILS EmployeeDetailsEO"
+   BindingStyle="OracleName"
+   CustomQuery="false"
+   RowClass="oracle.apps.awcust.person.server.EmpDetailsCreateVORowImpl"
+   ComponentClass="oracle.apps.fnd.framework.server.OAViewObjectImpl"
+   RowInterface="oracle.apps.awcust.person.server.common.EmpDetailsCreateVORow"
+   ClientRowProxyName="oracle.apps.awcust.person.server.client.EmpDetailsCreateVORowClient"
+   UseGlueCode="false" >
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_version" Value="10.1.3.41.57" />
+      <Attr Name="_codeGenFlag2" Value="Access|VarAccess" />
+   </DesignTime>
+   <EntityUsage
+      Name="EmployeeDetailsEO"
+      Entity="oracle.apps.awcust.person.server.EmployeeDetailsEO" >
+      <DesignTime>
+         <Attr Name="_queryClause" Value="false" />
+      </DesignTime>
+   </EntityUsage>
+   <ViewAttribute
+      Name="PersonId"
+      IsNotNull="true"
+      EntityAttrName="PersonId"
+      EntityUsage="EmployeeDetailsEO"
+      AliasName="PERSON_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="FirstName"
+      EntityAttrName="FirstName"
+      EntityUsage="EmployeeDetailsEO"
+      AliasName="FIRST_NAME" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LastName"
+      EntityAttrName="LastName"
+      EntityUsage="EmployeeDetailsEO"
+      AliasName="LAST_NAME" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CopyUserFrom"
+      EntityAttrName="CopyUserFrom"
+      EntityUsage="EmployeeDetailsEO"
+      AliasName="COPY_USER_FROM" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Status"
+      IsNotNull="true"
+      EntityAttrName="Status"
+      EntityUsage="EmployeeDetailsEO"
+      AliasName="STATUS" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Email"
+      EntityAttrName="Email"
+      EntityUsage="EmployeeDetailsEO"
+      AliasName="EMAIL" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="UserId"
+      EntityAttrName="UserId"
+      EntityUsage="EmployeeDetailsEO"
+      AliasName="USER_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="PapPersonId"
+      EntityAttrName="PapPersonId"
+      EntityUsage="EmployeeDetailsEO"
+      AliasName="PAP_PERSON_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ExternalPersonId"
+      EntityAttrName="ExternalPersonId"
+      EntityUsage="EmployeeDetailsEO"
+      AliasName="EXTERNAL_PERSON_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LastUpdateDate"
+      EntityAttrName="LastUpdateDate"
+      EntityUsage="EmployeeDetailsEO"
+      AliasName="LAST_UPDATE_DATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LastUpdateLogin"
+      EntityAttrName="LastUpdateLogin"
+      EntityUsage="EmployeeDetailsEO"
+      AliasName="LAST_UPDATE_LOGIN" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LastUpdatedBy"
+      EntityAttrName="LastUpdatedBy"
+      EntityUsage="EmployeeDetailsEO"
+      AliasName="LAST_UPDATED_BY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CreationDate"
+      EntityAttrName="CreationDate"
+      EntityUsage="EmployeeDetailsEO"
+      AliasName="CREATION_DATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CreatedBy"
+      EntityAttrName="CreatedBy"
+      EntityUsage="EmployeeDetailsEO"
+      AliasName="CREATED_BY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CreditCard"
+      EntityAttrName="CreditCard"
+      EntityUsage="EmployeeDetailsEO"
+      AliasName="CREDIT_CARD" >
+   </ViewAttribute>
+</ViewObject>

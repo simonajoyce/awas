@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.6.5_471" xml:lang="en-US" customizes="/oracle/apps/ar/hz/components/address/webui/HzPuiAddressCreateUpdate" developerMode="false" file-version="$Header: HzPuiAddressCreateUpdate.xml 115.1 2004/01/09 05:39:02 mkatraga noship $" package="/oracle/apps/ar/hz/components/address/webui/customizations/function/ASN_CUSTADDRCREATEUPDATEPG">
+   <modifications>
+      <move element="hzPartySiteUseTable" after="hzPurposeTip"/>
+      <move element="HzPuiPSUCreateButton" after="hzPartySiteUseTable"/>
+      <modify element="hzPurposeTip" rendered="false"/>
+      <modify element="region1" rendered="false"/>
+      <move element="addrRowLayout2" after="addrRowLayout1"/>
+      <move element="FlexfieldRowLayout" after="addrRowLayout2"/>
+   </modifications>
+</customization>

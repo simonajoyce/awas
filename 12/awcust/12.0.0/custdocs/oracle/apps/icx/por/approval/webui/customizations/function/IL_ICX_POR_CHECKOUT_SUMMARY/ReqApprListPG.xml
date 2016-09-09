@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/icx/por/approval/webui/ReqApprListPG" xmlns:oa="http://xmlns.oracle.com/oa" file-version="$Header: ReqApprListPG.xml 120.0.12000000.1 2007/10/24 18:16:34 rallamse noship $" package="/oracle/apps/icx/por/approval/webui/customizations/function/IL_ICX_POR_CHECKOUT_SUMMARY">
+   <modifications>
+      <modify element="PageLayoutRN" controllerClass="oracle.apps.ja.reqn.webui.ILReqApprCO"/>
+      <move element="PageActionButtonsBar.Save" after="PageActionButtonsBar.Cancel"/>
+      <move element="PageActionButtonsBar.IcxPrintablePageButton" after="PageActionButtonsBar.Save"/>
+      <move element="PageActionButtonsBar.Submit" after="PageActionButtonsBar.IcxPrintablePageButton"/>
+      <move element="PageActionButtonsBar.EditLines" after="PageActionButtonsBar.Submit"/>
+      <insert after="PageActionButtonsBar.EditLines">
+         <oa:button id="ViewILTaxes" adminCustomizable="true" dataType="VARCHAR2" disabled="false" hAlign="start" prompt="View/Update IL Taxes" rendered="true" scope="." serverUnvalidated="false" shortDesc="View and Update India Localized taxes" warnAboutChanges="true"/>
+      </insert>
+   </modifications>
+</customization>

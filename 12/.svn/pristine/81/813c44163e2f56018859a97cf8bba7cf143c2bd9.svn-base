@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.6.5_471" xml:lang="en-US" customizes="/oracle/apps/ar/hz/components/address/webui/HzPuiAddressView" developerMode="false" file-version="$Header: HzPuiAddressView.xml 120.1 2005/12/21 17:01:24 smadapus noship $" package="/oracle/apps/ar/hz/components/address/webui/customizations/function/ASN_CTCTUPDATEPG">
+   <modifications>
+      <modify element="HzPuiViewInactiveButton" rendered="false"/>
+      <modify element="HzPuiSelectPrimaryUseButton" rendered="false"/>
+      <modify element="HzPuiCreateButton" prompt="Create Address"/>
+      <modify element="addressViewTable" blockSize="10"/>
+      <move element="Country" after="Address"/>
+      <move element="Use" after="Country"/>
+      <move element="primarySwitcher" after="Use"/>
+      <move element="updateImage" after="primarySwitcher"/>
+      <move element="removeSwitcher" after="updateImage"/>
+      <move element="County" after="removeSwitcher"/>
+      <move element="Province" after="County"/>
+      <move element="State" after="Province"/>
+      <move element="PostalCode" after="State"/>
+      <move element="mapImage" after="PostalCode"/>
+      <modify element="mapImage" rendered="false"/>
+   </modifications>
+</customization>

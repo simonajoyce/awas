@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xapi:requestset xmlns:xapi="http://xmlns.oracle.com/oxp/xapi">
+   <xapi:globalData location="stream" />
+<!-- AWASEXPANALYSIS Report Bursting Template to email Mike Sharkey the output of the reports and identify the individual emails it should eb forwarded on to -->
+   <xapi:request select="/AWAS_EXP_ANALYSIS_SUM/LIST_G_APPROVER_NAME/G_APPROVER_NAME">
+      <xapi:delivery>
+         <xapi:email server="DUBMMA01" server-alias="" proxy="" port="25" from="michael.sharkey@awas.com" reply-to="michael.sharkey@awas.com">
+            <xapi:message id="1" to="michael.sharkey@awas.com" cc="" bcc="" attachment="true" subject="Expense Report Details for Cost Centre - ${APPROVER_CC} For the ${REPORT_PERIOD} Period">This message should be sent to ${APPROVER_EMAIL}
+
+Please find attached the Expense Report Analysis for cost centre ${APPROVER_CC}
+
+Thanks
+
+Mike</xapi:message>
+            <xapi:authentication username="awas" password="awas_175" />
+         </xapi:email>
+      </xapi:delivery>
+      <xapi:document key="${APPROVER_CC}-${REPORT_PERIOD}" output-type="pdf" delivery="1">
+         <xapi:template type="rtf" location="/u01/app/oracle/apps/apps_st/appl/awcust/12.0.0/reports/US/Exp_Report_Analysis_template_V1.rtf" filter="" />
+      </xapi:document>
+   </xapi:request>
+</xapi:requestset>

@@ -1,0 +1,58 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/per/selfservice/newhire/webui/SearchHireApplPG" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: SearchHireApplPG.xml 115.1 2003/02/13 12:19:33 jcolman noship $" version="9.0.3.6.2_398" xml:lang="en-US" package="/oracle/apps/per/customizations/localization/JP/selfservice/newhire/webui">
+   <modifications>
+      <modify element="SearchApplStatus" rendered="false"/>
+      <modify element="SearchNationalIdentifier" rendered="false"/>
+      <modify element="SearchMiddleName" rendered="false"/>
+      <modify element="SearchLastName" rendered="true" prompt="Last Name (Kana)"/>
+      <modify element="SearchInstruction" rendered="true"/>
+      <modify element="SearchHireDate" rendered="true"/>
+      <modify element="SearchGoButton" rendered="true"/>
+      <modify element="SearchFirstName" rendered="true" prompt="First Name (Kana)"/>
+      <modify element="SearchDateOfBirth" rendered="true"/>
+      <modify element="SearchClearButton" rendered="true"/>
+      <modify element="SearchApplNum" rendered="true"/>
+      <modify element="SearchBusinessGroup" rendered="true"/>
+      <move element="SearchBusinessGroup" after="SearchInstruction"/>
+      <move element="SearchLastName" after="SearchBusinessGroup"/>
+      <move element="SearchFirstName" after="SearchLastName"/>
+      <move element="SearchDateOfBirth" after="SearchFirstName"/>
+      <move element="SearchApplNum" after="SearchDateOfBirth"/>
+      <move element="SearchHireDate" after="SearchApplNum"/>
+      <move element="SearchGoButton" after="SearchHireDate"/>
+      <move element="SearchClearButton" after="SearchGoButton"/>
+      <move element="SearchApplStatus" after="SearchClearButton"/>
+      <move element="SearchMiddleName" after="SearchApplStatus"/>
+      <move element="SearchNationalIdentifier" after="SearchMiddleName"/>
+      <move element="SearchBusinessGroupId" after="SearchNationalIdentifier"/>
+      <move element="SearchLegislationCode" after="SearchBusinessGroupId"/>
+      <modify element="ApplListTable" blockSize="10"/>
+      <modify element="ApplPersonType" sortState="no" rendered="true"/>
+      <modify element="ApplLocation" sortState="no" rendered="true"/>
+      <modify element="ApplVacancy" sortState="no" rendered="true"/>
+      <modify element="ApplSelect" rendered="true"/>
+      <modify element="ApplTableInst" sortState="no" rendered="false"/>
+      <modify element="ApplPosition" sortState="no" rendered="true"/>
+      <modify element="ApplOrganization" sortState="no" rendered="true"/>
+      <modify element="ApplNationalIdentifier" sortState="no" rendered="false"/>
+      <modify element="ApplJob" sortState="no" rendered="false"/>
+      <modify element="ApplHireButton" rendered="true"/>
+      <modify element="ApplGrade" sortState="no" rendered="false"/>
+      <modify element="ApplFullName" sortState="no" rendered="true"/>
+      <modify element="ApplDateOfBirth" sortState="no" rendered="true"/>
+      <modify element="ApplApplNum" sortState="no" rendered="true"/>
+      <modify element="ApplBusGroup" sortState="no" rendered="true"/>
+      <move element="ApplDateOfBirth" after="ApplFullName"/>
+      <move element="ApplBusGroup" after="ApplDateOfBirth"/>
+      <move element="ApplOrganization" after="ApplBusGroup"/>
+      <move element="ApplLocation" after="ApplOrganization"/>
+      <move element="ApplPosition" after="ApplLocation"/>
+      <move element="ApplVacancy" after="ApplPosition"/>
+      <move element="ApplPersonType" after="ApplVacancy"/>
+      <move element="ApplApplNum" after="ApplPersonType"/>
+      <move element="ApplJob" after="ApplApplNum"/>
+      <move element="ApplGrade" after="ApplJob"/>
+      <move element="ApplTableInst" after="ApplGrade"/>
+      <move element="ApplNationalIdentifier" after="ApplTableInst"/>
+   </modifications>
+</customization>

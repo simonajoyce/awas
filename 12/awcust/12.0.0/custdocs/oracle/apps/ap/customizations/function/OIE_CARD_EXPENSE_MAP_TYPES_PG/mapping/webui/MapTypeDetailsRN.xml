@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.6.6_557" xml:lang="en-US" customizes="/oracle/apps/ap/mapping/webui/MapTypeDetailsRN" developerMode="true" text="Results: Card Expense Type Mapping Rules" file-version="$Header: MapTypeDetailsRN.xml 115.2 2003/09/26 22:38:42 kmizuta noship $">
+   <modifications>
+      <modify element="DetailsHelp" messageAppShortName="SQLAP" messageName="OIE_FOLIOMAP_DETAILS_HELP" rendered="false"/>
+      <modify element="ToLookupType" rendered="false"/>
+      <modify element="FromLookupType" prompt="Lookup Type"/>
+   </modifications>
+</customization>

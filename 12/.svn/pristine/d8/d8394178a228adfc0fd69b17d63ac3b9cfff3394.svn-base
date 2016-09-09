@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_19" xml:lang="en-US" customizes="/oracle/apps/cs/csz/tca/webui/CreatePerOrgRelDedupePG" developerMode="true" package="/oracle/apps/cs/csz/tca/webui/customizations/function/CSZ_TCA_CR_PER_ORG_DEDUPE_FN" file-version="$Header: CreatePerOrgRelDedupePG.xml 120.1 2006/07/07 18:31:23 jedward noship $">
+   <modifications>
+      <modify element="xTCAOrgDupPrevRN.region2.region1.header" text="Option 2: Use Existing Organization"/>
+      <modify element="xTCAOrgDupPrevRN.region2.region1.Email" destination=""/>
+   </modifications>
+</customization>

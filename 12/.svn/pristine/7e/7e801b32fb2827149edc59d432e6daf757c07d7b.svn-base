@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.6.6_557" xml:lang="en-US" customizes="/oracle/apps/ap/mapping/webui/MapTypeSearchRN" developerMode="true" file-version="$Header: MapTypeSearchRN.xml 115.2 2003/09/26 22:38:46 kmizuta noship $">
+   <modifications>
+      <move element="SearchMapTypeCode" after="SearchHelp"/>
+      <move element="SearchFromLookupType" after="SearchMapTypeCode"/>
+      <move element="SearchGo" after="SearchFromLookupType"/>
+      <move element="SearchFromApplicationId" after="SearchGo"/>
+      <move element="SearchToApplicationId" after="SearchFromApplicationId"/>
+      <move element="SearchToLookupType" after="SearchToApplicationId"/>
+      <modify element="SearchHelp" messageAppShortName="SQLAP" messageName="OIE_FOLIOMAP_SEARCH_HELP" rendered="false"/>
+      <modify element="SearchToLookupType" rendered="false"/>
+      <modify element="SearchFromLookupType" prompt="Lookup Type"/>
+   </modifications>
+</customization>

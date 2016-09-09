@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="" xml:lang="en-US" customizes="/oracle/apps/fnd/cp/program/webui/CreateConcProgPG" file-version="$Header: CreateAnnotationPG.xml 120.2 2005/08/18 11:44:05 ddhulla noship $" developerMode="true" package="/oracle/apps/fnd/cp/program/webui/customizations/function/FND_CP_VIEW_CONC_PROG">
+   <modifications>
+      <modify element="CPAnnotation" readOnly="true" styleClass="OraDataText"/>
+      <modify element="CancelButton" destination="OA.jsp?page=/oracle/apps/fnd/cp/program/webui/CreateConcProgPG&amp;OAFunc=FND_CP_VIEW_CONC_PROG&amp;retainAM=Y&amp;addBreadCrumb=Y"/>
+      <modify element="ApplyButton" rendered="false"/>
+   </modifications>
+</customization>

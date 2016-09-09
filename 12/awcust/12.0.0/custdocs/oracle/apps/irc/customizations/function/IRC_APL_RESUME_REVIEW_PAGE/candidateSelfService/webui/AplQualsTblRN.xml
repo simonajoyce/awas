@@ -1,0 +1,4 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.6.6_557" xml:lang="en-US" customizes="/oracle/apps/irc/candidateSelfService/webui/AplQualsTblRN" developerMode="true" file-version="$Header: AplQualsTblRN.xml 120.4 2005/11/10 08:52 mmillmor noship $" blockSize="10" package="/oracle/apps/irc/customizations/function/IRC_APL_RESUME_REVIEW_PAGE/candidateSelfService/webui">
+   <modifications/>
+</customization>

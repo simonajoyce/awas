@@ -1,0 +1,6 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_19" xml:lang="en-US" customizes="/oracle/apps/jtf/cac/task/webui/CacTaskSummRN" developerMode="true" package="/oracle/apps/jtf/cac/task/webui/customizations/function/CSZ_CASE_UP_FN" file-version="$Header: CacTaskSummRN.xml 120.0 2006/06/23 17:57:35 nazhang noship $">
+   <modifications>
+      <modify element="CacSmrbuttonBar" rendered="false"/>
+   </modifications>
+</customization>

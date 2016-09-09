@@ -1,0 +1,42 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/per/selfservice/personalinformation/webui/NewhirePersonPG" developerMode="false" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" file-version="$Header: NewhirePersonPG.xml 120.0 2005/09/16 02:45:15 appldev noship $" version="9.0.5.4.81_481" xml:lang="en-US" package="/oracle/apps/per/selfservice/personalinformation/webui/customizations/localization/ES">
+   <modifications>
+      <modify element="HrOtherSection.HrSsn" prompt="NIF Number" readOnly="false"/>
+      <modify element="HrOtherSection.HrPersonDevDfFlexOther" rendered="true" segmentList="ES|Identifier Type|Identifier Value"/>
+      <move element="HrOtherSection.HrAdjServiceDate" after="HrOtherSection.PerStartDate"/>
+      <move element="HrOtherSection.HrEmpNum" after="HrOtherSection.HrAdjServiceDate"/>
+      <move element="HrOtherSection.HrNpwNum" after="HrOtherSection.HrEmpNum"/>
+      <move element="HrOtherSection.HrSsn" after="HrOtherSection.HrNpwNum"/>
+      <move element="HrOtherSection.HrPersonDevDfFlexOther" after="HrOtherSection.HrSsn"/>
+      <move element="HrOtherSection.HrDateOfBirth" after="HrOtherSection.HrPersonDevDfFlexOther"/>
+      <move element="HrOtherSection.Sex" after="HrOtherSection.HrDateOfBirth"/>
+      <move element="HrOtherSection.HrMaritalStatus" after="HrOtherSection.Sex"/>
+      <move element="HrOtherSection.HrEmailAddress" after="HrOtherSection.HrMaritalStatus"/>
+      <move element="HrOtherSection.HireDate" after="HrOtherSection.HrEmailAddress"/>
+      <move element="HrOtherSection.OriginalHireDate" after="HrOtherSection.HireDate"/>
+      <move element="HrOtherSection.HrTownOfBirth" after="HrOtherSection.OriginalHireDate"/>
+      <move element="HrOtherSection.HrRegionOfBirth" after="HrOtherSection.HrTownOfBirth"/>
+      <move element="HrOtherSection.HrCountryOfBirth" after="HrOtherSection.HrRegionOfBirth"/>
+      <move element="HrOtherSection.HrNationality" after="HrOtherSection.HrCountryOfBirth"/>
+      <move element="HrOtherSection.HrDeathDate" after="HrOtherSection.HrNationality"/>
+      <move element="HrOtherSection.HrStudentStatus" after="HrOtherSection.HrDeathDate"/>
+      <move element="HrOtherSection.HrStatus" after="HrOtherSection.HrStudentStatus"/>
+      <move element="HrOtherSection.HrMilitaryService" after="HrOtherSection.HrStatus"/>
+      <move element="HrOtherSection.Hr2ndPassportExists" after="HrOtherSection.HrMilitaryService"/>
+      <move element="HrOtherSection.HrCorrespondenceLanguage" after="HrOtherSection.Hr2ndPassportExists"/>
+      <move element="HrOtherSection.HrUsesTobacco" after="HrOtherSection.HrCorrespondenceLanguage"/>
+      <move element="HrOtherSection.HrAdoptionDate" after="HrOtherSection.HrUsesTobacco"/>
+      <move element="HrOtherSection.HrNotCovMediPlan" after="HrOtherSection.HrAdoptionDate"/>
+      <move element="HrOtherSection.HrVoluntaryService" after="HrOtherSection.HrNotCovMediPlan"/>
+      <move element="HrOtherSection.HrBenefitGroupId" after="HrOtherSection.HrVoluntaryService"/>
+      <move element="HrOtherSection.HrMailstop" after="HrOtherSection.HrBenefitGroupId"/>
+      <move element="HrOtherSection.HrBloodType" after="HrOtherSection.HrMailstop"/>
+      <move element="HrOtherSection.HrLastTestDate" after="HrOtherSection.HrBloodType"/>
+      <move element="HrOtherSection.HrLastTestBy" after="HrOtherSection.HrLastTestDate"/>
+      <move element="HrOtherSection.HrExpenseChckSendToAdd" after="HrOtherSection.HrLastTestBy"/>
+      <move element="HrOtherSection.HrPersonType" after="HrOtherSection.HrExpenseChckSendToAdd"/>
+      <move element="HrOtherSection.HrAddPerDetFlexSs" after="HrOtherSection.HrPersonType"/>
+      <modify element="HrOtherSection.HrMaritalStatus" readOnly="false"/>
+      <modify element="HrAddressFlex" segmentList="AT_GLB|Address Line 1|Address Line 2|Address Line 3|Postal Code|City|Region||AU_GLB|Address Line 1|Address Line 2|Address Line 3|City|State|Postal Code||BE|Street|Num|Box|City|Postal Code||BE_GLB|Address Line 1|Address Line 2|Address Line 3|Postal Code|City||BF_GLB|Address Line 1|Address Line 2|Address Line 3|Town/City|Region 1|Region 2|Region 3|Postal Code||BR_GLB|Address1|Address2|Address3|Neighbourhood|City|State|Zip Code|Internet Address||CA|Address Line 1|Address Line 2|Address Line 3|City|Postal Code|Province||CA_GLB|Address Line1|Address Line2|Address Line3|City|Province|Postal Code||CH_GLB|Address Line 1|Address Line 2|Address Line 3|Postal Code|City|Canton||DE|Street|House Number|Postal Code|Town|Federal State||DE_GLB|Address Line 1|Address Line 2|Address Line 3|Postal Code|City|Region||DK_GLB|Address Line 1|Address Line 2|Address Line 3|Postal Code|City||ES|Location Type|Location Name|Location Number|Building|Stairs|Floor|Door|City|Province Name|Postal Code|Country|Telephone|Telephone2||ES_GLB|Address Line1|Address Line2|Address Line3|Postal Code|City|Province||FI_GLB|Address Line1|Address Line2|Address Line3|Postal Code|City||FR|Address Line 1|Address Line 2|Address Line 3|INSEE Code|Small Town|Postal Code|City||FR_GLB|Address Line1|Address Line2|Address Line3|Address Line4|Postal Code|City|Department||GB|Address Line 1|Address Line 2|Address Line 3|Town|County|Post Code||GENERIC|Address Line 1|Address Line 2|Address Line 3|Town or City|Region 1|Region 2|Region 3|Postal Code||GR_GLB|Address Line 1|Address Line 2|Address Line 3|Postal Code|City||HK|Address Line 1|Address Line 2|Address Line 3|District|Area||HK_GLB|Address Line1|Address Line2|Address Line3|District||IE_GLB|Address Line 1|Address Line 2|Address Line 3|City|County|Postal Code||IT_GLB|Address Line 1|Address Line 2|Address Line 3|Postal Code|City|Province||JP|Postal Code|District Code|Address Line1|Address Line2|Address Line3|Address Line1 (Kana)|Address Line2 (Kana)|Address Line3 (Kana)||JP_GLB|Postal Code|Address Line1|Address Line2|Address Line3||LU_GLB|Address Line 1|Address Line 2|Address Line 3|Postal Code|City||MX_GLB|Address Line 1|Address Line 2|Address Line 3|Postal Code|City|State||MY_GLB|Address Line 1|Address Line 2|Address Line 3|Postal Code|City|State or Province||NL_GLB|Address Line 1|Address Line 2|Address Line 3|Postal Code|City|Region|County||NZ_GLB|Address Line 1|Address Line 2|Address Line 3|City|Region|Postal Code||PT_GLB|Address Line 1|Address Line 2|Address Line 3|Postal Code|City||SE_GLB|Address Line 1|Address Line 2|Address Line 3|Postal Code|City||SG_GLB|Address Line 1|Address Line 2|Address Line 3|City|Postal Code||US|Address Line 1|Address Line 2|Address Line 3|City|State|Zip_Code|County||US_GLB|Address Line1|Address Line2|Address Line3|City|County|State|Zip Code||ZA|Address Line 1|Address Line 2|Address Line 3|Town / City|Postal Code|Province||ZA_GLB|Address Line 1|Address Line 2|Address Line 3|Town / City|Postal Code|Province||KR|Address Line1|Address Line2|Postal Code||KR_GLB|Address Line1|Address Line2|Postal Codei||CN_GLB|Address Line 1|Address Line 2|Province/City/SAR|Postal Code!!BE|Country||BR_GLB|Country||GB|Country||GENERIC|Country||US|Country||CN_GLB|Country||"/>
+   </modifications>
+</customization>

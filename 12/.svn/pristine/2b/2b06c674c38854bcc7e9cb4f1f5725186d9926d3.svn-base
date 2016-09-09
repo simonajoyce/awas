@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding='windows-1252'?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+
+<Entity
+   Name="awcustPersonDetailsEO"
+   DBObjectType="table"
+   DBObjectName="xx_person_details"
+   AliasName="awcustPersonDetailsEO"
+   BindingStyle="Oracle"
+   UseGlueCode="false"
+   CodeGenFlag="93"
+   RowClass="oracle.apps.awcust.awcustPerson.schema.server.awcustPersonDetailsEOImpl"
+   DefClass="oracle.apps.awcust.awcustPerson.schema.server.awcustPersonDetailsEODefImpl"
+   CollClass="oracle.apps.fnd.framework.server.OAEntityCache" >
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_version" Value="9.0.3.13.93" />
+      <AttrArray Name="_publishEvents">
+      </AttrArray>
+   </DesignTime>
+   <Attribute
+      Name="PersonId"
+      IsNotNull="true"
+      Type="oracle.jbo.domain.Number"
+      ColumnName="PERSON_ID"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="xx_person_details" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="FirstName"
+      Precision="50"
+      Type="java.lang.String"
+      ColumnName="FIRST_NAME"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="xx_person_details" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="50" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="LastName"
+      Precision="50"
+      Type="java.lang.String"
+      ColumnName="LAST_NAME"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="xx_person_details" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="50" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Email"
+      Precision="100"
+      Type="java.lang.String"
+      ColumnName="EMAIL"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="xx_person_details" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="100" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="StartDate"
+      Type="oracle.jbo.domain.Date"
+      ColumnName="START_DATE"
+      ColumnType="DATE"
+      SQLType="TIMESTAMP"
+      TableName="xx_person_details" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="EndDate"
+      Type="oracle.jbo.domain.Date"
+      ColumnName="END_DATE"
+      ColumnType="DATE"
+      SQLType="TIMESTAMP"
+      TableName="xx_person_details" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Office"
+      Precision="20"
+      Type="java.lang.String"
+      ColumnName="OFFICE"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="xx_person_details" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="20" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="CostCentre"
+      Type="oracle.jbo.domain.Number"
+      ColumnName="COST_CENTRE"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="xx_person_details" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="LineManager"
+      Precision="100"
+      Type="java.lang.String"
+      ColumnName="LINE_MANAGER"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="xx_person_details" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="100" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="ExpensesApprover"
+      Precision="1"
+      Type="java.lang.String"
+      ColumnName="EXPENSES_APPROVER"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="xx_person_details" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="JobTitle"
+      Precision="50"
+      Type="java.lang.String"
+      ColumnName="JOB_TITLE"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="xx_person_details" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="50" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="EmployeeType"
+      Precision="10"
+      Type="java.lang.String"
+      ColumnName="EMPLOYEE_TYPE"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="xx_person_details" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="10" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="PcType"
+      Precision="10"
+      Type="java.lang.String"
+      ColumnName="PC_TYPE"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="xx_person_details" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="10" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="MobileDevice"
+      Precision="1"
+      Type="java.lang.String"
+      ColumnName="MOBILE_DEVICE"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="xx_person_details" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="DeskLocation"
+      Precision="100"
+      Type="java.lang.String"
+      ColumnName="DESK_LOCATION"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="xx_person_details" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="100" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="OtherComments"
+      Precision="250"
+      Type="java.lang.String"
+      ColumnName="OTHER_COMMENTS"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="xx_person_details" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="250" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="LastUpdateDate"
+      Type="oracle.jbo.domain.Date"
+      ColumnName="LAST_UPDATE_DATE"
+      ColumnType="DATE"
+      SQLType="TIMESTAMP"
+      TableName="xx_person_details" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="LastUpdateLogin"
+      Precision="38"
+      Scale="0"
+      Type="oracle.jbo.domain.Number"
+      ColumnName="LAST_UPDATE_LOGIN"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="xx_person_details" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="LastUpdatedBy"
+      Precision="38"
+      Scale="0"
+      Type="oracle.jbo.domain.Number"
+      ColumnName="LAST_UPDATED_BY"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="xx_person_details" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="CreationDate"
+      Type="oracle.jbo.domain.Date"
+      ColumnName="CREATION_DATE"
+      ColumnType="DATE"
+      SQLType="TIMESTAMP"
+      TableName="xx_person_details" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="CreatedBy"
+      Precision="38"
+      Scale="0"
+      Type="oracle.jbo.domain.Number"
+      ColumnName="CREATED_BY"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="xx_person_details" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="RowID"
+      IsUpdateable="false"
+      Type="oracle.jbo.domain.RowID"
+      ColumnName="ROWID"
+      ColumnType="ROWID"
+      SQLType="ROWID"
+      PrimaryKey="true" >
+   </Attribute>
+   <Attribute
+      Name="Status"
+      Precision="40"
+      Type="java.lang.String"
+      ColumnName="STATUS"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="xx_person_details" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="20" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="PersonWith"
+      Precision="40"
+      Type="java.lang.String"
+      ColumnName="PERSON_WITH"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="xx_person_details" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="40" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="ManagerApprover"
+      Precision="40"
+      Type="java.lang.String"
+      ColumnName="MANAGER_APPROVER"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="xx_person_details" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="40" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="ManagerResponse"
+      Precision="40"
+      Type="java.lang.String"
+      ColumnName="MANAGER_RESPONSE"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="xx_person_details" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="40" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="ManagerResponseDate"
+      Type="oracle.jbo.domain.Date"
+      ColumnName="MANAGER_RESPONSE_DATE"
+      ColumnType="DATE"
+      SQLType="TIMESTAMP"
+      TableName="xx_person_details" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="ItApprover"
+      Precision="40"
+      Type="java.lang.String"
+      ColumnName="IT_APPROVER"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="xx_person_details" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="40" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="ItResponse"
+      Precision="20"
+      Type="java.lang.String"
+      ColumnName="IT_RESPONSE"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="xx_person_details" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="20" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="ItResponseDate"
+      Type="oracle.jbo.domain.Date"
+      ColumnName="IT_RESPONSE_DATE"
+      ColumnType="DATE"
+      SQLType="TIMESTAMP"
+      TableName="xx_person_details" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="CsApprover"
+      Precision="40"
+      Type="java.lang.String"
+      ColumnName="CS_APPROVER"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="xx_person_details" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="40" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="CsResponse"
+      Precision="20"
+      Type="java.lang.String"
+      ColumnName="CS_RESPONSE"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="xx_person_details" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="20" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="CsResponseDate"
+      Type="oracle.jbo.domain.Date"
+      ColumnName="CS_RESPONSE_DATE"
+      ColumnType="DATE"
+      SQLType="TIMESTAMP"
+      TableName="xx_person_details" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="ApprovalComments"
+      Precision="240"
+      Type="java.lang.String"
+      ColumnName="APPROVAL_COMMENTS"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="xx_person_details" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="240" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="BusinessCards"
+      Precision="1"
+      Type="java.lang.String"
+      ColumnName="BUSINESS_CARDS"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="xx_person_details" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="MobileNumber"
+      Precision="20"
+      Type="java.lang.String"
+      ColumnName="MOBILE_NUMBER"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="xx_person_details" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="20" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="DeskNumber"
+      Precision="20"
+      Type="java.lang.String"
+      ColumnName="DESK_NUMBER"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="xx_person_details" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="20" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="CopyUserFrom"
+      Precision="50"
+      Type="java.lang.String"
+      ColumnName="COPY_USER_FROM"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="xx_person_details" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="50" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="UserId"
+      Type="oracle.jbo.domain.Number"
+      ColumnName="USER_ID"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="xx_person_details" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Department"
+      Precision="40"
+      Type="java.lang.String"
+      ColumnName="DEPARTMENT"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="xx_person_details" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="40" />
+      </DesignTime>
+   </Attribute>
+   <Key
+      Name="SysC001296255" >
+      <AttrArray Name="Attributes">
+         <Item Value="oracle.apps.awcust.awcustPerson.schema.server.awcustPersonDetailsEO.PersonId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_DBObjectName" Value="SYS_C001296255" />
+         <Attr Name="_checkCondition" Value="&#34;PERSON_ID&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+      </DesignTime>
+   </Key>
+</Entity>

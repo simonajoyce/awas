@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/fnd/wf/worklist/webui/AdvancWorklistRG" developerMode="true" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header$" version="9.0.3.8.9_1050" xml:lang="en-US">
+   <modifications>
+      <modify element="NtfWorklist" blockSize="10">
+         <queryCriteria>
+            <criterion element="NtfType" operator="contain" operand="PO"/>
+         </queryCriteria>
+      </modify>
+      <move element="NtfReassign" after="NtfOpen"/>
+      <move element="NtfClose" after="NtfReassign"/>
+      <move element="NtfSubject" after="NtfFromUser"/>
+      <move element="NtfSent" after="NtfSubject"/>
+      <move element="NtfDue" after="NtfSent"/>
+      <move element="NtfPriority" after="NtfDue"/>
+      <move element="NtfType" after="NtfPriority"/>
+      <move element="NtfStatus" after="NtfType"/>
+      <move element="Ntfid" after="NtfStatus"/>
+   </modifications>
+</customization>

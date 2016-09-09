@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_19" xml:lang="en-US" customizes="/oracle/apps/cs/csz/incident/webui/UpdateSRPG" package="/oracle/apps/cs/csz/incident/webui/customizations/function/IEM_SR_UP_FN" file-version="$Header: UpdateSRPG.xml 120.15 2006/08/11 19:43:14 txliu noship $">
+   <modifications>
+      <modify element="CustomerContactBinRN.PerContactByML" rendered="false"/>
+      <modify element="CustomerContactBinRN.PerContactBy" rendered="false"/>
+      <modify element="CustomerContactBinRN.PerContactMethod" rendered="false"/>
+      <modify element="CustomerContactBinRN.ContactByML" rendered="false"/>
+      <modify element="CustomerContactBinRN.ContactBy" rendered="false"/>
+      <modify element="CustomerContactBinRN.ContactMethod" rendered="false"/>
+      <modify element="CustomerContactBinRN.CustomerEmailML" rendered="false"/>
+      <modify element="CustomerContactBinRN.Email" rendered="false"/>
+   </modifications>
+</customization>

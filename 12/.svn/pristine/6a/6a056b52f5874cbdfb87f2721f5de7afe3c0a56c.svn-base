@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- $Header: XX_PO_OPEN_POS.xml 2014/02/18 12:56:20 sjoyce noship $-->
+<!-- dbdrv: exec java oracle/apps/xdo/oa/util XDOLoader.class java &phase=dat checkfile:~PROD:patch/115/publisher/defs:XX_TAM_DAILY_REPORT.xml UPLOAD - DB_USERNAME &un_apps -DB_PASSWORD &pw_apps -JDBC_CONNECTION &jdbc_db_addr -LOB_TYPE DATA_TEMPLATE -APPS_SHORT_NAME ~PROD -LOB_CODE APOBRR -LANGUAGE 00 -XDO_FILE_TYPE XML-DATA-TEMPLATE -FILE_NAME &fullpath:~PROD:patch/115/publisher/defs:XX_PO_OPEN_POS.xml#  -->
+<!-- GSCC_Category="Xdo Data Definition" -->
+<dataTemplate name="XX_PO_OPEN_POS" defaultPackage="XX_PO_OPEN_POS_pkg" version="1.0">
+	<properties>
+		<property name="debug_mode" value="on" />
+		<property name="xml_tag_case" value="upper" />
+	</properties>
+	<parameters>
+		<parameter    name="P_COST_CENTRE" dataType = "CHARACTER"/>
+	</parameters>
+	<dataQuery>
+		<sqlStatement name="Q_REPORT">
+			<![CDATA[
+SELECT &G_EMAIL,
+poh.segment1||DECODE(por.release_num,NULL,'','-'||por.release_num) PO_NUMBER,
+  pol.line_num,
+  poh.type_lookup_code,
+  DECODE(pov.segment1,'5380','QUANTUM',pov.segment1) vendor_num,
+  DECODE(pov.segment1,'5380',poh.attribute10,pov.vendor_name) vendor_name,
+  item.segment1 ITEM_NUMBER,
+  cat.segment1||'.'||cat.segment2 Category,
+  pol.item_description,
+  pol.unit_meas_lookup_code,
+  POL.TAX_NAME,
+  pda.creation_date PO_DIST_CREATION_DATE,
+  pll.price_override unit_price,
+  poh.currency_code,
+  pda.quantity_ordered qty_ord,
+  pll.price_override * (pda.quantity_ordered-pda.quantity_cancelled-pda.quantity_billed) extended_cost,
+  pda.quantity_delivered qty_rec,
+  pda.quantity_billed qty_inv,
+  pda.quantity_cancelled qty_can,
+  gcc.segment1||'.'||gcc.segment2||'.' ||gcc.segment3 ||'.' ||gcc.segment4 ||'.' ||gcc.segment5||'.'||gcc.segment6||'.'||gcc.segment7 GL_Account,
+  gcc.segment1 GL_ENT,
+  gcc.segment2 GL_ACC,
+  gcc.segment3 GL_CC,
+  gcc.segment4 GL_MSN,
+  pap.full_name deliver_to_person,
+  rh.segment1 Requisition_number,
+  rl.line_num req_line_number,
+  pll.closed_code,
+  pov.vendor_type_lookup_code,
+  paa.segment1 project_number,
+  paa.name project_name,
+  paa.attribute1 project_msn,
+  pll.need_by_date,
+  pll.promised_date,
+  pll.closed_for_receiving_date,
+  pll.closed_for_invoice_date,
+  pll.creation_Date po_Creation_date,
+  round(sysdate-pll.creation_Date,0) age_creation,
+  round(sysdate-nvl(pll.closed_for_receiving_date,sysdate),0) age_receipt,
+  round(round(sysdate-pll.creation_Date,0)/30,0) age_creation_months,
+  round(round(sysdate-nvl(pll.closed_for_receiving_date,sysdate),0)/30,0) age_receipt_months,
+  case when sysdate-pll.creation_Date between 0 and 90 then '0-3 Months' else 
+        case when sysdate-pll.creation_Date between 90 and 180 then '3-6 Months' else
+            case when sysdate-pll.creation_Date between 180 and 270 then '6-9 Months' else
+                case when sysdate-pll.creation_Date between 270 and 365 then '9-12 Months' else
+                    case when sysdate-pll.creation_Date > 365 then 'Over 12 Months' end end end end end age_creation_bucket
+FROM po_vendors pov,
+  po_headers_all poh,
+  po_lines_all pol,
+  po_line_locations_all pll,
+  po_distributions_all pda,
+  pa_projects_all paa,
+  po_releases_all por,
+  mtl_system_items_b item,
+  mtl_categories_b cat,
+  gl_code_combinations gcc,
+  per_all_people_f pap,
+  po_req_distributions_all rd,
+  po_requisition_lines_all rl,
+  po_requisition_headers_all rh
+WHERE pov.vendor_id          = poh.vendor_id
+AND poh.po_header_id         = pol.po_header_id
+AND pol.po_line_id           = pll.po_line_id
+AND pll.line_location_id     = pda.line_location_id
+AND pol.item_id              = item.inventory_item_id (+)
+AND pol.category_id          = cat.category_id (+)
+AND pda.project_id           = paa.project_id (+)
+AND gcc.code_combination_id  = pda.code_combination_id
+AND pda.deliver_to_person_id = pap.person_id (+)
+AND pda.po_release_id        = por.po_release_id (+)
+AND pda.req_distribution_id  = rd.distribution_id (+)
+AND rd.requisition_line_id   = rl.requisition_line_id (+)
+AND RL.REQUISITION_HEADER_ID = RH.REQUISITION_HEADER_ID (+)
+and sysdate between nvl(pap.EFFECTIVE_START_DATE,sysdate) and nvl(pap.EFFECTIVE_END_DATE,sysdate+1)
+and pll.closed_code not in ('CLOSED','FINALLY CLOSED')
+&g_cost_centre
+]]>
+		</sqlStatement>
+	</dataQuery>
+	<dataTrigger name="beforeReportTrigger" source="XX_PO_OPEN_POS_pkg.before_report"/>
+	<dataStructure>
+		<group name="G_EMAIL" source="Q_REPORT">
+			<element name="EMAIL"                      value="EMAIL"/>
+			<group name="G_REPORT" source="Q_REPORT">
+				<element name="PO_NUMBER"                  value="PO_NUMBER"/>
+				<element name="LINE_NUM"                   value="LINE_NUM"/>
+				<element name="TYPE_LOOKUP_CODE"           value="TYPE_LOOKUP_CODE"/>
+				<element name="VENDOR_NUM"                 value="VENDOR_NUM"/>
+				<element name="VENDOR_NAME"                value="VENDOR_NAME"/>
+				<element name="ITEM_NUMBER"                value="ITEM_NUMBER"/>
+				<element name="CATEGORY"                   value="CATEGORY"/>
+				<element name="ITEM_DESCRIPTION"           value="ITEM_DESCRIPTION"/>
+				<element name="UNIT_MEAS_LOOKUP_CODE"      value="UNIT_MEAS_LOOKUP_CODE"/>
+				<element name="TAX_NAME"                   value="TAX_NAME"/>
+				<element name="PO_DIST_CREATION_DATE"      value="PO_DIST_CREATION_DATE"/>
+				<element name="UNIT_PRICE"                 value="UNIT_PRICE"/>
+				<element name="CURRENCY_CODE"              value="CURRENCY_CODE"/>
+				<element name="QTY_ORD"                    value="QTY_ORD"/>
+				<element name="EXTENDED_COST"              value="EXTENDED_COST"/>
+				<element name="QTY_REC"                    value="QTY_REC"/>
+				<element name="QTY_INV"                    value="QTY_INV"/>
+				<element name="QTY_CAN"                    value="QTY_CAN"/>
+				<element name="GL_ACCOUNT"                 value="GL_ACCOUNT"/>
+				<element name="GL_ENT"                     value="GL_ENT"/>
+				<element name="GL_ACC"                     value="GL_ACC"/>
+				<element name="GL_CC"                      value="GL_CC"/>
+				<element name="GL_MSN"                     value="GL_MSN"/>
+				<element name="DELIVER_TO_PERSON"          value="DELIVER_TO_PERSON"/>
+				<element name="REQUISITION_NUMBER"         value="REQUISITION_NUMBER"/>
+				<element name="REQ_LINE_NUMBER"            value="REQ_LINE_NUMBER"/>
+				<element name="CLOSED_CODE"                value="CLOSED_CODE"/>
+				<element name="VENDOR_TYPE_LOOKUP_CODE"    value="VENDOR_TYPE_LOOKUP_CODE"/>
+				<element name="PROJECT_NUMBER"             value="PROJECT_NUMBER"/>
+				<element name="PROJECT_NAME"               value="PROJECT_NAME"/>
+				<element name="PROJECT_MSN"                value="PROJECT_MSN"/>
+				<element name="NEED_BY_DATE"               value="NEED_BY_DATE"/>
+				<element name="PROMISED_DATE"              value="PROMISED_DATE"/>
+				<element name="CLOSED_FOR_RECEIVING_DATE"  value="CLOSED_FOR_RECEIVING_DATE"/>
+				<element name="CLOSED_FOR_INVOICE_DATE"    value="CLOSED_FOR_INVOICE_DATE"/>
+				<element name="PO_CREATION_DATE"           value="PO_CREATION_DATE"/>
+				<element name="AGE_CREATION"               value="AGE_CREATION"/>
+				<element name="RECEIPT_CREATION"           value="RECEIPT_CREATION"/>
+				<element name="AGE_CREATION_MONTHS"        value="AGE_CREATION_MONTHS"/>
+				<element name="RECEIPT_CREATION_MONTHS"    value="RECEIPT_CREATION_MONTHS"/>
+				<element name="AGE_CREATION_BUCKET"        value="AGE_CREATION_BUCKET"/>
+			</group>
+		</group>
+	</dataStructure>
+	<dataTrigger name="afterReportTrigger" source="XX_PO_OPEN_POS_pkg.email_report"/>
+</dataTemplate>

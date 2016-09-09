@@ -1,0 +1,9 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_26" xml:lang="en-US" customizes="/oracle/apps/ar/cusstd/srch/webui/ArPrtySrchPG" developerMode="true" file-version="$Header: ArPrtySrchPG.xml 120.1.12010000.1 2008/09/25 06:45:05 rviriyal noship $">
+   <modifications>
+      <modify element="orgMstrSrchRN.HzPuiOrgSearchResults.TableActionRG" rendered="false"/>
+      <modify element="orgMstrSrchRN.HzPuiOrgSearchDQM.HzPuiDQMSearchResults.buttons" rendered="false"/>
+      <modify element="perMstrSrchRN.HzPuiPerSearchResults.TableActionRG" rendered="false"/>
+      <modify element="perMstrSrchRN.HzPuiPerSearchDQM.HzPuiDQMSearchResults.buttons" rendered="false"/>
+   </modifications>
+</customization>

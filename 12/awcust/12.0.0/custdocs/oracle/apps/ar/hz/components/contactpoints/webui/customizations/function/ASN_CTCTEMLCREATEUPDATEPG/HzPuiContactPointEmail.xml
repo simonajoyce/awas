@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.6.5_471" xml:lang="en-US" customizes="/oracle/apps/ar/hz/components/contactpoints/webui/HzPuiContactPointEmail" developerMode="false" file-version="$Header: HzPuiContactPointEmail.xml 115.1 2004/01/09 07:33:20 mkatraga noship $" package="/oracle/apps/ar/hz/components/contactpoints/webui/customizations/function/ASN_CTCTEMLCREATEUPDATEPG">
+   <modifications>
+      <move element="EmailAddress" after="ContactPointPurpose"/>
+      <move element="Status" after="EmailAddress"/>
+      <move element="PrimaryFlag" after="Status"/>
+      <move element="HzPuiContactPointChanged" after="PrimaryFlag"/>
+      <move element="EmailFormat" after="HzPuiContactPointChanged"/>
+      <modify element="EmailFormat" rendered="false"/>
+      <modify element="EmailAddress" prompt="E-mail Address"/>
+      <modify element="PrimaryFlag" prompt="Primary E-mail Address"/>
+   </modifications>
+</customization>

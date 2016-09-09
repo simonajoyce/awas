@@ -1,0 +1,6 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_50" xml:lang="en-US" customizes="/oracle/apps/icx/por/req/webui/CheckoutSummaryPG" xmlns:user="http://xmlns.oracle.com/jrad/user" user:responsibilityKey="self_service_purchasing_5" user:responsibilityAppShortName="ICX">
+   <modifications>
+      <modify element="ReqHeaderDFF" segmentList="Global Data Elements|Cost Centre"/>
+   </modifications>
+</customization>

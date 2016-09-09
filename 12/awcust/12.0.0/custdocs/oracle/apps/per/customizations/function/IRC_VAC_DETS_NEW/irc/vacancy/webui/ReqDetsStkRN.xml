@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/per/irc/vacancy/webui/ReqDetsStkRN" developerMode="true" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: ReqDetsStkRN.xml 115.3 2003/04/10 09:17:51 mmillmor noship $" version="9.0.3.6.2_398" xml:lang="en-US" package="/oracle/apps/per/customizations/function/IRC_VAC_DETS_NEW/irc/vacancy/webui">
+   <modifications>
+      <modify element="Obsolete" rendered="false"/>
+      <move element="FndRequiredFieldDescription" after="FndMessageText"/>
+      <move element="BusinessGroupSwitcherDDC" after="FndRequiredFieldDescription"/>
+      <move element="VacancyDetailsDDC" after="FndNestedRegion7"/>
+      <move element="CompensationInformation" after="FndNestedRegion1"/>
+      <move element="TravelInformation" after="FndNestedRegion2"/>
+      <move element="NavigationBar" after="FndNestedRegion3"/>
+      <move element="Obsolete" after="NavigationBar"/>
+   </modifications>
+</customization>

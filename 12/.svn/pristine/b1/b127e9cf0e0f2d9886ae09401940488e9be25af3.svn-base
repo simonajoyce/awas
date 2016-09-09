@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_45" xml:lang="en-US" customizes="/oracle/apps/pay/selfservice/simulator/webui/PaySimulatorPG" developerMode="false" file-version="$Header: PaySimulatorPG.xml 120.0.12010000.3 2013/02/22 03:27:08 emunisek noship $" package="/oracle/apps/pay/selfservice/simulator/webui/customizations/localization/US">
+   <modifications>
+      <modify element="PAY_SIMULATION_RN" title="Generate Model Paycheck" windowTitle="Generate Model Paycheck"/>
+      <modify element="PrevPayslip" prompt="Previous Paycheck"/>
+      <modify element="NavBar.Link1" text="Welcome to Paycheck Modeling"/>
+      <modify element="NavBar.Link2" text="Paycheck Modeling"/>
+      <modify element="TrainRN.item2" text="Paycheck Modeling"/>
+      <modify element="Flex1Help" tipMessageAppShortName="PAY" tipMessageName="PAY_US_REGION1_HELP" tipType="longMessage"/>
+      <modify element="Flex2Help" tipMessageAppShortName="PAY" tipMessageName="PAY_US_REGION2_HELP" tipType="longMessage"/>
+      <modify element="Flex3Help" tipMessageAppShortName="PAY" tipMessageName="PAY_US_REGION3_HELP" tipType="longMessage"/>
+      <modify element="Flex4Help" tipMessageAppShortName="PAY" tipMessageName="PAY_US_REGION4_HELP" tipType="longMessage"/>
+      <modify element="InstructionRN" rendered="true"/>
+      <modify element="InstructionText1" rendered="true" text="Placeholder A for Paycheck Modeler Instructions"/>
+      <modify element="InstructionText2" rendered="true" text="Placeholder B for Paycheck Modeler Instructions"/>
+      <modify element="InstructionText3" rendered="true" text="Placeholder C for Paycheck Modeler Instructions"/>
+      <modify element="InstructionText4" rendered="true" text="Placeholder D for Paycheck Modeler Instructions"/>
+      <modify element="InstructionText5" rendered="true" text="Placeholder E for Paycheck Modeler Instructions"/>
+      <modify element="DescFlex3" segmentList="US_SIMULATION_REGION3|Input|Value|Default Value($RO$)"/>
+      <modify element="DescFlex4" segmentList="US_SIMULATION_REGION4|Input|Value|Default Value($RO$)"/>
+   </modifications>
+</customization>

@@ -1,0 +1,50 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/irc/candidateSearch/webui/CmAplSrchQueryRN" developerMode="true" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header$" version="9.0.3.8.12_1271" xml:lang="en-US">
+   <modifications>
+      <modify element="FndCandidateName" rendered="false"/>
+      <modify element="RecruitingTeamMemberId" rendered="false"/>
+      <move element="FndFirstName" after="FndMessageText"/>
+      <move element="FndVacancyName" after="FndFirstName"/>
+      <move element="FndLastName" after="FndVacancyName"/>
+      <move element="FndVacancyStatus" after="FndLastName"/>
+      <move element="FndEmail" after="FndVacancyStatus"/>
+      <move element="FndApplicationDate" after="FndEmail"/>
+      <move element="FndRecruitingManager" after="FndApplicationDate"/>
+      <move element="FndRecruiter" after="FndRecruitingManager"/>
+      <move element="FndVacancyId" after="FndRecruiter"/>
+      <move element="FndRecruitingManagerId" after="FndVacancyId"/>
+      <move element="FndRecruiterId" after="FndRecruitingManagerId"/>
+      <move element="RecruitingTeamMember" after="FndRecruiterId"/>
+      <move element="FndCandidateName" after="RecruitingTeamMember"/>
+      <move element="RecruitingTeamMemberId" after="FndCandidateName"/>
+      <modify element="ApplicantSearchResults" blockSize="25"/>
+      <modify element="FndApplicationStatus" sortState="no" rendered="false"/>
+      <modify element="FndRecruitingManagerId____1" rendered="false" sortState="no"/>
+      <modify element="FndRecruiterId____1" rendered="false" sortState="no"/>
+      <modify element="FndVacancyId____2" rendered="false" sortState="no"/>
+      <modify element="FndRecruitingManager____1" rendered="false" sortState="no"/>
+      <modify element="FndRecruiter____1" rendered="false" sortState="no"/>
+      <modify element="FndMyApplicants" rendered="false" sortState="no"/>
+      <modify element="FndCurrentEmployer" sortState="no" rendered="false"/>
+      <modify element="FndEmployeeType" rendered="false" sortState="no"/>
+      <modify element="FndApplicantType" rendered="false" sortState="no"/>
+      <modify element="FndQualificationType" rendered="false" sortState="no"/>
+      <modify element="FndExApplications" rendered="false" sortState="no"/>
+      <modify element="FndVacancyName____2" sortState="no"/>
+      <modify element="FndApplicationDate____1" sortState="no"/>
+      <modify element="FndApplicationStatus2" sortState="no"/>
+      <modify element="FndVacancyStatus____1" rendered="false" sortState="no"/>
+      <modify element="FndRecruitingTeamMember" sortState="no"/>
+      <modify element="FndSelectCheckbox" sortState="no"/>
+      <modify element="FndCandidateName____1" sortState="no"/>
+      <modify element="FndFirstName____1" rendered="false" sortState="no"/>
+      <modify element="FndLastName____1" rendered="false" sortState="no"/>
+      <modify element="FndEmail____1" sortState="no"/>
+      <modify element="FndLocation" sortState="no"/>
+      <modify element="FndHomePhone" rendered="false" sortState="no"/>
+      <modify element="FndLastApplication" rendered="false" sortState="no"/>
+      <modify element="FndJobsAppliedFor" sortState="no"/>
+      <modify element="FndBirthDate" rendered="false" sortState="no"/>
+      <modify element="FndAddressLine1" rendered="false" sortState="no"/>
+   </modifications>
+</customization>

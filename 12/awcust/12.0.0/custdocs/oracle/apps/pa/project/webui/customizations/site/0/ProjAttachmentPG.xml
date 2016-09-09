@@ -1,0 +1,44 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.89_562" xml:lang="en-US" customizes="/oracle/apps/pa/project/webui/ProjAttachmentPG" xmlns:oa="http://xmlns.oracle.com/oa">
+   <modifications>
+      <insert parent="projectMap" grouping="categoryMappings">
+         <oa:categoryMap id="XX_OPERATIONS_AND_SUPPORT" categoryName="CUSTOM1000640" scope="." secured="false" xmlns:oa="http://xmlns.oracle.com/oa"/>
+      </insert>
+      <insert after="XX_OPERATIONS_AND_SUPPORT">
+         <oa:categoryMap id="XX_RD" categoryName="CUSTOM1000628" scope="." secured="false" xmlns:oa="http://xmlns.oracle.com/oa"/>
+      </insert>
+      <insert after="XX_OPERATIONS_AND_SUPPORT">
+         <oa:categoryMap id="XX_RA" categoryName="CUSTOM1000629" scope="." secured="false" xmlns:oa="http://xmlns.oracle.com/oa"/>
+      </insert>
+      <insert after="XX_OPERATIONS_AND_SUPPORT">
+         <oa:categoryMap id="XX_AN" categoryName="CUSTOM1000630" scope="." secured="false" xmlns:oa="http://xmlns.oracle.com/oa"/>
+      </insert>
+      <insert after="XX_OPERATIONS_AND_SUPPORT">
+         <oa:categoryMap id="XX_DS" categoryName="CUSTOM1000631" scope="." secured="false" xmlns:oa="http://xmlns.oracle.com/oa"/>
+      </insert>
+      <insert after="XX_OPERATIONS_AND_SUPPORT">
+         <oa:categoryMap id="XX_IM" categoryName="CUSTOM1000632" scope="." secured="false" xmlns:oa="http://xmlns.oracle.com/oa"/>
+      </insert>
+      <insert after="XX_OPERATIONS_AND_SUPPORT">
+         <oa:categoryMap id="XX_TE" categoryName="CUSTOM1000633" scope="." secured="false" xmlns:oa="http://xmlns.oracle.com/oa"/>
+      </insert>
+      <insert after="XX_OPERATIONS_AND_SUPPORT">
+         <oa:categoryMap id="XX_PT" categoryName="CUSTOM1000634" scope="." secured="false" xmlns:oa="http://xmlns.oracle.com/oa"/>
+      </insert>
+      <insert after="XX_OPERATIONS_AND_SUPPORT">
+         <oa:categoryMap id="XX_TA" categoryName="CUSTOM1000635" scope="." secured="false" xmlns:oa="http://xmlns.oracle.com/oa"/>
+      </insert>
+      <insert after="XX_OPERATIONS_AND_SUPPORT">
+         <oa:categoryMap id="XX_DATA_ACQ" categoryName="CUSTOM1000636" scope="." secured="false" xmlns:oa="http://xmlns.oracle.com/oa"/>
+      </insert>
+      <insert after="XX_OPERATIONS_AND_SUPPORT">
+         <oa:categoryMap id="XX_DOCUMENTATION" categoryName="CUSTOM1000637" scope="." secured="false" xmlns:oa="http://xmlns.oracle.com/oa"/>
+      </insert>
+      <insert after="XX_OPERATIONS_AND_SUPPORT">
+         <oa:categoryMap id="XX_TRAINING" categoryName="CUSTOM1000638" scope="." secured="false" xmlns:oa="http://xmlns.oracle.com/oa"/>
+      </insert>
+      <insert after="XX_OPERATIONS_AND_SUPPORT">
+         <oa:categoryMap id="XX_TRANSITION" categoryName="CUSTOM1000639" scope="." secured="false" xmlns:oa="http://xmlns.oracle.com/oa"/>
+      </insert>
+   </modifications>
+</customization>

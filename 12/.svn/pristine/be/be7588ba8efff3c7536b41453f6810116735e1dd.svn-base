@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/per/selfservice/review/webui/ReviewNavRN" developerMode="true" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: ReviewNavRN.xml 115.4 2004/06/17 03:13:12 hpandya noship $" version="9.0.3.6.2_398" xml:lang="en-US" package="/oracle/apps/per/customizations/function/BEN_NEW_USER_REG_WF/selfservice/review/webui">
+   <modifications>
+      <modify element="BenEnrollNow" rendered="true"/>
+      <move element="HrSaveForLater" after="BenEnrollNow"/>
+      <move element="HrCancelButton" after="HrSaveForLater"/>
+      <move element="HrBackButton" after="HrCancelButton"/>
+      <move element="HrSubmit" after="HrBackButton"/>
+      <move element="HrPrint" after="HrSubmit"/>
+      <move element="HrReturnToOverview" after="HrPrint"/>
+      <move element="HrReturnToPortal" after="HrReturnToOverview"/>
+      <move element="HrUrlRedirectionReturn" after="HrReturnToPortal"/>
+      <move element="HrNotificationReturn" after="HrUrlRedirectionReturn"/>
+      <move element="HrPspUrlRedirectionReturn" after="HrNotificationReturn"/>
+   </modifications>
+</customization>

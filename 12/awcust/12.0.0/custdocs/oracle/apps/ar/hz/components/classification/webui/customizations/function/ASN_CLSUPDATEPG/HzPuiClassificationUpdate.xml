@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.6.5_471" xml:lang="en-US" customizes="/oracle/apps/ar/hz/components/classification/webui/HzPuiClassificationUpdate" developerMode="false" file-version="$Header: HzPuiClassificationUpdate.xml 115.1 2004/01/09 05:46:27 mkatraga noship $" package="/oracle/apps/ar/hz/components/classification/webui/customizations/function/ASN_CLSUPDATEPG">
+   <modifications>
+      <move element="classification" after="type"/>
+      <move element="rank" after="classification"/>
+      <move element="tip" after="rank"/>
+      <move element="activeDateFrom" after="tip"/>
+      <move element="activeDateTo" after="activeDateFrom"/>
+      <move element="endDateTip" after="activeDateTo"/>
+      <move element="primaryClass" after="endDateTip"/>
+      <modify element="type" prompt="Category"/>
+      <modify element="rank" rendered="true"/>
+      <modify element="activeDateTo" styleClass="" tipType="dateFormat"/>
+      <modify element="tip" rendered="true"/>
+   </modifications>
+</customization>

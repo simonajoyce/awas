@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_45" xml:lang="en-US" customizes="/oracle/apps/pay/selfservice/simulator/webui/PaySimulatorResultsPG" developerMode="false" file-version="$Header: PaySimulatorResultsPG.xml 120.0.12010000.2 2013/02/21 17:03:29 emunisek noship $" package="/oracle/apps/pay/selfservice/simulator/webui/customizations/localization/US">
+   <modifications>
+      <modify element="PAY_SIM_RESTULS_TOP" title="Model Paycheck" windowTitle="Model Paycheck"/>
+      <modify element="train.item2" text="Paycheck Modeling"/>
+      <modify element="ResultsRN" text="Model Paycheck"/>
+      <modify element="PaySlipPDFRN" text="Model Paycheck"/>
+      <modify element="PageButtonBar.Link1" text="Welcome to Paycheck Modeling"/>
+      <modify element="PageButtonBar.Link2" text="Paycheck Modeling"/>
+   </modifications>
+</customization>

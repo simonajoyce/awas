@@ -1,0 +1,9 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/csi/counter/instance/webui/CounterReadingHistoryRN" text="Counter Read History" package="/oracle/apps/csi/counter/instance/webui/customizations/function/OKS_INQ_CUST_CTR_RDNGS" file-version="$Header: CounterReadingHistoryRN.xml 120.0 2005/07/06 11:50 sasethi noship $">
+   <modifications>
+      <modify element="LifeToDateATC" rendered="false"/>
+      <modify element="DisabledATC" rendered="false"/>
+      <modify element="singleSelection" rendered="false"/>
+      <modify element="PropertyReadingsHistoryHdr" rendered="false"/>
+   </modifications>
+</customization>

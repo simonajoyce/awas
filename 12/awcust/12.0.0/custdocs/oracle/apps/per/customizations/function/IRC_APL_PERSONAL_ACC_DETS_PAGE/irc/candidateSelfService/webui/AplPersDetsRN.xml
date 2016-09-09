@@ -1,0 +1,45 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.6.4_447" xml:lang="en-US" customizes="/oracle/apps/per/irc/candidateSelfService/webui/AplPersDetsRN" developerMode="true" file-version="$Header: AplPersDetsRN.xml 115.7 2003/10/16 03:16:58 pbrimble noship $" package="/oracle/apps/per/customizations/function/IRC_APL_PERSONAL_ACC_DETS_PAGE/irc/candidateSelfService/webui">
+   <modifications>
+      <move element="FamilyName" after="EnterPersonalDets"/>
+      <move element="FndFirstName" after="FamilyName"/>
+      <move element="EmailAddress" after="FndFirstName"/>
+      <move element="IrcFlexField2" after="EmailAddress"/>
+      <move element="EmpEmailAddress" after="IrcFlexField2"/>
+      <move element="PartyId" after="EmpEmailAddress"/>
+      <move element="MaritalStatus" after="PartyId"/>
+      <move element="FullName" after="MaritalStatus"/>
+      <move element="FndTitle" after="FullName"/>
+      <move element="Gender" after="FndTitle"/>
+      <move element="Person" after="Gender"/>
+      <move element="PersonMiddleName" after="Person"/>
+      <move element="PersonNameSuffix" after="PersonMiddleName"/>
+      <move element="KnownAs" after="PersonNameSuffix"/>
+      <move element="PersonNamePhonetic" after="KnownAs"/>
+      <move element="FndLanguage" after="PersonNamePhonetic"/>
+      <move element="EnterPersonalWebSite" after="FndLanguage"/>
+      <move element="BirthDate" after="EnterPersonalWebSite"/>
+      <move element="FirstNamePhonetic" after="BirthDate"/>
+      <move element="LastNamePhonetic" after="FirstNamePhonetic"/>
+      <modify element="IrcFlexField2" rendered="true"/>
+      <modify element="FndTitle" rendered="false"/>
+      <modify element="Person" rendered="false"/>
+      <modify element="PersonNameSuffix" rendered="false"/>
+      <modify element="PersonNamePhonetic" rendered="false"/>
+      <modify element="PersonMiddleName" rendered="false"/>
+      <modify element="MaritalStatus" rendered="false"/>
+      <modify element="LastNamePhonetic" rendered="false"/>
+      <modify element="FndLanguage" tipType="shortTip" rendered="false"/>
+      <modify element="KnownAs" rendered="false"/>
+      <modify element="EnterPersonalWebSite" rendered="false"/>
+      <modify element="EnterPersonalDets" rendered="true"/>
+      <modify element="Gender" rendered="false"/>
+      <modify element="FullName" rendered="false"/>
+      <modify element="FirstNamePhonetic" rendered="false"/>
+      <modify element="FndFirstName" rendered="true"/>
+      <modify element="FamilyName" rendered="true"/>
+      <modify element="EmailAddress" rendered="true" required="yes"/>
+      <modify element="EmpEmailAddress" rendered="true"/>
+      <modify element="BirthDate" rendered="false"/>
+   </modifications>
+</customization>

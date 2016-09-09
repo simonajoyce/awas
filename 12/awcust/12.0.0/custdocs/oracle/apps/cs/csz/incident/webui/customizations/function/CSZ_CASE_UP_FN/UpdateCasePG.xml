@@ -1,0 +1,52 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/cs/csz/incident/webui/UpdateCasePG" package="/oracle/apps/cs/csz/incident/webui/customizations/function/CSZ_CASE_UP_FN" file-version="$Header: UpdateCasePG.xml 120.7 2006/05/24 17:19:34 jianyan noship $">
+   <modifications>
+      <modify element="RelatedObjectsHRN" text="Related Cases"/>
+      <modify element="SRHeaderIssuexRN.HIssueIncidentType" prompt="Case Type"/>
+      <modify element="SRHeaderIssuexRN.HIssueProblemCode" prompt="Issue Type"/>
+      <modify element="RequestDatesRN" text="Relevant Dates"/>
+      <move element="RequestDatesRN.CreationDate" after="RequestDatesRN.IncidentOccurredDate"/>
+      <move element="RequestDatesRN.ReqDatesExpectedReactionDate" after="RequestDatesRN.CreationDate"/>
+      <move element="RequestDatesRN.LastUpdateDate" after="RequestDatesRN.ReqDatesExpectedReactionDate"/>
+      <move element="RequestDatesRN.IncRespondedByDate" after="RequestDatesRN.LastUpdateDate"/>
+      <move element="RequestDatesRN.ReqDatesdateResolved" after="RequestDatesRN.IncRespondedByDate"/>
+      <move element="RequestDatesRN.ReqDatesExpectedResolutionDate" after="RequestDatesRN.ReqDatesdateResolved"/>
+      <move element="RequestDatesRN.ReqDatesdateClosed" after="RequestDatesRN.ReqDatesExpectedResolutionDate"/>
+      <modify element="KnowledgeSolutionxRN.KMSolutionsHSHRN" text="Linked Knowledge"/>
+      <modify element="ProblemDetailsRN" text="Case Details"/>
+      <modify element="CustomerContactBinRN.PersonBtnRL" rendered="false"/>
+      <modify element="CustomerContactBinRN.PersonSpacerRL" rendered="false"/>
+      <modify element="CustomerContactBinRN.PerCustomersRequestsML" rendered="false"/>
+      <modify element="CustomerContactBinRN.CustContactBtnCell" rendered="false"/>
+      <modify element="CustomerContactBinRN.ContactsRequestsML" rendered="false"/>
+      <modify element="CustomerContactBinRN.CustomersRequestsML" rendered="false"/>
+      <modify element="CustomerContactBinRN.CustomerBtnRL" rendered="false"/>
+      <modify element="ProblemDetailsRN.PIssueIncidentUrgency" prompt="Urgency"/>
+      <modify element="ProblemDetailsRN.PIssueErrorCode" prompt="Additional Classifications" rendered="true"/>
+      <modify element="ProblemDetailsRN.PIssueVisibility" rendered="false"/>
+      <modify element="RequestDatesRN.ReqDatesExpectedReactionDate" rendered="true"/>
+      <modify element="RequestDatesRN.ReqDatesExpectedResolutionDate" rendered="true"/>
+      <modify element="RequestDatesRN.ReqDatesdateResolved" rendered="true"/>
+      <modify element="RequestDatesRN.ReqDatesdateClosed" rendered="true"/>
+      <modify element="RequestDatesRN.IncRespondedByDate" tipType="none"/>
+      <modify element="SRHeaderSummaryxRN.resSummary" rendered="true"/>
+      <move element="SRHeaderIssuexRN.HIssueProblemCode" after="SRHeaderIssuexRN.HIssueIncidentType"/>
+      <move element="SRHeaderIssuexRN.HIssueStatus" after="SRHeaderIssuexRN.HIssueProblemCode"/>
+      <move element="SRHeaderIssuexRN.HIssueResolutionCode" after="SRHeaderIssuexRN.HIssueStatus"/>
+      <move element="SRHeaderIssuexRN.HIssueIncidentSeverity" after="SRHeaderIssuexRN.HIssueResolutionCode"/>
+      <move element="SRHeaderIssuexRN.HIssueIncidentUrgency" after="SRHeaderIssuexRN.HIssueIncidentSeverity"/>
+      <move element="SRHeaderIssuexRN.HIssueAccountNumber" after="SRHeaderIssuexRN.HIssueIncidentUrgency"/>
+      <move element="SRHeaderIssuexRN.HIssueCustomerId" after="SRHeaderIssuexRN.HIssueAccountNumber"/>
+      <move element="SRHeaderIssuexRN.HIssueAccountId" after="SRHeaderIssuexRN.HIssueCustomerId"/>
+      <move element="SRHeaderIssuexRN.HIssueVisibility" after="SRHeaderIssuexRN.HIssueAccountId"/>
+      <move element="SRHeaderIssuexRN.HIssueGroup" after="SRHeaderIssuexRN.HIssueVisibility"/>
+      <move element="SRHeaderIssuexRN.HIssueGroupType" after="SRHeaderIssuexRN.HIssueGroup"/>
+      <move element="SRHeaderIssuexRN.HIssueOwnerGroupId" after="SRHeaderIssuexRN.HIssueGroupType"/>
+      <move element="SRHeaderIssuexRN.HIssueOwnertype" after="SRHeaderIssuexRN.HIssueOwnerGroupId"/>
+      <move element="SRHeaderIssuexRN.HIssueIncidentOwnerId" after="SRHeaderIssuexRN.HIssueOwnertype"/>
+      <move element="SRHeaderIssuexRN.HIssueResourceType" after="SRHeaderIssuexRN.HIssueIncidentOwnerId"/>
+      <move element="SRHeaderIssuexRN.HIssueInventoryItemId" after="SRHeaderIssuexRN.HIssueResourceType"/>
+      <move element="SRHeaderIssuexRN.HIssueOwner" after="SRHeaderIssuexRN.HIssueInventoryItemId"/>
+      <move element="SRHeaderIssuexRN.HIssueSupportSiteId" after="SRHeaderIssuexRN.HIssueOwner"/>
+   </modifications>
+</customization>

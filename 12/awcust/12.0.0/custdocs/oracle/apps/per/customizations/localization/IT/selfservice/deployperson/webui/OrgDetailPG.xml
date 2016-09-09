@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/per/selfservice/deployperson/webui/OrgDetailPG" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: OrgDetailPG.xml 115.1 2003/02/13 12:16:53 jcolman noship $" version="9.0.3.6.2_398" xml:lang="en-US" package="/oracle/apps/per/customizations/localization/IT/selfservice/deployperson/webui">
+   <modifications>
+      <modify element="HrDepartmentDetails" text="Organization Details"/>
+      <move element="HrDepartmentDetails" after="HrNestedRegion2____1"/>
+      <move element="HrNestedRegion4" after="HrDepartmentDetails"/>
+      <modify element="HrNestedRegion2" text="Organization Working Conditions"/>
+      <modify element="HrNestedRegion1" text="More Organization Information"/>
+      <move element="HrNestedRegion2" after="HrNestedRegion1"/>
+   </modifications>
+</customization>

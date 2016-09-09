@@ -1,0 +1,52 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/per/selfservice/deployperson/webui/AssignmentPG" developerMode="false" file-version="$Header: AssignmentPG.xml 120.7 2007/05/08 07:17:43 saurai noship $" package="/oracle/apps/per/customizations/localization/DK/selfservice/deployperson/webui">
+   <modifications>
+      <move element="HrInstruction" after="REQUIREDREGION"/>
+      <move element="HrOrganizationRegion" after="HrInstruction"/>
+      <move element="HrJobRegion" after="HrOrganizationRegion"/>
+      <move element="HrPositionRegion" after="HrJobRegion"/>
+      <move element="HrLocationRegion" after="HrPositionRegion"/>
+      <move element="HrGradeRegion" after="HrLocationRegion"/>
+      <move element="HrPayrollRegion" after="HrGradeRegion"/>
+      <move element="HrGreRegion" after="HrPayrollRegion"/>
+      <move element="HrPeopleGroupRegion" after="HrGreRegion"/>
+      <move element="HrAssignmentStatusRegion" after="HrPeopleGroupRegion"/>
+      <move element="HrOtherAssRegion" after="HrAssignmentStatusRegion"/>
+      <move element="HrSalaryRegion" after="HrOtherAssRegion"/>
+      <move element="HrVendorRegion" after="HrSalaryRegion"/>
+      <move element="HrProjectRegion" after="HrVendorRegion"/>
+      <move element="HrBusinessGroupId" after="HrProjectRegion"/>
+      <move element="HrOrganizationId" after="HrBusinessGroupId"/>
+      <move element="HrJobId" after="HrOrganizationId"/>
+      <move element="HrPositionId" after="HrJobId"/>
+      <move element="_SSHRFORMEVENT" after="HrPositionId"/>
+      <move element="HrProbationPeriodRegion" after="_SSHRFORMEVENT"/>
+      <move element="HrNoticePeriodRegion" after="HrProbationPeriodRegion"/>
+      <modify element="HrOrganizationRegion" rendered="true"/>
+      <move element="HrAddressLocationDescFlex" after="HrDepartment"/>
+      <move element="HrOrgMoreInfoButton" after="HrAddressLocationDescFlex"/>
+      <move element="HrBusinessGroupId____2" after="HrOrgMoreInfoButton"/>
+      <move element="HrOrganizationId____2" after="HrBusinessGroupId____2"/>
+      <modify element="HrProjectRegion" rendered="true"/>
+      <move element="HrProjectTitle" after="HrBillingTitle"/>
+      <modify element="REQUIREDREGION" rendered="true"/>
+      <modify element="HrInstruction" rendered="true"/>
+      <modify element="HrJobRegion" rendered="true"/>
+      <modify element="HrPositionRegion" rendered="true"/>
+      <modify element="HrLocationRegion" rendered="true"/>
+      <modify element="HrGradeRegion" rendered="true"/>
+      <modify element="HrPayrollRegion" rendered="true"/>
+      <modify element="HrGreRegion" rendered="true"/>
+      <move element="HrWorkSchedKeyFlex____1" after="HrInstruction____4"/>
+      <move element="HrWorkHours" after="HrWorkSchedKeyFlex____1"/>
+      <move element="HrFrequency" after="HrWorkHours"/>
+      <move element="HrNormalStartTime" after="HrFrequency"/>
+      <move element="HrNormalEndTime" after="HrNormalStartTime"/>
+      <modify element="HrPeopleGroupRegion" rendered="true"/>
+      <modify element="HrAssignmentStatusRegion" rendered="true"/>
+      <modify element="HrOtherAssRegion" rendered="true"/>
+      <modify element="HrSalaryRegion" rendered="true"/>
+      <modify element="HrVendorRegion" rendered="true"/>
+      <modify element="HrWorkSchedKeyFlex____1" segmentList="DK_STATUTORY_INFO.|Legal Entity|Condition of Employment|Employee Group|Union Membership||"/>
+   </modifications>
+</customization>

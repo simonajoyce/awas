@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_22" xml:lang="en-US" customizes="/oracle/apps/pos/orders/webui/PosRFQDetailsPG" file-version="$Header: PosRFQDetailsPG.xml 120.1.12000000.1 2007/10/24 18:19:15 rallamse noship $" package="/oracle/apps/pos/orders/webui/customizations/function/ILS_ISUPP_PERZ">
+   <modifications>
+      <modify element="LocationCode" destination="OA.jsp?_rc=POS_ADDRESS_PAGE&amp;_ri=177&amp;OAFunc=ILS_ISUPP_PERZ&amp;LPARAMSLOCATION_ID={@ShipToLocationId}&amp;LPARAMSADDR_TYPE=ShipTo&amp;retainAM=Y"/>
+      <modify element="RFQTableDetailsRN" controllerClass="oracle.apps.ja.isp.webui.ILPosRFQDetailsCO"/>
+   </modifications>
+</customization>

@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- $Header: XX_GIFT_REGISTER.xml 2014/02/06 12:56:20 sjoyce noship $-->
+<!-- dbdrv: exec java oracle/apps/xdo/oa/util XDOLoader.class java &phase=dat checkfile:~PROD:patch/115/publisher/defs:XX_TAM_DAILY_REPORT.xml UPLOAD - DB_USERNAME &un_apps -DB_PASSWORD &pw_apps -JDBC_CONNECTION &jdbc_db_addr -LOB_TYPE DATA_TEMPLATE -APPS_SHORT_NAME ~PROD -LOB_CODE APOBRR -LANGUAGE 00 -XDO_FILE_TYPE XML-DATA-TEMPLATE -FILE_NAME &fullpath:~PROD:patch/115/publisher/defs:XX_GIFT_REGISTERxml#  -->
+<!-- GSCC_Category="Xdo Data Definition" -->
+<dataTemplate name="XX_GIFT_REGISTER" defaultPackage="XX_GIFT_REGISTER_pkg" version="1.0">
+<properties>
+<property name="debug_mode" value="on" />
+<property name="xml_tag_case" value="upper" />
+</properties>
+<parameters>
+<parameter name="P_PERIOD"     dataType = "CHARACTER"></parameter>
+</parameters>
+<dataQuery>
+<sqlStatement name="Q_REPORT">
+<![CDATA[
+SELECT distinct E.FULL_NAME,
+H.INVOICE_NUM,
+L.ITEM_DESCRIPTION,
+L.AMOUNT,
+L.CURRENCY_CODE,
+l.amount*H.DEFAULT_EXCHANGE_RATE USD_AMOUNT,
+L.JUSTIFICATION,
+L.START_EXPENSE_DATE,
+L.MERCHANT_NAME,
+L.NUMBER_ATTENDEES,
+L.LOCATION,
+H.DESCRIPTION EXPENSE_REPORT_DESC,
+GP.START_DATE START_DATE,
+L.REPORT_LINE_ID   L_REPORT_LINE_ID
+FROM AP_EXPENSE_REPORT_VIOLATIONS_V V,
+AP_EXPENSE_REPORT_LINES_ALL L,
+AP_EXPENSE_REPORT_HEADERS_ALL H,
+PER_ALL_PEOPLE_F E,
+GL_PERIODS GP
+WHERE V.VIOLATION_TYPE = 'DAILY_LIMIT'
+AND V.CATEGORY_CODE <> 'ACCOMMODATIONS'
+AND V.REPORT_LINE_ID = L.REPORT_LINE_ID
+AND H.REPORT_HEADER_ID = L.REPORT_HEADER_ID
+AND E.PERSON_ID = H.EMPLOYEE_ID
+AND H.REPORT_SUBMITTED_DATE >= GP.START_DATE
+and h.report_submitted_date <= GP.end_date
+and gp.period_name = :p_period
+and gp.period_set_name = 'AWAS'
+order by 1,2
+]]>
+</sqlStatement>
+<sqlStatement name="Q_ATTENDEE">
+<![CDATA[
+SELECT
+A.REPORT_LINE_ID ATTENDEE_LINE_ID,
+A.NAME ATTENDEE_NAME,
+A.EMPLOYER ATTENDEE_EMPLOYER
+FROM OIE_ATTENDEES_ALL A
+where A.REPORT_LINE_ID = :L_REPORT_LINE_ID
+]]>
+</sqlStatement>
+<!--<link name="EXP_ATTENDEE_LK" parentQuery="Q_REPORT" parentColumn="REPORT_LINE_ID" childQuery="Q_ATTENDEE" childColumn="ATTENDEE_LINE_ID" condition="="/>-->
+<sqlStatement name="Q_INVOICE">
+<![CDATA[
+SELECT sup.vendor_name  INV_VENDOR_NAME
+     , sup.VENDOR_TYPE_LOOKUP_CODE 
+     , 'ENTERTAINMENT - CLIENT' INV_MATCH_TYPE
+     , aia.invoice_num INV_NUM
+     , AIL.DESCRIPTION INV_DESCRIPTION
+     , SUM(aid.amount) INV_AMOUNT
+     , AIA.INVOICE_CURRENCY_CODE INV_CURRENCY
+     , SUM(NVL(aid.base_amount,aid.amount)) INV_USD_AMOUNT
+     , ail.justification INV_JUSTIFICATION
+     , aia.invoice_date INV_DATE
+     , aid.period_name INV_PERIOD
+     , NVL(aia.attribute1, xx_por_imscan_url2(aia.invoice_id) ) INV_DOC_PATH
+     , REPLACE(REPLACE(NVL(XX_AP_INVOICE_APPROVER(aia.invoice_id)
+       ||DECODE(XX_AP_INVOICE_APPROVER(aia.invoice_id),NULL,'',' ')
+       ||xx_ap_req_approver(aia.invoice_id), NVL(xx_ap_exp_approver(aia.invoice_id),'No Approval in Oracle')),'GUEST',''),',,',',')
+       INV_APPROVER
+   FROM ap_invoices_all aia
+     , AP.AP_INVOICE_DISTRIBUTIONS_ALL aid
+     , AP.AP_INVOICE_LINES_ALL ail
+     , ap_suppliers sup
+     , gl_code_combinations gcc
+  WHERE sup.vendor_id          = aia.vendor_id
+   AND aia.invoice_id          = ail.invoice_id
+   AND ail.line_number         = AID.INVOICE_LINE_NUMBER
+   AND aia.invoice_id          = aid.invoice_id
+   AND gcc.code_combination_id = AID.DIST_CODE_COMBINATION_ID
+   AND gcc.segment2            = '572110'
+   AND aia.org_id              = 85
+   AND source                 <> 'SelfService'
+   AND aid.period_name         = :P_PERIOD
+GROUP BY sup.vendor_name
+     , sup.VENDOR_TYPE_LOOKUP_CODE
+     , aia.invoice_num
+     , AIL.DESCRIPTION
+     , AIA.INVOICE_CURRENCY_CODE
+     , ail.justification
+     , aia.invoice_date
+     , aid.period_name
+     , NVL(aia.attribute1, xx_por_imscan_url2(aia.invoice_id) )
+     , REPLACE(REPLACE( NVL(XX_AP_INVOICE_APPROVER(aia.invoice_id)
+       ||DECODE(XX_AP_INVOICE_APPROVER(aia.invoice_id),NULL,'',' ')
+       ||xx_ap_req_approver(aia.invoice_id), NVL(xx_ap_exp_approver(aia.invoice_id),'No Approval in Oracle')),'GUEST',''),',,',',')
+HAVING SUM(aid.amount) <> 0
+UNION ALL
+SELECT sup.vendor_name  INV_VENDOR_NAME
+     , sup.VENDOR_TYPE_LOOKUP_CODE 
+     , 'CHARITABLE DONATIONS' INV_MATCH_TYPE
+     , aia.invoice_num INV_NUM
+     , AIL.DESCRIPTION INV_DESCRIPTION
+     , SUM(aid.amount) INV_AMOUNT
+     , AIA.INVOICE_CURRENCY_CODE INV_CURRENCY
+     , SUM(NVL(aid.base_amount,aid.amount)) INV_USD_AMOUNT
+     , ail.justification INV_JUSTIFICATION
+     , aia.invoice_date INV_DATE
+     , aid.period_name INV_PERIOD
+     , NVL(aia.attribute1, xx_por_imscan_url2(aia.invoice_id) ) INV_DOC_PATH
+     , REPLACE(REPLACE(NVL(XX_AP_INVOICE_APPROVER(aia.invoice_id)
+       ||DECODE(XX_AP_INVOICE_APPROVER(aia.invoice_id),NULL,'',' ')
+       ||xx_ap_req_approver(aia.invoice_id), NVL(xx_ap_exp_approver(aia.invoice_id),'No Approval in Oracle')),'GUEST',''),',,',',')
+       INV_APPROVER
+   FROM ap_invoices_all aia
+     , AP.AP_INVOICE_DISTRIBUTIONS_ALL aid
+     , AP.AP_INVOICE_LINES_ALL ail
+     , ap_suppliers sup
+     , gl_code_combinations gcc
+  WHERE sup.vendor_id          = aia.vendor_id
+   AND aia.invoice_id          = ail.invoice_id
+   AND ail.line_number         = AID.INVOICE_LINE_NUMBER
+   AND aia.invoice_id          = aid.invoice_id
+   AND gcc.code_combination_id = AID.DIST_CODE_COMBINATION_ID
+   AND gcc.segment2            = '573610'
+   AND aia.org_id              = 85
+   AND source                 <> 'SelfService'
+   AND aid.period_name         = :P_PERIOD
+GROUP BY sup.vendor_name
+     , sup.VENDOR_TYPE_LOOKUP_CODE
+     , aia.invoice_num
+     , AIL.DESCRIPTION
+     , AIA.INVOICE_CURRENCY_CODE
+     , ail.justification
+     , aia.invoice_date
+     , aid.period_name
+     , NVL(aia.attribute1, xx_por_imscan_url2(aia.invoice_id) )
+     , REPLACE(REPLACE( NVL(XX_AP_INVOICE_APPROVER(aia.invoice_id)
+       ||DECODE(XX_AP_INVOICE_APPROVER(aia.invoice_id),NULL,'',' ')
+       ||xx_ap_req_approver(aia.invoice_id), NVL(xx_ap_exp_approver(aia.invoice_id),'No Approval in Oracle')),'GUEST',''),',,',',')
+HAVING SUM(aid.amount) <> 0
+UNION ALL
+ SELECT sup.vendor_name
+     , sup.VENDOR_TYPE_LOOKUP_CODE
+     , 'KEY WORD' MATCH_TYPE
+     , aia.invoice_num
+     , AIL.DESCRIPTION
+     , SUM(aid.amount)
+     , AIA.INVOICE_CURRENCY_CODE
+     , SUM(NVL(aid.base_amount,aid.amount)) USD_Amount
+     , ail.justification
+     , aia.invoice_date
+     , aid.period_name
+     , NVL(aia.attribute1, xx_por_imscan_url2(aia.invoice_id) ) DOC_PATH
+     , REPLACE(REPLACE( NVL(XX_AP_INVOICE_APPROVER(aia.invoice_id)
+       ||DECODE(XX_AP_INVOICE_APPROVER(aia.invoice_id),NULL,'',' ')
+       ||xx_ap_req_approver(aia.invoice_id), NVL(xx_ap_exp_approver(aia.invoice_id),'No Approval in Oracle')),'GUEST',''),',,',',')
+       Approver
+   FROM ap_invoices_all aia
+     , ap_suppliers sup
+     , AP.AP_INVOICE_DISTRIBUTIONS_ALL aid
+     , AP.AP_INVOICE_LINES_ALL ail
+     , gl_code_combinations gcc
+  WHERE sup.vendor_id          = aia.vendor_id
+   AND aia.invoice_id          = ail.invoice_id
+   AND ail.line_number         = AID.INVOICE_LINE_NUMBER
+   AND aia.invoice_id          = aid.invoice_id
+   AND gcc.code_combination_id = AID.DIST_CODE_COMBINATION_ID
+   AND gcc.segment2           <> '572110'
+   AND gcc.segment2           <> '573610'
+   AND aia.org_id              = 85
+   AND source                 <> 'SelfService'
+   AND
+       (
+              UPPER(AID.DESCRIPTION) LIKE '%GIFT%'
+           OR UPPER(AID.DESCRIPTION) LIKE '%LUNCH%'
+           OR UPPER(AID.DESCRIPTION) LIKE '%CASH%'
+           OR UPPER(AID.DESCRIPTION) LIKE '%ENTERTAINMENT%'
+           OR UPPER(AID.DESCRIPTION) LIKE '%CLIENT%'
+           OR UPPER(AID.DESCRIPTION) LIKE '%CHARITY%'
+           OR UPPER(AID.DESCRIPTION) LIKE '%CHARITABLE%'
+           OR UPPER(AID.DESCRIPTION) LIKE '%DONATION%'
+           OR UPPER(AID.DESCRIPTION) LIKE '%CONTRIBUTION%'
+           OR UPPER(AID.DESCRIPTION) LIKE '%MEAL%'
+           OR UPPER(AID.DESCRIPTION) LIKE '%DRINK%'
+           OR UPPER(AID.DESCRIPTION) LIKE '%BRIBE%'
+           OR UPPER(AID.DESCRIPTION) LIKE '%KICK%'
+           OR UPPER(AID.DESCRIPTION) LIKE '%GOV%'
+           OR UPPER(AID.DESCRIPTION) LIKE '%GOVERNMENT%'
+           OR UPPER(AID.DESCRIPTION) LIKE '%CARD%'
+              OR UPPER(AID.DESCRIPTION) LIKE '%PRESENT%'
+       )
+   AND aid.period_name = :P_PERIOD
+GROUP BY sup.vendor_name
+     , sup.VENDOR_TYPE_LOOKUP_CODE
+     , aia.invoice_num
+     , AIL.DESCRIPTION
+     , AIA.INVOICE_CURRENCY_CODE
+     , ail.justification
+     , aia.invoice_date
+     , aid.period_name
+     , NVL(aia.attribute1, xx_por_imscan_url2(aia.invoice_id) )
+     , REPLACE(REPLACE(NVL(XX_AP_INVOICE_APPROVER(aia.invoice_id)
+       ||DECODE(XX_AP_INVOICE_APPROVER(aia.invoice_id),NULL,'',' ')
+       ||xx_ap_req_approver(aia.invoice_id), NVL(xx_ap_exp_approver(aia.invoice_id),'No Approval in Oracle')),'GUEST',''),',,',',')
+HAVING SUM(aid.amount) <> 0
+ORDER BY INV_MATCH_TYPE, inv_vendor_name 
+]]>
+</sqlStatement>
+</dataQuery>
+<!--<dataTrigger name="beforeReportTrigger" source="XX_GIFT_REGISTER_pkg.before_report"/>-->
+<dataStructure>
+		<group name="G_REPORT" source="Q_REPORT">
+			<element name="FULL_NAME"                 value="full_name"/>
+			<element name="INVOICE_NUM"                          value="invoice_num"/>
+			<element name="ITEM_DESCRIPTION"                   value="item_description"/>
+			<element name="AMOUNT"                   value="amount"/>
+			<element name="CURRENCY_CODE"                   value="currency_code"/>
+			<element name="USD_AMOUNT"                   value="usd_amount"/>
+			<element name="JUSTIFICATION"                          value="justification"/>
+			<element name="START_EXPENSE_DATE"                           value="start_expense_date"/>
+			<element name="MERCHANT_NAME"                    value="merchant_name"/>
+			<element name="NUMBER_ATTENDEES"                     value="number_attendees"/>
+			<element name="LOCATION"                     value="location"/>
+			<element name="EXPENSE_REPORT_DESC"                     value="expense_report_desc"/>
+			<element name="START_DATE"                     value="start_date"/>
+			<element name="REPORT_LINE_ID"                     value="report_line_id"/>
+				<group name="G_ATTENDEE" source="Q_ATTENDEE">
+					<element name="ATTENDEE_LINE_ID"                     value="attendee_line_id"/>
+					<element name="ATTENDEE_NAME"                     value="attendee_name"/>
+					<element name="ATTENDEE_EMPLOYER"                     value="attendee_employer"/>
+				</group>
+		</group>
+		<group name="G_INVOICES" source="Q_INVOICE">
+			<element name="MATCH_TYPE"                 value="INV_MATCH_TYPE"/>
+				<group name="G_INV_DETAIL" source="Q_INVOICE">
+					<element name="INV_VENDOR_NAME"                 value="INV_VENDOR_NAME"/>
+					<element name="INV_VENDOR_TYPE"                 value="VENDOR_TYPE_LOOKUP_CODE"/>
+					<element name="INV_NUM"                         value="INV_NUM"/>
+					<element name="INV_DESCRIPTION"                 value="INV_DESCRIPTION"/>
+					<element name="INV_AMOUNT"                 		value="INV_AMOUNT"/>
+					<element name="INV_CURRENCY"               		value="INV_CURRENCY"/>
+					<element name="INV_USD_AMOUNT"                 	value="INV_USD_AMOUNT"/>
+					<element name="INV_JUSTIFICATION"               value="INV_JUSTIFICATION"/>
+					<element name="INV_DATE"                        value="INV_DATE"/>
+					<element name="INV_PERIOD"                      value="INV_PERIOD"/>
+					<element name="INV_DOC_PATH"                    value="INV_DOC_PATH"/>
+					<element name="INV_APPROVER"               		value="INV_APPROVER"/>
+				</group>
+		</group>
+</dataStructure>
+</dataTemplate>

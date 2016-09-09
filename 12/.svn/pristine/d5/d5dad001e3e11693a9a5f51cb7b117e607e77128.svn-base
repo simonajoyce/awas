@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.6.5_471" xml:lang="en-US" customizes="/oracle/apps/ar/hz/components/party/organization/webui/HzPuiOrgBasicInfo" developerMode="false" file-version="$Header: HzPuiOrgBasicInfo.xml 115.3 2004/03/23 19:27:02 kichan noship $" package="/oracle/apps/ar/hz/components/party/organization/webui/customizations/function/ASN_ORGVIEWPG">
+   <modifications>
+      <move element="OrgNamePronunciation" after="OrganizationName"/>
+      <move element="Alias" after="OrgNamePronunciation"/>
+      <move element="RegistryId" after="Alias"/>
+      <move element="DunsNumber" after="RegistryId"/>
+      <move element="Status" after="DunsNumber"/>
+      <move element="SourceId" after="Status"/>
+      <move element="FlexfieldRow" after="CertLevel"/>
+      <modify element="OrganizationName" rendered="false"/>
+      <modify element="DunsNumber" prompt="DUNS Number"/>
+      <modify element="Status" rendered="false"/>
+      <modify element="CertLevel" rendered="false"/>
+   </modifications>
+</customization>

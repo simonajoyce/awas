@@ -1,0 +1,10 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_26" xml:lang="en-US" customizes="/oracle/apps/fun/rules/webui/RuleCriteriaPage" developerMode="true" file-version="$Header: RuleCriteriaPage.xml 120.0.12010000.1 2008/08/25 09:13:27 rmanikan noship $" package="/oracle/apps/fun/rules/webui/customizations/function/AR_CAO_ASSIGNMENT">
+   <modifications>
+      <modify element="RuleObjectPop" rendered="false"/>
+      <modify element="MessageType" rendered="false"/>
+      <modify element="RuleObjectNameVal" rendered="false"/>
+      <modify element="RuleObjectTypeVal" rendered="false"/>
+      <modify element="ValueLov" prompt="User Name"/>
+   </modifications>
+</customization>

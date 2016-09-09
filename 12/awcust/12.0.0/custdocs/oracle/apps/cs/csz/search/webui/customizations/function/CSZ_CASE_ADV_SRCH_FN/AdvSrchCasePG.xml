@@ -1,0 +1,74 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/cs/csz/search/webui/AdvSrchCasePG" file-version="$Header: AdvSrchCasePG.xml 120.6 2006/01/25 16:51 gesubram noship $" package="/oracle/apps/cs/csz/search/webui/customizations/function/CSZ_CASE_ADV_SRCH_FN">
+   <modifications>
+      <modify element="FreqAttrxRN.ProductName" readOnly="true"/>
+      <modify element="FreqAttrxRN.CustAcct" readOnly="true"/>
+      <modify element="FreqAttrxRN.Channel" readOnly="true"/>
+      <modify element="FreqAttrxRN.CustContName" readOnly="true"/>
+      <modify element="FreqAttrxRN.CustContPhone" readOnly="true"/>
+      <modify element="FreqAttrxRN.CustContEmail" readOnly="true"/>
+      <modify element="FreqAttrxRN.ContractNum" readOnly="true"/>
+      <modify element="FreqAttrxRN.CustNum" readOnly="true"/>
+      <modify element="FreqAttrxRN.CustEmail" readOnly="true"/>
+      <modify element="FreqAttrxRN.EmpContEmail" readOnly="true"/>
+      <modify element="FreqAttrxRN.InstSerialNum" readOnly="true"/>
+      <modify element="FreqAttrxRN.InstTag" readOnly="true"/>
+      <modify element="FreqAttrxRN.PlatformName" readOnly="true"/>
+      <modify element="FreqAttrxRN.CustPhone" readOnly="true"/>
+      <modify element="FreqAttrxRN.EmpContNum" readOnly="true"/>
+      <modify element="FreqAttrxRN.InstSysName" readOnly="true"/>
+      <modify element="FreqAttrxRN.OwnerName" prompt="Individual Owner" rendered="true" shortDesc="Owner"/>
+      <modify element="FreqAttrxRN.RequestType" prompt="Case Type" rendered="true" shortDesc="Case Type"/>
+      <modify element="FreqAttrxRN.ProblemCode" prompt="Issue Type" rendered="true" shortDesc="Issue Type"/>
+      <modify element="FreqAttrxRN.Severity" prompt="Internal Severity" shortDesc="Internal Severity"/>
+      <modify element="FreqAttrxRN.EmpContPhone" readOnly="true"/>
+      <modify element="FreqAttrxRN.ResolCode" prompt="Resolution Type" shortDesc="Resolution Type"/>
+      <modify element="KeywordAndDatesxRN.KeywordRN" text="Case Summary and Log"/>
+      <modify element="KeywordAndDatesxRN.DatesRN" text="Case Dates"/>
+      <modify element="FreqAttrxRN" text="Case Attributes"/>
+      <modify element="NonFreqAttrxRN" text="Case Additional Attributes"/>
+      <modify element="ColumnPropxRN.ColumnPerzRN.OwnerName" prompt="Individual Owner" shortDesc="Owner"/>
+      <modify element="ColumnPropxRN.ColumnPerzRN.CustName" readOnly="true"/>
+      <modify element="ColumnPropxRN.ColumnPerzRN.CustNum" readOnly="true"/>
+      <modify element="ColumnPropxRN.ColumnPerzRN.RequestType" prompt="Case Type" shortDesc="Case Type"/>
+      <modify element="ColumnPropxRN.ColumnPerzRN.Channel" readOnly="true"/>
+      <modify element="ColumnPropxRN.ColumnPerzRN.ProductName" readOnly="true"/>
+      <modify element="ColumnPropxRN.ColumnPerzRN.InstSerialNum" readOnly="true"/>
+      <modify element="ColumnPropxRN.ColumnPerzRN.InstSysName" readOnly="true"/>
+      <modify element="ColumnPropxRN.ColumnPerzRN.InstTag" readOnly="true"/>
+      <modify element="ColumnPropxRN.ColumnPerzRN.PlatformName" readOnly="true"/>
+      <modify element="ColumnPropxRN.ColumnPerzRN.ContractNum" readOnly="true"/>
+      <modify element="ColumnPropxRN.ColumnPerzRN.CustAcct" readOnly="true"/>
+      <modify element="ColumnPropxRN.ColumnPerzRN.ProblemCode" prompt="Issue Type" shortDesc="Issue Type"/>
+      <modify element="ColumnPropxRN.ColumnPerzRN.ResolCode" prompt="Resolution Type" shortDesc="Resolution Type"/>
+      <modify element="ColumnPropxRN.ColumnPerzRN.CustContName" readOnly="true"/>
+      <modify element="FreqAttrxRN.CustName" readOnly="true"/>
+      <modify element="FreqAttrxRN.EmpContName" readOnly="true"/>
+      <modify element="FreqAttrxRN.MaintenanceOrg" readOnly="true"/>
+      <modify element="ColumnPropxRN.ColumnPerzRN.MaintenanceOrg" readOnly="true"/>
+      <move element="ColumnPropxRN.ColumnPerzRN.RequestType" after="ColumnPropxRN.ColumnPerzRN.SRNumber"/>
+      <move element="ColumnPropxRN.ColumnPerzRN.SumNotesKywd" after="ColumnPropxRN.ColumnPerzRN.RequestType"/>
+      <move element="ColumnPropxRN.ColumnPerzRN.Severity" after="ColumnPropxRN.ColumnPerzRN.SumNotesKywd"/>
+      <move element="ColumnPropxRN.ColumnPerzRN.CreateDateStart" after="ColumnPropxRN.ColumnPerzRN.Severity"/>
+      <move element="ColumnPropxRN.ColumnPerzRN.Status" after="ColumnPropxRN.ColumnPerzRN.CreateDateStart"/>
+      <move element="ColumnPropxRN.ColumnPerzRN.OwnerName" after="ColumnPropxRN.ColumnPerzRN.Status"/>
+      <move element="ColumnPropxRN.ColumnPerzRN.CustName" after="ColumnPropxRN.ColumnPerzRN.OwnerName"/>
+      <move element="ColumnPropxRN.ColumnPerzRN.CustNum" after="ColumnPropxRN.ColumnPerzRN.CustName"/>
+      <move element="ColumnPropxRN.ColumnPerzRN.Urgency" after="ColumnPropxRN.ColumnPerzRN.CustNum"/>
+      <move element="ColumnPropxRN.ColumnPerzRN.Channel" after="ColumnPropxRN.ColumnPerzRN.Urgency"/>
+      <move element="ColumnPropxRN.ColumnPerzRN.ProductName" after="ColumnPropxRN.ColumnPerzRN.Channel"/>
+      <move element="ColumnPropxRN.ColumnPerzRN.InstSerialNum" after="ColumnPropxRN.ColumnPerzRN.ProductName"/>
+      <move element="ColumnPropxRN.ColumnPerzRN.InstSysName" after="ColumnPropxRN.ColumnPerzRN.InstSerialNum"/>
+      <move element="ColumnPropxRN.ColumnPerzRN.InstTag" after="ColumnPropxRN.ColumnPerzRN.InstSysName"/>
+      <move element="ColumnPropxRN.ColumnPerzRN.PlatformName" after="ColumnPropxRN.ColumnPerzRN.InstTag"/>
+      <move element="ColumnPropxRN.ColumnPerzRN.ContractNum" after="ColumnPropxRN.ColumnPerzRN.PlatformName"/>
+      <move element="ColumnPropxRN.ColumnPerzRN.CustAcct" after="ColumnPropxRN.ColumnPerzRN.ContractNum"/>
+      <move element="ColumnPropxRN.ColumnPerzRN.ProblemCode" after="ColumnPropxRN.ColumnPerzRN.CustAcct"/>
+      <move element="ColumnPropxRN.ColumnPerzRN.ResolCode" after="ColumnPropxRN.ColumnPerzRN.ProblemCode"/>
+      <move element="ColumnPropxRN.ColumnPerzRN.CustContName" after="ColumnPropxRN.ColumnPerzRN.ResolCode"/>
+      <move element="ColumnPropxRN.ColumnPerzRN.MaintenanceOrg" after="ColumnPropxRN.ColumnPerzRN.CustContName"/>
+      <modify element="ColumnPropxRN.ColumnPerzRN.CreateDateStart" prompt="Incident Date"/>
+      <modify element="ColumnPropxRN.ColumnPerzRN.Severity" rendered="true"/>
+      <modify element="ColumnPropxRN.ColumnPerzRN.Status" rendered="true"/>
+   </modifications>
+</customization>

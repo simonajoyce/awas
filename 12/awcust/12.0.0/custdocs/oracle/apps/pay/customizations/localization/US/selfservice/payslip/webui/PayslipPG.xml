@@ -1,0 +1,254 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/pay/selfservice/payslip/webui/PayslipPG" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header$" version="9.0.3.8.12_1271" xml:lang="en-US">
+   <modifications>
+      <modify element="PayPayslipChoosePayslip" controllerClass="oracle.apps.pay.selfservice.payslip.US.webui.PayPayslipChoosePayslipCO"/>
+      <move element="PayPayslipChseTable" after="PayPayslipCheckRecord"/>
+      <modify element="PayPayslipNetPay" blockSize="25"/>
+      <modify element="PayPayslipSegment2" prompt="Account Type" tipMessageName=""/>
+      <modify element="PayPayslipSegment3" rendered="false" tipMessageName=""/>
+      <modify element="PayPayslipSegment4" rendered="false" tipMessageName=""/>
+      <modify element="PayPayslipSegment5" prompt="Bank Name" tipMessageName=""/>
+      <modify element="PayPayslipSegment6" rendered="false" tipMessageName=""/>
+      <modify element="PayPayslipSegment7" rendered="false" tipMessageName=""/>
+      <modify element="PayPayslipSegment8" rendered="false" tipMessageName=""/>
+      <modify element="PayPayslipSegment9" rendered="false" tipMessageName=""/>
+      <modify element="PayPayslipSegment10" rendered="false" tipMessageName=""/>
+      <modify element="PerAccountNumber" tipMessageName=""/>
+      <modify element="PerPaymentAmount" prompt="Amount" tipMessageName=""/>
+      <modify element="Paytext31" rendered="false" tipMessageName=""/>
+      <modify element="PayCheckDepositNumber" tipMessageName=""/>
+      <modify element="PayPayslipSegment1" rendered="false" tipMessageName=""/>
+      <move element="PayPayslipSegment5" after="PayCheckDepositNumber"/>
+      <move element="PayPayslipSegment2" after="PayPayslipSegment5"/>
+      <move element="PerAccountNumber" after="PayPayslipSegment2"/>
+      <move element="PerPaymentAmount" after="PerAccountNumber"/>
+      <move element="PayPayslipSegment1" after="PerPaymentAmount"/>
+      <move element="PayPayslipSegment3" after="PayPayslipSegment1"/>
+      <move element="PayPayslipSegment4" after="PayPayslipSegment3"/>
+      <move element="PayPayslipSegment6" after="PayPayslipSegment4"/>
+      <move element="PayPayslipSegment7" after="PayPayslipSegment6"/>
+      <move element="PayPayslipSegment8" after="PayPayslipSegment7"/>
+      <move element="PayPayslipSegment9" after="PayPayslipSegment8"/>
+      <move element="PayPayslipSegment10" after="PayPayslipSegment9"/>
+      <move element="Paytext31" after="PayPayslipSegment10"/>
+      <modify element="PaySalaryElementName____2" required="no"/>
+      <modify element="PayElementRunAmount____1" required="no"/>
+      <modify element="PayElementYtdAmount____1" required="no"/>
+      <move element="PayElementRunAmount____1" after="PaySalaryElementName____2"/>
+      <move element="PayElementYtdAmount____1" after="PayElementRunAmount____1"/>
+      <modify element="PayPayslipDetails" controllerClass="oracle.apps.pay.selfservice.payslip.US.webui.PayPayslipDetailsCO"/>
+      <modify element="PayEMEAPayslipDmyTable1" rendered="false"/>
+      <modify element="PayEMEAPayslipDmyTable2" rendered="false"/>
+      <modify element="PayEMEAPayslipTaxOffice" rendered="false"/>
+      <modify element="PayAcPayslipCurYtd" rendered="true"/>
+      <modify element="PayAcPayslipSummary" rendered="true" blockSize="25"/>
+      <modify element="PayAcPayslipHourEarnNr" rendered="true" blockSize="25"/>
+      <modify element="PayPayslipRateDetails" rendered="true"/>
+      <modify element="PayAcPayslipDummyTable" rendered="true"/>
+      <modify element="PayAcPayslipDummyTable2" rendered="true"/>
+      <modify element="PayUsPayslipTaxWholdInfo" rendered="true" blockSize="25"/>
+      <move element="Payspacer4" after="PayPayslipPrsnInfoTableSs"/>
+      <move element="PayPayslipPprdSal" after="Payspacer4"/>
+      <move element="PayAcPayslipCurYtd" after="PayPayslipPprdSal"/>
+      <move element="Fndspacer____2" after="PayAcPayslipCurYtd"/>
+      <move element="PayAcPayslipSummary" after="Fndspacer____2"/>
+      <move element="Payspacer3" after="PayAcPayslipSummary"/>
+      <move element="PayAcPayslipHourEarnNr" after="Payspacer3"/>
+      <move element="Fndspacer2" after="PayAcPayslipHourEarnNr"/>
+      <move element="PayPayslipRateDetails" after="Fndspacer2"/>
+      <move element="Fndspacer3" after="PayPayslipRateDetails"/>
+      <move element="PayAcPayslipDummyTable" after="Fndspacer3"/>
+      <move element="Fndspacer4" after="PayAcPayslipDummyTable"/>
+      <move element="PayAcPayslipDummyTable2" after="Fndspacer4"/>
+      <move element="Fndspacer5" after="PayAcPayslipDummyTable2"/>
+      <move element="PayUsPayslipTaxWholdInfo" after="Fndspacer5"/>
+      <move element="Payspacer" after="PayUsPayslipTaxWholdInfo"/>
+      <move element="PayPayslipNetPay" after="Payspacer"/>
+      <move element="Payspacer2" after="PayPayslipNetPay"/>
+      <move element="PayPayslipOtherInfoTable" after="Payspacer2"/>
+      <move element="PayEMEAPayslipDmyTable1" after="PayPayslipOtherInfoTable"/>
+      <move element="PayEMEAPayslipDmyTable2" after="PayEMEAPayslipDmyTable1"/>
+      <move element="PayPayslipEmpDetails" after="PayEMEAPayslipDmyTable2"/>
+      <move element="PayEMEAPayslipTaxOffice" after="PayPayslipEmpDetails"/>
+      <move element="PayEMEAPayslipSummary" after="PayEMEAPayslipTaxOffice"/>
+      <modify element="PayPayslipPrsnInfoTableSs" controllerClass="oracle.apps.pay.selfservice.payslip.US.webui.PayPayslipPersonInfoCO"/>
+      <modify element="PaySalaryElementName____3" required="no"/>
+      <modify element="PayElementRunAmount____2" required="no"/>
+      <modify element="PayElementYtdAmount____2" required="no"/>
+      <move element="PayElementRunAmount____2" after="PaySalaryElementName____3"/>
+      <move element="PayElementYtdAmount____2" after="PayElementRunAmount____2"/>
+      <modify element="PayPayslipOtherInfoTable" controllerClass="oracle.apps.pay.selfservice.payslip.US.webui.PayPayslipOtherInfoTableCO"/>
+      <move element="PayPayslipOtherInfoRow" after="PayPayslipLabel"/>
+      <modify element="PayPayslipOtherInfoRow" controllerClass="oracle.apps.pay.selfservice.payslip.US.webui.PayPayslipOtherInfoRowCO"/>
+      <move element="PayPayslipOtherInfoCell2" after="PayPayslipOtherInfoCell1"/>
+      <modify element="PaySalaryElementName" required="no" sortState="no" tipMessageName=""/>
+      <modify element="PayElementRunHours" required="no" prompt="Current Hours" sortState="no" tipMessageName=""/>
+      <modify element="PayElementRunAmount" required="no" sortState="no" tipMessageName=""/>
+      <modify element="PayElementYtdHours" required="no" sortState="no" tipMessageName=""/>
+      <modify element="PayElementYtdAmount" required="no" sortState="no" tipMessageName=""/>
+      <modify element="PayRate" sortState="no" tipMessageName=""/>
+      <move element="PayElementRunHours" after="PaySalaryElementName"/>
+      <move element="PayElementRunAmount" after="PayElementRunHours"/>
+      <move element="PayElementYtdHours" after="PayElementRunAmount"/>
+      <move element="PayElementYtdAmount" after="PayElementYtdHours"/>
+      <move element="PayRate" after="PayElementYtdAmount"/>
+      <modify element="PayPayslipPprd2" blockSize="25"/>
+      <modify element="Paytext21" rendered="false" sortState="no"/>
+      <modify element="Paytext22" rendered="false" sortState="no"/>
+      <modify element="Paytext23" rendered="false" sortState="no"/>
+      <modify element="Paytext24" rendered="false" sortState="no"/>
+      <modify element="Paytext25" rendered="false" sortState="no"/>
+      <modify element="Paytext26" rendered="false" sortState="no"/>
+      <modify element="Paytext27" rendered="false" sortState="no"/>
+      <modify element="Paytext28" rendered="false" sortState="no"/>
+      <modify element="Paytext29" rendered="false" sortState="no"/>
+      <modify element="Paytext30" rendered="false" sortState="no"/>
+      <move element="Paytext22" after="Paytext21"/>
+      <move element="Paytext23" after="Paytext22"/>
+      <move element="Paytext24" after="Paytext23"/>
+      <move element="Paytext25" after="Paytext24"/>
+      <move element="Paytext26" after="Paytext25"/>
+      <move element="Paytext27" after="Paytext26"/>
+      <move element="Paytext28" after="Paytext27"/>
+      <move element="Paytext29" after="Paytext28"/>
+      <move element="Paytext30" after="Paytext29"/>
+      <modify element="PayUsTaxType" required="no"/>
+      <modify element="HrMaritalStatus" required="no"/>
+      <modify element="PayTaxExemptions" required="no"/>
+      <modify element="PayAdditionalAmount" required="no"/>
+      <modify element="PayTaxWhOrAmt" required="no"/>
+      <modify element="PayTaxWhOrPct" required="no"/>
+      <move element="HrMaritalStatus" after="PayUsTaxType"/>
+      <move element="PayTaxExemptions" after="HrMaritalStatus"/>
+      <move element="PayAdditionalAmount" after="PayTaxExemptions"/>
+      <move element="PayTaxWhOrAmt" after="PayAdditionalAmount"/>
+      <move element="PayTaxWhOrPct" after="PayTaxWhOrAmt"/>
+      <modify element="HrTitles" required="no"/>
+      <modify element="PayTotGrossAmount" required="no"/>
+      <modify element="PayTotPreTaxAmount" required="no"/>
+      <modify element="PayTotTaxesWithheld" required="no"/>
+      <modify element="PayPayslipTotDeductions" required="no"/>
+      <modify element="PayTotNetPayAmount" required="no"/>
+      <move element="PayTotGrossAmount" after="HrTitles"/>
+      <move element="PayTotPreTaxAmount" after="PayTotGrossAmount"/>
+      <move element="PayTotTaxesWithheld" after="PayTotPreTaxAmount"/>
+      <move element="PayPayslipTotDeductions" after="PayTotTaxesWithheld"/>
+      <move element="PayTotNetPayAmount" after="PayPayslipTotDeductions"/>
+      <modify element="PayPayslipPprdSal" blockSize="25"/>
+      <modify element="PayPeriodNumber" rendered="false" sortState="no" tipMessageName=""/>
+      <modify element="HrPeriodType" prompt="Pay Period" sortState="no" tipMessageName=""/>
+      <modify element="PayPaymentDate" sortState="no" tipMessageName=""/>
+      <modify element="PayPeriodStartDate" prompt="Pay Begin Date" sortState="no" tipMessageName=""/>
+      <modify element="PayPeriodEndDate" prompt="Pay End Date" sortState="no" tipMessageName=""/>
+      <modify element="HrPayRate" sortState="no" tipMessageName=""/>
+      <modify element="HrAnnualSal" sortState="no" tipMessageName=""/>
+      <move element="PayPaymentDate" after="HrPeriodType"/>
+      <move element="PayPeriodStartDate" after="PayPaymentDate"/>
+      <move element="PayPeriodEndDate" after="PayPeriodStartDate"/>
+      <move element="HrPayRate" after="PayPeriodEndDate"/>
+      <move element="HrAnnualSal" after="HrPayRate"/>
+      <move element="PayPeriodNumber" after="HrAnnualSal"/>
+      <modify element="PayPayslip2Ss" rendered="true"/>
+      <modify element="PayPayslip3Ss" rendered="true"/>
+      <modify element="PayPayslip1Ss" rendered="true"/>
+      <modify element="PaySalaryElementName____4" required="no"/>
+      <modify element="PayElementRunAmount____3" required="no"/>
+      <modify element="PayElementYtdAmount____3" required="no"/>
+      <move element="PayElementRunAmount____3" after="PaySalaryElementName____4"/>
+      <move element="PayElementYtdAmount____3" after="PayElementRunAmount____3"/>
+      <modify element="PayEmployerName____1" required="no"/>
+      <modify element="HrWorkPhoneNumberSs____1" required="no"/>
+      <modify element="HrOrganizationName____1" required="no"/>
+      <modify element="PayPayCalcMehtod____1" required="no"/>
+      <modify element="HrPayBasisName____1" required="no"/>
+      <modify element="PayFrequency____1" required="no"/>
+      <modify element="PayShift____1" required="no"/>
+      <modify element="HrBargainingUnitCode____1" required="no"/>
+      <modify element="HrCollectiveAgreementName____1" required="no"/>
+      <modify element="PayAgreementGrade____1" required="no"/>
+      <modify element="PayContract____1" required="no"/>
+      <modify element="HrGrade____1" required="no"/>
+      <modify element="HrFullName____1" required="no"/>
+      <modify element="HrJobTitle____1" required="no"/>
+      <modify element="HrNationalIdentifier____1" required="no"/>
+      <modify element="HrEmployeeNumberSs____1" required="no"/>
+      <modify element="PayLatestHireDate____1" required="no"/>
+      <modify element="OriginalHireDate____1" required="no"/>
+      <modify element="HrAdjServiceDate____1" required="no"/>
+      <modify element="PerAssignmentNumber____1" required="no"/>
+      <modify element="HrLocations____1" required="no"/>
+      <modify element="HrPositionName____1" required="no"/>
+      <modify element="PerPayrollName____1" required="no"/>
+      <move element="HrWorkPhoneNumberSs____1" after="PayEmployerName____1"/>
+      <move element="HrOrganizationName____1" after="HrWorkPhoneNumberSs____1"/>
+      <move element="PayPayCalcMehtod____1" after="HrOrganizationName____1"/>
+      <move element="HrPayBasisName____1" after="PayPayCalcMehtod____1"/>
+      <move element="PayFrequency____1" after="HrPayBasisName____1"/>
+      <move element="PayShift____1" after="PayFrequency____1"/>
+      <move element="HrBargainingUnitCode____1" after="PayShift____1"/>
+      <move element="HrCollectiveAgreementName____1" after="HrBargainingUnitCode____1"/>
+      <move element="PayAgreementGrade____1" after="HrCollectiveAgreementName____1"/>
+      <move element="PayContract____1" after="PayAgreementGrade____1"/>
+      <move element="HrGrade____1" after="PayContract____1"/>
+      <move element="PayPayslipErAddrRow" after="HrGrade____1"/>
+      <move element="HrFullName____1" after="PayPayslipErAddrRow"/>
+      <move element="HrJobTitle____1" after="HrFullName____1"/>
+      <move element="HrNationalIdentifier____1" after="HrJobTitle____1"/>
+      <move element="HrEmployeeNumberSs____1" after="HrNationalIdentifier____1"/>
+      <move element="PayLatestHireDate____1" after="HrEmployeeNumberSs____1"/>
+      <move element="OriginalHireDate____1" after="PayLatestHireDate____1"/>
+      <move element="HrAdjServiceDate____1" after="OriginalHireDate____1"/>
+      <move element="PerAssignmentNumber____1" after="HrAdjServiceDate____1"/>
+      <move element="HrLocations____1" after="PerAssignmentNumber____1"/>
+      <move element="HrPositionName____1" after="HrLocations____1"/>
+      <move element="PerPayrollName____1" after="HrPositionName____1"/>
+      <move element="PayPayslipEeAddrRow" after="PerPayrollName____1"/>
+      <modify element="PerAssignmentNumber" required="no"/>
+      <modify element="HrLocations" required="no"/>
+      <modify element="HrPositionName" required="no"/>
+      <modify element="PerPayrollName" required="no"/>
+      <modify element="PayEmployerName" required="no"/>
+      <modify element="HrFullName" required="no"/>
+      <modify element="HrJobTitle" required="no"/>
+      <modify element="HrNationalIdentifier" required="no"/>
+      <modify element="HrEmployeeNumberSs" required="no"/>
+      <modify element="PayLatestHireDate" required="no"/>
+      <modify element="OriginalHireDate" required="no"/>
+      <modify element="HrAdjServiceDate" required="no"/>
+      <modify element="HrWorkPhoneNumberSs" required="no"/>
+      <modify element="HrOrganizationName" required="no"/>
+      <modify element="PayPayCalcMehtod" required="no"/>
+      <modify element="HrPayBasisName" required="no"/>
+      <modify element="PayFrequency" required="no"/>
+      <modify element="PayShift" required="no"/>
+      <modify element="HrBargainingUnitCode" required="no"/>
+      <modify element="HrCollectiveAgreementName" required="no"/>
+      <modify element="PayAgreementGrade" required="no"/>
+      <modify element="PayContract" required="no"/>
+      <modify element="HrGrade" required="no"/>
+      <move element="HrJobTitle" after="HrFullName"/>
+      <move element="HrNationalIdentifier" after="HrJobTitle"/>
+      <move element="HrEmployeeNumberSs" after="HrNationalIdentifier"/>
+      <move element="PayLatestHireDate" after="HrEmployeeNumberSs"/>
+      <move element="OriginalHireDate" after="PayLatestHireDate"/>
+      <move element="HrAdjServiceDate" after="OriginalHireDate"/>
+      <move element="PerAssignmentNumber" after="HrAdjServiceDate"/>
+      <move element="HrLocations" after="PerAssignmentNumber"/>
+      <move element="HrPositionName" after="HrLocations"/>
+      <move element="PerPayrollName" after="HrPositionName"/>
+      <move element="PayPayslipEeAddrRow____1" after="PerPayrollName"/>
+      <move element="PayEmployerName" after="PayPayslipEeAddrRow____1"/>
+      <move element="HrWorkPhoneNumberSs" after="PayEmployerName"/>
+      <move element="HrOrganizationName" after="HrWorkPhoneNumberSs"/>
+      <move element="PayPayCalcMehtod" after="HrOrganizationName"/>
+      <move element="HrPayBasisName" after="PayPayCalcMehtod"/>
+      <move element="PayFrequency" after="HrPayBasisName"/>
+      <move element="PayShift" after="PayFrequency"/>
+      <move element="HrBargainingUnitCode" after="PayShift"/>
+      <move element="HrCollectiveAgreementName" after="HrBargainingUnitCode"/>
+      <move element="PayAgreementGrade" after="HrCollectiveAgreementName"/>
+      <move element="PayContract" after="PayAgreementGrade"/>
+      <move element="HrGrade" after="PayContract"/>
+      <move element="PayPayslipErAddrRow____1" after="HrGrade"/>
+   </modifications>
+</customization>

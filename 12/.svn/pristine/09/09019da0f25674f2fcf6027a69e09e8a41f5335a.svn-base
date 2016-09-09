@@ -1,0 +1,30 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.6.6_606" xml:lang="en-US" customizes="/oracle/apps/asn/common/customer/webui/CtctReviewPG" developerMode="false" file-version="$Header: CtctReviewPG.xml 120.0.12010000.1 2009/01/23 14:08:23 nepanda noship $" package="/oracle/apps/asn/common/customer/webui/customizations/function/ASN_CTCTREVIEWPG">
+   <modifications>
+      <modify element="ASNCtctUpdateHdrRN.HzPuiHideShowContact" rendered="false"/>
+      <modify element="ASNCtctUpdateHdrRN.HzPuiShowContact" rendered="false"/>
+      <modify element="ASNCtctUpdateHdrRN.spacer6" rendered="false"/>
+      <modify element="ASNCtctUpdateHdrRN.Comments" rendered="false"/>
+      <modify element="ASNCtctUpdateHdrRN.spacer5" rendered="false"/>
+      <modify element="ASNCtctUpdateHdrRN.EndDate" rendered="false"/>
+      <modify element="ASNCtctUpdateHdrRN.spacer4" rendered="false"/>
+      <modify element="ASNCtctUpdateHdrRN.DepartmentCode" rendered="false"/>
+      <modify element="ASNCtctUpdateHdrRN.JobTitle" rendered="false"/>
+      <modify element="ASNCtctUpdateHdrRN.Department" readOnly="false" rendered="false"/>
+      <modify element="ASNCtctUpdateHdrRN.JobTitleCode" rendered="false"/>
+      <modify element="ASNCtctUpdateHdrRN.ContactNumber" rendered="false"/>
+      <modify element="ASNCtctUpdateHdrRN.spacer3" rendered="false"/>
+      <modify element="ASNCtctUpdateHdrRN.Suffix" rendered="false"/>
+      <modify element="ASNCtctUpdateHdrRN.FullNamePronunciation" rendered="false"/>
+      <modify element="ASNCtctUpdateHdrRN.LastName" rendered="false"/>
+      <modify element="ASNCtctUpdateHdrRN.Alias" rendered="false"/>
+      <modify element="ASNCtctUpdateHdrRN.MiddleName" rendered="false"/>
+      <modify element="ASNCtctUpdateHdrRN.PreviousLastName" rendered="false"/>
+      <modify element="ASNCtctUpdateHdrRN.FirstName" rendered="false"/>
+      <modify element="ASNCtctUpdateHdrRN.NameInitials" rendered="false"/>
+      <modify element="ASNCtctUpdateHdrRN.prefix" rendered="false"/>
+      <modify element="ASNCtctUpdateHdrRN.RelationshipRole" rendered="false"/>
+      <modify element="ASNCtctUpdateHdrRN.spacer0" rendered="false"/>
+      <modify element="ASNCtctUpdateHdrRN.tip" rendered="false"/>
+   </modifications>
+</customization>

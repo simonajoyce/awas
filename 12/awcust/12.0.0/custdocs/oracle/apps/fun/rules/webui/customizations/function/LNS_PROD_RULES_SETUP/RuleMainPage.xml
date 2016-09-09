@@ -1,0 +1,12 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.89_502" xml:lang="en-US" customizes="/oracle/apps/fun/rules/webui/RuleMainPage" developerMode="true" package="/oracle/apps/fun/rules/webui/customizations/function/LNS_PROD_RULES_SETUP" file-version="$Header: RuleMainPage.xml 120.0 2006/01/12 23:28:46 hikumar noship $">
+   <modifications>
+      <modify element="RuleTestListSubtabLink" rendered="false"/>
+      <modify element="RuleMainPageSubtab" helpTarget="lnsardrsu" helpTargetAppShortName="LNS" title="Receivables Derivation Setup" windowTitle="Receivables Derivation Setup"/>
+      <modify element="RuleListRN.MainInstr" prompt="Setup Rules for Receivables Derivation to create payment plan. The selected transactions are picked in ascending order of sort attribute."/>
+      <modify element="RuleListRN.ValueLov" prompt="Sort By"/>
+      <modify element="RuleInstanceNameVal" prompt="Product"/>
+      <modify element="RuleListRN.MultiValueResultValueColumn" rendered="false"/>
+      <modify element="RuleListRN.ResultValueColumn" rendered="false"/>
+   </modifications>
+</customization>

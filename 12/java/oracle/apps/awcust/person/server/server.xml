@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='windows-1252' ?>
+<!DOCTYPE JboPackage SYSTEM "jbo_03_01.dtd">
+
+<JboPackage
+   Name="server"
+   SeparateXMLFiles="true"
+   PackageName="oracle.apps.awcust.person.server" >
+   <DesignTime>
+      <Attr Name="_ejbPackage" Value="false" />
+      <Attr Name="_version" Value="10.1.3.41.57" />
+   </DesignTime>
+   <Containee
+      Name="EmpAssignmentsCreateVO"
+      FullName="oracle.apps.awcust.person.server.EmpAssignmentsCreateVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="EmpDetailsCreateVO"
+      FullName="oracle.apps.awcust.person.server.EmpDetailsCreateVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="EmployeeAssignmentsAM"
+      FullName="oracle.apps.awcust.person.server.EmployeeAssignmentsAM"
+      ObjectType="AppModule" >
+   </Containee>
+   <Containee
+      Name="EmployeeAssignmentsEO"
+      FullName="oracle.apps.awcust.person.server.EmployeeAssignmentsEO"
+      ObjectType="Entity" >
+   </Containee>
+   <Containee
+      Name="EmployeeAssignmentsVL"
+      FullName="oracle.apps.awcust.person.server.EmployeeAssignmentsVL"
+      ObjectType="ViewLink" >
+   </Containee>
+   <Containee
+      Name="EmployeeAssignmentsVO"
+      FullName="oracle.apps.awcust.person.server.EmployeeAssignmentsVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="EmployeeDetailsAM"
+      FullName="oracle.apps.awcust.person.server.EmployeeDetailsAM"
+      ObjectType="AppModule" >
+   </Containee>
+   <Containee
+      Name="EmployeeDetailsEO"
+      FullName="oracle.apps.awcust.person.server.EmployeeDetailsEO"
+      ObjectType="Entity" >
+   </Containee>
+   <Containee
+      Name="EmployeeDetailsVO"
+      FullName="oracle.apps.awcust.person.server.EmployeeDetailsVO"
+      ObjectType="ViewObject" >
+   </Containee>
+</JboPackage>

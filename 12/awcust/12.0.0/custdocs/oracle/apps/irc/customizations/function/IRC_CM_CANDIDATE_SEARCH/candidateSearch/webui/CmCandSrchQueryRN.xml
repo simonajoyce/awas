@@ -1,0 +1,39 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/irc/candidateSearch/webui/CmCandSrchQueryRN" developerMode="true" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header$" version="9.0.3.8.12_1271" xml:lang="en-US">
+   <modifications>
+      <modify element="CandResultsTable" blockSize="25"/>
+      <modify element="FndSelectRadioButton" sortState="no"/>
+      <modify element="FndFirstName" rendered="false" sortState="no"/>
+      <modify element="FndLastName" rendered="false" sortState="no"/>
+      <modify element="FndCandidateName" sortState="no"/>
+      <modify element="FndEmail" sortState="no"/>
+      <modify element="FndLocation" sortState="no"/>
+      <modify element="FndHomePhone" sortState="no"/>
+      <modify element="FndLastApplication" sortState="no"/>
+      <modify element="FndJobsAppliedFor" sortState="no"/>
+      <modify element="FndMatchPercent" sortState="no"/>
+      <modify element="FndBirthDate" rendered="false" sortState="no"/>
+      <modify element="FndAddressLine1" sortState="no"/>
+      <modify element="FndCurrentEmployer" rendered="false" sortState="no"/>
+      <modify element="FndEmployeeType" sortState="no"/>
+      <modify element="FndApplicantType" sortState="no"/>
+      <modify element="FndQualificationType" sortState="no"/>
+      <modify element="FndExApplications" sortState="no"/>
+      <move element="FndEmail" after="FndCandidateName"/>
+      <move element="FndLocation" after="FndEmail"/>
+      <move element="FndHomePhone" after="FndLocation"/>
+      <move element="FndLastApplication" after="FndHomePhone"/>
+      <move element="FndJobsAppliedFor" after="FndLastApplication"/>
+      <move element="FndMatchPercent" after="FndJobsAppliedFor"/>
+      <move element="FndAddressLine1" after="FndMatchPercent"/>
+      <move element="FndEmployeeType" after="FndAddressLine1"/>
+      <move element="FndApplicantType" after="FndEmployeeType"/>
+      <move element="FndQualificationType" after="FndApplicantType"/>
+      <move element="FndExApplications" after="FndQualificationType"/>
+      <move element="FndFirstName" after="FndExApplications"/>
+      <move element="FndLastName" after="FndFirstName"/>
+      <move element="FndBirthDate" after="FndLastName"/>
+      <move element="FndCurrentEmployer" after="FndBirthDate"/>
+      <move element="ReferSelection" after="PursueConsiderRejectSelection"/>
+   </modifications>
+</customization>

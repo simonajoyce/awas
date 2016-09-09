@@ -1,0 +1,77 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.6.6_652" xml:lang="en-US" customizes="/oracle/apps/per/selfservice/review/webui/ReviewRN" developerMode="false" file-version="$Header: ReviewRN.xml 120.1 2005/08/16 23:17:24 anikrish noship $" package="/oracle/apps/per/customizations/localization/MX/selfservice/review/webui">
+   <modifications>
+      <move element="HrProposed____2" after="HrCurrent____2"/>
+      <move element="HrBasicDetailsReview.HrEffectiveDate" after="HrProposed____2"/>
+      <move element="HrBasicDetailsReview.HrFullName" after="HrBasicDetailsReview.HrEffectiveDate"/>
+      <move element="HrBasicDetailsReview.HrLastName" after="HrBasicDetailsReview.HrFullName"/>
+      <move element="HrBasicDetailsReview.HrFirstName" after="HrBasicDetailsReview.HrLastName"/>
+      <move element="HrBasicDetailsReview.HrMiddleName" after="HrBasicDetailsReview.HrFirstName"/>
+      <move element="HrBasicDetailsReview.HrTitle" after="HrBasicDetailsReview.HrMiddleName"/>
+      <move element="HrBasicDetailsReview.HrPrefix" after="HrBasicDetailsReview.HrTitle"/>
+      <move element="HrBasicDetailsReview.HrSuffix" after="HrBasicDetailsReview.HrPrefix"/>
+      <move element="HrBasicDetailsReview.HrGender" after="HrBasicDetailsReview.HrSuffix"/>
+      <move element="HrBasicDetailsReview.HrPreferredName" after="HrBasicDetailsReview.HrGender"/>
+      <move element="HrBasicDetailsReview.HrEmpNum" after="HrBasicDetailsReview.HrPreferredName"/>
+      <move element="HrBasicDetailsReview.HrNpwNum" after="HrBasicDetailsReview.HrEmpNum"/>
+      <move element="HrBasicDetailsReview.HrSsn" after="HrBasicDetailsReview.HrNpwNum"/>
+      <move element="HrBasicDetailsReview.HrDateOfBirth" after="HrBasicDetailsReview.HrSsn"/>
+      <move element="HrBasicDetailsReview.HrMaritalStatus" after="HrBasicDetailsReview.HrDateOfBirth"/>
+      <move element="HrBasicDetailsReview.HrEmailAddress" after="HrBasicDetailsReview.HrMaritalStatus"/>
+      <move element="HrBasicDetailsReview.HrCwkPersonType" after="HrBasicDetailsReview.HrEmailAddress"/>
+      <move element="HrBasicDetailsReview.HrRegisteredDisabled____1" after="HrBasicDetailsReview.HrCwkPersonType"/>
+      <move element="HrBasicDetailsReview.HrPersonDevDf" after="HrBasicDetailsReview.HrRegisteredDisabled____1"/>
+      <move element="HrBasicDetailsReview.HrAdditionalPerDetFlex" after="HrBasicDetailsReview.HrPersonDevDf"/>
+      <move element="HrBasicDetailsReview.HrPrevLastName" after="HrBasicDetailsReview.HrAdditionalPerDetFlex"/>
+      <move element="HrBasicDetailsReview.HrHonors" after="HrBasicDetailsReview.HrPrevLastName"/>
+      <move element="HrBasicDetailsReview.HireDate" after="HrBasicDetailsReview.HrHonors"/>
+      <move element="HrBasicDetailsReview.PerStartDate" after="HrBasicDetailsReview.HireDate"/>
+      <move element="HrBasicDetailsReview.OriginalHireDate" after="HrBasicDetailsReview.PerStartDate"/>
+      <move element="HrBasicDetailsReview.HrAdjServiceDate" after="HrBasicDetailsReview.OriginalHireDate"/>
+      <move element="HrBasicDetailsReview.HrTownOfBirth" after="HrBasicDetailsReview.HrAdjServiceDate"/>
+      <move element="HrBasicDetailsReview.HrRegionOfBirth" after="HrBasicDetailsReview.HrTownOfBirth"/>
+      <move element="HrBasicDetailsReview.HrCountryOfBirth" after="HrBasicDetailsReview.HrRegionOfBirth"/>
+      <move element="HrBasicDetailsReview.HrNationality" after="HrBasicDetailsReview.HrCountryOfBirth"/>
+      <move element="HrBasicDetailsReview.HrDeathDate" after="HrBasicDetailsReview.HrNationality"/>
+      <move element="HrBasicDetailsReview.rGender" after="HrBasicDetailsReview.HrDeathDate"/>
+      <move element="HrBasicDetailsReview.HrStudentStatus" after="HrBasicDetailsReview.rGender"/>
+      <move element="HrBasicDetailsReview.HrRegisteredDisabled" after="HrBasicDetailsReview.HrStudentStatus"/>
+      <move element="HrBasicDetailsReview.HrMilitaryService" after="HrBasicDetailsReview.HrRegisteredDisabled"/>
+      <move element="HrBasicDetailsReview.Hr2ndPassportExists" after="HrBasicDetailsReview.HrMilitaryService"/>
+      <move element="HrBasicDetailsReview.HrCorrespondenceLanguage" after="HrBasicDetailsReview.Hr2ndPassportExists"/>
+      <move element="HrBasicDetailsReview.HrUsesTobacco" after="HrBasicDetailsReview.HrCorrespondenceLanguage"/>
+      <move element="HrBasicDetailsReview.HrAdoptionDate" after="HrBasicDetailsReview.HrUsesTobacco"/>
+      <move element="HrBasicDetailsReview.HrNotCovMediPlan" after="HrBasicDetailsReview.HrAdoptionDate"/>
+      <move element="HrBasicDetailsReview.HrVoluntaryService" after="HrBasicDetailsReview.HrNotCovMediPlan"/>
+      <move element="HrBasicDetailsReview.HrBenefitGroupId" after="HrBasicDetailsReview.HrVoluntaryService"/>
+      <move element="HrBasicDetailsReview.HrMailstop" after="HrBasicDetailsReview.HrBenefitGroupId"/>
+      <move element="HrBasicDetailsReview.HrBloodType" after="HrBasicDetailsReview.HrMailstop"/>
+      <move element="HrBasicDetailsReview.HrLastTestDate" after="HrBasicDetailsReview.HrBloodType"/>
+      <move element="HrBasicDetailsReview.HrLastTestBy" after="HrBasicDetailsReview.HrLastTestDate"/>
+      <move element="HrBasicDetailsReview.HrExpenseChckSendToAdd" after="HrBasicDetailsReview.HrLastTestBy"/>
+      <move element="HrBasicDetailsReview.HrPersonType" after="HrBasicDetailsReview.HrExpenseChckSendToAdd"/>
+      <modify element="HrBasicDetailsReview.HrEffectiveDate" tipType="dateFormat"/>
+      <modify element="HrBasicDetailsReview.HrMiddleName" prompt="Second Name"/>
+      <modify element="HrBasicDetailsReview.HrLastName" prompt="Paternal Last Name"/>
+      <modify element="HrBasicDetailsReview.HireDate" tipType="dateFormat"/>
+      <modify element="HrBasicDetailsReview.PerStartDate" tipType="dateFormat"/>
+      <modify element="HrBasicDetailsReview.OriginalHireDate" tipType="dateFormat"/>
+      <modify element="HrBasicDetailsReview.HrAdjServiceDate" tipType="dateFormat"/>
+      <modify element="HrBasicDetailsReview.HrSsn" prompt="CURP"/>
+      <modify element="HrBasicDetailsReview.HrDateOfBirth" tipType="dateFormat"/>
+      <modify element="HrBasicDetailsReview.HrDeathDate" tipType="dateFormat"/>
+      <modify element="HrBasicDetailsReview.HrAdoptionDate" tipType="dateFormat"/>
+      <modify element="HrBasicDetailsReview.HrLastTestDate" tipType="dateFormat"/>
+      <modify element="HrBasicDetailsReview.HrAdditionalPerDetFlex" rendered="true"/>
+      <modify element="HrBasicDetailsReview.HrPersonDevDf" rendered="true" segmentList="MX|Maternal_Last_Name|RFC_ID|Social_Security_ID|Fed_Gov_Affiliation_ID|Military_Service_ID|SS_Medical_Center||"/>
+      <modify element="HrBasicDetailsReview.HrPrevLastName" rendered="false"/>
+      <modify element="HrBasicDetailsReview.HrGender" rendered="true"/>
+      <move element="HrMainAddressReview.HrProposed____5" after="HrMainAddressReview.HrCurrent____4"/>
+      <move element="HrMainAddressReview.HrAddressEffctDate" after="HrMainAddressReview.HrProposed____5"/>
+      <move element="HrMainAddressReview.HrAddressCountry" after="HrMainAddressReview.HrAddressEffctDate"/>
+      <move element="HrMainAddressReview.HrAddressType" after="HrMainAddressReview.HrAddressCountry"/>
+      <move element="HrMainAddressReview.HrAddressFlex____1" after="HrMainAddressReview.HrAddressType"/>
+      <move element="HrMainAddressReview.HrAddtlAddressFlex____1" after="HrMainAddressReview.HrAddressFlex____1"/>
+      <modify element="HrMainAddressReview.HrAddressFlex____1" segmentList="AT_GLB|Address Line 1|Address Line 2|Address Line 3|Postal Code|City|Region||AU_GLB|Address Line 1|Address Line 2|Address Line 3|City|State|Postal Code||BE|Street|Num|Box|City|Postal Code||BE_GLB|Address Line 1|Address Line 2|Address Line 3|Postal Code|City||BF_GLB|Address Line 1|Address Line 2|Address Line 3|Town/City|Region 1|Region 2|Region 3|Postal Code||BR_GLB|Address1|Address2|Address3|Neighbourhood|City|State|Zip Code|Internet Address||CA|Address Line 1|Address Line 2|Address Line 3|City|Postal Code|Province||CA_GLB|Address Line1|Address Line2|Address Line3|City|Province|Postal Code||CH_GLB|Address Line 1|Address Line 2|Address Line 3|Postal Code|City|Canton||DE|Street|House Number|Postal Code|Town|Federal State||DE_GLB|Address Line 1|Address Line 2|Address Line 3|Postal Code|City|Region||DK_GLB|Address Line 1|Address Line 2|Address Line 3|Postal Code|City||ES|Street Type|Street Name|Street Number|Postal Code|City|Province||ES_GLB|Address Line1|Address Line2|Address Line3|Postal Code|City|Province||FI_GLB|Address Line1|Address Line2|Address Line3|Postal Code|City||FR|Address Line 1|Address Line 2|Address Line 3|INSEE Code|Small Town|Postal Code|City||FR_GLB|Address Line1|Address Line2|Address Line3|Address Line4|Postal Code|City|Department||GB|Address Line 1|Address Line 2|Address Line 3|Town|County|Post Code||GENERIC|Address Line 1|Address Line 2|Address Line 3|Town or City|Region 1|Region 2|Region 3|Postal Code||GR_GLB|Address Line 1|Address Line 2|Address Line 3|Postal Code|City||HK|Address Line 1|Address Line 2|Address Line 3|District|Area||HK_GLB|Address Line1|Address Line2|Address Line3|District||IE_GLB|Address Line 1|Address Line 2|Address Line 3|City|County|Postal Code||IT_GLB|Address Line 1|Address Line 2|Address Line 3|Postal Code|City|Province||JP|Postal Code|District Code|Address Line1|Address Line2|Address Line3|Address Line1 (Kana)|Address Line2 (Kana)|Address Line3 (Kana)||JP_GLB|Postal Code|Address Line1|Address Line2|Address Line3||LU_GLB|Address Line 1|Address Line 2|Address Line 3|Postal Code|City||MX|Street Name and Number|Neighborhood|Municipality|Postal Code|City|State|Country||MX_GLB|Address Line 1|Address Line 2|Address Line 3|Postal Code|City|State||MY_GLB|Address Line 1|Address Line 2|Address Line 3|Postal Code|City|State or Province||NL_GLB|Address Line 1|Address Line 2|Address Line 3|Postal Code|City|Region|County||NZ_GLB|Address Line 1|Address Line 2|Address Line 3|City|Region|Postal Code||PT_GLB|Address Line 1|Address Line 2|Address Line 3|Postal Code|City||SE_GLB|Address Line 1|Address Line 2|Address Line 3|Postal Code|City||SG_GLB|Address Line 1|Address Line 2|Address Line 3|City|Postal Code||US|Address Line 1|Address Line 2|Address Line 3|City|State|Zip_Code|County||US_GLB|Address Line1|Address Line2|Address Line3|City|County|State|Zip Code||ZA|Address Line 1|Address Line 2|Address Line 3|Town / City|Postal Code|Province||ZA_GLB|Address Line 1|Address Line 2|Address Line 3|Town / City|Postal Code|Province||KR|Address Line1|Address Line2|Postal Code||KR_GLB|Address Line1|Address Line2|Postal Code||CN_GLB|Address Line 1|Address Line 2|Province/City/SAR|Postal Code||"/>
+   </modifications>
+</customization>

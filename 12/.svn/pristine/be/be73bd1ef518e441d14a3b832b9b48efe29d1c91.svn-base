@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/csi/instance/general/webui/InstanceDetailsPG" package="/oracle/apps/csi/instance/general/webui/customizations/function/OKS_INQ_CUST_INST_DTLS" file-version="$Header: InstanceDetailsPG.xml 120.0 2005/09/29 17:56 hmnair noship $">
+   <modifications>
+      <modify element="OtherProdDetails" rendered="false"/>
+      <modify element="ContainerCellFormatRN" rendered="false"/>
+      <modify element="SpacerCellFormat" rendered="false"/>
+   </modifications>
+</customization>

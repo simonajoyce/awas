@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_27" xml:lang="en-US" customizes="/oracle/apps/cs/csz/search/webui/SavedSrchResultsSDeskPG" package="/oracle/apps/cs/csz/search/webui/customizations/function/CSZ_SAV_SRCH_RES_ITIL_FN" file-version="$Header: SavedSrchResultsSDeskPG.xml 120.0.12010000.2 2009/09/10 11:11:49 sanjrao noship $">
+   <modifications>
+      <modify element="ColumnPerzRN.RequestType" prompt="Issue Type"/>
+      <modify element="ColumnPerzRN.Severity" prompt="Priority"/>
+      <modify element="ColumnPerzRN.ProblemCode" prompt="Issue Code"/>
+   </modifications>
+</customization>

@@ -1,0 +1,24 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.6.4_447" xml:lang="en-US" customizes="/oracle/apps/per/irc/vacancy/webui/MgrHomePG" developerMode="false" file-version="$Header: MgrHomePG.xml 115.4 2003/04/10 09:16:27 mmillmor noship $" package="/oracle/apps/per/customizations/function/IRC_CM_HOME/irc/vacancy/webui">
+   <modifications>
+      <modify element="IrcActionValue" rendered="true"/>
+      <modify element="SaveForLater" rendered="true"/>
+      <modify element="Applicants" rendered="false"/>
+      <modify element="Vacancies" rendered="false"/>
+      <modify element="Notifications" rendered="true"/>
+      <modify element="SideNav" rendered="true"/>
+      <modify element="EndCol" rendered="true"/>
+      <modify element="IrcFunction" rendered="true"/>
+      <modify element="IrcActionType" rendered="true"/>
+      <modify element="IrcAction" rendered="true"/>
+      <move element="SideNav" after="EndCol"/>
+      <move element="Notifications" after="SideNav"/>
+      <move element="SaveForLater" after="Notifications"/>
+      <move element="IrcAction" after="FndNestedRegion6"/>
+      <move element="IrcActionType" after="IrcAction"/>
+      <move element="IrcActionValue" after="IrcActionType"/>
+      <move element="IrcFunction" after="IrcActionValue"/>
+      <move element="Vacancies" after="IrcFunction"/>
+      <move element="Applicants" after="Vacancies"/>
+   </modifications>
+</customization>

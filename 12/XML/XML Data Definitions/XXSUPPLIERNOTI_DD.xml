@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- $Header: XXSUPPLIERNOTIFCATIONS.xml 2014/02/06 12:56:20 sjoyce noship $-->
+<dataTemplate name="XXSUPPLIERNOTI_DD" defaultPackage="XXSAMPLE_REP_PKG" version="1.0">
+<properties>
+<property name="debug_mode" value="on" />
+<property name="xml_tag_case" value="upper" />
+<property name="include_parameters" value="true" />
+</properties>
+<parameters>
+</parameters>
+<dataQuery>
+<sqlStatement name="Q_MAIN">
+<![CDATA[
+SELECT U.description action_by, Begin_Date since, replace( Subject,'*','') comments
+From Wf_Notifications N,
+fnd_user u
+Where Status = 'OPEN'
+And U.User_Name = N.Recipient_Role
+AND Message_Name IN ('APPROVESITE','APPROVEBANK')
+]]>
+</sqlStatement>
+</dataQuery>
+<dataStructure>
+<group name="G_MAIN" source="Q_MAIN">
+<element name="ACTION_BY"                      value="ACTION_BY"/>
+<element name="SINCE"                          value="SINCE"/>
+<element name="COMMENTS"                       value="COMMENTS"/>
+</group>
+</dataStructure>
+</dataTemplate>

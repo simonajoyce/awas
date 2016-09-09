@@ -1,0 +1,32 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.6.5_471" xml:lang="en-US" customizes="/oracle/apps/pn/recovery/expenses/webui/RecExpAllocPG" developerMode="false" file-version="$Header: RecExpAllocPG.xml 115.0 2003/06/04 20:41:25 kkhegde noship $">
+   <modifications>
+      <modify element="AllocTbl" blockSize="10"/>
+      <move element="AllocLocCode" after="AllocExpLineDtlId"/>
+      <move element="AllocExpAcc" after="AllocLocCode"/>
+      <move element="AllocExpAccountDesc" after="AllocExpAcc"/>
+      <move element="AllocBudgetAmt" after="AllocExpAccountDesc"/>
+      <move element="AllocBudgetPct" after="AllocBudgetAmt"/>
+      <move element="AllocActualAmt" after="AllocBudgetPct"/>
+      <move element="AllocActualPct" after="AllocActualAmt"/>
+      <move element="AllocExpLineId" after="AllocActualPct"/>
+      <move element="ParentExpLineId" after="AllocExpLineId"/>
+      <move element="AllocPropId" after="ParentExpLineId"/>
+      <move element="AllocLocId" after="AllocPropId"/>
+      <move element="AllocExpAccountId" after="AllocLocId"/>
+      <move element="DelOrRem" after="AllocExpAccountId"/>
+      <modify element="DelOrRem" rendered="false"/>
+      <modify element="PageLayoutRN" controllerClass="oracle.apps.pn.recovery.expenses.webui.RecExpViewAllocCO"/>
+      <move element="Seperator" after="DetailsRN"/>
+      <move element="LinesRN" after="Seperator"/>
+      <move element="AllocateRN" after="LinesRN"/>
+      <move element="PageBtnRN" after="AllocateRN"/>
+      <modify element="PageBtnRN" rendered="false"/>
+      <modify element="AllocLocCode" userCustomizable="false"/>
+      <modify element="AllocExpAccountDesc" readOnly="true" userCustomizable="false"/>
+      <modify element="AllocBudgetAmt" readOnly="true" userCustomizable="false"/>
+      <modify element="AllocBudgetPct" readOnly="true" userCustomizable="false"/>
+      <modify element="AllocActualAmt" readOnly="true" userCustomizable="false"/>
+      <modify element="AllocActualPct" readOnly="true" userCustomizable="false"/>
+   </modifications>
+</customization>

@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='windows-1252' ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+
+<ViewObject
+   Name="xxNotifPGAcctSumVO"
+   Extends="oracle.apps.ap.invoice.request.negotiation.server.NotifPGAcctSumVO"
+   BindingStyle="Oracle"
+   CustomQuery="true"
+   ComponentClass="xx.oracle.apps.ap.invoice.request.negotiation.server.xxNotifPGAcctSumVOImpl"
+   UseGlueCode="false" >
+   <SQLQuery><![CDATA[
+select alc.displayed_field line_type,
+       SUM(LINES.AMOUNT) AMOUNT,
+       TO_CHAR(SUM(LINES.AMOUNT),FND_CURRENCY.SAFE_GET_FORMAT_MASK(AI.INVOICE_CURRENCY_CODE,25)) AMOUNT_DISP,
+       ai.INVOICE_CURRENCY_CODE,
+xx_ap_functions_pkg.imscan_link(ai.invoice_id) IMSCAN_URL
+from ap_invoice_lines_all lines,
+     ap_invoices_all ai,
+     ap_lookup_codes alc
+where lines.invoice_id = :0
+and lines.invoice_id = ai.invoice_id
+and alc.lookup_type = 'INVOICE LINE TYPE'
+AND ALC.LOOKUP_CODE = LINES.LINE_TYPE_LOOKUP_CODE
+group by alc.displayed_field, ai.INVOICE_CURRENCY_CODE,xx_ap_functions_pkg.imscan_link(ai.invoice_id)
+   ]]></SQLQuery>
+   <DesignTime>
+      <Attr Name="_isExpertMode" Value="true" />
+      <Attr Name="_version" Value="10.1.3.41.57" />
+      <Attr Name="_codeGenFlag2" Value="Access|Coll" />
+   </DesignTime>
+   <ViewAttribute
+      Name="LineType"
+      IsUpdateable="false"
+      IsPersistent="false"
+      IsNotNull="true"
+      Precision="80"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="LINE_TYPE"
+      Expression="LINE_TYPE"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_OverrideAttr" Value="true" />
+         <Attr Name="_DisplaySize" Value="80" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Amount"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="AMOUNT"
+      Expression="AMOUNT"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_OverrideAttr" Value="true" />
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="AmountDisp"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Precision="4000"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="AMOUNT_DISP"
+      Expression="AMOUNT_DISP"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_OverrideAttr" Value="true" />
+         <Attr Name="_DisplaySize" Value="4000" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="InvoiceCurrencyCode"
+      IsUpdateable="false"
+      IsPersistent="false"
+      IsNotNull="true"
+      Precision="15"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="INVOICE_CURRENCY_CODE"
+      Expression="INVOICE_CURRENCY_CODE"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="15" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ImscanUrl"
+      IsPersistent="false"
+      Precision="4000"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="IMSCAN_URL"
+      Expression="IMSCAN_URL"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="4000" />
+      </DesignTime>
+   </ViewAttribute>
+</ViewObject>

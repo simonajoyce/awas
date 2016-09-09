@@ -1,0 +1,146 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.89_555" xml:lang="en-US" customizes="/oracle/apps/pay/taxcard/webui/GlobalTaxCardPG" developerMode="false" file-version="$Header: GlobalTaxCardPG.xml 120.7 2007/02/22 11:21:47 dbehera noship $" package="/oracle/apps/pay/taxcard/webui/customizations/function/FI_TAX_CARD_SS" xmlns:oa="http://xmlns.oracle.com/oa">
+   <modifications>
+      <modify element="HeaderInfoItem01" prompt="Employee Name"/>
+      <modify element="TabPageRN" rendered="false"/>
+      <modify element="HeaderInfoItem02" prompt="Personal ID"/>
+      <modify element="HeaderInfoItem03" prompt="Employee Number"/>
+      <modify element="HeaderInfoItem04" prompt="Assignment Number"/>
+      <modify element="HeaderInfoItem05" prompt="Business Group"/>
+      <modify element="HeaderInfoItem06" prompt="Local Unit"/>
+      <modify element="HeaderInfoItem07" rendered="false"/>
+      <modify element="HeaderInfoItem08" rendered="false"/>
+      <modify element="HeaderInfoItem09" rendered="false"/>
+      <modify element="HeaderInfoItem10" rendered="false"/>
+      <modify element="PageLayoutRN" title="Finnish Tax Card" windowTitle="Finnish Tax Card"/>
+      <modify element="TaxCardHeaderCOL01" rendered="false"/>
+      <modify element="TaxCardHeaderCOL02" rendered="false"/>
+      <modify element="TaxCardHeaderCOL03" rendered="false"/>
+      <modify element="TaxCardHeaderCOL04" rendered="false"/>
+      <modify element="TaxCardHeaderCOL05" rendered="false"/>
+      <modify element="TaxCardHeaderCOL06" rendered="false"/>
+      <modify element="TaxCardHeaderCOL07" rendered="false"/>
+      <modify element="TaxCardHeaderCOL08" rendered="false"/>
+      <modify element="TaxCardHeaderCOL09" rendered="false"/>
+      <modify element="TaxCardHeaderCOL10" rendered="false"/>
+      <modify element="TaxCardHeaderCOL13" rendered="false"/>
+      <modify element="TaxCardHeaderCOL14" rendered="false"/>
+      <modify element="TaxCardHeaderCOL15" rendered="false"/>
+      <modify element="TaxCardHeaderNUM01" prompt="Base Rate" required="yes" tipMessageAppShortName="PAY" tipMessageName="HR_376640_FI_PER_TIP" tipType="shortTip"/>
+      <modify element="TaxCardHeaderNUM02" prompt="Additional Rate" tipMessageAppShortName="PAY" tipMessageName="HR_376640_FI_PER_TIP" tipType="shortTip"/>
+      <modify element="TaxCardHeaderNUM03" prompt="Previous Income"/>
+      <modify element="TaxCardHeaderNUM04" prompt="Yearly Income Limit"/>
+      <modify element="TaxCardHeaderNUM05" prompt="Extra Income Rate" rendered="true" required="yes" tipMessageAppShortName="PAY" tipMessageName="HR_376640_FI_PER_TIP" tipType="shortTip"/>
+      <modify element="TaxCardHeaderNUM06" prompt="Extra Income Additional Rate" rendered="true" tipMessageAppShortName="PAY" tipMessageName="HR_376640_FI_PER_TIP" tipType="shortTip"/>
+      <modify element="TaxCardHeaderNUM07" prompt="Extra Income Limit" rendered="true"/>
+      <modify element="TaxCardHeaderNUM08" prompt="Previous Extra Income" rendered="true"/>
+      <modify element="TaxCardHeaderNUM09" prompt="Lower Income Percentage" rendered="true" shortDesc="Lower Income Percentage"/>
+      <modify element="TaxCardHeaderNUM10" rendered="false"/>
+      <modify element="TaxCardHeaderDATE01" prompt="Registration Date"/>
+      <modify element="TaxCardHeaderDATE02" prompt="Date Returned"/>
+      <modify element="TaxCardHeaderDATE03" rendered="false"/>
+      <modify element="TaxCardHeaderDATE04" rendered="false"/>
+      <modify element="TaxCardHeaderDATE05" rendered="false"/>
+      <modify element="TaxCardHeaderLOV01" prompt="Method of Receipt" required="yes"/>
+      <modify element="LOV01COL01" prompt="Method of Receipt" shortDesc="Method of Receipt"/>
+      <modify element="LOV01COL02" rendered="false"/>
+      <modify element="TaxCardHeaderLOV02" prompt="Tax Municipality" rendered="true" required="yes"/>
+      <modify element="TaxCardHeaderLOV04" prompt="Override Manual Update" rendered="true" shortDesc="Override Manual Update"/>
+      <modify element="TaxCardHeaderLOV05" prompt="Primary Employment" rendered="true" shortDesc="Primary Employment"/>
+      <modify element="LOV02COL01" prompt="Tax Municipality" shortDesc="Tax Municipality"/>
+      <modify element="LOV02COL02" rendered="false"/>
+      <modify element="LOV02COL03" rendered="false"/>
+      <modify element="LOV02COL04" rendered="false"/>
+      <modify element="LOV02COL05" rendered="false"/>
+      <modify element="LOV03COL02" rendered="false"/>
+      <modify element="LOV03COL03" rendered="false"/>
+      <modify element="LOV03COL04" rendered="false"/>
+      <modify element="LOV03COL05" rendered="false"/>
+      <modify element="TaxCardHeaderLOV03" prompt="Tax Card Type" rendered="true" required="yes"/>
+      <modify element="LOV03COL01" prompt="Tax Card Type" shortDesc="Tax Card Type"/>
+      <move element="TaxCardHeaderLOV01" after="TaxCardHeaderLOV03"/>
+      <insert before="TaxCardHeaderLOV01">
+         <oa:spacer id="FISPACER02" adminCustomizable="true" rendered="true" scope="." width="100%" xmlns:oa="http://xmlns.oracle.com/oa"/>
+      </insert>
+      <move element="TaxCardHeaderLOV02" after="TaxCardHeaderLOV01"/>
+      <move element="TaxCardHeaderNUM01" after="TaxCardHeaderLOV02"/>
+      <move element="TaxCardHeaderNUM02" after="TaxCardHeaderNUM01"/>
+      <move element="TaxCardHeaderNUM09" after="TaxCardHeaderNUM02"/>
+      <move element="TaxCardHeaderNUM03" after="TaxCardHeaderNUM09"/>
+      <insert before="TaxCardHeaderNUM03">
+         <oa:spacer id="FISPACER01" adminCustomizable="true" rendered="true" scope="." width="100%" xmlns:oa="http://xmlns.oracle.com/oa"/>
+      </insert>
+      <move element="TaxCardHeaderNUM04" after="TaxCardHeaderNUM03"/>
+      <move element="TaxCardHeaderDATE02" after="TaxCardHeaderNUM04"/>
+      <move element="TaxCardHeaderDATE01" after="TaxCardHeaderDATE02"/>
+      <move element="TaxCardHeaderLOV04" after="TaxCardHeaderDATE01"/>
+      <move element="TaxCardHeaderLOV05" after="TaxCardHeaderLOV04"/>
+      <insert before="TaxCardHeaderLOV05">
+         <oa:spacer id="FISPACER04" adminCustomizable="true" rendered="true" scope="." width="100%" xmlns:oa="http://xmlns.oracle.com/oa"/>
+      </insert>
+      <move element="TaxCardHeaderNUM08" after="TaxCardHeaderLOV05"/>
+      <move element="TaxCardHeaderNUM05" after="TaxCardHeaderNUM08"/>
+      <move element="TaxCardHeaderNUM06" after="TaxCardHeaderNUM05"/>
+      <move element="TaxCardHeaderNUM07" after="TaxCardHeaderNUM06"/>
+      <move element="TaxCardHeaderCOL01" after="TaxCardHeaderNUM07"/>
+      <move element="TaxCardHeaderCOL02" after="TaxCardHeaderCOL01"/>
+      <move element="TaxCardHeaderCOL03" after="TaxCardHeaderCOL02"/>
+      <move element="TaxCardHeaderCOL04" after="TaxCardHeaderCOL03"/>
+      <move element="TaxCardHeaderCOL05" after="TaxCardHeaderCOL04"/>
+      <move element="TaxCardHeaderCOL06" after="TaxCardHeaderCOL05"/>
+      <move element="TaxCardHeaderCOL07" after="TaxCardHeaderCOL06"/>
+      <move element="TaxCardHeaderCOL08" after="TaxCardHeaderCOL07"/>
+      <move element="TaxCardHeaderCOL09" after="TaxCardHeaderCOL08"/>
+      <move element="TaxCardHeaderCOL10" after="TaxCardHeaderCOL09"/>
+      <move element="TaxCardHeaderCOL11" after="TaxCardHeaderCOL10"/>
+      <move element="TaxCardHeaderCOL12" after="TaxCardHeaderCOL11"/>
+      <move element="TaxCardHeaderCOL13" after="TaxCardHeaderCOL12"/>
+      <move element="TaxCardHeaderCOL14" after="TaxCardHeaderCOL13"/>
+      <move element="TaxCardHeaderCOL15" after="TaxCardHeaderCOL14"/>
+      <move element="TaxCardHeaderNUM10" after="TaxCardHeaderCOL15"/>
+      <move element="TaxCardHeaderDATE03" after="TaxCardHeaderNUM10"/>
+      <move element="TaxCardHeaderDATE04" after="TaxCardHeaderDATE03"/>
+      <move element="TaxCardHeaderDATE05" after="TaxCardHeaderDATE04"/>
+      <move element="TaxCardHeaderLOVID01" after="TaxCardHeaderDATE05"/>
+      <move element="TaxCardHeaderLOVID02" after="TaxCardHeaderLOVID01"/>
+      <move element="TaxCardHeaderLOVID03" after="TaxCardHeaderLOVID02"/>
+      <move element="TaxCardHeaderLOVID04" after="TaxCardHeaderLOVID03"/>
+      <move element="TaxCardHeaderLOVID05" after="TaxCardHeaderLOVID04"/>
+      <move element="TaxCardHeaderFRMVAL01" after="TaxCardHeaderLOVID05"/>
+      <move element="TaxCardHeaderFRMVAL02" after="TaxCardHeaderFRMVAL01"/>
+      <move element="TaxCardHeaderFRMVAL03" after="TaxCardHeaderFRMVAL02"/>
+      <move element="TaxCardHeaderFRMVAL04" after="TaxCardHeaderFRMVAL03"/>
+      <move element="TaxCardHeaderFRMVAL05" after="TaxCardHeaderFRMVAL04"/>
+      <move element="TaxCardHeaderFRMVAL06" after="TaxCardHeaderFRMVAL05"/>
+      <move element="TaxCardHeaderFRMVAL07" after="TaxCardHeaderFRMVAL06"/>
+      <move element="TaxCardHeaderFRMVAL08" after="TaxCardHeaderFRMVAL07"/>
+      <move element="TaxCardHeaderFRMVAL09" after="TaxCardHeaderFRMVAL08"/>
+      <move element="TaxCardHeaderFRMVAL10" after="TaxCardHeaderFRMVAL09"/>
+      <move element="TaxCardHeaderFRMVAL11" after="TaxCardHeaderFRMVAL10"/>
+      <move element="TaxCardHeaderFRMVAL12" after="TaxCardHeaderFRMVAL11"/>
+      <move element="TaxCardHeaderFRMVAL13" after="TaxCardHeaderFRMVAL12"/>
+      <move element="TaxCardHeaderFRMVAL14" after="TaxCardHeaderFRMVAL13"/>
+      <move element="TaxCardHeaderFRMVAL15" after="TaxCardHeaderFRMVAL14"/>
+      <insert after="TaxCardHeaderFRMVAL15">
+         <oa:spacer id="FISPACER03" adminCustomizable="true" rendered="true" scope="." width="100%" xmlns:oa="http://xmlns.oracle.com/oa"/>
+      </insert>
+      <modify element="TaxCardHeaderRN" text="Tax Card Information"/>
+      <modify element="TaxCardSpacer1RN3" rendered="false"/>
+      <modify element="GlobalCheckBoxItem" rendered="false"/>
+      <modify element="TaxCardHeaderCOL11" rendered="false"/>
+      <modify element="TaxCardHeaderCOL12" rendered="false"/>
+      <modify element="LOV01COL03" rendered="false"/>
+      <modify element="LOV01COL04" rendered="false"/>
+      <modify element="LOV01COL05" rendered="false"/>
+      <modify element="LOV04COL02" rendered="false"/>
+      <modify element="LOV04COL03" rendered="false"/>
+      <modify element="LOV04COL04" rendered="false"/>
+      <modify element="LOV04COL05" rendered="false"/>
+      <modify element="LOV05COL02" rendered="false"/>
+      <modify element="LOV05COL03" rendered="false"/>
+      <modify element="LOV05COL04" rendered="false"/>
+      <modify element="LOV05COL05" rendered="false"/>
+      <modify element="LOV04COL01" prompt="Override Manual Update" shortDesc="Override Manual Update"/>
+      <modify element="LOV05COL01" prompt="Primary Employment" shortDesc="Primary Employment"/>
+   </modifications>
+</customization>

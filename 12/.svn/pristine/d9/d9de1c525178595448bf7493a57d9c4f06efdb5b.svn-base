@@ -1,0 +1,4 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_22" xml:lang="en-US" file-version="$Header: AppsSearchRG.xml 120.3.12010000.1 2008/07/25 11:56:58 appldev ship $" customizes="/oracle/apps/fnd/search/webui/AppsSearchRG" rendered="false" package="/oracle/apps/fnd/search/webui/customizations/function/OAHOMEPAGE">
+   <modifications/>
+</customization>

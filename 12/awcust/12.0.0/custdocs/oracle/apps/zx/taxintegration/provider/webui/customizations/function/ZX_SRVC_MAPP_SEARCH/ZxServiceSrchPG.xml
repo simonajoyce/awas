@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.40_440" xml:lang="en-US" customizes="/oracle/apps/zx/taxintegration/provider/webui/ZxServiceSrchPG" package="/oracle/apps/zx/taxintegration/provider/webui/customizations/function/ZX_SRVC_MAPP_SEARCH" file-version="$Header: ZxServiceSrchPG.xml 120.1 2005/11/03 06:57:24 scsharma noship $">
+   <modifications>
+      <modify element="ZxPageLayoutRN" title="Service Mappings" windowTitle="Service Mappings"/>
+      <modify element="MainText" prompt="Provider Services must be mapped to E-Business Tax Service Types when a Service Provider is used for determining taxes."/>
+      <modify element="multipleSelection1"/>
+   </modifications>
+</customization>

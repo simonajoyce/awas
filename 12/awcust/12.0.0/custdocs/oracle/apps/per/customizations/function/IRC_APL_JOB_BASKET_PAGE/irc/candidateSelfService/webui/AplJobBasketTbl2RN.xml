@@ -1,0 +1,31 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/per/irc/candidateSelfService/webui/AplJobBasketTbl2RN" developerMode="true" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: AplJobBasketTbl2RN.xml 115.0 2003/04/10 08:35:09 mmillmor noship $" version="9.0.3.6.2_398" xml:lang="en-US" package="/oracle/apps/per/customizations/function/IRC_APL_JOB_BASKET_PAGE/irc/candidateSelfService/webui">
+   <modifications>
+      <modify element="BriefDescription" sortState="no"/>
+      <modify element="FndVacancyName" sortState="no" rendered="false"/>
+      <modify element="Select" sortState="no"/>
+      <modify element="SalaryCurrency" sortState="no"/>
+      <modify element="FndProfessionalArea" sortState="no"/>
+      <modify element="FndName" sortState="no"/>
+      <modify element="MinSalary" sortState="no" rendered="false"/>
+      <modify element="MaxSalary" sortState="no"/>
+      <modify element="Location" sortState="no"/>
+      <modify element="JobTitle" sortState="no"/>
+      <modify element="FullTime" sortState="no"/>
+      <modify element="Contract" sortState="no" rendered="false"/>
+      <modify element="ClosingDate" sortState="no" rendered="false"/>
+      <modify element="ApplyNow" sortState="no"/>
+      <move element="JobTitle" after="FndName"/>
+      <move element="BriefDescription" after="JobTitle"/>
+      <move element="FndProfessionalArea" after="BriefDescription"/>
+      <move element="Location" after="FndProfessionalArea"/>
+      <move element="FullTime" after="Location"/>
+      <move element="MaxSalary" after="FullTime"/>
+      <move element="SalaryCurrency" after="MaxSalary"/>
+      <move element="ApplyNow" after="SalaryCurrency"/>
+      <move element="FndVacancyName" after="ApplyNow"/>
+      <move element="MinSalary" after="FndVacancyName"/>
+      <move element="ClosingDate" after="MinSalary"/>
+      <move element="Contract" after="ClosingDate"/>
+   </modifications>
+</customization>

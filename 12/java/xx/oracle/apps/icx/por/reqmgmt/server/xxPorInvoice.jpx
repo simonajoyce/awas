@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding='windows-1252'?>
+<!DOCTYPE JboProject SYSTEM "jbo_03_01.dtd">
+
+<JboProject
+   Name="xxPorInvoice"
+   SeparateXMLFiles="true"
+   PackageName="" >
+   <DesignTime>
+      <Attr Name="_version" Value="9.0.3.13.93" />
+      <Attr Name="_jprName" Value="xxPorInvoice.jpr" />
+      <Attr Name="_ejbPackage" Value="false" />
+      <Attr Name="_NamedConnection" Value="DEV" />
+   </DesignTime>
+   <Containee
+      Name="server"
+      FullName="xx.oracle.apps.icx.por.reqmgmt.server.server"
+      ObjectType="JboPackage" >
+   </Containee>
+   <Containee
+      Name="server"
+      FullName="oracle.apps.icx.por.reqmgmt.server.server"
+      ObjectType="JboPackage" >
+      <DesignTime>
+         <Attr Name="_LocationURL" Value="../myclasses/" />
+      </DesignTime>
+   </Containee>
+   <Substitutes>
+      <Substitute OldName ="oracle.apps.icx.por.reqmgmt.server.InvoicesVO" NewName ="xx.oracle.apps.icx.por.reqmgmt.server.xxInvoicesVO" />
+   </Substitutes>
+</JboProject>

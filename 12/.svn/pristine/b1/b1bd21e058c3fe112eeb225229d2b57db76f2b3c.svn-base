@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/ar/hz/components/search/webui/HzPuiDQMContactLOV" file-version="$Header: HzPuiDQMContactLOV.xml 120.3 2005/10/06 19:44 smundhra noship $" package="/oracle/apps/ar/hz/components/search/webui/customizations/function/ASN_ALLCTCTLOVPG">
+   <modifications xmlns="http://xmlns.oracle.com/jrad">
+      <modify element="Percentage" rendered="true"/>
+      <modify element="RelationshipRole" rendered="false"/>
+      <modify element="RelatedOrganization" prompt="Customer" rendered="true"/>
+   </modifications>
+</customization>

@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- $Header: XX_AR_RISK_DAILY_REP.xml 2016/03/04 12:56:20 sjoyce noship $-->
+<!-- dbdrv: exec java oracle/apps/xdo/oa/util XDOLoader.class java &phase=dat checkfile:~PROD:patch/115/publisher/defs:XX_AR_RISK_DAILY_REP.xml UPLOAD - DB_USERNAME &un_apps -DB_PASSWORD &pw_apps -JDBC_CONNECTION &jdbc_db_addr -LOB_TYPE DATA_TEMPLATE -APPS_SHORT_NAME ~PROD -LOB_CODE APOBRR -LANGUAGE 00 -XDO_FILE_TYPE XML-DATA-TEMPLATE -FILE_NAME &fullpath:~PROD:patch/115/publisher/defs:XX_AR_RISK_DAILY_REP.xml#  -->
+<!-- GSCC_Category="Xdo Data Definition" -->
+<dataTemplate name="XX_AR_RISK_DAILY_REP" defaultPackage="XX_AR_RISK_DAILY_REP_pkg" version="1.0">
+<properties>
+<property name="debug_mode" value="on" />
+<property name="xml_tag_case" value="upper" />
+</properties>
+<parameters>
+<parameter name="P_DATE" dataType = "DATE"></parameter>
+<parameter name="P_DAYS_BACK" dataType = "NUMBER"></parameter>
+</parameters>
+<dataQuery>
+<sqlStatement name="Q_TOTALS">
+<![CDATA[
+ select 
+	'https://portal.awas.com/depts/risk/Shared%20Documents/Credit%20Control/Debtors%20Report/Debtors%20Report%20'||to_char(to_date(:P_MISS_DATE),'yyyy')||'/'||
+	trim(to_char(to_date(:P_MISS_DATE),'Month'))||'%20'||to_char(to_date(:P_MISS_DATE),'yyyy')||'/Debtors%20report%20'||to_char(to_date(:P_MISS_DATE),'dd')||'%20'
+	||trim(to_char(to_Date(:P_MISS_DATE),'Month'))||'%20'||to_char(to_date(:P_MISS_DATE),'yyyy')||'.pdf'  REPORT_URL,
+	:P_MISS_DATE MISS_DATE,
+  (select sum(TT_OVERDUE_AMT) from (SELECT risk_counterparty TT_COUNTERPARTY
+     , overdue_amount  TT_OVERDUE_AMT
+     , ROUND(overdue_amount/
+       (        SELECT SUM(overdue_amount)
+                 FROM
+                     (
+                             SELECT risk_counterparty
+                                 , SUM(amt_due_remaining-dispute_amt) overdue_amount
+                                 , SUM(NO_OF_ASSETS)
+                               FROM XX_AR_DEBTORS_TEMP
+							   where request_id = :P_REQUEST_ID
+                           GROUP BY risk_counterparty
+                            HAVING SUM(NO_OF_ASSETS)>0 
+                     )
+       )
+       * 100,1) TT_PC
+   FROM
+       (
+               SELECT risk_counterparty
+                   , SUM(amt_due_remaining-dispute_amt) overdue_amount
+                   , SUM(NO_OF_ASSETS)
+                 FROM XX_AR_DEBTORS_TEMP
+				 where request_id = :P_REQUEST_ID
+             GROUP BY risk_counterparty
+              HAVING SUM(NO_OF_ASSETS)>0 
+             ORDER BY SUM(amt_due_remaining-dispute_amt) DESC
+       )
+  WHERE rownum <=10)
+  ) TOP_10_TOTAL,
+  nvl((select sum(overdue_amount) from (
+                 SELECT risk_counterparty
+                   , SUM(amt_due_remaining-dispute_amt) overdue_amount
+                   , SUM(NO_OF_ASSETS)
+                 FROM XX_AR_DEBTORS_TEMP
+                 where request_id = :P_REQUEST_ID
+                 GROUP BY risk_counterparty
+                 HAVING SUM(NO_OF_ASSETS)>0 )),0) DEBTOR_TOTAL,
+   nvl((select sum(overdue_amount) from (
+                 SELECT risk_counterparty
+                   , SUM(amt_due_remaining-dispute_amt) overdue_amount
+                   , SUM(NO_OF_ASSETS)
+                 FROM XX_AR_DEBTORS_TEMP
+                 where request_id = :P_REQUEST_ID
+				 and portfolio = 'ABS'
+                 GROUP BY risk_counterparty
+                 HAVING SUM(NO_OF_ASSETS)>0 )),0) DEBTOR_TOTAL_ABS,
+   nvl((select sum(overdue_amount) from (
+                 SELECT risk_counterparty
+                   , SUM(amt_due_remaining-dispute_amt) overdue_amount
+                   , SUM(NO_OF_ASSETS)
+                 FROM XX_AR_DEBTORS_TEMP
+                 where request_id = :P_REQUEST_ID
+				 and portfolio = 'AWAS'
+                 GROUP BY risk_counterparty
+                 HAVING SUM(NO_OF_ASSETS)>0 )),0) DEBTOR_TOTAL_AWAS,
+   nvl((select sum(overdue_amount) from (
+                 SELECT risk_counterparty
+                   , SUM(amt_due_remaining-dispute_amt) overdue_amount
+                   , SUM(NO_OF_ASSETS)
+                 FROM XX_AR_DEBTORS_TEMP
+                 where run_date = (select max(run_date) from xx_ar_debtors_temp where run_date < :P_MISS_DATE)
+                 GROUP BY risk_counterparty
+                 HAVING SUM(NO_OF_ASSETS)>0 )),0) PREVIOUS_TOTAL,
+  nvl((SELECT sum(AMT_DUE_REMAINING) MISS_TOTAL  FROM XX_AR_DEBTORS_TEMP  where request_id = :P_REQUEST_ID and due_date between :P_MISS_DATE2 and  :P_MISS_DATE and type <> 'ON ACCOUNT' and AMT_DUE_REMAINING > 0),0) MISS_TOTAL,
+  nvl((SELECT sum(ROUND(A.AMOUNT_APPLIED/ D2.AMOUNT* D.AMOUNT,2)) RCPT_TOTAL
+   FROM apps.ar_cash_receipts_all r
+     , APPS.CE_BANK_ACCOUNTS AC
+     , APPS.CE_BANK_BRANCHES_V BB
+     , apps.CE_BANK_ACCT_USES_all bau
+     , apps.ar_receivable_applications_all a
+     , apps.ra_customer_trx_all c
+     , apps.ra_customer_trx_lines_all l
+     , apps.ra_cust_trx_line_gl_dist_all d
+     , apps.ar_customers cu
+     , APPS.GL_CODE_COMBINATIONS X
+     , apps.ra_cust_trx_line_gl_dist_all d2
+     , xla.xla_ae_lines xal
+     , xla.xla_ae_headers xah
+     , xla.xla_events xe
+     , xla.xla_transaction_entities xte
+     , xla_distribution_links lk
+     , GL_CODE_COMBINATIONS gcc
+     , xx_diamond_head_aircraft dh
+  WHERE A.CASH_RECEIPT_ID              = R.CASH_RECEIPT_ID
+   AND D2.ACCOUNT_CLASS                = 'REC'
+   AND gcc.segment4                    = dh.gl_msn (+)
+   AND D2.CUSTOMER_TRX_ID              = C.CUSTOMER_TRX_ID
+   AND BB.BRANCH_PARTY_ID              = AC.BANK_BRANCH_ID
+   AND bau.bank_acct_use_id            = R.REMIT_BANK_ACCT_USE_ID
+   AND C.CUSTOMER_TRX_ID               = A.APPLIED_CUSTOMER_TRX_ID
+   AND bau.BANK_ACCOUNT_ID             = ac.bank_account_id
+   and r.creation_Date    between to_date(:P_MISS_DATE) + 1 and to_date(:P_MISS_DATE) + 2 + :P_DAYS_BACK2
+   AND c.sold_to_customer_id           = cu.customer_id
+   AND l.customer_trx_id               = c.customer_trx_id
+   AND d.customer_trx_line_id          = l.customer_trx_line_Id
+   AND ac.asset_code_combination_id    = x.code_combination_id
+   AND d.account_class                 = 'REV'
+   AND xal.application_id              = xah.application_id
+   AND xal.ae_header_id                = xah.ae_header_id
+   AND xah.application_id              = xe.application_id
+   AND xah.event_id                    = xe.event_id
+   AND xe.application_id               = xte.application_id
+   AND xte.application_id              = 222
+   AND xe.entity_id                    = xte.entity_id
+   AND xte.entity_code                 = 'TRANSACTIONS'
+   AND xte.source_id_int_1             = c.customer_trx_id
+   AND xal.accounting_class_code       = 'REVENUE'
+   AND lk.source_distribution_type (+) = 'RA_CUST_TRX_LINE_GL_DIST_ALL'
+   AND lk.application_id (+)           = 222
+   AND lk.ae_header_id                 = xal.ae_header_id (+)
+   AND lk.ae_line_num                  = xal.ae_line_num (+)
+   AND XAL.CODE_COMBINATION_ID         = GCC.CODE_COMBINATION_ID
+   AND LK.SOURCE_DISTRIBUTION_ID_NUM_1 = D.CUST_TRX_LINE_GL_DIST_ID),0) RCPT_TOTAL
+  from dual
+]]>
+</sqlStatement>
+<sqlStatement name="Q_TOP_TEN"> <!-- Debtors Top 10 -->
+<![CDATA[ SELECT book TT_BOOK, risk_counterparty TT_COUNTERPARTY
+     , overdue_amount  TT_OVERDUE_AMT
+     , ROUND(overdue_amount/
+       (
+               SELECT SUM(overdue_amount)
+                 FROM
+                     (
+                             SELECT risk_counterparty
+                                 , SUM(amt_due_remaining-dispute_amt) overdue_amount
+                                 , SUM(NO_OF_ASSETS)
+                               FROM XX_AR_DEBTORS_TEMP
+							   where request_id = :P_REQUEST_ID
+                           GROUP BY risk_counterparty
+                            HAVING SUM(NO_OF_ASSETS)>0 
+                     )
+       )
+       * 100,1) TT_PC,
+       current_situation,
+       cs_entered_date,
+       cs_created_by,
+       next_steps,
+       ns_entered_date,
+       ns_created_by
+   FROM
+       (
+              SELECT t.book
+                   , t.risk_counterparty
+                   , SUM(t.amt_due_remaining-t.dispute_amt) overdue_amount
+                   , SUM(t.NO_OF_ASSETS)
+                   , notes1.notes Current_Situation
+                   , to_char(notes1.entered_date,'dd-Mon-yyyy') CS_entered_date
+                   , notes1.created_by_name CS_created_by
+                   , notes2.notes Next_Steps
+                   , to_char(notes2.entered_date,'dd-Mon-yyyy') NS_Entered_date
+                   , notes2.created_by_name NS_Created_by
+                 FROM XX_AR_DEBTORS_TEMP t, 
+                 (select distinct dt.risk_counterparty, notes, to_date(to_char(entered_date,'dd-Mon-yyyy'),'dd-Mon-yyyy') entered_date, created_by_name
+                     from AST_NOTES_DETAILS_vl n,
+                     ar_customers c,
+                     XX_AR_DEBTORS_TEMP dt
+                     where n.source_object_id = c.customer_id
+                     and n.source_object_code = 'IEX_ACCOUNT'
+                     and n.NOTE_TYPE = 'AWAS_CUST2'
+                     and dt.request_id = :P_REQUEST_ID
+                     and DT.CUSTOMER_NUMBER = C.CUSTOMER_NUMBER
+                     and jtf_note_id in (select max(jtf_note_id) from AST_NOTES_DETAILS_vl v where v.source_object_code = 'IEX_ACCOUNT'
+                     and v.NOTE_TYPE = 'AWAS_CUST2' group by source_object_id)) notes1,
+                  (select distinct dt.risk_counterparty, notes,to_date(to_char(entered_date,'dd-Mon-yyyy'),'dd-Mon-yyyy') entered_date, created_by_name
+                     from AST_NOTES_DETAILS_vl n,
+                     ar_customers c,
+                     XX_AR_DEBTORS_TEMP dt
+                     where n.source_object_id = c.customer_id
+                     and n.source_object_code = 'IEX_ACCOUNT'
+                     and n.NOTE_TYPE = 'AWAS_CUST3'
+                     and dt.request_id = :P_REQUEST_ID
+                     and DT.CUSTOMER_NUMBER = C.CUSTOMER_NUMBER
+                     and jtf_note_id in (select max(jtf_note_id) from AST_NOTES_DETAILS_vl v where v.source_object_code = 'IEX_ACCOUNT'
+                     and v.NOTE_TYPE = 'AWAS_CUST3' group by source_object_id)) notes2
+                where t.request_id = :P_REQUEST_ID
+                  and t.risk_counterparty = notes1.risk_counterparty(+)
+                  and t.risk_counterparty = notes2.risk_counterparty(+)
+                  GROUP BY t.book, t.risk_counterparty,notes1.notes, to_char(notes1.entered_date,'dd-Mon-yyyy'), notes1.created_by_name, notes2.notes, to_char(notes2.entered_date,'dd-Mon-yyyy'), notes2.created_by_name
+                  HAVING SUM(t.NO_OF_ASSETS)>0 
+                  ORDER BY SUM(t.amt_due_remaining-t.dispute_amt) DESC
+       )
+  WHERE rownum <=10
+]]>
+</sqlStatement>
+<sqlStatement name="Q_RISK_RATING"> <!-- By Risk Rating -->
+<![CDATA[
+select credit_rating_group RR_GROUP, sum(amt_due_remaining-dispute_amt) RR_OVERDUE_AMT
+from XX_AR_DEBTORS_TEMP
+where NO_OF_ASSETS is not null
+and request_id = :P_REQUEST_ID
+and customer_profile = 'Leasing'
+group by credit_rating_group
+order by decode(credit_rating_group,'High Risk (Credit Rating of 9)',1,'Medium Risk (Credit Rating of 7 or 8)',2,3)
+]]>
+</sqlStatement>
+<sqlStatement name="Q_REPO_BANK"> <!-- By Repo/Bankcruptcy -->
+<![CDATA[
+select customer_name RB_CUSTOMER_NAME, sum(amt_due_remaining) RB_OVERDUE_AMT
+from XX_AR_DEBTORS_TEMP
+where NO_OF_ASSETS is null
+and request_id = :P_REQUEST_ID
+and customer_profile = 'Leasing'
+group by customer_name
+order by sum(amt_due_remaining) desc
+]]>
+</sqlStatement>
+<sqlStatement name="Q_DEF_PLAN"> <!-- Deferral Plan -->
+<![CDATA[
+select customer_name DEF_CUSTOMER, sum (dispute_amt) DEF_OVERDUE_AMT
+from XX_AR_DEBTORS_TEMP
+where in_dispute = 'Y'
+and request_id = :P_REQUEST_ID
+group by customer_name
+order by 1
+]]>
+</sqlStatement>
+<sqlStatement name="Q_RCPTS"> <!-- Daily Rcpts -->
+<![CDATA[
+SELECT cu.customer_name RCPT_CUSTOMER_NAME
+     , r.receipt_Date   RCPT_DATE
+     , ps.DUE_DATE RCPT_DUE_DATE
+     , sum(ROUND(A.AMOUNT_APPLIED/ D2.AMOUNT* D.AMOUNT,2)) RCPT_AMT_APPLIED
+     , r.actual_value_date  RCPT_VALUE_DATE
+     , ltrim(gcc.segment4,'0') RCPT_MSN
+     , r.receipt_Date - ps.DUE_DATE RCPT_DAYS_LATE
+     , R.RECEIPT_NUMBER RCPT_NUMBER
+     , C.TRX_NUMBER RCPT_TRX_NUMBER
+     , C.TRX_DATE   RCPT_TRX_DATE
+     , nvl2(dh.msn,'ABS','AWAS') RCPT_PORTFOLIO
+   FROM apps.ar_cash_receipts_all r
+     , AR.AR_PAYMENT_SCHEDULES_ALL ps
+     , apps.ar_receivable_applications_all a
+     , apps.ra_customer_trx_all c
+     , apps.ra_customer_trx_lines_all l
+     , apps.ra_cust_trx_line_gl_dist_all d
+     , apps.ar_customers cu
+     , apps.ra_cust_trx_line_gl_dist_all d2
+     , xla.xla_ae_lines xal
+     , xla.xla_ae_headers xah
+     , xla.xla_events xe
+     , xla.xla_transaction_entities xte
+     , xla_distribution_links lk
+     , GL_CODE_COMBINATIONS gcc
+     , xx_diamond_head_aircraft dh 
+  WHERE A.CASH_RECEIPT_ID              = R.CASH_RECEIPT_ID
+   AND D2.ACCOUNT_CLASS                = 'REC'
+   and PS.CUSTOMER_TRX_ID              = C.CUSTOMER_TRX_ID
+   AND gcc.segment4                    = dh.gl_msn (+)
+   AND D2.CUSTOMER_TRX_ID              = C.CUSTOMER_TRX_ID
+   AND C.CUSTOMER_TRX_ID               = A.APPLIED_CUSTOMER_TRX_ID
+   and r.creation_Date    between to_date(:P_MISS_DATE) + 1 and to_date(:P_MISS_DATE) + 2 + :P_DAYS_BACK2
+   AND c.sold_to_customer_id           = cu.customer_id
+   AND l.customer_trx_id               = c.customer_trx_id
+   AND d.customer_trx_line_id          = l.customer_trx_line_Id
+   AND d.account_class                 = 'REV'
+   AND xte.source_id_int_1             = c.customer_trx_id
+   AND xte.entity_code                 = 'TRANSACTIONS'
+   AND xte.source_id_int_1             = c.customer_trx_id
+   AND D.CUST_TRX_LINE_GL_DIST_ID      = LK.SOURCE_DISTRIBUTION_ID_NUM_1 (+)
+   AND xal.application_id              = xah.application_id
+   AND xal.ae_header_id                = xah.ae_header_id
+   AND xah.application_id              = xe.application_id
+   AND xah.event_id                    = xe.event_id
+   AND xe.application_id               = xte.application_id
+   AND xte.application_id              = 222
+   AND xe.entity_id                    = xte.entity_id
+   AND xal.accounting_class_code       = 'REVENUE'
+   AND lk.source_distribution_type (+) = 'RA_CUST_TRX_LINE_GL_DIST_ALL'
+   AND lk.application_id (+)           = 222
+   AND lk.ae_header_id                 = xal.ae_header_id (+)
+   AND lk.ae_line_num                  = xal.ae_line_num (+)
+   AND XAL.CODE_COMBINATION_ID         = GCC.CODE_COMBINATION_ID (+)
+group by r.receipt_Date
+     , ps.DUE_DATE
+     , cu.customer_name
+     , r.actual_value_date
+     , ltrim(gcc.segment4,'0')
+     , r.receipt_Date - ps.DUE_DATE
+     , R.RECEIPT_NUMBER
+     , C.TRX_NUMBER
+     , C.TRX_DATE
+     , nvl2(dh.msn,'ABS','AWAS') 
+having sum(ROUND(A.AMOUNT_APPLIED/ D2.AMOUNT* D.AMOUNT,2)) <> 0
+     order by 1,6,2]]>
+</sqlStatement>	 
+<sqlStatement name="Q_VD_RCPTS"> <!-- Value Date Daily Rcpts -->
+<![CDATA[
+SELECT cu.customer_name VD_RCPT_CUSTOMER_NAME
+     , r.receipt_Date   VD_RCPT_DATE
+     , ps.DUE_DATE VD_RCPT_DUE_DATE
+     , sum(ROUND(A.AMOUNT_APPLIED/ D2.AMOUNT* D.AMOUNT,2)) VD_RCPT_AMT_APPLIED
+     , r.actual_value_date  VD_RCPT_VALUE_DATE
+     , ltrim(gcc.segment4,'0') VD_RCPT_MSN
+	 , r.receipt_Date - ps.DUE_DATE VD_RCPT_DAYS_LATE
+   FROM apps.ar_cash_receipts_all r
+     , AR.AR_PAYMENT_SCHEDULES_ALL ps
+     , apps.ar_receivable_applications_all a
+     , apps.ra_customer_trx_all c
+     , apps.ra_customer_trx_lines_all l
+     , apps.ra_cust_trx_line_gl_dist_all d
+     , apps.ar_customers cu
+     , apps.ra_cust_trx_line_gl_dist_all d2
+     , xla.xla_ae_lines xal
+     , xla.xla_ae_headers xah
+     , xla.xla_events xe
+     , xla.xla_transaction_entities xte
+     , xla_distribution_links lk
+     , GL_CODE_COMBINATIONS gcc
+     , xx_diamond_head_aircraft dh
+  WHERE A.CASH_RECEIPT_ID              = R.CASH_RECEIPT_ID
+   AND D2.ACCOUNT_CLASS                = 'REC'
+   and PS.CUSTOMER_TRX_ID              = C.CUSTOMER_TRX_ID
+   AND gcc.segment4                    = dh.gl_msn (+)
+   AND D2.CUSTOMER_TRX_ID              = C.CUSTOMER_TRX_ID
+   AND C.CUSTOMER_TRX_ID               = A.APPLIED_CUSTOMER_TRX_ID
+   and r.receipt_Date                  = :P_MISS_DATE 
+   AND c.sold_to_customer_id           = cu.customer_id
+   AND l.customer_trx_id               = c.customer_trx_id
+   AND d.customer_trx_line_id          = l.customer_trx_line_Id
+   AND d.account_class                 = 'REV'
+   AND xal.application_id              = xah.application_id
+   AND xal.ae_header_id                = xah.ae_header_id
+   AND xah.application_id              = xe.application_id
+   AND xah.event_id                    = xe.event_id
+   AND xe.application_id               = xte.application_id
+   AND xte.application_id              = 222
+   AND xe.entity_id                    = xte.entity_id
+   AND xte.entity_code                 = 'TRANSACTIONS'
+   AND xte.source_id_int_1             = c.customer_trx_id
+   AND xal.accounting_class_code       = 'REVENUE'
+   AND lk.source_distribution_type (+) = 'RA_CUST_TRX_LINE_GL_DIST_ALL'
+   AND lk.application_id (+)           = 222
+   AND lk.ae_header_id                 = xal.ae_header_id (+)
+   AND lk.ae_line_num                  = xal.ae_line_num (+)
+   AND XAL.CODE_COMBINATION_ID         = GCC.CODE_COMBINATION_ID
+   AND LK.SOURCE_DISTRIBUTION_ID_NUM_1 = D.CUST_TRX_LINE_GL_DIST_ID
+group by r.receipt_Date
+     , ps.DUE_DATE
+     , cu.customer_name
+     , r.actual_value_date
+     , ltrim(gcc.segment4,'0')
+	 , r.receipt_Date - ps.DUE_DATE 
+having sum(ROUND(A.AMOUNT_APPLIED/ D2.AMOUNT* D.AMOUNT,2)) <> 0
+     order by 1,6,2]]>
+</sqlStatement>	 
+<sqlStatement name="Q_MISSED_PAYMENTS"> <!-- Missed Payments -->
+<![CDATA[
+SELECT customer_name MISS_CUSTOMER
+     , risk_counterparty MISS_RISK_CP
+     , due_date MISS_DUE_DATE
+     , msn MISS_MSN
+     , AMT_DUE_REMAINING MISS_AMT_DUE
+     , type MISS_DESCRIPTION
+	 , trx_number MISS_TRX_NUMBER
+        , PORTFOLIO MISS_PORTFOLIO
+   FROM XX_AR_DEBTORS_TEMP
+  WHERE due_date between :P_MISS_DATE2 and  :P_MISS_DATE
+  and request_id = :P_REQUEST_ID
+  and type <> 'ON ACCOUNT'
+  and AMT_DUE_REMAINING > 0
+  order by risk_counterparty, customer_name, msn, type
+]]>
+</sqlStatement>
+<sqlStatement name="Q_ON_ACCOUNT"> <!-- ON Account transactions -->
+<![CDATA[
+SELECT customer_name OA_CUSTOMER
+     , risk_counterparty OA_RISK_CP
+     , due_date OA_DUE_DATE
+     , msn OA_MSN
+     , AMT_DUE_REMAINING OA_AMT_DUE
+     , type OA_DESCRIPTION
+	 , trx_number OA_TRX_NUMBER
+	 , PORTFOLIO OA_PORTFOLIO
+   FROM XX_AR_DEBTORS_TEMP
+  WHERE request_id = :P_REQUEST_ID
+  and type = 'ON ACCOUNT'
+  order by risk_counterparty, customer_name, msn, type
+]]>
+</sqlStatement>
+<sqlStatement name="Q_OUTSTANDING"> <!-- All Outstanding Trx at time of running -->
+<![CDATA[
+ SELECT awdebtors.CUSTOMER_NAME  OUT_CUSTOMER_NAME
+     , awdebtors.TRX_NUMBER      OUT_TRX_NUMBER
+     , awdebtors.CUSTOMER_NUMBER OUT_CUSTOMER_NUMBER
+     , awdebtors.DUE_DATE        OUT_DUE_DATE
+     , to_char(awdebtors.DUE_DATE,'DD-Mon-YYYY')   OUT_DUE_DATE_CHAR
+     , awdebtors.NAME            OUT_NAME
+     , awdebtors.DESCRIPTION     OUT_DESCRIPTION
+     , awdebtors.ORIG            OUT_ORIG
+     , awdebtors.OUTSTAND        OUT_OUTSTAND
+     , awdebtors.ENTITY          OUT_ENTITY
+     , awdebtors.MSN             OUT_MSN
+     , awdebtors.ACCOUNT         OUT_ACCOUNT
+	 , 'https://apps3.awas.com/eBiz/invoices/'||awdebtors.INVOICE_KEY||'.pdf'   OUT_INVOICE_KEY
+	 , awdebtors.portfolio       OUT_PORTFOLIO
+   FROM awdebtors
+   order by 1, 4, 2
+]]>
+</sqlStatement>
+<sqlStatement name="Q_DEBTORS_REP"> <!-- Debtors Report SQL -->
+<![CDATA[
+SELECT CUSTOMER_PROFILE DR_PROFILE
+     , TOP_LEVEL_GROUPING DR_TOP_LEVEL_GROUPING
+     , TOP_LEVEL_SORT DR_TOP_LEVEL_SORT
+     , CREDIT_RATING_GROUP_ORDER DR_CR_GROUPING
+     , CREDIT_RATING_BUCKET DR_CR_BUCKET
+     , AIRCRAFT_PORTFOLIO_ID DR_PORTFOLIO
+     , LESSEE DR_LESSEE
+     , NO_OF_ASSETS DR_NO_OF_ASSETS
+     , NO_OF_ASSETS_ORG DR_NO_OF_ASSETS_ORG
+     , MONTHLY_RENTAL DR_MONTHLY_RENTAL
+     , MONTHLY_RENTAL_ORG DR_MONTHLY_RENTAL_ORG
+     , CASH_SECURITY_HELD DR_CASH_SECURITY_HELD
+     , CASH_SECURITY_HELD_ORG DR_CASH_SECURITY_HELD_ORG
+     , LC DR_LC
+     , LC_ORG DR_LC_ORG
+     , "Mtx Payable" DR_MTX_PAYABLE
+     , "LC in Lieu of Payment" DR_LC_IN_LIEU
+     , "1-7 Days" DR_BUCKET1
+     , "8-30 Days" DR_BUCKET2
+     , "31-60 Days" DR_BUCKET3
+     , "60+ Days" DR_BUCKET4
+     , "Unapplied Cash" DR_UNAPPLIED_CASH
+     , DISPUTE_AMT DR_PAYMENT_PLAN
+     , CURRENT_ARREARS_CALC DR_CURRENT_ARREARS
+     , nvl("mtx",0) DR_MTX
+     , nvl("Rental  -mtx",0) DR_RENTAL_LESS_MTX
+FROM VRPTDEBTORS@basin v
+order by 1, 3, 4,7]]>
+</sqlStatement>
+</dataQuery>
+<dataTrigger name="beforeReportTrigger" source="XX_AR_RISK_DAILY_REP_pkg.before_report"/>
+<dataStructure>
+<group name="G_TOTALS"  source="Q_TOTALS">
+<element name="REPORT_DATE"      	value="MISS_DATE" />
+<element name="DEBTOR_TOTAL"     	value="DEBTOR_TOTAL" />
+<element name="DEBTOR_TOTAL_ABS" 	value="DEBTOR_TOTAL_ABS" />
+<element name="DEBTOR_TOTAL_AWAS"  	value="DEBTOR_TOTAL_AWAS" />
+<element name="PREVIOUS_TOTAL"   	value="PREVIOUS_TOTAL" />
+<element name="TOP_10_TOTAL"     	value="TOP_10_TOTAL"/>
+<element name="RCPTS_TOTAL"      	value="RCPT_TOTAL"/>
+<element name="MISS_TOTAL"       	value="MISS_TOTAL"/>
+<element name="REPORT_URL"       	value="REPORT_URL"/>
+</group>
+<group name="G_TOP_TEN" source="Q_TOP_TEN">
+<element name="TT_BOOK"                   	          value="TT_BOOK"/>
+<element name="TT_COUNTERPARTY"                       value="TT_COUNTERPARTY"/>
+<element name="TT_OVERDUE_AMT"                        value="TT_OVERDUE_AMT"/>
+<element name="TT_PC"                   	          value="TT_PC"/>
+<element name="TT_CURRENT_SITUATION"            	  value="CURRENT_SITUATION"/>
+<element name="TT_CS_ENTERED_DATE"         	          value="CS_ENTERED_DATE"/>
+<element name="TT_CS_CREATED_BY"           	          value="CS_CREATED_BY"/>
+<element name="TT_NEXT_STEPS"              	          value="NEXT_STEPS"/>
+<element name="TT_NS_ENTERED_DATE"         	          value="NS_ENTERED_DATE"/>
+<element name="TT_NS_CREATED_BY"           	          value="NS_CREATED_BY"/>
+</group>
+<group name="G_RISK_RATING" source="Q_RISK_RATING">
+<element name="RR_GROUP"                 value="RR_GROUP"/>
+<element name="RR_OVERDUE_AMT"                 		  value="RR_OVERDUE_AMT"/>
+</group>
+<group name="G_REPO_BANK" source="Q_REPO_BANK">
+<element name="RB_CUSTOMER_NAME"               		  value="RB_CUSTOMER_NAME"/>
+<element name="RB_OVERDUE_AMT"                 		  value="RB_OVERDUE_AMT"/>
+</group>
+<group name="G_DEF_PLAN" source="Q_DEF_PLAN">
+<element name="DEF_CUSTOMER"                          value="DEF_CUSTOMER"/>
+<element name="DEF_OVERDUE_AMT"                		  value="DEF_OVERDUE_AMT"/>
+</group>
+<group name="G_RCPTS" source="Q_RCPTS">
+<element name="RCPT_CUSTOMER_NAME"                    value="RCPT_CUSTOMER_NAME"/>
+<element name="RCPT_DATE"                   		  value="RCPT_DATE"/>
+<element name="RCPT_VALUE_DATE"                		  value="RCPT_VALUE_DATE"/>
+<element name="RCPT_DUE_DATE"                    	  value="RCPT_DUE_DATE"/>
+<element name="RCPT_AMT_APPLIED"               		  value="RCPT_AMT_APPLIED"/>
+<element name="RCPT_MSN"                        	  value="RCPT_MSN"/>
+<element name="RCPT_DAYS_LATE"                        value="RCPT_DAYS_LATE"/>
+<element name="RCPT_NUMBER"                           value="RCPT_NUMBER"/>
+<element name="RCPT_TRX_DATE"                         value="RCPT_TRX_DATE"/>
+<element name="RCPT_TRX_NUMBER"                       value="RCPT_TRX_NUMBER"/>
+<element name="RCPT_PORTFOLIO"                        value="RCPT_PORTFOLIO"/>
+</group>
+<group name="G_VD_RCPTS" source="Q_VD_RCPTS">
+<element name="VD_RCPT_CUSTOMER_NAME"                     value="VD_RCPT_CUSTOMER_NAME"/>
+<element name="VD_RCPT_DATE"                   		      value="VD_RCPT_DATE"/>
+<element name="VD_RCPT_VALUE_DATE"                		  value="VD_RCPT_VALUE_DATE"/>
+<element name="VD_RCPT_DUE_DATE"                    	  value="VD_RCPT_DUE_DATE"/>
+<element name="VD_RCPT_AMT_APPLIED"               		  value="VD_RCPT_AMT_APPLIED"/>
+<element name="VD_RCPT_MSN"                        	  	  value="VD_RCPT_MSN"/>
+<element name="VD_RCPT_DAYS_LATE"                         value="VD_RCPT_DAYS_LATE"/>
+</group>
+<group name="G_MISSED_PAYMENTS" source="Q_MISSED_PAYMENTS">
+<element name="MISS_CUSTOMER"							value="MISS_CUSTOMER"/>
+<element name="MISS_RISK_CP"							value="MISS_RISK_CP"/>
+<element name="MISS_DUE_DATE"							value="MISS_DUE_DATE"/>
+<element name="MISS_MSN"								value="MISS_MSN"/>
+<element name="MISS_AMT_DUE"							value="MISS_AMT_DUE"/>
+<element name="MISS_DESCRIPTION"						value="MISS_DESCRIPTION"/>
+<element name="MISS_TRX_NUMBER"  						value="MISS_TRX_NUMBER"/>
+<element name="MISS_PORTFOLIO"  						value="MISS_PORTFOLIO"/>
+</group>
+<group name="G_ON_ACCOUNT" source="Q_ON_ACCOUNT">
+<element name="OA_CUSTOMER"							    value="OA_CUSTOMER"/>
+<element name="OA_RISK_CP"								value="OA_RISK_CP"/>
+<element name="OA_DUE_DATE"								value="OA_DUE_DATE"/>
+<element name="OA_MSN"									value="OA_MSN"/>
+<element name="OA_AMT_DUE"								value="OA_AMT_DUE"/>
+<element name="OA_DESCRIPTION"							value="OA_DESCRIPTION"/>
+<element name="OA_TRX_NUMBER"  							value="OA_TRX_NUMBER"/>
+<element name="OA_PORTFOLIO"  							value="OA_PORTFOLIO"/>
+</group>
+<group name="G_OUTSTANDING" source="Q_OUTSTANDING">
+<element name="OUT_ACCOUNT"							    value="OUT_ACCOUNT"/>
+<element name="OUT_CUSTOMER_NAME"						value="OUT_CUSTOMER_NAME"/>
+<element name="OUT_CUSTOMER_NUMBER"					value="OUT_CUSTOMER_NUMBER"/>
+<element name="OUT_DESCRIPTION"							value="OUT_DESCRIPTION"/>
+<element name="OUT_DUE_DATE"			    			value="OUT_DUE_DATE"/>
+<element name="OUT_DUE_DATE_CHAR"           value="OUT_DUE_DATE_CHAR"/>
+<element name="OUT_ENTITY"						  		value="OUT_ENTITY"/>
+<element name="OUT_MSN"  								    value="OUT_MSN"/>
+<element name="OUT_NAME"  								  value="OUT_NAME"/>
+<element name="OUT_ORIG"  								  value="OUT_ORIG"/>
+<element name="OUT_OUTSTAND"  							value="OUT_OUTSTAND"/>
+<element name="OUT_TRX_NUMBER"  						value="OUT_TRX_NUMBER"/>
+<element name="OUT_INVOICE_KEY"  						value="OUT_INVOICE_KEY"/>
+<element name="OUT_PORTFOLIO"   						value="OUT_PORTFOLIO"/>
+</group>
+<group name="G_DEBTORS_REP_PROF" source="Q_DEBTORS_REP">
+<element name="DR_PROFILE"							    value="DR_PROFILE"/>
+	<group name="G_DEBTORS_REP_LVL1" source="Q_DEBTORS_REP">
+	<element name="DR_TOP_LEVEL_GROUPING"					value="DR_TOP_LEVEL_GROUPING"/>
+	<element name="DR_TOP_LEVEL_SORT"						value="DR_TOP_LEVEL_SORT"/>
+		<group name="G_DEBTORS_REP_LVL2" source="Q_DEBTORS_REP">
+		<element name="DR_CR_GROUPING"							value="DR_CR_GROUPING"/>
+		<element name="DR_CR_BUCKET"							value="DR_CR_BUCKET"/>
+			<group name="G_DEBTORS_REP_DETAIL" source="Q_DEBTORS_REP">
+			<element name="DR_PORTFOLIO"							value="DR_PORTFOLIO"/>
+			<element name="DR_LESSEE"  								value="DR_LESSEE"/>
+			<element name="DR_NO_OF_ASSETS"  						value="DR_NO_OF_ASSETS"/>
+			<element name="DR_NO_OF_ASSETS_ORG"						value="DR_NO_OF_ASSETS_ORG"/>
+			<element name="DR_MONTHLY_RENTAL"  						value="DR_MONTHLY_RENTAL"/>
+			<element name="DR_MONTHLY_RENTAL_ORG"					value="DR_MONTHLY_RENTAL_ORG"/>
+			<element name="DR_CASH_SECURITY_HELD" 					value="DR_CASH_SECURITY_HELD_ORG"/>
+			<element name="DR_LC"			  						value="DR_LC"/>
+			<element name="DR_LC_ORG"   							value="DR_LC_ORG"/>
+			<element name="DR_MTX_PAYABLE"   						value="DR_MTX_PAYABLE"/>
+			<element name="DR_LC_IN_LIEU"  							value="DR_LC_IN_LIEU"/>
+			<element name="DR_BUCKET1"   							value="DR_BUCKET1"/>
+			<element name="DR_BUCKET2"   							value="DR_BUCKET2"/>
+			<element name="DR_BUCKET3"   							value="DR_BUCKET3"/>
+			<element name="DR_BUCKET4"   							value="DR_BUCKET4"/>
+			<element name="DR_UNAPPLIED_CASH"						value="DR_UNAPPLIED_CASH"/>
+			<element name="DR_PAYMENT_PLAN"							value="DR_PAYMENT_PLAN"/>
+			<element name="DR_CURRENT_ARREARS"						value="DR_CURRENT_ARREARS"/>
+			<element name="DR_MTX"									value="DR_MTX"/>
+			<element name="DR_RENTAL_LESS_MTX"						value="DR_RENTAL_LESS_MTX"/>
+			</group>
+		</group>
+	</group>
+</group>
+</dataStructure>
+</dataTemplate>

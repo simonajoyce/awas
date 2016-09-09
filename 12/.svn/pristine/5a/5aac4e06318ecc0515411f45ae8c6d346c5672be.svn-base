@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/icx/por/rcv/webui/IcxPorRcvHomePG" MDSActiveDoc="true" xmlns:oa="http://xmlns.oracle.com/oa" file-version="$Header: IcxPorRcvHomePG.xml 120.0.12000000.1 2007/10/24 18:16:50 rallamse noship $" package="/oracle/apps/icx/por/rcv/webui/customizations/function/IL_IPROC_PERSONALIZATION">
+   <modifications>
+      <move element="ItemDescription" after="ReceiptNum"/>
+      <move element="ReceiptDate" after="ItemDescription"/>
+      <move element="TansactionDate" after="ReceiptDate"/>
+      <move element="ReceiptsSupplier" after="TansactionDate"/>
+      <move element="ViewDetailImage" after="ReceiptsSupplier"/>
+      <insert after="ViewDetailImage">
+         <oa:image id="SetupIL" adminCustomizable="true" cellNoWrapFormat="false" dataType="VARCHAR2" destination="OA.jsp?page=/oracle/apps/ja/receipt/webui/ReceiptTaxesPG&amp;receiptPGSource=HOME&amp;receiptNum={!ReceiptNum}&amp;receiptTransactionId={!RcvTransactionId}&amp;retainLineNo=N&amp;OAFunc=IL_IPROC_PERSONALIZATION" initSortSeq="none" prompt="View / Update IL Tax" rendered="true" scope="." serverUnvalidated="false" sortState="no" source="expressreceive_enabled.gif" userCustomizable="false" warnAboutChanges="true" xmlns:oa="http://xmlns.oracle.com/oa"/>
+      </insert>
+      <modify element="PageLayoutRN" controllerClass="oracle.apps.ja.receipt.webui.ILRcvHomeCO"/>
+      <modify element="ReturnItemsLink1" destination="OA.jsp?OAFunc=IL_ICXPOR_RTN_SRCH_PAGE&amp;porOrigin=IL_ICXPOR_RCV_HOME_PAGE"/>
+      <modify element="ReturnItemsLink2" destination="OA.jsp?OAFunc=IL_ICXPOR_RTN_SRCH_PAGE&amp;porOrigin=IL_ICXPOR_RCV_HOME_PAGE"/>
+      <modify element="CorrectReceiptsLink2" destination="OA.jsp?OAFunc=IL_ICXPOR_CRR_SRCH_PAGE&amp;porOrigin=IL_ICXPOR_RCV_HOME_PAGE&amp;addBreadCrumb=RS"/>
+      <modify element="ViewReceiptsLink2" destination="OA.jsp?OAFunc=IL_ICXPOR_VRCPT_SRCH_PAGE&amp;porOrigin=IL_ICXPOR_RCV_HOME_PAGE&amp;addBreadCrumb=RS"/>
+      <modify element="ReceiptsFullListButton" destination="OA.jsp?OAFunc=IL_ICXPOR_VRCPT_SRCH_PAGE&amp;porOrigin=IL_ICXPOR_RCV_HOME_PAGE&amp;addBreadCrumb=RS"/>
+      <modify element="ReceiveItemsLink1" destination="OA.jsp?OAFunc=IL_ICXPOR_RCV_SRCH_PAGE&amp;porOrigin=IL_ICXPOR_RCV_HOME_PAGE"/>
+      <modify element="CorrectReceiptsLink1" destination="OA.jsp?OAFunc=IL_ICXPOR_CRR_SRCH_PAGE&amp;porOrigin=IL_ICXPOR_RCV_HOME_PAGE&amp;addBreadCrumb=RS"/>
+      <modify element="ViewReceiptsLink1" destination="OA.jsp?OAFunc=IL_ICXPOR_VRCPT_SRCH_PAGE&amp;porOrigin=IL_ICXPOR_RCV_HOME_PAGE&amp;addBreadCrumb=RS"/>
+   </modifications>
+</customization>

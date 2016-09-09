@@ -1,0 +1,10 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.89_562" xml:lang="en-US" customizes="/oracle/apps/icx/por/changeorder/webui/IcxPorChoPG" xmlns:oa="http://xmlns.oracle.com/oa">
+   <modifications>
+      <move element="Spacer3" after="NonUpdatableCurUnitPrice"/>
+      <move element="NonUpdatableCurrencyCode" after="Spacer3"/>
+      <insert after="NonUpdatableCurrencyCode">
+         <oa:messageTextInput id="AWAS_PRICE" adminCustomizable="true" cellNoWrapFormat="false" columns="8" dataType="NUMBER" disabled="false" initSortSeq="none" queryable="false" readOnly="false" rendered="true" required="no" rows="1" scope="." secret="false" selectiveSearchCriteria="false" serverUnvalidated="false" sortState="no" tipType="none" totalValue="false" userCustomizable="false" vAlign="middle" viewAttr="CurrencyUnitPrice" viewName="ChangeOrderLinesVO" warnAboutChanges="true" xmlns:oa="http://xmlns.oracle.com/oa"/>
+      </insert>
+   </modifications>
+</customization>

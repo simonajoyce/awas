@@ -1,0 +1,6 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_19" xml:lang="en-US" customizes="/oracle/apps/ar/hz/components/party/organization/webui/HzPuiOrgProfileInfoComponent" developerMode="true" file-version="$Header: HzPuiOrgProfileInfoComponent.xml 120.0 2006/06/17 05:35:05 sshi noship $" package="/oracle/apps/ar/hz/components/party/organization/webui/customizations/function/AR_CUS_OVR">
+   <modifications>
+      <modify element="orgCustCat" rendered="true"/>
+   </modifications>
+</customization>

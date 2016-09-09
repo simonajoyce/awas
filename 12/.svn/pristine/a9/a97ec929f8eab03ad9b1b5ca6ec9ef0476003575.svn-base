@@ -1,0 +1,10 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_19" xml:lang="en-US" customizes="/oracle/apps/fnd/wf/worklist/webui/AdvancWorklistRG" developerMode="true" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: AdvancWorklistRG.xml 120.0 2006/06/21 10:45:44 ashikuma noship $" package="/oracle/apps/fnd/wf/worklist/webui/customizations/function/FUN_USER_HOME_PAGE">
+   <modifications>
+      <modify element="NtfWorklist">
+         <queryCriteria>
+            <criterion element="NtfType" operator="contain" operand="Intercompany" joinCondition="and"/>
+         </queryCriteria>
+      </modify>
+   </modifications>
+</customization>

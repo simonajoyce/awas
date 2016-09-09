@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/per/irc/vacancy/webui/RectrDetsSWRN" developerMode="true" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: RectrDetsSWRN.xml 115.3 2003/04/10 09:22:18 mmillmor noship $" version="9.0.3.6.2_398" xml:lang="en-US" package="/oracle/apps/per/customizations/function/IRC_VIS_VAC_DISPLAY/irc/vacancy/webui">
+   <modifications>
+      <modify element="IrcFlexField3" rendered="false"/>
+      <modify element="IrcFlexField2" rendered="false"/>
+      <modify element="IrcFlexField1" rendered="false"/>
+      <modify element="FndWorkTelephone" rendered="true"/>
+      <modify element="FndRecruiterName" rendered="true"/>
+      <modify element="FndEmail" rendered="true"/>
+      <move element="FndEmail" after="FndRecruiterName"/>
+      <move element="FndWorkTelephone" after="FndEmail"/>
+      <move element="IrcFlexField1" after="FndWorkTelephone"/>
+      <move element="IrcFlexField2" after="IrcFlexField1"/>
+      <move element="IrcFlexField3" after="IrcFlexField2"/>
+   </modifications>
+</customization>

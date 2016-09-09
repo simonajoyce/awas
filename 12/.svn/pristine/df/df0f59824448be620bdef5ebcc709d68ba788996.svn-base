@@ -1,0 +1,360 @@
+<?xml version='1.0' encoding='windows-1252' ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+
+<ViewObject
+   Name="xxInvoicesVO"
+   Extends="oracle.apps.icx.por.reqmgmt.server.InvoicesVO"
+   BindingStyle="Oracle"
+   CustomQuery="true"
+   RowClass="xx.oracle.apps.icx.por.reqmgmt.server.xxInvoicesVORowImpl"
+   ComponentClass="xx.oracle.apps.icx.por.reqmgmt.server.xxInvoicesVOImpl"
+   UseGlueCode="false" >
+   <SQLQuery><![CDATA[
+SELECT
+MAX(AI.INVOICE_NUM),
+MAX(AI.DESCRIPTION),
+MAX(AI.CREATION_DATE) CREATION_DATE,
+MAX(AI.INVOICE_DATE),
+MAX(AI.PAYMENT_STATUS_FLAG) PAYMENT_STATUS_FLAG,
+POS_AP_INVOICES_PKG.GET_ON_HOLD_STATUS(AI.INVOICE_ID) ON_HOLD_STATUS,
+MAX(DECODE(AI.INVOICE_CURRENCY_CODE,GLSOB.CURRENCY_CODE,AI.INVOICE_AMOUNT,AP_UTILITIES_PKG.AP_ROUND_CURRENCY((AI.INVOICE_AMOUNT * NVL(AI.EXCHANGE_RATE,1)),GLSOB.CURRENCY_CODE))) INVOICE_AMOUNT,
+MAX(AI.INVOICE_CURRENCY_CODE) INVOICE_CURRENCY_CODE,
+MAX(AI.ORG_ID),
+MAX(HOU.NAME),
+DECODE(POS_AP_INVOICES_PKG.GET_ON_HOLD_STATUS(AI.INVOICE_ID), NULL, 'HIDEDETAIL', 'SHOWDETAIL') DETAIL_SWITCHER,
+AI.INVOICE_ID,
+MAX(APS.DUE_DATE) DUE_DATE,
+MAX(DECODE(AI.PAYMENT_CURRENCY_CODE,GLSOB.CURRENCY_CODE,APS.AMOUNT_REMAINING,AP_UTILITIES_PKG.AP_ROUND_CURRENCY((APS.AMOUNT_REMAINING * NVL(AI.EXCHANGE_RATE,1)),GLSOB.CURRENCY_CODE))) AMOUNT_REMAINING,
+MAX(AI.PAYMENT_METHOD_CODE) AS PAYMENT_METHOD_LOOKUP_CODE,
+MAX(AI.INVOICE_AMOUNT) CURRENCY_INVOICE_AMOUNT,
+MAX(APS.AMOUNT_REMAINING) CURRENCY_AMOUNT_REMAINING,
+MAX(xx_por_imscan_url(ai.invoice_id)) IMSCAN_URL
+FROM
+AP_INVOICES_ALL AI,
+AP_PAYMENT_SCHEDULES_ALL APS,
+HR_ALL_ORGANIZATION_UNITS_TL HOU,
+GL_SETS_OF_BOOKS GLSOB
+WHERE AI.INVOICE_ID IN
+(SELECT AIL.INVOICE_ID
+FROM AP_INVOICE_LINES_ALL AIL, PO_LINE_LOCATIONS_ALL PLL WHERE PLL.line_location_id = :1
+AND PLL.LINE_LOCATION_ID = AIL.PO_LINE_LOCATION_ID
+AND PLL.PAYMENT_TYPE IS NULL)
+AND   AI.INVOICE_ID = APS.INVOICE_ID
+AND   AI.ORG_ID = HOU.ORGANIZATION_ID (+)
+AND   HOU.LANGUAGE(+) = :2
+AND   GLSOB.SET_OF_BOOKS_ID = AI.SET_OF_BOOKS_ID
+GROUP BY AI.INVOICE_ID
+   ]]></SQLQuery>
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_isExpertMode" Value="true" />
+      <Attr Name="_version" Value="10.1.3.41.57" />
+      <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess" />
+   </DesignTime>
+   <ViewAttribute
+      Name="InvoiceNum"
+      IsQueriable="false"
+      IsPersistent="false"
+      IsNotNull="true"
+      Precision="50"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="INVOICE_NUM"
+      Expression="INVOICE_NUM"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_OverrideAttr" Value="true" />
+         <Attr Name="_DisplaySize" Value="50" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Description"
+      IsQueriable="false"
+      IsPersistent="false"
+      Precision="240"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="DESCRIPTION"
+      Expression="DESCRIPTION"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_OverrideAttr" Value="true" />
+         <Attr Name="_DisplaySize" Value="240" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CreationDate"
+      IsQueriable="false"
+      IsPersistent="false"
+      Precision="255"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="VARCHAR2"
+      AliasName="CREATION_DATE"
+      Expression="CREATION_DATE"
+      SQLType="DATE" >
+      <DesignTime>
+         <Attr Name="_OverrideAttr" Value="true" />
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="InvoiceDate"
+      IsQueriable="false"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="VARCHAR2"
+      AliasName="INVOICE_DATE"
+      Expression="INVOICE_DATE"
+      SQLType="DATE" >
+      <DesignTime>
+         <Attr Name="_OverrideAttr" Value="true" />
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="PaymentStatusFlag"
+      IsQueriable="false"
+      IsPersistent="false"
+      Precision="1"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="PAYMENT_STATUS_FLAG"
+      Expression="PAYMENT_STATUS_FLAG"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_OverrideAttr" Value="true" />
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="OnHoldStatus"
+      IsQueriable="false"
+      IsPersistent="false"
+      Precision="4000"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="ON_HOLD_STATUS"
+      Expression="ON_HOLD_STATUS"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_OverrideAttr" Value="true" />
+         <Attr Name="_DisplaySize" Value="4000" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="InvoiceAmount"
+      IsQueriable="false"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="INVOICE_AMOUNT"
+      Expression="INVOICE_AMOUNT"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_OverrideAttr" Value="true" />
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="InvoiceCurrencyCode"
+      IsQueriable="false"
+      IsPersistent="false"
+      IsNotNull="true"
+      Precision="15"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="INVOICE_CURRENCY_CODE"
+      Expression="INVOICE_CURRENCY_CODE"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_OverrideAttr" Value="true" />
+         <Attr Name="_DisplaySize" Value="15" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="OrgId"
+      IsQueriable="false"
+      IsPersistent="false"
+      Precision="15"
+      Scale="0"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="VARCHAR2"
+      AliasName="ORG_ID"
+      Expression="ORG_ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_OverrideAttr" Value="true" />
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Name"
+      IsQueriable="false"
+      IsPersistent="false"
+      Precision="240"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="NAME"
+      Expression="NAME"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_OverrideAttr" Value="true" />
+         <Attr Name="_DisplaySize" Value="240" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DetailSwitcher"
+      IsQueriable="false"
+      IsPersistent="false"
+      Precision="10"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="DETAIL_SWITCHER"
+      Expression="DETAIL_SWITCHER"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_OverrideAttr" Value="true" />
+         <Attr Name="_DisplaySize" Value="10" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="InvoiceId"
+      IsQueriable="false"
+      IsPersistent="false"
+      IsNotNull="true"
+      Precision="15"
+      Scale="0"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="VARCHAR2"
+      AliasName="INVOICE_ID"
+      Expression="INVOICE_ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_OverrideAttr" Value="true" />
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="NLSCreationDate"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Precision="255"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="NLSCREATION_DATE"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_OverrideAttr" Value="true" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="NLSDueDate"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Precision="255"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="NLSDUE_DATE"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_OverrideAttr" Value="true" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DueDate"
+      IsPersistent="false"
+      Precision="255"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="VARCHAR2"
+      AliasName="DueDate"
+      Expression="DueDate"
+      SQLType="DATE" >
+      <DesignTime>
+         <Attr Name="_OverrideAttr" Value="true" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="AmountRemaining"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="AMOUNT_REMAINING"
+      Expression="AMOUNT_REMAINING"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_OverrideAttr" Value="true" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="PaymentMethodLookupCode"
+      IsPersistent="false"
+      Precision="255"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="PAYMENT_METHOD_LOOKUP_CODE"
+      Expression="NULL"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_OverrideAttr" Value="true" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="PaymentStatus"
+      IsPersistent="false"
+      Precision="255"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="VIEW_ATTR"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_OverrideAttr" Value="true" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="PaymentMethod"
+      IsPersistent="false"
+      Precision="255"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="VIEW_ATTR"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_OverrideAttr" Value="true" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CurrencyInvoiceAmount"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="CURRENCY_INVOICE_AMOUNT"
+      Expression="CURRENCY_INVOICE_AMOUNT"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_OverrideAttr" Value="true" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CurrencyAmountRemaining"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="CURRENCY_AMOUNT_REMAINING"
+      Expression="CURRENCY_AMOUNT_REMAINING"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_OverrideAttr" Value="true" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="IMSCAN_URL"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Precision="255"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="IMSCAN_URL"
+      Expression=""
+      SQLType="VARCHAR" >
+   </ViewAttribute>
+</ViewObject>

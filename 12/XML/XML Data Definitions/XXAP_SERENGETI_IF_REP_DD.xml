@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- $Header: XXAP_SERENGETI_IF_REP_DD.xml 2016/06/08 12:56:20 sjoyce noship $-->
+<dataTemplate name="XXAP_SERENGETI_IF_REP_DD" defaultPackage="XXAP_SERENGETI_IF_REP_PKG" version="1.0">
+<properties>
+<property name="debug_mode" value="on" />
+<property name="xml_tag_case" value="upper" />
+<property name="include_parameters" value="true" />
+</properties>
+<parameters>
+<parameter name="P_REQUEST_ID" dataType = "NUMBER"></parameter>
+</parameters> 
+<dataQuery>
+<sqlStatement name="Q_EMAIL">
+  <![CDATA[
+  SELECT email_address EMAIL
+  from fnd_user where user_id = FND_PROFILE.VALUE ( 'USER_ID' )
+  ]]>
+</sqlStatement>
+<sqlStatement name="Q_MAIN">
+<![CDATA[
+  SELECT            b.batch_id BATCH_ID
+                   , b.filename FILENAME
+                   , b.batch_date BATCH_DATE
+                   , b.created_by_name BATCH_CREATED_BY
+                   , b.status BATCH_STATUS
+                   , h.vendor_name INVOICE_VENDOR
+                   , h.vendor_site_id INVOICE_SITE_ID
+                   , h.invoice_number INVOICE_NUM
+                   , h.invoice_date INVOICE_DATE
+                   , h.invoice_currency INVOICE_CURR
+                   , h.invoice_amount INVOICE_AMT
+                   , h.invoice_id INVOICE_ID
+                   , h.status INVOICE_STATUS
+                   , l.entity
+                     ||'.'
+                     ||l.account
+                     ||'.'
+                     ||l.cost_centre
+                     ||'.'
+                     ||l.msn
+                     ||'.'
+                     ||nvl(l.leasee,'000')
+                     ||'.'
+                     ||l.entity
+                     ||'.0000' GL_STRING
+                   , l.amount  LINE_AMOUNT
+                   , l.net_amount  LINE_NET_AMOUNT
+                   , l.description LINE_DESCRIPTION
+                   , l.status  LINE_STATUS
+                   , 'https://tracker.serengetilaw.com/tracker/InvoiceInfo?id='||h.invoice_id INV_DOC_PATH
+                FROM xx_ap_invoice_header_if h
+                ,    xx_ap_invoice_batch_if b
+                ,    xx_ap_invoice_lines_if l
+                WHERE h.request_id = b.request_id
+                AND h.batch_id    = b.batch_id
+                and l.request_id  = h.request_id
+                AND l.invoice_id  = h.invoice_id
+                and b.request_id  = :p_request_id]]>
+</sqlStatement>
+</dataQuery>
+<!--
+<dataTrigger name="beforeReportTrigger" source="XXAP_SERENGETI_RF_DD_PKG.before_report"/>
+-->
+<dataStructure>
+<group name="G_EMAIL" source="Q_EMAIL">
+<element name="EMAIL"                               value="EMAIL"/>  
+    <group name="G_BATCH" source="Q_MAIN">
+      <element name="BATCH_ID"                      value="BATCH_ID"/>
+      <element name="FILENAME"                        value="FILENAME"/>
+      <element name="BATCH_DATE"                    value="BATCH_DATE"/>
+      <element name="BATCH_CREATED_BY"                           value="BATCH_CREATED_BY"/>
+      <element name="BATCH_STATUS"                        value="BATCH_STATUS"/>
+      <group name="G_INVOICE" source="Q_MAIN">
+        <element name="INVOICE_VENDOR"               value="INVOICE_VENDOR"/>
+        <element name="INVOICE_SITE_ID"                      value="INVOICE_SITE_ID"/>
+        <element name="INVOICE_NUM"                      value="INVOICE_NUM"/>
+        <element name="INVOICE_DATE"                    value="INVOICE_DATE"/>
+        <element name="INVOICE_CURR"                    value="INVOICE_CURR"/>
+        <element name="INVOICE_AMT"                    value="INVOICE_AMT"/>
+        <element name="INVOICE_STATUS"                    value="INVOICE_STATUS"/>
+        <element name="INV_DOC_PATH"                      value="INV_DOC_PATH"/>
+        <group name="G_LINES" source="Q_MAIN">
+          <element name="GL_STRING"                    value="GL_STRING"/>
+          <element name="LINE_AMOUNT"                    value="LINE_AMOUNT"/>
+          <element name="LINE_NET_AMOUNT"                    value="LINE_NET_AMOUNT"/>
+          <element name="LINE_STATUS"                    value="LINE_STATUS"/>
+          <element name="LINE_DESCRIPTION"                    value="LINE_DESCRIPTION"/>
+        </group>
+      </group>
+    </group>
+</group>
+</dataStructure>
+<dataTrigger name="afterReportTrigger" source="XXAP_SERENGETI_IF_REP_PKG.email_report"/> 
+</dataTemplate>

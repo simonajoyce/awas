@@ -1,0 +1,15 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.6.5_471" xml:lang="en-US" customizes="/oracle/apps/ar/hz/components/contactpoints/webui/HzPuiContactPointPhoneTable" developerMode="false" file-version="$Header: HzPuiContactPointPhoneTable.xml 115.1 2004/01/09 07:44:55 mkatraga noship $" package="/oracle/apps/ar/hz/components/contactpoints/webui/customizations/function/ASN_ORGVIEWPG">
+   <modifications>
+      <modify element="HzPuiContactPointPhoneTableLayout" blockSize="10"/>
+      <move element="PhoneLineTypeMeaning" after="Usage"/>
+      <move element="FormattedPhoneNumber" after="PhoneLineTypeMeaning"/>
+      <move element="TimeZone" after="FormattedPhoneNumber"/>
+      <move element="PrimarySwitcher" after="TimeZone"/>
+      <move element="UpdateSwitcher" after="PrimarySwitcher"/>
+      <move element="DeleteSwitcher" after="UpdateSwitcher"/>
+      <move element="Status" after="DeleteSwitcher"/>
+      <modify element="Usage" rendered="false"/>
+      <modify element="FormattedPhoneNumber" prompt="Phone Number"/>
+   </modifications>
+</customization>

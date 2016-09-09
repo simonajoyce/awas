@@ -1,0 +1,9 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.89_562" xml:lang="en-US" customizes="/oracle/apps/icx/por/changeorder/webui/IcxPorChoPG" xmlns:user="http://xmlns.oracle.com/jrad/user" user:responsibilityKey="tam_self_service_purchasing_5" user:responsibilityAppId="178" user:responsibilityAppShortName="ICX">
+   <modifications>
+      <move element="Spacer3" after="NonUpdatableCurUnitPrice"/>
+      <move element="AWAS_PRICE" before="Spacer3"/>
+      <move element="NonUpdatableCurrencyCode" after="Spacer3"/>
+      <modify element="NonUpdatableCurUnitPrice" rendered="false"/>
+   </modifications>
+</customization>

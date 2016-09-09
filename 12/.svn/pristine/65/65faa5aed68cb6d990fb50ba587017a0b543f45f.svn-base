@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.13_413" xml:lang="en-US" customizes="/oracle/apps/per/selfservice/personalinformation/webui/PhoneNumbersPG" developerMode="true" file-version="$Header: PhoneNumbersPG.xml 115.3 2004/06/15 07:11:03 lakrish noship $" package="/oracle/apps/per/selfservice/personalinformation/webui/customizations/function/BEN_COBRA_REG_WF">
+   <modifications>
+      <modify element="HrQuaDummyTextSs" tipMessageName=""/>
+      <modify element="HrPhoneWorkSpaceSs" messageName=""/>
+      <modify element="HrPhoneText" messageName="HR_INST_PHONE_FORM_REG"/>
+      <move element="REQUIREDREGION" after="HrPhoneText"/>
+      <move element="HrQuaDummyTextSs" after="REQUIREDREGION"/>
+      <move element="HrPhoneWorkSpaceSs" after="HrQuaDummyTextSs"/>
+      <move element="HrPhoneHidden" after="HrPhoneWorkSpaceSs"/>
+      <move element="_SSHRFORMEVENT" after="HrPhoneHidden"/>
+      <move element="BenPhonePrompt" after="_SSHRFORMEVENT"/>
+   </modifications>
+</customization>

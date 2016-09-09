@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xapi:requestset xmlns:xapi="http://xmlns.oracle.com/oxp/xapi">
+    <xapi:globalData location="stream"/>
+<!--AWCECASHREP Bursting Template, this delivers the report by email to the person submitting the report -->
+    <xapi:request select="/AWCECASHREP/LIST_G_EMAIL/G_EMAIL">
+        <xapi:delivery>
+            <xapi:email server="DUBMMA01" server-alias="" proxy=""
+                port="25" from="oracle@awas.com" reply-to="oracle@awas.com">
+                <xapi:message id="555" to="${EMAIL}" cc="" bcc=""
+                    attachment="true" subject="AWAS Cash Report">Please find attached AWAS Cash report.
+</xapi:message>
+                <xapi:authentication username="awas" password="awas_175"/>
+            </xapi:email>
+        </xapi:delivery>
+        <xapi:document key="${EMAIL}"
+            output-type="excel" delivery="555">
+            <xapi:template type="rtf"
+                location="/u01/app/oracle/apps/apps_st/appl/awcust/12.0.0/reports/US/Cash_Report_PDF_V2.rtf" filter=""/>
+        </xapi:document>
+    </xapi:request>
+</xapi:requestset>

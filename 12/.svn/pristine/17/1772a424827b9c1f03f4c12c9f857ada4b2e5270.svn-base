@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<page xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui" version="10.1.3_1312" xml:lang="en-US" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$">
+   <content>
+      <oa:pageLayout id="MainRN" windowTitle="Invoice Viewer" controllerClass="oracle.apps.awcust.ar.reports.webui.ARInvoiceOnlineCO" amDefName="oracle.apps.awcust.ar.reports.server.ARInvoiceOnlineAM" securityMode="selfSecured" rendered="${oa.FunctionSecurity.AWAS_AR_INVOICE_ONLINE}">
+         <ui:corporateBranding>
+            <oa:image id="corporateBrandingImage" source="/OA_MEDIA/FNDSSCORP.gif"/>
+         </ui:corporateBranding>
+         <ui:contents>
+            <oa:header id="SearchRN">
+               <ui:contents>
+                  <oa:messageComponentLayout id="MesCompLay">
+                     <ui:contents>
+                        <oa:messageTextInput id="InvoiceNumber" prompt="Invoice Number"/>
+                     </ui:contents>
+                  </oa:messageComponentLayout>
+               </ui:contents>
+            </oa:header>
+            <oa:defaultSingleColumn id="DocRN" extends="/oracle/apps/xdo/oa/common/webui/DocumentViewerRn.MainRegion"/>
+         </ui:contents>
+      </oa:pageLayout>
+   </content>
+</page>

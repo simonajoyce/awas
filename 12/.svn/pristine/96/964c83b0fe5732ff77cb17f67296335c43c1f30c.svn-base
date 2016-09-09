@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xapi:requestset xmlns:xapi="http://xmlns.oracle.com/oxp/xapi">
+    <xapi:globalData location="stream"/>
+    <xapi:request select="/AWAPPAY/LIST_G_BANK_BRANCH_NAME/G_BANK_BRANCH_NAME/LIST_G_PAYMENT_BATCH_NAME/G_PAYMENT_BATCH_NAME/LIST_G_PAYMENT_NUMBER/G_PAYMENT_NUMBER">
+        <XAPI:DELIVERY>
+            <xapi:filesystem id="file1" output="/u01/app/apps/apps_st/appl/awcust/12.0.0/out"/>
+        </xapi:delivery>
+        <xapi:document key="${PAYMENT_NUMBER}" output-type="pdf" delivery="123">
+            <XAPI:TEMPLATE TYPE="rtf"
+                location="/u01/app/apps/apps_st/appl/awcust/12.0.0/reports/US/AWAPPAY_Template_V3.rtf" filter=""/>
+            <xapi:template type="" location="" filter=""/>
+        </xapi:document>
+    </xapi:request>
+    <xapi:request select="/AWAPPAY/LIST_G_BANK_BRANCH_NAME/G_BANK_BRANCH_NAME/LIST_G_PAYMENT_BATCH_NAME/G_PAYMENT_BATCH_NAME/LIST_G_PAYMENT_NUMBER/G_PAYMENT_NUMBER">
+        <xapi:delivery>
+            <xapi:email server="DUBMMA01" server-alias="" proxy=""
+                PORT="25" FROM="oracle@awas.com" REPLY-TO="payables@awas.com">
+                <XAPI:MESSAGE ID="555" TO="simon.joyce@awas.com" CC="" BCC=""
+                    attachment="true" subject="***SIT*** Final Payment Register for Payment Number: ${PAYMENT_NUMBER}.">Please find attached Final Payment Register for payment number ${PAYMENT_NUMBER}
+
+</xapi:message>
+                <xapi:authentication username="awas" password="awas_175"/>
+            </xapi:email>
+        </xapi:delivery>
+        <xapi:document key="${PAYMENT_NUMBER}"
+            output-type="pdf" delivery="555">
+            <XAPI:TEMPLATE TYPE="rtf"
+                location="/u01/app/apps/apps_st/appl/awcust/12.0.0/reports/US/AWAPPAY_Template_V3.rtf" filter=""/>
+        </xapi:document>
+    </XAPI:REQUEST>
+</xapi:requestset>

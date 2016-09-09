@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xapi:requestset xmlns:xapi="http://xmlns.oracle.com/oxp/xapi">
+	<xapi:globalData location="stream"/>
+	<xapi:request select="/AWROLES/LIST_G_APPROVER/G_APPROVER">
+		<xapi:delivery>
+			<xapi:email server="DUBMMA01" server-alias="" proxy=""
+                port="25" from="fiona.taaffe@awas.com" reply-to="aclc@awas.com">
+				<xapi:message id="1" to="${APPROVER_EMAIL}"
+                    cc="${NBA_EMAIL}, fiona.taaffe@awas.com, damien.cormican@awas.com, ric.harrison@awas.com, andy.marshall@awas.com" bcc="simon.joyce@awas.com"
+                    attachment="true" subject="Internal Audit - Access Control List Certification">
+Dear ${APPROVER}
+
+As part of our ongoing audit commitments we are required to complete biannual user access reviews of all AWAS systems. 
+
+The attached document lists all users by role where you have nominated ${NOMINATED_BUSINESS_APPROVER} as the Business Approver. Please print off the document, approve each user and return a scanned and signed version of the document to aclc@awas.com by ${RETURN_DATE}. Information Systems will then modify the user access as indicated and the scanned and signed document will be filed for audit purposes. 
+
+Please note there is a new column in the report, showing the last date that a role was used by the user. Please use this information to gauge whether access to this role is required and should remain or be removed.
+
+More information on ACLC role definitions can be found here:
+https://portal.awas.com/depts/is/Shared%20Documents/Policies/Role%20Definitions%20Policy.pdf
+
+Please don't hesitate to contact me should you have any questions.
+
+Kind regards,
+
+Fiona Taaffe
+Head of IT and Business Improvement
+
+------------------------------------------------------------------------------
+        AWAS Confidential Information - not for distribution externally
+------------------------------------------------------------------------------
+				</xapi:message>
+				<xapi:authentication username="awas" password="awas_175"/>
+			</xapi:email>
+		</xapi:delivery>
+		<xapi:document output="ACLC-${APPROVER}-${NOMINATED_BUSINESS_APPROVER}" key="${APPROVER}-${NOMINATED_BUSINESS_APPROVER}"
+            output-type="pdf" delivery="1">
+			<xapi:template type="rtf"
+                location="xdo://AWCUST.AWROLES.en.00/?getSource=true" filter=""/>
+		</xapi:document>
+	</xapi:request>
+</xapi:requestset>
+

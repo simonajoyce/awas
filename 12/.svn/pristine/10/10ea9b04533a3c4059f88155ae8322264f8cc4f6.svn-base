@@ -1,0 +1,35 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/per/selfservice/personalinformation/webui/ContactsMainPG" developerMode="true" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: ContactsMainPG.xml 115.2 2003/02/13 12:23:30 jcolman noship $" version="9.0.3.6.2_398" xml:lang="en-US" package="/oracle/apps/per/customizations/function/BEN_COBRA_REG_WF/selfservice/personalinformation/webui">
+   <modifications>
+      <modify element="HrSuffix" rendered="false"/>
+      <modify element="HrPrefix" rendered="false"/>
+      <modify element="HrAddContDetDflex" rendered="false"/>
+      <move element="HrTitle" after="HrContactsMainText"/>
+      <move element="HrFirstName" after="HrTitle"/>
+      <move element="HrMiddleName" after="HrFirstName"/>
+      <move element="HrLastName" after="HrMiddleName"/>
+      <move element="HrEmailAddress" after="HrLastName"/>
+      <move element="HrEmergencyContact" after="HrEmailAddress"/>
+      <move element="HrDepOrBenContact" after="HrEmergencyContact"/>
+      <move element="HrPrimaryContact" after="HrDepOrBenContact"/>
+      <move element="HrRelationshipType" after="HrPrimaryContact"/>
+      <move element="HrSuffix" after="HrRelationshipType"/>
+      <move element="HrPrefix" after="HrSuffix"/>
+      <move element="HrAddContDetDflex" after="HrPrefix"/>
+      <modify element="HrPhoneWorkSpaceSs" messageName=""/>
+      <modify element="HrPhoneText" messageName="HR_INST_CONTACTS_PHONE_REG"/>
+      <move element="HrPhoneWorkSpaceSs" after="HrPhoneText"/>
+      <move element="HrPhoneHidden" after="HrPhoneWorkSpaceSs"/>
+      <move element="_SSHRFORMEVENT" after="HrPhoneHidden"/>
+      <modify element="HrAddressText" messageName="hr_inst_contacts_addr_reg"/>
+      <move element="HrAddressText" after="HrSharedResidenceFlag"/>
+      <move element="HrAddressEffctDate" after="HrAddressText"/>
+      <move element="HrAddressCountry" after="HrAddressEffctDate"/>
+      <move element="HrAddressType" after="HrAddressCountry"/>
+      <move element="HrAddressFlex" after="HrAddressType"/>
+      <move element="HrPageRefreshButton" after="HrAddressFlex"/>
+      <move element="HrAddressDelete" after="HrPageRefreshButton"/>
+      <move element="HrAddressHidden" after="HrAddressDelete"/>
+      <move element="HrAddressCountryHidden" after="HrAddressHidden"/>
+   </modifications>
+</customization>

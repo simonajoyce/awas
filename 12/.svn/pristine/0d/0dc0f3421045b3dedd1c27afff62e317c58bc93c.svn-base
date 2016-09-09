@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding='windows-1252'?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+
+<ViewObject
+   Name="awcustPersonDetailsVO"
+   SelectList="awcustPersonDetailsEO.PERSON_ID, 
+       awcustPersonDetailsEO.FIRST_NAME, 
+
+       awcustPersonDetailsEO.LAST_NAME, 
+       awcustPersonDetailsEO.EMAIL, 
+
+       awcustPersonDetailsEO.START_DATE, 
+       awcustPersonDetailsEO.END_DATE, 
+
+       awcustPersonDetailsEO.OFFICE, 
+       awcustPersonDetailsEO.COST_CENTRE, 
+
+       awcustPersonDetailsEO.LINE_MANAGER, 
+       awcustPersonDetailsEO.EXPENSES_APPROVER, 
+
+       awcustPersonDetailsEO.JOB_TITLE, 
+       awcustPersonDetailsEO.EMPLOYEE_TYPE, 
+
+       awcustPersonDetailsEO.PC_TYPE, 
+       awcustPersonDetailsEO.MOBILE_DEVICE, 
+
+       awcustPersonDetailsEO.DESK_LOCATION, 
+       awcustPersonDetailsEO.OTHER_COMMENTS, 
+
+       awcustPersonDetailsEO.LAST_UPDATE_DATE, 
+       awcustPersonDetailsEO.LAST_UPDATE_LOGIN, 
+
+       awcustPersonDetailsEO.LAST_UPDATED_BY, 
+       awcustPersonDetailsEO.CREATION_DATE, 
+
+       awcustPersonDetailsEO.CREATED_BY, 
+       awcustPersonDetailsEO.ROWID, 
+
+       awcustPersonDetailsEO.STATUS, 
+       awcustPersonDetailsEO.PERSON_WITH, 
+
+       awcustPersonDetailsEO.BUSINESS_CARDS, 
+       awcustPersonDetailsEO.APPROVAL_COMMENTS, 
+
+       awcustPersonDetailsEO.DEPARTMENT"
+   FromList="xx_person_details awcustPersonDetailsEO"
+   BindingStyle="Oracle"
+   CustomQuery="false"
+   RowClass="oracle.apps.awcust.awcustPerson.server.awcustPersonDetailsVORowImpl"
+   ComponentClass="oracle.apps.awcust.awcustPerson.server.awcustPersonDetailsVOImpl"
+   MsgBundleClass="oracle.jbo.common.JboResourceBundle"
+   RowInterface="oracle.apps.awcust.awcustPerson.awcustPersonDetailsVORow"
+   FetchMode="FETCH_AS_NEEDED"
+   UseGlueCode="false" >
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_version" Value="9.0.3.13.93" />
+      <Attr Name="_CodeGenFlagNew" Value="36" />
+   </DesignTime>
+   <EntityUsage
+      Name="awcustPersonDetailsEO"
+      Entity="oracle.apps.awcust.awcustPerson.schema.server.awcustPersonDetailsEO" >
+      <DesignTime>
+         <Attr Name="_queryClause" Value="false" />
+      </DesignTime>
+   </EntityUsage>
+   <ViewAttribute
+      Name="PersonId"
+      IsNotNull="true"
+      EntityAttrName="PersonId"
+      EntityUsage="awcustPersonDetailsEO"
+      AliasName="PERSON_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="FirstName"
+      Precision="50"
+      EntityAttrName="FirstName"
+      EntityUsage="awcustPersonDetailsEO"
+      AliasName="FIRST_NAME" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LastName"
+      Precision="50"
+      EntityAttrName="LastName"
+      EntityUsage="awcustPersonDetailsEO"
+      AliasName="LAST_NAME" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Email"
+      Precision="100"
+      EntityAttrName="Email"
+      EntityUsage="awcustPersonDetailsEO"
+      AliasName="EMAIL" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="StartDate"
+      EntityAttrName="StartDate"
+      EntityUsage="awcustPersonDetailsEO"
+      AliasName="START_DATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="EndDate"
+      EntityAttrName="EndDate"
+      EntityUsage="awcustPersonDetailsEO"
+      AliasName="END_DATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Office"
+      Precision="20"
+      EntityAttrName="Office"
+      EntityUsage="awcustPersonDetailsEO"
+      AliasName="OFFICE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CostCentre"
+      EntityAttrName="CostCentre"
+      EntityUsage="awcustPersonDetailsEO"
+      AliasName="COST_CENTRE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LineManager"
+      Precision="100"
+      EntityAttrName="LineManager"
+      EntityUsage="awcustPersonDetailsEO"
+      AliasName="LINE_MANAGER" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ExpensesApprover"
+      Precision="1"
+      EntityAttrName="ExpensesApprover"
+      EntityUsage="awcustPersonDetailsEO"
+      AliasName="EXPENSES_APPROVER" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="JobTitle"
+      Precision="50"
+      EntityAttrName="JobTitle"
+      EntityUsage="awcustPersonDetailsEO"
+      AliasName="JOB_TITLE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="EmployeeType"
+      Precision="10"
+      EntityAttrName="EmployeeType"
+      EntityUsage="awcustPersonDetailsEO"
+      AliasName="EMPLOYEE_TYPE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="PcType"
+      Precision="10"
+      EntityAttrName="PcType"
+      EntityUsage="awcustPersonDetailsEO"
+      AliasName="PC_TYPE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="MobileDevice"
+      Precision="1"
+      EntityAttrName="MobileDevice"
+      EntityUsage="awcustPersonDetailsEO"
+      AliasName="MOBILE_DEVICE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DeskLocation"
+      Precision="100"
+      EntityAttrName="DeskLocation"
+      EntityUsage="awcustPersonDetailsEO"
+      AliasName="DESK_LOCATION" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="OtherComments"
+      Precision="250"
+      EntityAttrName="OtherComments"
+      EntityUsage="awcustPersonDetailsEO"
+      AliasName="OTHER_COMMENTS" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LastUpdateDate"
+      EntityAttrName="LastUpdateDate"
+      EntityUsage="awcustPersonDetailsEO"
+      AliasName="LAST_UPDATE_DATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LastUpdateLogin"
+      Precision="38"
+      Scale="0"
+      EntityAttrName="LastUpdateLogin"
+      EntityUsage="awcustPersonDetailsEO"
+      AliasName="LAST_UPDATE_LOGIN" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LastUpdatedBy"
+      Precision="38"
+      Scale="0"
+      EntityAttrName="LastUpdatedBy"
+      EntityUsage="awcustPersonDetailsEO"
+      AliasName="LAST_UPDATED_BY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CreationDate"
+      EntityAttrName="CreationDate"
+      EntityUsage="awcustPersonDetailsEO"
+      AliasName="CREATION_DATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CreatedBy"
+      Precision="38"
+      Scale="0"
+      EntityAttrName="CreatedBy"
+      EntityUsage="awcustPersonDetailsEO"
+      AliasName="CREATED_BY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="RowID"
+      IsUpdateable="false"
+      EntityAttrName="RowID"
+      EntityUsage="awcustPersonDetailsEO"
+      AliasName="ROWID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Status"
+      Precision="20"
+      EntityAttrName="Status"
+      EntityUsage="awcustPersonDetailsEO"
+      AliasName="STATUS" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="PersonWith"
+      Precision="40"
+      EntityAttrName="PersonWith"
+      EntityUsage="awcustPersonDetailsEO"
+      AliasName="PERSON_WITH" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="BusinessCards"
+      Precision="1"
+      EntityAttrName="BusinessCards"
+      EntityUsage="awcustPersonDetailsEO"
+      AliasName="BUSINESS_CARDS" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ApprovalComments"
+      Precision="240"
+      EntityAttrName="ApprovalComments"
+      EntityUsage="awcustPersonDetailsEO"
+      AliasName="APPROVAL_COMMENTS" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Department"
+      Precision="40"
+      EntityAttrName="Department"
+      EntityUsage="awcustPersonDetailsEO"
+      AliasName="DEPARTMENT" >
+   </ViewAttribute>
+</ViewObject>

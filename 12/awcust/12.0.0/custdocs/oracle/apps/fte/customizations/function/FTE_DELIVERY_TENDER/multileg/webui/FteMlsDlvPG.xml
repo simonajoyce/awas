@@ -1,0 +1,27 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" file-version="$Header: FteMlsDlvPG.xml 115.4 2003/02/17 23:55:44 hbhagava noship $" version="9.0.3.6.3_417" xml:lang="en-US" customizes="/oracle/apps/fte/multileg/webui/FteMlsDlvPG" developerMode="false" package="/oracle/apps/fte/customizations/function/FTE_DELIVERY_TENDER/multileg/webui">
+   <modifications>
+      <modify element="ViewAllDeliveriesTable" blockSize="10"/>
+      <move element="InitialPickupLocation" after="DeliveryName"/>
+      <move element="UltimateDropoffLocation" after="InitialPickupLocation"/>
+      <move element="FteStopPlannedDepDate" after="UltimateDropoffLocation"/>
+      <move element="FteStopPlannedArrivalDate" after="FteStopPlannedDepDate"/>
+      <move element="Carrier" after="FteStopPlannedArrivalDate"/>
+      <move element="Service" after="Carrier"/>
+      <move element="Mode" after="Service"/>
+      <move element="FteLabel10" after="Mode"/>
+      <move element="Tender___Status" after="FteLabel10"/>
+      <move element="TenderFlag" after="Tender___Status"/>
+      <move element="InitialPickupDate" after="TenderFlag"/>
+      <move element="UltimateDropoffDate" after="InitialPickupDate"/>
+      <move element="Status____1" after="UltimateDropoffDate"/>
+      <move element="PlanDeliveryLegs" after="ViewTracking"/>
+      <move element="ViewDeliveryLegs" after="PlanDeliveryLegs"/>
+      <move element="SelectService" after="ViewDeliveryLegs"/>
+      <move element="CancelService" after="SelectService"/>
+      <move element="UpdateRate" after="CancelService"/>
+      <modify element="DeliveryName" initSortSeq="second"/>
+      <modify element="Status____1" initSortSeq="first"/>
+      <modify element="ViewDeliveryLegs" rendered="false"/>
+   </modifications>
+</customization>

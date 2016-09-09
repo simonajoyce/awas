@@ -1,0 +1,6 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_27" xml:lang="en-US" customizes="/oracle/apps/cs/csz/subject/lov/webui/InstIBLOVRN" package="/oracle/apps/cs/csz/subject/lov/webui/customizations/function/CSZ_ITIL_CR_FN" file-version="$Header: InstIBLOVRN.xml 120.0.12010000.3 2009/09/11 11:15:50 sanjrao noship $">
+   <modifications>
+      <modify element="ReferenceNumber" prompt="Configuration Item"/>
+   </modifications>
+</customization>

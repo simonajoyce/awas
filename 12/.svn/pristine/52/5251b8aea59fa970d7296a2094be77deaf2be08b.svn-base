@@ -1,0 +1,148 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/per/selfservice/review/webui/ReviewRN" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: ReviewRN.xml 120.0.12010000.2 2010/01/25 09:54:21 parusia ship $" version="9.0.3.6.2_398" xml:lang="en-US" package="/oracle/apps/per/customizations/localization/ZA/selfservice/review/webui">
+   <modifications>
+      <modify element="HrBasicDetailsReview.PerStartDate" tipMessageName=""/>
+      <modify element="HrBasicDetailsReview.HrMaritalStatus" tipMessageName=""/>
+      <modify element="HrBasicDetailsReview.HrFullName" tipMessageName="" rendered="false"/>
+      <modify element="HrBasicDetailsReview.HrDateOfBirth" tipMessageName=""/>
+      <modify element="HrBasicDetailsReview.OriginalHireDate" tipMessageName=""/>
+      <modify element="HrBasicDetailsReview.HrVoluntaryService" tipMessageName=""/>
+      <modify element="HrBasicDetailsReview.HrUsesTobacco" tipMessageName=""/>
+      <modify element="HrBasicDetailsReview.HrTownOfBirth" tipMessageName="" rendered="true"/>
+      <modify element="HrBasicDetailsReview.HrTitle" tipMessageName=""/>
+      <modify element="HrProposed____2" tipMessageName="" rendered="false"/>
+      <modify element="HrCurrent____2" tipMessageName="" rendered="false"/>
+      <modify element="HrBasicDetailsReview.HrSuffix" tipMessageName=""/>
+      <modify element="HrBasicDetailsReview.HrStudentStatus" tipMessageName="" rendered="true"/>
+      <modify element="HrBasicDetailsReview.HrRegisteredDisabled" tipMessageName=""/>
+      <modify element="HrBasicDetailsReview.HrSsn" tipMessageName="" prompt="ID Number"/>
+      <modify element="HrBasicDetailsReview.HrRegisteredDisabled____1" tipMessageName=""/>
+      <modify element="HrBasicDetailsReview.HrRegionOfBirth" tipMessageName="" rendered="true"/>
+      <modify element="HrBasicDetailsReview.HrPrevLastName" tipMessageName=""/>
+      <modify element="HrBasicDetailsReview.HrPrefix" tipMessageName=""/>
+      <modify element="HrBasicDetailsReview.HrPreferredName" tipMessageName=""/>
+      <modify element="HrBasicDetailsReview.HrPersonType" tipMessageName=""/>
+      <modify element="HrBasicDetailsReview.HrPersonDevDf" segmentList="ZA|Income Tax Number|Passport Number|Country of Passport Issue|Foreign National|Work Permit Number|Work Permit Expiry Date|Date of Naturalization|Race|Ethnic Origin|Language Preference|Religion" rendered="true"/>
+      <modify element="HrBasicDetailsReview.HrNotCovMediPlan" tipMessageName=""/>
+      <modify element="HrBasicDetailsReview.HrNationality" tipMessageName="" rendered="true"/>
+      <modify element="HrBasicDetailsReview.HrMilitaryService" tipMessageName=""/>
+      <modify element="HrBasicDetailsReview.HrMiddleName" tipMessageName=""/>
+      <modify element="HrBasicDetailsReview.HrMailstop" tipMessageName="" rendered="true"/>
+      <modify element="HrBasicDetailsReview.HrLastTestDate" tipMessageName=""/>
+      <modify element="HrBasicDetailsReview.HrLastTestBy" tipMessageName=""/>
+      <modify element="HrBasicDetailsReview.HrLastName" tipMessageName=""/>
+      <modify element="HrBasicDetailsReview.HrHonors" tipMessageName="" rendered="true"/>
+      <modify element="HrBasicDetailsReview.HrGender" tipMessageName="" rendered="true"/>
+      <modify element="HrBasicDetailsReview.HrFirstName" tipMessageName=""/>
+      <modify element="HrBasicDetailsReview.HrExpenseChckSendToAdd" tipMessageName="" rendered="true" prompt="Mail To"/>
+      <modify element="HrBasicDetailsReview.HrEmpNum" tipMessageName=""/>
+      <modify element="HrBasicDetailsReview.HrEmailAddress" tipMessageName=""/>
+      <modify element="HrBasicDetailsReview.HrEffectiveDate" tipMessageName=""/>
+      <modify element="HrBasicDetailsReview.HrDeathDate" tipMessageName=""/>
+      <modify element="HrBasicDetailsReview.HrCountryOfBirth" tipMessageName="" rendered="true"/>
+      <modify element="HrBasicDetailsReview.HrCorrespondenceLanguage" tipMessageName="" rendered="true"/>
+      <modify element="HrBasicDetailsReview.HrBloodType" tipMessageName=""/>
+      <modify element="HrBasicDetailsReview.HrBenefitGroupId" tipMessageName=""/>
+      <modify element="HrBasicDetailsReview.HrAdoptionDate" tipMessageName=""/>
+      <modify element="HrBasicDetailsReview.HrAdjServiceDate" tipMessageName=""/>
+      <modify element="HrBasicDetailsReview.Hr2ndPassportExists" tipMessageName=""/>
+      <modify element="HrBasicDetailsReview.HireDate" tipMessageName=""/>
+      <move element="HrBasicDetailsReview.HrTitle" after="HrBasicDetailsReview.HrEffectiveDate"/>
+      <move element="HrBasicDetailsReview.HrFirstName" after="HrBasicDetailsReview.HrTitle"/>
+      <move element="HrBasicDetailsReview.HrMiddleName" after="HrBasicDetailsReview.HrFirstName"/>
+      <move element="HrBasicDetailsReview.HrLastName" after="HrBasicDetailsReview.HrMiddleName"/>
+      <move element="HrBasicDetailsReview.HrPrefix" after="HrBasicDetailsReview.HrLastName"/>
+      <move element="HrBasicDetailsReview.HrSuffix" after="HrBasicDetailsReview.HrPrefix"/>
+      <move element="HrBasicDetailsReview.HrHonors" after="HrBasicDetailsReview.HrSuffix"/>
+      <move element="HrBasicDetailsReview.HrPreferredName" after="HrBasicDetailsReview.HrHonors"/>
+      <move element="HrBasicDetailsReview.HrPrevLastName" after="HrBasicDetailsReview.HrPreferredName"/>
+      <move element="HrBasicDetailsReview.HrGender" after="HrBasicDetailsReview.HrPrevLastName"/>
+      <move element="HrBasicDetailsReview.HrSsn" after="HrBasicDetailsReview.HrGender"/>
+      <move element="HrBasicDetailsReview.HrEmpNum" after="HrBasicDetailsReview.HrSsn"/>
+      <move element="HrBasicDetailsReview.HrDateOfBirth" after="HrBasicDetailsReview.HrEmpNum"/>
+      <move element="HrBasicDetailsReview.HrTownOfBirth" after="HrBasicDetailsReview.HrDateOfBirth"/>
+      <move element="HrBasicDetailsReview.HrRegionOfBirth" after="HrBasicDetailsReview.HrTownOfBirth"/>
+      <move element="HrBasicDetailsReview.HrCountryOfBirth" after="HrBasicDetailsReview.HrRegionOfBirth"/>
+      <move element="HrBasicDetailsReview.HrMaritalStatus" after="HrBasicDetailsReview.HrCountryOfBirth"/>
+      <move element="HrBasicDetailsReview.HrNationality" after="HrBasicDetailsReview.HrMaritalStatus"/>
+      <move element="HrBasicDetailsReview.HrRegisteredDisabled____1" after="HrBasicDetailsReview.HrNationality"/>
+      <move element="HrBasicDetailsReview.HrPersonDevDf" after="HrBasicDetailsReview.HrRegisteredDisabled____1"/>
+      <move element="HrBasicDetailsReview.HrMailstop" after="HrBasicDetailsReview.HrPersonDevDf"/>
+      <move element="HrBasicDetailsReview.HrEmailAddress" after="HrBasicDetailsReview.HrMailstop"/>
+      <move element="HrBasicDetailsReview.HrExpenseChckSendToAdd" after="HrBasicDetailsReview.HrEmailAddress"/>
+      <move element="HrBasicDetailsReview.HrCorrespondenceLanguage" after="HrBasicDetailsReview.HrExpenseChckSendToAdd"/>
+      <move element="HrBasicDetailsReview.HrStudentStatus" after="HrBasicDetailsReview.HrCorrespondenceLanguage"/>
+      <move element="HrBasicDetailsReview.PerStartDate" after="HrBasicDetailsReview.HrStudentStatus"/>
+      <move element="HrBasicDetailsReview.HrRegisteredDisabled" after="HrBasicDetailsReview.PerStartDate"/>
+      <move element="HrBasicDetailsReview.HrMilitaryService" after="HrBasicDetailsReview.HrRegisteredDisabled"/>
+      <move element="HrBasicDetailsReview.Hr2ndPassportExists" after="HrBasicDetailsReview.HrMilitaryService"/>
+      <move element="HrBasicDetailsReview.HrUsesTobacco" after="HrBasicDetailsReview.Hr2ndPassportExists"/>
+      <move element="HrBasicDetailsReview.HrAdoptionDate" after="HrBasicDetailsReview.HrUsesTobacco"/>
+      <move element="HrBasicDetailsReview.HrNotCovMediPlan" after="HrBasicDetailsReview.HrAdoptionDate"/>
+      <move element="HrBasicDetailsReview.HrVoluntaryService" after="HrBasicDetailsReview.HrNotCovMediPlan"/>
+      <move element="HrBasicDetailsReview.HrBenefitGroupId" after="HrBasicDetailsReview.HrVoluntaryService"/>
+      <move element="HrBasicDetailsReview.HrBloodType" after="HrBasicDetailsReview.HrBenefitGroupId"/>
+      <move element="HrBasicDetailsReview.HrLastTestDate" after="HrBasicDetailsReview.HrBloodType"/>
+      <move element="HrBasicDetailsReview.HrLastTestBy" after="HrBasicDetailsReview.HrLastTestDate"/>
+      <move element="HrBasicDetailsReview.HrPersonType" after="HrBasicDetailsReview.HrLastTestBy"/>
+      <move element="HrBasicDetailsReview.HrAdditionalPerDetFlex" after="HrBasicDetailsReview.HrPersonType"/>
+      <move element="HrCurrent____2" after="HrBasicDetailsReview.HrAdditionalPerDetFlex"/>
+      <move element="HrProposed____2" after="HrCurrent____2"/>
+      <move element="HrBasicDetailsReview.HrFullName" after="HrProposed____2"/>
+      <move element="HrBasicDetailsReview.HrDeathDate" after="HrBasicDetailsReview.HrFullName"/>
+      <move element="HrBasicDetailsReview.HrAdjServiceDate" after="HrBasicDetailsReview.HrDeathDate"/>
+      <move element="HrBasicDetailsReview.HireDate" after="HrBasicDetailsReview.HrAdjServiceDate"/>
+      <move element="HrBasicDetailsReview.OriginalHireDate" after="HrBasicDetailsReview.HireDate"/>
+      <modify element="HrContacts.HrVoluntaryService____1" tipMessageName=""/>
+      <modify element="HrContacts.HrUsesTobacco____1" tipMessageName=""/>
+      <modify element="HrContacts.HrTitle____1" tipMessageName=""/>
+      <modify element="HrProposed____15" tipMessageName=""/>
+      <modify element="HrCurrent____14" tipMessageName=""/>
+      <modify element="HrContacts.HrSuffix____1" tipMessageName=""/>
+      <modify element="HrContacts.HrStudentStatus____1" tipMessageName=""/>
+      <modify element="HrContacts.HrRelationshipType" tipMessageName=""/>
+      <modify element="HrContacts.HrRegisteredDisabled____2" tipMessageName=""/>
+      <modify element="HrContacts.HrStartRelationReason" tipMessageName=""/>
+      <modify element="HrContacts.HrPrimaryContact" tipMessageName=""/>
+      <modify element="HrContacts.HrPrefix____1" tipMessageName=""/>
+      <modify element="HrContacts.HrMilitaryService____1" tipMessageName=""/>
+      <modify element="HrContacts.HrMiddleName____1" tipMessageName=""/>
+      <modify element="HrContacts.HrMaritalStatus____1" tipMessageName=""/>
+      <modify element="HrContacts.HrLastName____1" tipMessageName=""/>
+      <modify element="HrContacts.HrGender____1" tipMessageName=""/>
+      <modify element="HrContacts.HrFirstName____1" tipMessageName=""/>
+      <modify element="HrContacts.HrEmergencyContact" tipMessageName=""/>
+      <modify element="HrContacts.HrEmailAddress____1" tipMessageName=""/>
+      <modify element="HrContacts.HrDependentAdoptionDate" tipMessageName=""/>
+      <modify element="HrContacts.HrDeathDate____1" tipMessageName=""/>
+      <modify element="HrContacts.HrDateOfBirth____1" tipMessageName=""/>
+      <modify element="HrContacts.HrRelationStartDate" tipMessageName=""/>
+      <modify element="HrContacts.HrSocialSecurity" prompt="ID Number"/>
+      <move element="HrContacts.HrTitle____1" after="HrContacts.HrRelationshipType"/>
+      <move element="HrContacts.HrFirstName____1" after="HrContacts.HrTitle____1"/>
+      <move element="HrContacts.HrMiddleName____1" after="HrContacts.HrFirstName____1"/>
+      <move element="HrContacts.HrLastName____1" after="HrContacts.HrMiddleName____1"/>
+      <move element="HrContacts.HrSuffix____1" after="HrContacts.HrLastName____1"/>
+      <move element="HrContacts.HrPrefix____1" after="HrContacts.HrSuffix____1"/>
+      <move element="HrContacts.HrEmailAddress____1" after="HrContacts.HrPrefix____1"/>
+      <move element="HrContacts.HrPrimaryContact" after="HrContacts.HrEmailAddress____1"/>
+      <move element="HrContacts.HrGender____1" after="HrContacts.HrPrimaryContact"/>
+      <move element="HrContacts.HrSocialSecurity" after="HrContacts.HrGender____1"/>
+      <move element="HrContacts.HrDateOfBirth____1" after="HrContacts.HrSocialSecurity"/>
+      <move element="HrContacts.HrStudentStatus____1" after="HrContacts.HrDateOfBirth____1"/>
+      <move element="HrContacts.HrDependentAdoptionDate" after="HrContacts.HrStudentStatus____1"/>
+      <move element="HrCurrent____14" after="HrContacts.HrDependentAdoptionDate"/>
+      <move element="HrProposed____15" after="HrCurrent____14"/>
+      <move element="HrContacts.HrStartRelationReason" after="HrProposed____15"/>
+      <move element="HrContacts.HrRelationStartDate" after="HrContacts.HrStartRelationReason"/>
+      <move element="HrContacts.HrEmergencyContact" after="HrContacts.HrRelationStartDate"/>
+      <move element="HrContacts.HrPersonDevDfFlex" after="HrContacts.HrEmergencyContact"/>
+      <move element="HrContacts.HrAddContDetDflex" after="HrContacts.HrPersonDevDfFlex"/>
+      <move element="HrContacts.HrMaritalStatus____1" after="HrContacts.HrAddContDetDflex"/>
+      <move element="HrContacts.HrRegisteredDisabled____2" after="HrContacts.HrMaritalStatus____1"/>
+      <move element="HrContacts.HrUsesTobacco____1" after="HrContacts.HrRegisteredDisabled____2"/>
+      <move element="HrContacts.HrDeathDate____1" after="HrContacts.HrUsesTobacco____1"/>
+      <move element="HrContacts.HrMilitaryService____1" after="HrContacts.HrDeathDate____1"/>
+      <move element="HrContacts.HrVoluntaryService____1" after="HrContacts.HrMilitaryService____1"/>
+   </modifications>
+</customization>

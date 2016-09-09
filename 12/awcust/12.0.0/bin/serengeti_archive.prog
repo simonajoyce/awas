@@ -1,0 +1,22 @@
+# serengeti_archive.sh    sjoyce 13-May-2016
+# Moves files to archive after processing
+# =========================================================
+# Parameters from 1 to 4 i.e $1 $2 $3 $4 are standard parameters
+# $1 : USERNAME/PASSWORD OF THE DATABASE
+# $2 : USERID
+# $3 : USERNAME
+# $4 : CONCURRENT REQUEST ID
+# $5 : FILENAME
+export SERENGETI='/u01/app/oracle/apps/apps_st/appl/awcust/12.0.0/SERENGETI'
+echo "Copying Files to Archive"
+echo "Moving:$5 From ${SERENGETI}/NEW/$5"
+echo "to ${SERENGETI}/ARCHIVE/$5.$4"
+mv "${SERENGETI}/NEW/$5" "${SERENGETI}/ARCHIVE/$5.$4"
+RC=$?
+if [[ ${RC} -ne 0 ]]; then
+  echo "Error Moving File"
+  exit 1 
+else
+  echo "Successfully moved file!"
+fi
+exit 0

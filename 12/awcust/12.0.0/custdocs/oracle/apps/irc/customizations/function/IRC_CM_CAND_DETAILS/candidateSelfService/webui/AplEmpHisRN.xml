@@ -1,0 +1,6 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<customization customizes="/oracle/apps/irc/candidateSelfService/webui/AplEmpHisRN" developerMode="true" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: AplEmpHisRN.xml 120.4 2005/11/10 08:53:57 mmillmor noship $" version="9.0.3.6.2_398" xml:lang="en-US" package="/oracle/apps/irc/customizations/function/IRC_CM_CAND_DETAILS/candidateSelfService/webui">
+   <modifications>
+      <modify element="Fnd___Nested___Region1" rendered="false"/>
+   </modifications>
+</customization>
