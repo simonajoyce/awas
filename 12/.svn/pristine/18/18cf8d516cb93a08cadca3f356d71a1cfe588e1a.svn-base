@@ -1,7 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.40_440" xml:lang="en-US" customizes="/oracle/apps/zx/taxintegration/provider/webui/ZxServiceCreatePG" package="/oracle/apps/zx/taxintegration/provider/webui/customizations/function/ZX_SRVC_EXTN_CREATE" file-version="$Header: ZxServiceCreatePG.xml 120.2 2006/03/27 09:11:37 shmangal noship $">
-   <modifications>
-      <modify element="ZxPageLayoutRN" helpTarget="ZX_SERVICEEXTENSIONS_CREATE" title="Create Service Extensions" windowTitle="Create Service Extensions"/>
-      <modify element="ApiOwner" prompt="Configuration Owner"/>
-   </modifications>
-</customization>

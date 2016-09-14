@@ -1,6 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_35" xml:lang="en-US" customizes="/oracle/apps/per/selfservice/hierarchy/webui/HierarchyPG" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: HierarchyPG.xml 120.0.12010000.2 2009/09/04 09:09:26 schowdhu noship $" user:responsibilityKey="line_manager_access_v4.0" user:responsibilityAppId="800" package="/oracle/apps/per/customizations/responsibility/54667/selfservice/hierarchy/webui" user:responsibilityAppShortName="PER">
-   <modifications>
-      <modify element="SupervisorHgridRN.EmailAddress" rendered="true"/>
-   </modifications>
-</customization>

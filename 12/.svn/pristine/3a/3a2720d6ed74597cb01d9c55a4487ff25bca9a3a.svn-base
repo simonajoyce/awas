@@ -1,7 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_22" xml:lang="en-US" customizes="/oracle/apps/pos/ship/webui/PosOnTimePerfPG" file-version="$Header: PosOnTimePerfPG.xml 120.1.12000000.1 2007/10/24 18:19:34 rallamse noship $" package="/oracle/apps/pos/ship/webui/customizations/function/ILS_ISUPP_PERZ">
-   <modifications>
-      <modify element="PosPoNum" destination="OA.jsp?OAFunc=ILS_POS_VIEW_ORDER&amp;PoHeaderId={!PoHeaderId}&amp;PoReleaseId={!PoReleaseId}&amp;retainAM=Y&amp;addBreadCrumb=Y"/>
-      <modify element="PosRcptNum" destination="OA.jsp?page=/oracle/apps/pos/rcv/webui/PosRcvSumTxnsPG&amp;akRegionApplicationId=177&amp;ShipmentHeaderID={@ShipmentHeaderId}&amp;retainAM=Y&amp;addBreadCrumb=Y&amp;OAFunc=ILS_ISUPP_PERZ"/>
-   </modifications>
-</customization>

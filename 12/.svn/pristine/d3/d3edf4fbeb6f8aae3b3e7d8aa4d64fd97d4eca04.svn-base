@@ -1,4 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization customizes="/oracle/apps/irc/candidateSelfService/webui/AplJobSchSCRN" developerMode="true" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: AplJobSchSCRN.xml 120.4 2005/11/10 08:45:43 mmillmor noship $" version="9.0.3.6.2_398" xml:lang="en-US" package="/oracle/apps/irc/customizations/function/IRC_APL_ADV_JOB_SEARCH_PAGE/candidateSelfService/webui">
-   <modifications/>
-</customization>

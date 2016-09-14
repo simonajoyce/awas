@@ -1,7 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization customizes="/oracle/apps/pay/selfservice/payslip/webui/PayslipPG" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: PayslipPG.xml 120.0 2005/05/30 05:58:17 appldev noship $" version="9.0.3.6.2_398" xml:lang="en-US" developerMode="false" package="/oracle/apps/pay/customizations/localization/MX/selfservice/payslip/webui">
-   <modifications>
-      <modify element="PayPayslipDetails" controllerClass="oracle.apps.pay.selfservice.payslip.US.webui.PayPayslipDetailsCO"/>
-      <modify element="PayPayslipChoosePayslip" controllerClass="oracle.apps.pay.selfservice.payslip.US.webui.PayPayslipChoosePayslipCO"/>
-   </modifications>
-</customization>

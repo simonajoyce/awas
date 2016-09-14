@@ -1,6 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.3.8H" xml:lang="en-US" customizes="/oracle/apps/per/selfservice/newhire/webui/CreatSrchNewHrPG" developerMode="true" file-version="$Header: CreatSrchNewHrPG.xml 120.0 2005/06/03 04:29 appldev noship $" package="/oracle/apps/per/selfservice/newhire/webui/customizations/localization/IN">
-   <modifications>
-      <modify element="HireNationalIdentifier" rendered="false"/>
-   </modifications>
-</customization>

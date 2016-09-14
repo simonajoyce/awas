@@ -1,7 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_45" xml:lang="en-US" customizes="/oracle/apps/cs/charges/webui/CsChargeROMainPG" developerMode="true" package="/oracle/apps/cs/charges/webui/customizations/responsibility/20638" file-version="$Header: CsChargeROMainPG.xml 120.0.12010000.2 2012/04/09 09:07:29 sshilpam noship $" xmlns:user="http://xmlns.oracle.com/jrad/user" user:responsibilityKey="service" user:responsibilityAppShortName="CS">
-   <modifications>
-      <modify element="ChargesRN.ActualChargesRN.ActualChargeDetailRN.NeedByDate" rendered="false"/>
-      <modify element="ChargesRN.EstimateChargesRN.EstimateChargeDetailRN.EstNeedByDate" rendered="false"/>
-   </modifications>
-</customization>

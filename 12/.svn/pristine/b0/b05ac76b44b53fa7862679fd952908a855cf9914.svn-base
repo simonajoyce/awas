@@ -1,8 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/fnd/framework/attachments/webui/FND_ATTACHMENTS_TABLE" developerMode="true" package="/oracle/apps/fnd/framework/attachments/webui/customizations/function/PO_AGREEMENT_LINE_DETAILS" file-version="$Header: FND_ATTACHMENTS_TABLE.xml 120.1 2006/08/17 05:23:04 pchintal noship $">
-   <modifications>
-      <modify element="UsageTypeColumn" rendered="false"/>
-      <modify element="LastUpdateDate" rendered="false"/>
-      <modify element="LastUpdatedBy" rendered="false"/>
-   </modifications>
-</customization>

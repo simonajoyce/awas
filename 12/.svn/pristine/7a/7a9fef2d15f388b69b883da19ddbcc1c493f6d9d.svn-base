@@ -1,9 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_50" xml:lang="en-US" customizes="/oracle/apps/ar/cusstd/createcus/webui/ArCreCusPG">
-   <modifications>
-      <modify element="addressRN.AddressLocationSite.hzPartySiteName" prompt="Site Name / MSN" required="yes"/>
-      <modify element="addressRN.AddressLocationSite.partySiteInformation" rendered="false"/>
-      <modify element="addressRN.AcctSItePurposes.SiteUseDetailDFF" rendered="false"/>
-      <modify element="addressRN.AcctSiteDtail.AcctSiteFlex" rendered="false"/>
-   </modifications>
-</customization>

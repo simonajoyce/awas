@@ -1,9 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_50" xml:lang="en-US" customizes="/oracle/apps/pos/sbd/webui/ByrMainPG" xmlns:user="http://xmlns.oracle.com/jrad/user" user:responsibilityKey="purchasing_buyer" user:responsibilityAppShortName="PO">
-   <modifications>
-      <modify element="PayableUIRN.BAAddButton" rendered="false"/>
-      <modify element="PayableUIRN.CreateBankAccount111" rendered="false"/>
-      <modify element="PayableUIRN.CreateFactorAccount1" rendered="false"/>
-      <modify element="PayableUIRN.Update11" rendered="false"/>
-   </modifications>
-</customization>

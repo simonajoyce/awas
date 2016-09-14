@@ -1,6 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/oks/renewal/webui/HomePG" developerMode="true" package="/oracle/apps/oks/renewal/webui/customizations/function/OKS_REN_WB_PERSONAL" file-version="$Header: HomePG.xml 120.2 2005/10/16 09:11 pnayani noship $">
-   <modifications>
-      <modify element="InProcessContractsContent" rendered="false"/>
-   </modifications>
-</customization>

@@ -1,9 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization customizes="/oracle/apps/per/selfservice/personalinformation/webui/BasicDetUpdatePG" developerMode="true" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: BasicDetUpdatePG.xml 115.2 2003/02/13 12:26:22 jcolman noship $" version="9.0.3.6.2_398" xml:lang="en-US" package="/oracle/apps/per/customizations/function/HR_NEWHIRE_SS/selfservice/personalinformation/webui">
-   <modifications>
-      <modify element="HrGenericInstruction" messageName="HR_INST_BASIC_DETAILS_FORM_REG"/>
-      <move element="HrViewInstruction" after="HrGenericInstruction"/>
-      <move element="HrNameSection" after="HrViewInstruction"/>
-      <move element="HrOtherSection" after="HrNameSection"/>
-   </modifications>
-</customization>

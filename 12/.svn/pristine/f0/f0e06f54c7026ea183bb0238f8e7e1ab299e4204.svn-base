@@ -1,9 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/cs/csz/dashboard/webui/DashboardPG" package="/oracle/apps/cs/csz/dashboard/webui/customizations/function/CSZ_SR_DB_FN_CHERRYPICK" file-version="$Header: DashboardPG.xml 120.5 2006/05/17 16:47 nazhang noship $">
-   <modifications>
-      <modify element="GetNextWorkFC" rendered="false"/>
-      <modify element="xAgentQueueRN.RefreshAgentRow" rendered="false"/>
-      <modify element="xAvailabilityRN.AvailabilityHdr" rendered="false"/>
-      <modify element="xGroupQueueRN.RefreshGroupRow" rendered="false"/>
-   </modifications>
-</customization>

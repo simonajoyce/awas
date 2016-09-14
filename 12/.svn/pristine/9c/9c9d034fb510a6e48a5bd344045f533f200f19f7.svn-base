@@ -1,8 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="" xml:lang="en-US" customizes="/oracle/apps/ar/hz/components/contactpoints/webui/HzPuiContactPointPhoneTable" file-version="$Header: HzPuiContactPointPhoneTable.xml 120.1 2005/09/17 00:35 rramacha noship $" package="/oracle/apps/ar/hz/components/contactpoints/webui/customizations/function/ASN_ORGROPG">
-   <modifications>
-      <modify element="HzPuiContactPointPhoneTableLayout" blockSize="10"/>
-      <modify element="Usage" rendered="false"/>
-      <modify element="FormattedPhoneNumber" prompt="Phone Number"/>
-   </modifications>
-</customization>

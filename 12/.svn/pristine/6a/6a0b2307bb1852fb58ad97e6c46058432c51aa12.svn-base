@@ -1,8 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_27" xml:lang="en-US" customizes="/oracle/apps/cs/csz/search/customer/webui/SrchCustBinLinkPG" package="/oracle/apps/cs/csz/search/customer/webui/customizations/function/CSZ_TICKET_SRCH_BY_CUS_FN" file-version="$Header: SrchCustBinLinkPG.xml 120.0.12010000.3 2009/09/17 17:21:46 lkullamb noship $">
-   <modifications>
-      <modify element="SrchCustBinLinkPG" title="Tickets" windowTitle="Open Tickets"/>
-      <modify element="SrchCustBinResultTableRN.ResType" prompt="Issue Type"/>
-      <modify element="SrchCustBinResultTableRN.ResCustomer" rendered="false"/>
-   </modifications>
-</customization>

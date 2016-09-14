@@ -1,7 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.3.8H" xml:lang="en-US" customizes="/oracle/apps/per/selfservice/hrviews/webui/ViewThPG" developerMode="true" file-version="$Header: ViewThPG.xml 120.0 2005/06/03 02:55 appldev noship $" package="/oracle/apps/per/selfservice/hrviews/webui/customizations/localization/IN">
-   <modifications>
-      <modify element="NationalIdentifier" rendered="false"/>
-      <modify element="PreferredName" prompt="Alias"/>
-   </modifications>
-</customization>

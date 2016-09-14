@@ -1,7 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/ar/hz/components/party/person/webui/HzPuiPersonInterest" file-version="$Header: HzPuiPersonInterest.xml 120.0 2005/09/04 03:00 rramacha noship $" package="/oracle/apps/ar/hz/components/party/person/webui/customizations/function/ASN_PERSONUPDATEPG">
-   <modifications>
-      <modify element="SportIndicator" rendered="false"/>
-      <modify element="Team" rendered="false"/>
-   </modifications>
-</customization>

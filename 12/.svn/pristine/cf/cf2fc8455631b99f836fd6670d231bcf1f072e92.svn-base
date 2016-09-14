@@ -1,6 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.8.5_854" xml:lang="en-US" customizes="/oracle/apps/per/selfservice/payments/webui/PaymentsPG" developerMode="false" file-version="$Header: PaymentsPG.xml 120.0.12010000.3 2010/03/26 14:41:52 npannamp noship $" package="/oracle/apps/per/customizations/localization/ZA/selfservice/payments/webui">
-   <modifications>
-      <modify element="FurtherPPMDescFlex" rendered="true"/>
-   </modifications>
-</customization>

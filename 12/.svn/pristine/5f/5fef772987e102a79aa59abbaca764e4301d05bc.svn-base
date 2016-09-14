@@ -1,9 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization customizes="/oracle/apps/irc/candidateSelfService/webui/AplEducationRN" developerMode="true" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: AplEducationRN.xml 120.4 2005/11/10 08:50:54 mmillmor noship $" version="9.0.3.6.2_398" xml:lang="en-US" package="/oracle/apps/irc/customizations/function/IRC_APL_QUALIFY_DETS_PAGE/candidateSelfService/webui">
-   <modifications>
-      <modify element="AplEducationTbl" controllerClass="oracle.apps.irc.common.webui.InsertableTableCO" blockSize="5" messageName=""/>
-      <modify element="IrcFlexField1" rendered="true"/>
-      <move element="IrcFlexField1" after="AddAnotherRow"/>
-      <move element="AplEducationTbl" after="EnterEstablishments"/>
-   </modifications>
-</customization>

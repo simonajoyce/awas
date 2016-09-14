@@ -1,7 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" file-version="$Header: SubmitCnclBarRN.xml 115.0 2003/07/01 12:25:56 pzwalker noship $" version="9.0.3.6.6_557" xml:lang="en-US" package="/oracle/apps/per/customizations/function/IRC_VIS_APPLY_REGISTER_PAGE/irc/common/webui" customizes="/oracle/apps/per/irc/common/webui/SubmitCnclBarRN" developerMode="true">
-   <modifications>
-      <move element="Submit" after="Cancel"/>
-      <modify element="Submit" prompt="Submit"/>
-   </modifications>
-</customization>

@@ -1,7 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization customizes="/oracle/apps/per/selfservice/workschedule/webui/WorkSchedPG" developerMode="true" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: WorkSchedPG.xml 115.3 2003/02/13 13:04:45 jcolman noship $" version="9.0.3.6.2_398" xml:lang="en-US" package="/oracle/apps/per/customizations/function/HR_NEWHIRE_SS/selfservice/workschedule/webui">
-   <modifications>
-      <modify element="HrDateOfLastChg" rendered="false"/>
-      <move element="HrDateOfLastChg" after="HrEmpCategory"/>
-   </modifications>
-</customization>

@@ -1,6 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/icx/por/rcv/webui/IcxPorCrrSrchPG" file-version="$Header: IcxPorCrrSrchPG.xml 120.0.12000000.1 2007/10/24 18:16:47 rallamse noship $" package="/oracle/apps/icx/por/rcv/webui/customizations/function/IL_IPROC_PERSONALIZATION">
-   <modifications>
-      <modify element="PageLayoutRN" controllerClass="oracle.apps.ja.receipt.webui.ILCrrSrchCO"/>
-   </modifications>
-</customization>

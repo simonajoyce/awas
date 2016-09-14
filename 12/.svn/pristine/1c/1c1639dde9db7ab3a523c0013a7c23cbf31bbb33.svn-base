@@ -1,6 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.64_464" xml:lang="en-US" customizes="/oracle/apps/irc/documentLoad/webui/AplDocTblRN" file-version="$Header: AplDocTblRN.xml 120.5 2005/11/10 09:02 mmillmor noship $" developerMode="true" package="/oracle/apps/irc/documentLoad/webui/customizations/function/IRC_APL_APPLY_ACCOUNT">
-   <modifications>
-      <modify element="UploadButton" invokeFunc="IRC_APL_APPLY_DOC_UPLOAD"/>
-   </modifications>
-</customization>

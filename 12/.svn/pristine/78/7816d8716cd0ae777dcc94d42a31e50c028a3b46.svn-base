@@ -1,9 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/ar/hz/components/search/webui/HzPuiHierarchySearchResults" file-version="$Header: HzPuiHierarchySearchResults.xml 120.2 2005/10/06 19:47 smundhra noship $" package="/oracle/apps/ar/hz/components/search/webui/customizations/function/ASN_ORGUPDATEPG">
-   <modifications xmlns="http://xmlns.oracle.com/jrad">
-      <modify element="spacer" rendered="false"/>
-      <modify element="indent" rendered="false"/>
-      <modify element="SeparatorRow" rendered="false"/>
-      <modify element="separator" rendered="false"/>
-   </modifications>
-</customization>

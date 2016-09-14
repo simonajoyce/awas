@@ -1,8 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.64_464" xml:lang="en-US" customizes="/oracle/apps/okc/deliverables/webui/DeliverablesWorkbenchRN" developerMode="true" package="/oracle/apps/okc/deliverables/webui/customizations/function/OKC_REP_HM_HOME_PERSONAL" file-version="$Header: DeliverablesWorkbenchRN.xml 120.1 2006/01/24 13:27:25 andixit noship $">
-   <modifications>
-      <modify element="DocumentNumber" prompt="Contract Number"/>
-      <modify element="UpdateImage" rendered="false"/>
-      <modify element="ResultsRegion" blockSize="3"/>
-   </modifications>
-</customization>

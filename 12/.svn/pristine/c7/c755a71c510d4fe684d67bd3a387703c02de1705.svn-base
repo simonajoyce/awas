@@ -1,6 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization customizes="/oracle/apps/per/selfservice/qualifications/webui/QuaOverviewPG" developerMode="false" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" file-version="$Header: QuaOverviewPG.xml 120.0 2005/06/03 04:23:09 appldev noship $" version="9.0.5.4.64_464" xml:lang="en-US" package="/oracle/apps/per/selfservice/qualifications/webui/customizations/localization/RU">
-   <modifications>
-      <modify element="HrType" prompt="Education"/>
-   </modifications>
-</customization>

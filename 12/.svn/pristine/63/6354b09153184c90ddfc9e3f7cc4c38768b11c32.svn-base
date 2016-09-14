@@ -1,9 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_22" xml:lang="en-US" customizes="/oracle/apps/pos/rcv/webui/PosRcvSumTxnsPG" file-version="$Header: PosRcvSumTxnsPG.xml 120.2.12000000.1 2007/10/24 18:19:27 rallamse noship $" package="/oracle/apps/pos/rcv/webui/customizations/function/ILS_ISUPP_PERZ">
-   <modifications>
-      <modify element="PageLayoutRN" controllerClass="oracle.apps.ja.receipt.webui.ILPosRcvSumTxnsCO"/>
-      <modify element="ReceiptNum" destination="OA.jsp?page=/oracle/apps/pos/rcv/webui/PosRcvRcptsDtlsPG&amp;OAFunc=ILS_ISUPP_PERZ&amp;ShipmentHeaderID={!SHIPMENT_HEADER_ID}&amp;retainAM=Y&amp;addBreadCrumb=Y"/>
-      <modify element="PONumber" destination="OA.jsp?OAFunc=ILS_POS_VIEW_ORDER&amp;PoHeaderId={!PoHeaderId}&amp;PoReleaseId={!PoReleaseId}&amp;PoNum={!PoNumber}&amp;retainAM=Y&amp;addBreadCrumb=Y"/>
-      <modify element="RcptDtlsRetndSwGt0" destination="OA.jsp?OAFunc=ILS_POS_RETURNS&amp;ShipmentLineID={!SHIPMENT_LINE_ID}&amp;WPARAMSCALLER_ID=SUPP&amp;retainAM=Y&amp;addBreadCrumb=Y"/>
-   </modifications>
-</customization>

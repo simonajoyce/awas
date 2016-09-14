@@ -1,6 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_22" xml:lang="en-US" customizes="/oracle/apps/pos/account/webui/PosPaymentMainPG" xmlns:oa="http://xmlns.oracle.com/oa" file-version="$Header: PosPaymentMainPG.xml 120.0.12000000.1 2007/10/24 18:17:55 rallamse noship $" package="/oracle/apps/pos/account/webui/customizations/function/ILS_ISUPP_PERZ">
-   <modifications>
-      <modify element="PayPageLayoutRN" controllerClass="oracle.apps.ja.pos.account.webui.ILPosPaymentMainCO"/>
-   </modifications>
-</customization>

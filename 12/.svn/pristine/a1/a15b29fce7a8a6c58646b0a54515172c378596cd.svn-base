@@ -1,7 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/okc/repository/saleshome/webui/SalesHomePG" developerMode="true" file-version="$Header: SalesHomePG.xml 120.0 2005/09/15 13:08:35 andixit noship $">
-   <modifications>
-      <modify element="RecentContractsTableRN" blockSize="5"/>
-      <modify element="ContractsAtRiskTableRN" blockSize="5"/>
-   </modifications>
-</customization>

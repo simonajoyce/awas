@@ -1,6 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.89_562" xml:lang="en-US" customizes="/oracle/apps/pji/projperf/reporting/webui/OverviewPG" xmlns:user="http://xmlns.oracle.com/jrad/user" user:responsibilityKey="xx_pa_prm_proj_mgr" user:responsibilityAppShortName="PA">
-   <modifications>
-      <modify element="RBSActPlanCostFlexContent" flexibleLayoutRef="GraphsFlexybleLayout" rendered="true"/>
-   </modifications>
-</customization>

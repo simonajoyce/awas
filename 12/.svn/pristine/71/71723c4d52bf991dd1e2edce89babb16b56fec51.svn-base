@@ -1,8 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/pos/account/webui/PosApMainPG" file-version="$Header: PosApMainPG.xml 120.2.12000000.1 2007/10/24 18:17:47 rallamse noship $" package="/oracle/apps/pos/account/webui/customizations/function/ILS_ISUPP_PERZ">
-   <modifications>
-      <modify element="PosApContainer" controllerClass="oracle.apps.ja.pos.isp.webui.ILViewApContainerCO"/>
-      <modify element="PosPaymentNum____2" destination="OA.jsp?callType=L&amp;akRegionApplicationId=177&amp;akRegionCode=POSINQUIRIESPL&amp;flowApplicationId=177&amp;flowCode=POS_SUPPLIER_INQUIRIES&amp;pageApplicationId=177&amp;pageCode=POS_AP_CHECKS_DTL_D&amp;whereRegionCode=POS_AP_CHECKS_DTL_D&amp;retainAM=Y&amp;addBreadCrumb=Y&amp;LPARAMSCHECK_ID={@CheckId}&amp;OAFunc=ILS_ISUPP_PERZ"/>
-      <modify element="IcxInvnum____1" destination="OA.jsp?callType=L&amp;akRegionApplicationId=177&amp;akRegionCode=POSINQUIRIESPL&amp;flowApplicationId=177&amp;flowCode=POS_SUPPLIER_INQUIRIES&amp;pageApplicationId=177&amp;pageCode=POS_AP_INV_PAYMENTS_D&amp;whereRegionCode=POS_AP_INV_PAYMENTS_D&amp;retainAM=Y&amp;addBreadCrumb=Y&amp;LPARAMSCHECK_ID={@CheckId}&amp;OAFunc=ILS_ISUPP_PERZ"/>
-   </modifications>
-</customization>

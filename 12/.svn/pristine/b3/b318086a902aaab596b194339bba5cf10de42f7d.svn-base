@@ -1,6 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.64_464" xml:lang="en-US" developerMode="true" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: NewhirePersonPG.xml 120.0.12010000.1 2008/11/11 10:17:20 vkodedal noship $" customizes="/oracle/apps/per/selfservice/personalinformation/webui/NewhirePersonPG" package="/oracle/apps/per/selfservice/personalinformation/webui/customizations/function/HR_NEW_HIRE_SS">
-   <modifications>
-      <modify element="HrOtherSection.HrDateOfBirth" required="yes"/>
-   </modifications>
-</customization>

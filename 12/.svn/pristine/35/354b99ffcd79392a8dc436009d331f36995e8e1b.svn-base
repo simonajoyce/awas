@@ -1,9 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_27" xml:lang="en-US" customizes="/oracle/apps/cs/csz/search/lov/webui/SrchSerialNumLOVPG" package="/oracle/apps/cs/csz/search/lov/webui/customizations/function/CSZ_ITIL_ADV_SRCH_FN" file-version="$Header: SrchSerialNumLOVPG.xml 120.0.12010000.1 2009/09/10 10:03:34 sanjrao noship $">
-   <modifications>
-      <modify element="SearchText" prompt="CI Serial Number"/>
-      <modify element="SelectedRN" text="Selected CI Serial Numbers"/>
-      <modify element="SerialNumHdr" prompt="CI Serial Number"/>
-      <modify element="SerialNumSelHdr" prompt="CI Serial Number"/>
-   </modifications>
-</customization>

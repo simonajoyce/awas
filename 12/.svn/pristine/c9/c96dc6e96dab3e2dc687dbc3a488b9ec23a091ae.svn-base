@@ -1,6 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/fun/comcomp/contactUs/webui/FormattedPageConfirmPG" developerMode="true" package="/oracle/apps/fun/comcomp/contactUs/webui/customizations/function/OIE_CONTACTUS_ENTRY" file-version="$Header: FormattedPageConfirmPG.xml 120.0 2005/06/25 01:26:36 skaneshi noship $">
-   <modifications>
-      <modify element="MainRN" title="Contact the Expense Reporting Helpdesk" windowTitle="Contact the Expense Reporting Helpdesk"/>
-   </modifications>
-</customization>

@@ -1,6 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_22" xml:lang="en-US" customizes="/oracle/apps/pos/asn/webui/PosAsnViewAdvSearchPG" file-version="$Header: PosAsnViewAdvSearchPG.xml 120.1.12000000.1 2007/10/24 18:18:30 rallamse noship $" package="/oracle/apps/pos/asn/webui/customizations/function/ILS_ISUPP_PERZ">
-   <modifications>
-      <modify element="SimpleSearchButton1" destination="OA.jsp?page=/oracle/apps/pos/asn/webui/PosAsnViewPG&amp;OAFunc=ILS_ISUPP_PERZ&amp;SearchType=Simple&amp;InitSearch=DUE_THIS_WEEK&amp;retainAM=Y"/>
-   </modifications>
-</customization>

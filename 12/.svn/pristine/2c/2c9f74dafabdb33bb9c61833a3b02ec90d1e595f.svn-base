@@ -1,7 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.6.6_557" xml:lang="en-US" customizes="/oracle/apps/ap/mapping/webui/MapCodesFormRN" developerMode="true" file-version="$Header: MapCodesFormRN.xml 115.1 2003/08/29 19:56:20 kmizuta noship $">
-   <modifications>
-      <modify element="FormHelp" messageAppShortName="SQLAP" messageName="OIE_FOLIOMAP_RULE_FORM_HELP" rendered="false"/>
-      <modify element="ToLookupCode" prompt="Card Expense Type"/>
-   </modifications>
-</customization>

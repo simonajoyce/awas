@@ -1,7 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_26" xml:lang="en-US" customizes="/oracle/apps/ar/cusstd/contact/webui/ArAcctContactAddressPG" developerMode="true" file-version="$Header: ArAcctContactAddressPG.xml 120.1.12010000.1 2008/10/17 11:46:16 rmanikan noship $">
-   <modifications>
-      <modify element="AddressRN.hzAddressee" rendered="false"/>
-      <modify element="AddressRN.hzMailstop" rendered="true"/>
-   </modifications>
-</customization>

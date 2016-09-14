@@ -1,7 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.64_464" xml:lang="en-US" customizes="/oracle/apps/irc/agency/webui/AgencyAplVwPG" file-version="$Header: AgencyAplVwPG.xml 120.5 2005/11/10 09:06 mmillmor noship $" developerMode="true" package="/oracle/apps/irc/agency/webui/customizations/function/IRC_AGENCY_CAND_DETAILS">
-   <modifications>
-      <modify element="PrimaryDetails.Documents.DocumentTable.tableFooter1" rendered="true"/>
-      <modify element="PrimaryDetails.Documents.DocumentTable.UploadButton" rendered="true"/>
-   </modifications>
-</customization>

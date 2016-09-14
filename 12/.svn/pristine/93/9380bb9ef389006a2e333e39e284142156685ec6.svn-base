@@ -1,6 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.3.8H" xml:lang="en-US" customizes="/oracle/apps/per/selfservice/personalinformation/webui/MainAddrActTyPG" developerMode="true" file-version="$Header: MainAddrActTyPG.xml 120.0 2005/06/03 04:52 appldev noship $" package="/oracle/apps/per/selfservice/personalinformation/webui/customizations/localization/IN">
-   <modifications>
-      <modify element="HrPerinfoDynamicLabel" messageName="PER_IN_INST_MAIN_ADDRESS_TOC"/>
-   </modifications>
-</customization>

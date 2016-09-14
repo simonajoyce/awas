@@ -1,8 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.6.6_557" xml:lang="en-US" customizes="/oracle/apps/ap/mapping/webui/MapTypeDetailsPG" developerMode="true" file-version="$Header: MapTypeDetailsPG.xml 115.4 2004/01/27 00:40:09 kmizuta noship $">
-   <modifications>
-      <modify element="PageLayoutRN" controllerClass="oracle.apps.ap.oie.cc.webui.CardMapTypeDetailsCO"/>
-      <modify element="PageHelp" messageAppShortName="SQLAP" messageName="OIE_FOLIOMAP_DET_PAGE_HELP"/>
-      <modify element="productImage" source="OIESETUPBRAND.gif" shortDesc="Internet Expenses Setup" rendered="true"/>
-   </modifications>
-</customization>

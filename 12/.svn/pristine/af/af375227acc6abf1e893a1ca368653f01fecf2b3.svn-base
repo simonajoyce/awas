@@ -1,4 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization customizes="/oracle/apps/per/irc/candidateSearch/webui/Apl4vacSrchRN" developerMode="true" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: Apl4vacSrchRN.xml 115.3 2003/04/10 08:21:56 mmillmor noship $" version="9.0.3.6.2_398" xml:lang="en-US" package="/oracle/apps/per/customizations/function/IRC_CM_APPL4VAC_SEARCH/irc/candidateSearch/webui">
-   <modifications/>
-</customization>

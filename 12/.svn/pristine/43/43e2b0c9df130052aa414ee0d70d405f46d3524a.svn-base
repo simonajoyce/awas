@@ -1,8 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/cs/csz/search/lov/webui/SrchSROwnerLOVPG" xmlns:user="http://xmlns.oracle.com/jrad/user" user:responsibilityKey="csz_case_specialist" user:responsibilityAppId="170" package="/oracle/apps/cs/csz/search/lov/webui/customizations/responsibility/27218" file-version="$Header: SrchSROwnerLOVPG.xml 120.1 2006/03/27 13:32 gesubram noship $" user:responsibilityAppShortName="CS">
-   <modifications>
-      <modify element="TopRN" text="Search and Select: Individual Owner"/>
-      <modify element="SelectedRN" text="Selected Individual Owners"/>
-      <modify element="SearchText" prompt="Individual Owner"/>
-   </modifications>
-</customization>

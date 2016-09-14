@@ -1,6 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/zx/taxintegration/appinteg/webui/ZxDetFactorsPG" developerMode="true" package="/oracle/apps/zx/taxintegration/appinteg/webui/customizations/function/PO_MANAGE_TAX_REQ" file-version="$Header: ZxDetFactorsPG.xml 120.1 2006/08/17 05:19:28 pchintal noship $">
-   <modifications>
-      <modify element="ZxPageLayoutRN" controllerClass="oracle.apps.po.tax.webui.ManageTaxAddnInfoPerzCO"/>
-   </modifications>
-</customization>

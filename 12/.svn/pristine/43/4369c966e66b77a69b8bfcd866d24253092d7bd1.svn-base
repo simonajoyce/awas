@@ -1,4 +1,0 @@
-export AMEX="/u01/app/oracle/apps/apps_st/appl/awcust/12.0.0/AMEX"
-echo "Copying Files to Archive"
-mv $AMEX/NEW/*.dat $AMEX/ARCHIVE/
-exit 0

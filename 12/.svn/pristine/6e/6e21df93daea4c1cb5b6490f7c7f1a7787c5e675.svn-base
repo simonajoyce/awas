@@ -1,4 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization customizes="/oracle/apps/irc/candidateSearch/webui/CandResultsTblRN" blockSize="25" developerMode="true" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: CandResultsTblRN.xml 120.4 2005/11/10 08:44:43 mmillmor noship $" version="9.0.3.6.2_398" xml:lang="en-US" package="/oracle/apps/irc/customizations/function/IRC_PCR_CAND4VAC_PAGE/candidateSearch/webui">
-   <modifications/>
-</customization>

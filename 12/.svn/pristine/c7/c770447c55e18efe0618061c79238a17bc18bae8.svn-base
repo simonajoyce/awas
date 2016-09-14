@@ -1,7 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/pos/asn/webui/PosAsnPreviewPG" file-version="$Header: PosAsnPreviewPG.xml 120.1.12000000.1 2007/10/24 18:18:18 rallamse noship $" package="/oracle/apps/pos/asn/webui/customizations/function/ILS_ISUPP_PERZ">
-   <modifications>
-      <modify element="AsnPreviewPG" controllerClass="oracle.apps.ja.asn.webui.ILPosAsnPreviewCO"/>
-      <modify element="PoNumber" destination="OA.jsp?OAFunc=ILS_POS_VIEW_ORDER&amp;PoHeaderId={!PoHeaderId}&amp;PoReleaseId={!PoReleaseId}&amp;retainAM=Y&amp;addBreadCrumb=Y"/>
-   </modifications>
-</customization>

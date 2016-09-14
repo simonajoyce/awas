@@ -1,7 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_22" xml:lang="en-US" customizes="/oracle/apps/pos/asn/webui/PosExasnConfirmPG" file-version="$Header: PosExasnConfirmPG.xml 120.0.12000000.1 2007/10/24 18:18:40 rallamse noship $" package="/oracle/apps/pos/asn/webui/customizations/function/ILS_ISUPP_PERZ" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui">
-   <modifications>
-      <modify element="PosExasnUlcLink" destination="OA.jsp?page=/oracle/apps/pos/asn/webui/PosExasnStatusPG&amp;akRegionApplicationId=177&amp;retainAM=Y&amp;addBreadCrumb=Y&amp;OAFunc=ILS_ISUPP_PERZ"/>
-      <modify element="mainLO" controllerClass="oracle.apps.ja.pos.isp.webui.ILPosExAsnULConfCO"/>
-   </modifications>
-</customization>

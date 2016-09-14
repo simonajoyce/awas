@@ -1,6 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.3.8H" xml:lang="en-US" customizes="/oracle/apps/per/selfservice/personalinformation/webui/BasicDetNamUpdRN" developerMode="true" file-version="$Header: BasicDetNamUpdRN.xml 120.0 2005/06/03 01:24 appldev noship $" package="/oracle/apps/per/selfservice/personalinformation/webui/customizations/localization/IN">
-   <modifications>
-      <modify element="HrPreferredName" prompt="Alias"/>
-   </modifications>
-</customization>

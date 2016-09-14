@@ -1,7 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/cs/knowledge/solution/author/webui/SolUpdatePG" xmlns:user="http://xmlns.oracle.com/jrad/user" user:responsibilityKey="csz_case_specialist" user:responsibilityAppId="170" package="/oracle/apps/cs/knowledge/solution/author/webui/customizations/responsibility/27218" file-version="$Header: SolUpdatePG.xml 120.0 2005/10/07 17:40 ujagarla noship $" user:responsibilityAppShortName="CS">
-   <modifications>
-      <modify element="ProductsRN" rendered="false"/>
-      <modify element="PlatformsRN" rendered="false"/>
-   </modifications>
-</customization>

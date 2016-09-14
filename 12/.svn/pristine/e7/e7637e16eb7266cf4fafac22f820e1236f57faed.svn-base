@@ -1,6 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.89_508" xml:lang="en-US" customizes="/oracle/apps/fun/rules/webui/RuleMainPage" package="/oracle/apps/fun/rules/webui/customizations/function/ARI_CONTACT_INFO" file-version="$Header: RuleMainPage.xml 120.0 2006/02/07 10:02:25 vgundlap noship $">
-   <modifications>
-      <modify element="RuleMainPageSubtab" title="Contact Info" windowTitle="Contact Info"/>
-   </modifications>
-</customization>

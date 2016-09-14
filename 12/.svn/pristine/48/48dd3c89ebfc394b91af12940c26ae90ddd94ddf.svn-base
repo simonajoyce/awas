@@ -1,6 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/irc/candidateSelfService/webui/AplSkillsInputTblRN" developerMode="true" file-version="$Header: AplSkillsInputTblRN.xml 120.5 2005/11/10 08:59:26 mmillmor noship $" package="/oracle/apps/irc/candidateSelfService/webui/customizations/function/IRC_CM_CAND_QUAL_DETAILS">
-   <modifications>
-      <modify element="AddSkillsButton" invokeFunc="IRC_CM_CAND_ADD_SKILLS_PAGE"/>
-   </modifications>
-</customization>

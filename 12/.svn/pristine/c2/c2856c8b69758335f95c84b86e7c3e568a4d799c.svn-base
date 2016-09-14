@@ -1,4 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.6.6_557" xml:lang="en-US" file-version="$Header: AplDocRN.xml 115.2 2003/10/09 09:30 mmillmor noship $" customizes="/oracle/apps/per/irc/documentLoad/webui/AplDocRN" developerMode="true" package="/oracle/apps/per/customizations/function/IRC_APL_APPLY_ACCOUNT/irc/documentLoad/webui">
-   <modifications/>
-</customization>

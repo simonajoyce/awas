@@ -1,9 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/fun/rules/webui/RuleMainPage" developerMode="true" file-version="$Header: RuleMainPage.xml 120.4 2005/10/30 22:52:32 skaneshi noship $" package="/oracle/apps/fun/rules/webui/customizations/function/OIE_CONTACTUS_SETUP">
-   <modifications>
-      <modify element="RuleListRN.MainInstr" prompt="Define rules for the behavior of the Contact Us global icon. The default Contact Us type and type attributes apply when the rules list is empty or no rule applies."/>
-      <modify element="RuleListRN.DFFDefaultHeader" text="Default Contact Us Type and Type Attributes"/>
-      <modify element="RuleListRN.MultiValueResultValueHeader" prompt="Contact Us Type and Type Attributes"/>
-      <modify element="RuleMainPageSubtab" title="Contact Us" windowTitle="Contact Us"/>
-   </modifications>
-</customization>

@@ -1,6 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/ar/hz/components/account/contact/webui/HzPuiActContactViewRN" developerMode="true" file-version="$Header: HzPuiActContactViewRN.xml 120.0 2005/09/10 00:10:22 dtong noship $" package="/oracle/apps/ar/hz/components/account/contact/webui/customizations/function/AR_ACCT_SITE_OVERVIEW">
-   <modifications>
-      <modify element="AsgnPrBtn" rendered="false"/>
-   </modifications>
-</customization>

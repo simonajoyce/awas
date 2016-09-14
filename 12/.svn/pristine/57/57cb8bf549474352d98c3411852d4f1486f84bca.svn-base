@@ -1,6 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_35" xml:lang="en-US" customizes="/oracle/apps/ego/extfwk/admin/webui/EGOEDITACTIONPGL" developerMode="true" package="/oracle/apps/ego/extfwk/admin/webui/customizations/verticalization/135" file-version="$Header: EGOEDITACTIONPGL.xml 120.0.12010000.1 2010/05/18 03:16:08 geguo noship $">
-   <modifications>
-      <modify element="EgoEditActionClassification" prompt="Template - Usage"/>
-   </modifications>
-</customization>

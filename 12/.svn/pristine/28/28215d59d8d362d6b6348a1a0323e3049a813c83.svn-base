@@ -1,4 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization customizes="/oracle/apps/per/irc/candidateSelfService/webui/AplSklsInputRN" developerMode="true" controllerClass="oracle.apps.per.irc.candidateSelfService.webui.IrcCandidateSkillsCO" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: AplSklsInputRN.xml 115.4 2003/10/21 16:25:04 pbrimble noship $" version="9.0.3.6.2_398" xml:lang="en-US" package="/oracle/apps/per/customizations/function/IRC_APL_QUALIFY_DETS_PAGE/irc/candidateSelfService/webui">
-   <modifications/>
-</customization>

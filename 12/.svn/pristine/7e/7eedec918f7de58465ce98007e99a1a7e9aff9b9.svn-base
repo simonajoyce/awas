@@ -1,7 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.64_464" xml:lang="en-US" customizes="/oracle/apps/okc/deliverables/webui/DeliverablesWorkbenchRN" developerMode="true" package="/oracle/apps/okc/deliverables/webui/customizations/function/OKC_REP_HM_DEL_PERSONAL" file-version="$Header: DeliverablesWorkbenchRN.xml 120.1 2006/01/24 13:25:53 andixit noship $">
-   <modifications>
-      <modify element="BusDocNum" prompt="Contract Number"/>
-      <modify element="DocumentNumber" prompt="Contract Number"/>
-   </modifications>
-</customization>

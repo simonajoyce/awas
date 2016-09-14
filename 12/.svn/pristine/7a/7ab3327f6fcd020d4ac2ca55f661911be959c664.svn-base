@@ -1,4 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization customizes="/oracle/apps/irc/candidateSelfService/webui/EmpVisAdvJobSrchStkRN" developerMode="true" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: EmpVisAdvJobSrchStkRN.xml 120.4 2005/11/10 08:58:18 mmillmor noship $" version="9.0.3.6.2_398" xml:lang="en-US" package="/oracle/apps/irc/customizations/function/IRC_EMP_VIS_ADV_JOB_SRCH_PAGE/candidateSelfService/webui">
-   <modifications/>
-</customization>

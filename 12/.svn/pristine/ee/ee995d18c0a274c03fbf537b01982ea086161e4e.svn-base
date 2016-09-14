@@ -1,6 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization customizes="/oracle/apps/per/selfservice/deployperson/webui/AssignmentPG" developerMode="false" xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" file-version="$Header: AssignmentPG.xml 120.0 2005/09/16 05:26:47 psnellin noship $" version="9.0.5.4.81_481" xml:lang="en-US" package="/oracle/apps/per/selfservice/deployperson/webui/customizations/localization/ES">
-   <modifications>
-      <modify element="HrEmployeeCategory" prompt="Professional Category" readOnly="false" rendered="true" required="yes"/>
-   </modifications>
-</customization>

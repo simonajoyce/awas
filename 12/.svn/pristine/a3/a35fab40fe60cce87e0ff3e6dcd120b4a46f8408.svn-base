@@ -1,6 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/okc/terms/webui/QAMainRN" developerMode="true" package="/oracle/apps/okc/terms/webui/customizations/function/OKC_REP_AU_QA_PERSONAL" file-version="$Header: QAMainRN.xml 120.0 2005/05/26 09:27:18 appldev noship $">
-   <modifications>
-      <modify element="SectionName" rendered="false"/>
-   </modifications>
-</customization>

@@ -1,7 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.6.5_471" xml:lang="en-US" customizes="/oracle/apps/ar/hz/components/party/relationship/webui/HzPuiUpdateRelationshipComponent" developerMode="false" text="" file-version="$Header: HzPuiUpdateRelationshipComponent.xml 120.1 2005/09/04 09:18:31 sprabhu noship $" package="/oracle/apps/ar/hz/components/party/relationship/webui/customizations/function/ASN_RELUPDATEPG">
-   <modifications>
-      <modify element="PartyName" prompt="Organization Name"/>
-      <modify element="RegistryID" rendered="false"/>
-   </modifications>
-</customization>

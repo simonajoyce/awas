@@ -1,6 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_32" xml:lang="en-US" customizes="/oracle/apps/msc/supplychain/webui/MSC_X_VMI_TOP" file-version="$Header: MSC_X_VMI_TOP.xml 120.0.12010000.1 2009/08/14 11:30:50 srjayara noship $" package="/oracle/apps/msc/supplychain/webui/customizations/function/ILS_ISUPP_PERZ">
-   <modifications>
-      <modify element="MSC_X_VMI_TOP" controllerClass="oracle.apps.ja.supplychain.webui.ILMSCXvmiCO"/>
-   </modifications>
-</customization>

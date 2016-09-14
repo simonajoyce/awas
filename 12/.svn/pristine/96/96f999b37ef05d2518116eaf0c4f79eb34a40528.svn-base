@@ -1,6 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" file-version="$Header: AplOtherInfoPG.xml 120.5 2005/11/10 09:00 mmillmor noship $" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/irc/candidateSelfService/webui/AplOtherInfoPG" package="/oracle/apps/irc/candidateSelfService/webui/customizations/localization/ZA">
-   <modifications>
-      <modify element="MainHeader.EqualOp.SourceInfo.MainInstruction" rendered="false"/>
-   </modifications>
-</customization>

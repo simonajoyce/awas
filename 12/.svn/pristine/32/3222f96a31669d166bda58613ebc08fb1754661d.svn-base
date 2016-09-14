@@ -1,8 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_22" xml:lang="en-US" customizes="/oracle/apps/pos/asn/webui/PosAsbnMainPG" file-version="$Header: PosAsbnMainPG.xml 120.1.12000000.1 2007/10/24 18:17:57 rallamse noship $" package="/oracle/apps/pos/asn/webui/customizations/function/ILS_ISUPP_PERZ">
-   <modifications>
-      <modify element="PosAsnShipSearchCntr" controllerClass="oracle.apps.ja.pos.isp.webui.ILPosAsnContainerCO"/>
-      <modify element="PosAsnShipSearchCntr.PosAsnShipListCntr.ShipToLocation" destination="OA.jsp?akRegionCode=POS_ADDRESS_PAGE&amp;akRegionApplicationId=177&amp;LPARAMSHEADER_ID={@PoHeaderId}&amp;LPARAMSLINE_ID={@PoLineId}&amp;LPARAMSLINE_LOCATION_ID={@LineLocationId}&amp;LPARAMSRELEASE_ID={@PoReleaseId}&amp;LPARAMSLOCATION_ID={@ShipToLocationId}&amp;LPARAMSADDR_TYPE=ShipTo&amp;retainAM=Y&amp;addBreadCrumb=Y&amp;OAFunc=ILS_ISUPP_PERZ"/>
-      <modify element="PosAsnShipSearchCntr.PosAsnShipListCntr.PoNumber" destination="OA.jsp?OAFunc=ILS_POS_VIEW_ORDER&amp;PoHeaderId={!PoHeaderId}&amp;PoReleaseId={!PoReleaseId}&amp;retainAM=Y&amp;addBreadCrumb=Y"/>
-   </modifications>
-</customization>

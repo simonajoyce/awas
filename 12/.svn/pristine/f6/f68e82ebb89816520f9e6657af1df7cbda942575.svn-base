@@ -1,8 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_50" xml:lang="en-US" customizes="/oracle/apps/icx/por/reqmgmt/webui/ReqSummaryPG" xmlns:oa="http://xmlns.oracle.com/oa">
-   <modifications>
-      <insert after="ViewRN.ViewsRow">
-         <oa:button id="RUN_COST_REPORT" adminCustomizable="true" dataType="VARCHAR2" destination="OA.jsp?akRegionApplicationId=0&amp;akRegionCode=FNDCPPROGRAMPAGE&amp;programApplName=AWCUST&amp;programName=AWPROJECTCOSTS&amp;programRegion=Hide&amp;scheduleRegion=Hide&amp;notifyRegion=Hide&amp;printRegion=Hide" disabled="false" hAlign="start" popupEnabled="false" popupRenderEvent="onClick" prompt="Run Project Costs Report" rendered="true" scope="." serverUnvalidated="false" targetFrame="_blank" warnAboutChanges="true" xmlns:oa="http://xmlns.oracle.com/oa"/>
-      </insert>
-   </modifications>
-</customization>

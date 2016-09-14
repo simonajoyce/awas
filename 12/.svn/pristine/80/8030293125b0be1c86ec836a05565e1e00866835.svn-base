@@ -1,7 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_50" xml:lang="en-US" customizes="/oracle/apps/ce/bankaccount/webui/ContactCreatePG" xmlns:user="http://xmlns.oracle.com/jrad/user" user:responsibilityKey="awas_banks_treasury" user:responsibilityAppShortName="AWCUST">
-   <modifications>
-      <modify element="EmailRN.EmContactFlexField" rendered="false"/>
-      <modify element="ContactInfoRN.flex" rendered="false"/>
-   </modifications>
-</customization>

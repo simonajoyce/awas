@@ -1,6 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/jrad/user" file-version="$Header: OverviewPG.xml 120.0 2005/06/27 11:39 appldev noship $" version="9.0.5.4.64_464" xml:lang="en-US" package="/oracle/apps/per/customizations/localization/CA/selfservice/personalinformation/webui" customizes="/oracle/apps/per/selfservice/personalinformation/webui/OverviewPG">
-   <modifications>
-      <modify element="HrSsn" prompt="Social Insurance Number"/>
-   </modifications>
-</customization>

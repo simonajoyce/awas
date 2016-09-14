@@ -1,9 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_50" xml:lang="en-US" customizes="/oracle/apps/po/autocreate/webui/ReqSearchPG" xmlns:user="http://xmlns.oracle.com/jrad/user" user:responsibilityKey="purchasing_buyer" user:responsibilityAppShortName="PO">
-   <modifications>
-      <modify element="ResultsTable.ReqDescCol" rendered="true"/>
-      <modify element="ResultsTable.RequisitionDescription" rendered="true"/>
-      <modify element="ResultsTable.SourceCol" rendered="false"/>
-      <modify element="ResultsTable.SourceDocExist" rendered="false"/>
-   </modifications>
-</customization>

@@ -1,7 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.5.4.81_481" xml:lang="en-US" customizes="/oracle/apps/ar/hz/components/composition/webui/HzPuiPersonQCreateCompositeSpecial" file-version="$Header: HzPuiPersonQCreateCompositeSpecial.xml 120.0 2005/09/04 14:16 rramacha noship $" package="/oracle/apps/ar/hz/components/composition/webui/customizations/function/ASN_PERSONCREATEPG">
-   <modifications>
-      <modify element="orgProfileRegion.MobileMessageLayout" rendered="false"/>
-      <modify element="orgProfileRegion.FaxMessageLayout" rendered="true"/>
-   </modifications>
-</customization>

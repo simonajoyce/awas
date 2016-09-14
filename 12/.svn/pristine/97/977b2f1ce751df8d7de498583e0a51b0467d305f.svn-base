@@ -1,6 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" version="9.0.6.0.0_45" xml:lang="en-US" customizes="/oracle/apps/per/selfservice/absence/webui/AbsenceReviewPG" file-version="$Header: AbsenceReviewPG.xml 120.2.12010000.2 2011/03/29 15:43:56 npannamp noship $" package="/oracle/apps/per/selfservice/absence/webui/customizations/localization/GB">
-   <modifications>
-      <modify element="HrGBEvidence" rendered="true"/>
-   </modifications>
-</customization>

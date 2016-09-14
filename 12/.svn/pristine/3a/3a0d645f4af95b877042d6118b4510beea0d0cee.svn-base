@@ -1,7 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<customization xmlns="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:user="http://xmlns.oracle.com/user" version="9.0.3.6.4_447" xml:lang="en-US" customizes="/oracle/apps/per/irc/candidateSelfService/webui/VisHmeLoginStkRN" developerMode="true" controllerClass="oracle.apps.per.irc.candidateSelfService.webui.LoginCO" file-version="$Header: VisHmeLoginStkRN.xml 115.2 2003/05/13 11:59:51 mmillmor noship $" package="/oracle/apps/per/customizations/function/IRC_VIS_HOME_PAGE/irc/candidateSelfService/webui">
-   <modifications>
-      <move element="LoginScol" after="RegisterLink"/>
-      <move element="PasswordLink" after="LoginScol"/>
-   </modifications>
-</customization>
